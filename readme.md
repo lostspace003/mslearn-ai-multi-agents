@@ -3,7 +3,7 @@
 **What this is:** 17 hands-on labs on building teams of AI agents that work together, with finished code and step-by-step guides.
 
 ## Start here
-- Open a guide in `Lab-Guide/Word` or `Lab-Guide/PDF`. Start with Lab 01.
+- Open a guide in `Lab-Guide/Markdown` (reads right on GitHub), `Lab-Guide/PDF` or `Lab-Guide/Word`. Start with Lab 01.
 - Each guide has every command and code block ready to copy and paste, plus screenshots.
 - You need: an Azure subscription, Azure CLI, Python 3.11+, VS Code.
 
@@ -23,7 +23,7 @@
 - Completed the missing code in all 17 labs (`Allfiles/`).
 - Deployed with Azure CLI instead of `azd`.
 - Fixed lab bugs and added missing permission steps (details in each `LAB-REPORT.md`).
-- Added the Word and PDF guides in `Lab-Guide/`.
+- Added the Markdown, PDF and Word guides in `Lab-Guide/`.
 - Added `LABS-SUMMARY.md`: results for every lab.
 
 Original labs: [MicrosoftLearning/mslearn-ai-multi-agents](https://github.com/MicrosoftLearning/mslearn-ai-multi-agents)
