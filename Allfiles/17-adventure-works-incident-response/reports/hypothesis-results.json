@@ -1,0 +1,116 @@
+[
+  {
+    "hypothesis_id": "pricing_model_version_regression",
+    "statement": "The failed checkout used synthetic-pricing-v2 and the pricing agent produced a SyntheticPriceFormatError.",
+    "priority": 1,
+    "status": "supported",
+    "supporting": [
+      {
+        "path": "model_deployments.*.version",
+        "operator": "contains",
+        "expected": "synthetic-pricing-v2",
+        "observed": [
+          "synthetic-pricing-v2"
+        ]
+      },
+      {
+        "path": "spans.*.error_type",
+        "operator": "contains",
+        "expected": "SyntheticPriceFormatError",
+        "observed": [
+          null,
+          "SyntheticPriceFormatError",
+          null
+        ]
+      },
+      {
+        "path": "spans.*.success",
+        "operator": "contains",
+        "expected": false,
+        "observed": [
+          false,
+          false,
+          false
+        ]
+      }
+    ],
+    "contradicting": [],
+    "missing": []
+  },
+  {
+    "hypothesis_id": "prompt_regression",
+    "statement": "The pricing prompt changed within the captured failed operation.",
+    "priority": 2,
+    "status": "rejected",
+    "supporting": [],
+    "contradicting": [
+      {
+        "path": "prompt_hashes.*",
+        "operator": "changed",
+        "expected": true,
+        "observed": [
+          "192c21cc95826877264c9b558ba2bcaad2724b1d1788cc2462c91dae64e76c85"
+        ]
+      }
+    ],
+    "missing": []
+  },
+  {
+    "hypothesis_id": "tool_response_failure",
+    "statement": "A captured synthetic tool response reported an upstream tool failure.",
+    "priority": 3,
+    "status": "rejected",
+    "supporting": [],
+    "contradicting": [
+      {
+        "path": "tool_mocks.*.success",
+        "operator": "contains",
+        "expected": false,
+        "observed": [
+          true,
+          true
+        ]
+      }
+    ],
+    "missing": []
+  },
+  {
+    "hypothesis_id": "orchestration_regression",
+    "statement": "The captured operation followed an unexpected orchestration route.",
+    "priority": 4,
+    "status": "rejected",
+    "supporting": [],
+    "contradicting": [
+      {
+        "path": "spans.*.span_name",
+        "operator": "contains",
+        "expected": "unexpected_route",
+        "observed": [
+          "POST /synthetic/checkout",
+          "pricing_agent.calculate_total",
+          "payment_agent.authorize"
+        ]
+      }
+    ],
+    "missing": []
+  },
+  {
+    "hypothesis_id": "configuration_change",
+    "statement": "Multiple component configuration versions were present in the captured operation.",
+    "priority": 5,
+    "status": "rejected",
+    "supporting": [],
+    "contradicting": [
+      {
+        "path": "configuration_versions.*.version",
+        "operator": "changed",
+        "expected": true,
+        "observed": [
+          "checkout-flow-v1",
+          "checkout-flow-v1"
+        ]
+      }
+    ],
+    "missing": []
+  }
+]

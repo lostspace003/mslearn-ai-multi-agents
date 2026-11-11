@@ -1,0 +1,29 @@
+[
+  {
+    "agent": "orchestrator",
+    "versions": [
+      {
+        "version": "1",
+        "status": "active"
+      }
+    ]
+  },
+  {
+    "agent": "reviewer",
+    "versions": [
+      {
+        "version": "1",
+        "status": "active"
+      }
+    ]
+  },
+  {
+    "agent": "scanner",
+    "versions": [
+      {
+        "version": "1",
+        "status": "active"
+      }
+    ]
+  }
+]

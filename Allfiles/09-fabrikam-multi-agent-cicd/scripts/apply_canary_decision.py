@@ -87,6 +87,7 @@ def _set_traffic(resource_group: str, app: str, weights: dict[str, int]) -> None
             "--name", app,
             "--revision-weight",
             *[f"{revision}={weight}" for revision, weight in weights.items()],
+            "--output", "none",
         ],
         check=True,
     )
@@ -101,6 +102,7 @@ def _set_label(resource_group: str, app: str, revision: str, label: str) -> None
             "--revision", revision,
             "--label", label,
             "--yes",
+            "--output", "none",
         ],
         check=True,
     )
@@ -127,8 +129,9 @@ def _routing_evidence(resource_group: str, app: str) -> dict[str, Any]:
     return {
         "fqdn": fqdn,
         "labels": labels,
+        # Container Apps label hostnames are <app>---<label>.<environment-domain>.
         "label_urls": {
-            label: f"https://{label}---{fqdn}"
+            label: "https://{0}---{1}.{2}".format(*fqdn.split(".", 1)[:1], label, fqdn.split(".", 1)[1])
             for label in labels
         },
         "traffic": app_state.get("traffic") or [],

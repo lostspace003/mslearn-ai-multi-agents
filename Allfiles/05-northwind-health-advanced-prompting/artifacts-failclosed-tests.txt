@@ -1,0 +1,18 @@
+test_malicious_prompt_is_rejected (tests.test_fail_closed.FailClosedGuardrailTests.test_malicious_prompt_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+test_required_tool_call_cannot_be_skipped (tests.test_fail_closed.FailClosedGuardrailTests.test_required_tool_call_cannot_be_skipped) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+test_invalid_structured_output_is_rejected (tests.test_fail_closed.FailClosedGuardrailTests.test_invalid_structured_output_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.008s
+
+OK

@@ -1,0 +1,19 @@
+{
+  "release_set_id": "development-c748e167856d87d5",
+  "source_commit": "a055750db3a92ce958e7ec5cbfe42f3de5e6118b",
+  "orchestrator": {
+    "name": "fabrikam-review-orchestrator",
+    "version": "1",
+    "responses_endpoint": "https://aifqytjyfbxugnmi2cy.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/fabrikam-review-orchestrator/endpoint/protocols/openai/responses?api-version=v1",
+    "version_endpoint": "https://aifqytjyfbxugnmi2cy.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/fabrikam-review-orchestrator/versions/1"
+  },
+  "dataset": {
+    "dataset": "fabrikam-release-smoke",
+    "dataset_version": "1",
+    "evaluator": "deterministic-contract-smoke",
+    "evaluator_version": "1"
+  },
+  "sample_count": 2,
+  "failures": [],
+  "status": "passed"
+}

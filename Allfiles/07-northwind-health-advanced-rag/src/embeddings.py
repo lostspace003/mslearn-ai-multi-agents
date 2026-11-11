@@ -20,4 +20,7 @@ def create_embedding_client(endpoint: str) -> AzureOpenAI:
 def embed_texts(client: AzureOpenAI, deployment: str, texts: Sequence[str]) -> list[list[float]]:
     """Generate embeddings in input order through the configured deployment."""
     # LAB PLACEHOLDER 2: Replace this line with the Task 2 sample.
-    raise NotImplementedError("Complete embed_texts in Task 2")
+    if not texts:
+        raise ValueError("At least one embedding input is required")
+    response = client.embeddings.create(model=deployment, input=list(texts))
+    return [item.embedding for item in sorted(response.data, key=lambda item: item.index)]

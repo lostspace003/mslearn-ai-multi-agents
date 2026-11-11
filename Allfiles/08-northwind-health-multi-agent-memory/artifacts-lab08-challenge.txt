@@ -1,0 +1,85 @@
+=== challenge: ingest (threshold 0.8 documented; c3 confidence 0.40)
+[
+  {
+    "id": "mem-100-c1",
+    "patientId": "synthetic-patient-100",
+    "request_charge": 25.9,
+    "session_token": "0:-1#13"
+  },
+  {
+    "id": "mem-100-c2",
+    "patientId": "synthetic-patient-100",
+    "request_charge": 25.9,
+    "session_token": "0:-1#14"
+  },
+  {
+    "id": "mem-100-c3",
+    "patientId": "synthetic-patient-100",
+    "request_charge": 25.9,
+    "session_token": "0:-1#15"
+  }
+]
+=== challenge: consolidate --dry-run
+{
+  "status": "dry_run",
+  "semantic_memory": {
+    "id": "semantic-6de83a71c0d6fac6",
+    "patientId": "synthetic-patient-100",
+    "content": "Prefers text-message reminders before synthetic follow-ups.",
+    "importance": 4.0,
+    "memoryType": "semantic_pattern",
+    "critical": false,
+    "timestamp": "2026-11-11T13:33:28.412872+00:00",
+    "ttl": 2592000,
+    "schemaVersion": "1.0",
+    "sourceMemoryIds": [
+      "mem-100-c1",
+      "mem-100-c2"
+    ],
+    "reviewerId": "reviewer-07",
+    "retentionPolicy": "preserve-source-lineage",
+    "confidenceThreshold": 0.8,
+    "rejectedSourceIds": [
+      "mem-100-c3"
+    ]
+  },
+  "source_count": 2
+}
+=== challenge: consolidate (apply)
+{
+  "status": "consolidated",
+  "semantic_memory_id": "semantic-6de83a71c0d6fac6",
+  "source_memory_ids": [
+    "mem-100-c1",
+    "mem-100-c2"
+  ],
+  "rejected_source_ids": [
+    "mem-100-c3"
+  ],
+  "source_records_retained": true,
+  "ttl": 2592000,
+  "write_diagnostics": {
+    "transactional_batch": true,
+    "operation_count": 3
+  }
+}
+=== challenge: repeat consolidate (idempotency)
+{
+  "status": "already_consolidated",
+  "semantic_memory_id": "semantic-6de83a71c0d6fac6",
+  "source_memory_ids": [
+    "mem-100-c1",
+    "mem-100-c2"
+  ],
+  "rejected_source_ids": [
+    "mem-100-c3"
+  ],
+  "source_records_retained": true,
+  "ttl": 2592000
+}
+=== challenge: read back c3 (rejected) and semantic
+{"id": "mem-100-c1", "memoryType": "episodic", "confidence": 0.92, "consolidatedInto": "semantic-6de83a71c0d6fac6"}
+{"id": "mem-100-c2", "memoryType": "episodic", "confidence": 0.85, "consolidatedInto": "semantic-6de83a71c0d6fac6"}
+{"id": "mem-100-c3", "memoryType": "episodic", "confidence": 0.4}
+{"id": "semantic-6de83a71c0d6fac6", "memoryType": "semantic_pattern", "sourceMemoryIds": ["mem-100-c1", "mem-100-c2"], "rejectedSourceIds": ["mem-100-c3"], "confidenceThreshold": 0.8, "reviewerId": "reviewer-07"}
+semantic_pattern docs: [2]

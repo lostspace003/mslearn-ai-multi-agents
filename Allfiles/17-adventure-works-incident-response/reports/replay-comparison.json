@@ -1,0 +1,55 @@
+{
+  "operation_id": "a9dc2509fec95f219151f9ee1605614d",
+  "side_effects_enabled": false,
+  "prompt_checks": [
+    {
+      "agent": "pricing_agent.calculate_total",
+      "expected_hash": "192c21cc95826877264c9b558ba2bcaad2724b1d1788cc2462c91dae64e76c85",
+      "actual_hash": "192c21cc95826877264c9b558ba2bcaad2724b1d1788cc2462c91dae64e76c85",
+      "matches": true
+    }
+  ],
+  "steps": [
+    {
+      "sequence": 1,
+      "span_name": "POST /synthetic/checkout",
+      "status": false,
+      "mock_used": false,
+      "mock_response": null,
+      "duration_ms": 351
+    },
+    {
+      "sequence": 2,
+      "span_name": "pricing_agent.calculate_total",
+      "status": false,
+      "mock_used": true,
+      "mock_response": {
+        "currency": "USD",
+        "quantity": 1,
+        "sku": "SYN-BIKE-01",
+        "unit_price": 1200.0
+      },
+      "duration_ms": 351
+    },
+    {
+      "sequence": 3,
+      "span_name": "payment_agent.authorize",
+      "status": false,
+      "mock_used": true,
+      "mock_response": {
+        "approved": true,
+        "authorization": "SYN-AUTH-01"
+      },
+      "duration_ms": 0
+    }
+  ],
+  "divergences": [],
+  "comparison_metrics": {
+    "prompt_count": 1,
+    "prompt_match_rate": 1.0,
+    "tool_step_count": 2,
+    "tool_mock_response_count": 2,
+    "failed_step_count": 3,
+    "divergence_count": 0
+  }
+}

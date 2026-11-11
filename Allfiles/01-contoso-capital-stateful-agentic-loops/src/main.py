@@ -41,7 +41,21 @@ def load_config() -> LoopConfig:
 def build_agent_definition(config: LoopConfig) -> PromptAgentDefinition:
     """Build the versioned v2 agent definition."""
     # LAB PLACEHOLDER 1: Replace this line with the Task 1 sample.
-    raise NotImplementedError("Complete build_agent_definition in Task 1")
+    return PromptAgentDefinition(
+        model=config.model_deployment,
+        instructions=(
+            "You are Contoso Capital's investment research agent. Use only the "
+            "evidence provided in the request and conversation. Do not invent facts, "
+            "recommend trades, or reveal hidden chain-of-thought. Return concise, "
+            "visible planning and review summaries using exactly these headings:\n"
+            "PLAN: <brief approach>\n"
+            "REFLECTION: <evidence gaps or checks performed>\n"
+            "STATUS: <COMPLETE or CONTINUE>\n"
+            "ANSWER: <evidence-based answer or the next information needed>\n"
+            "Use COMPLETE only when the request is fully answered from supplied "
+            "evidence. Otherwise use CONTINUE."
+        ),
+    )
 
 
 def extract_text(response: Any) -> str:
@@ -65,7 +79,59 @@ def run_reflection_cycle(
 ) -> dict[str, Any]:
     """Run a bounded visible-summary reflection cycle."""
     # LAB PLACEHOLDER 2: Replace this line with the Task 2 sample.
-    raise NotImplementedError("Complete run_reflection_cycle in Task 2")
+    if max_iterations <= 0:
+        raise ValueError("max_iterations must be greater than zero")
+
+    iterations: list[dict[str, Any]] = []
+    next_input = request
+    last_response_id = ""
+
+    for iteration_number in range(1, max_iterations + 1):
+        response = openai_client.responses.create(
+            conversation=conversation_id,
+            input=next_input,
+        )
+        visible_text = extract_text(response).strip()
+        status = "MISSING"
+
+        for line in visible_text.splitlines():
+            label, separator, value = line.partition(":")
+            if separator and label.strip().strip("*").upper() == "STATUS":
+                status = value.strip().strip("* .").upper()
+                break
+
+        last_response_id = response.id
+        iterations.append(
+            {
+                "iteration": iteration_number,
+                "response_id": response.id,
+                "status": status,
+                "visible_summary": visible_text,
+            }
+        )
+        LOGGER.info(
+            "Iteration completed iteration=%d response_id=%s status=%s",
+            iteration_number,
+            response.id,
+            status,
+        )
+
+        if status == "COMPLETE":
+            return {
+                "iterations": iterations,
+                "last_response_id": last_response_id,
+            }
+
+        next_input = (
+            "Review the previous visible answer for unsupported claims, missing "
+            "evidence, and incomplete coverage. Return a revised response with the "
+            "required PLAN, REFLECTION, STATUS, and ANSWER headings."
+        )
+
+    raise RuntimeError(
+        f"Reflection cycle exhausted its {max_iterations}-iteration budget "
+        "without STATUS: COMPLETE"
+    )
 
 
 def fork_with_previous_response(
@@ -75,7 +141,13 @@ def fork_with_previous_response(
 ) -> Any:
     """Create a branch with previous_response_id instead of mutating history."""
     # LAB PLACEHOLDER 3: Replace this line with the Task 3 sample.
-    raise NotImplementedError("Complete fork_with_previous_response in Task 3")
+    if not previous_response_id:
+        raise ValueError("previous_response_id is required")
+
+    return openai_client.responses.create(
+        previous_response_id=previous_response_id,
+        input=branch_request,
+    )
 
 
 def run(input_path: Path, retain_resources: bool = True) -> dict[str, Any]:

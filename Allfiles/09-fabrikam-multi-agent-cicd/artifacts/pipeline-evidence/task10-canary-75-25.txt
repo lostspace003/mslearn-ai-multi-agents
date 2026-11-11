@@ -1,0 +1,38 @@
+== traffic after deploy
+{
+ "revision": "fabrikam-release-lab09-cicd-d--r4-v2",
+ "release_channel": "candidate",
+ "label_mapping": {
+  "stable": "fabrikam-release-lab09-cicd-d--r3-v1",
+  "candidate": "fabrikam-release-lab09-cicd-d--r4-v2"
+ },
+ "traffic": [
+  {
+   "label": "stable",
+   "revisionName": "fabrikam-release-lab09-cicd-d--r3-v1",
+   "weight": 75
+  },
+  {
+   "label": "candidate",
+   "revisionName": "fabrikam-release-lab09-cicd-d--r4-v2",
+   "weight": 25
+  }
+ ],
+ "stable_label_url": "https://fabrikam-release-lab09-cicd-d---stable.victoriouscliff-2501048e.eastus2.azurecontainerapps.io",
+ "candidate_label_url": "https://fabrikam-release-lab09-cicd-d---candidate.victoriouscliff-2501048e.eastus2.azurecontainerapps.io"
+}
+== candidate target orchestrator
+development-59e6f2c3aa5728d7 {"name": "fabrikam-review-orchestrator", "version": "2", "responses_endpoint": "https://aifqytjyfbxugnmi2cy.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/fabrikam-review-orchestrator/endpoint/protocols/openai/responses?api-version=v1", "version_endpoint": "https://aifqytjyfbxugnmi2cy.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/fabrikam-review-orchestrator/versions/2"}
+== weighted URL x16
+     14 fabrikam-release-lab09-cicd-d--r3-v1 development-c748e167856d87d5 orch v1
+      2 fabrikam-release-lab09-cicd-d--r4-v2 development-59e6f2c3aa5728d7 orch v2
+== stable label x3
+stable fabrikam-release-lab09-cicd-d--r3-v1 development-c748e167856d87d5 orch v1
+stable fabrikam-release-lab09-cicd-d--r3-v1 development-c748e167856d87d5 orch v1
+stable fabrikam-release-lab09-cicd-d--r3-v1 development-c748e167856d87d5 orch v1
+== candidate label x3
+candidate fabrikam-release-lab09-cicd-d--r4-v2 development-59e6f2c3aa5728d7 orch v2
+candidate fabrikam-release-lab09-cicd-d--r4-v2 development-59e6f2c3aa5728d7 orch v2
+candidate fabrikam-release-lab09-cicd-d--r4-v2 development-59e6f2c3aa5728d7 orch v2
+== candidate dashboard invocation
+{'agent_name': 'fabrikam-review-orchestrator', 'requested_version': '2', 'served_version': '2', 'agent_session_id': '0b464db0b63ace6500JdLYAvCK7fR3cf7yA2I8CsAYfp03Vxe6'}

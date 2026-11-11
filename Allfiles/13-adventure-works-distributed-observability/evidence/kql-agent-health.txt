@@ -1,0 +1,5 @@
+AgentId | AgentName | AgentVersion | Requests | P95LatencyMs | Anomalies | TokenAnomalies | InputTokens | OutputTokens | AnomalyRate
+recommendation:3.2.1 | recommendation | 3.2.1 | 5 | 85 | 5 | 5 | 2100 | 480 | 1
+inventory:2.0.3 | inventory | 2.0.3 | 5 | 22 | 5 | 0 | 0 | 0 | 1
+router:1.4.0 | router | 1.4.0 | 5 | 15 | 0 | 0 | 600 | 90 | 0
+rows: 3

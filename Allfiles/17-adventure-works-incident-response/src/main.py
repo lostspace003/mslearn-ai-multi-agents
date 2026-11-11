@@ -31,13 +31,56 @@ def query_rows(client: LogsQueryClient, workspace_id: str, query: str) -> list[d
 
 def sanitize_rows(rows: list[dict[str, Any]], operation_id: str) -> dict[str, Any]:
     """Transform query rows into the replay snapshot contract without sensitive content."""
-    # LAB PLACEHOLDER 1
-    spans: list[dict[str, Any]] = []
-    deployments: dict[str, dict[str, Any]] = {}
-    configurations: dict[str, dict[str, Any]] = {}
-    prompts: dict[str, str] = {}
-    prompt_hashes: dict[str, str] = {}
-    tool_mocks: dict[str, dict[str, Any]] = {}
+    spans = []
+    deployments = {}
+    configurations = {}
+    prompts = {}
+    prompt_hashes = {}
+    tool_mocks = {}
+    for row in rows:
+        properties = row.get("Properties") or {}
+        if isinstance(properties, str):
+            properties = json.loads(properties)
+        span = {
+            "time_generated": row.get("TimeGenerated"),
+            "span_id": row.get("Id"),
+            "parent_id": row.get("ParentId"),
+            "span_name": row.get("SpanName"),
+            "duration_ms": row.get("DurationMs"),
+            "success": row.get("Success"),
+            "result_code": row.get("ResultCode"),
+            "model_version": properties.get("gen_ai.request.model"),
+            "configuration_version": properties.get("agent.configuration.version"),
+            "prompt_hash": properties.get("gen_ai.prompt.hash"),
+            "error_type": properties.get("incident.error.type"),
+            "tool_name": properties.get("tool.name"),
+            "tool_mock_id": properties.get("tool.mock_id"),
+            "tool_mock_response_available": properties.get("tool.mock_response") is not None,
+        }
+        spans.append(span)
+        if span["model_version"]:
+            deployments[span["span_name"]] = {
+                "agent": span["span_name"], "version": span["model_version"]
+            }
+        if span["configuration_version"]:
+            configurations[span["span_name"]] = {
+                "component": span["span_name"], "version": span["configuration_version"]
+            }
+        if properties.get("gen_ai.prompt.hash"):
+            prompt_hashes[span["span_name"]] = properties["gen_ai.prompt.hash"]
+        if properties.get("gen_ai.prompt.template"):
+            prompts[span["span_name"]] = properties["gen_ai.prompt.template"]
+        if span["tool_name"]:
+            mock_response = properties.get("tool.mock_response")
+            tool_success = properties.get("tool.response.success")
+            if isinstance(tool_success, str) and tool_success.lower() in {"true", "false"}:
+                tool_success = tool_success.lower() == "true"
+            tool_mocks[span["tool_name"]] = {
+                "mock_id": span["tool_mock_id"],
+                "response": json.loads(mock_response) if isinstance(mock_response, str) else mock_response,
+                "success": tool_success,
+                "synthetic": True,
+            }
     return {
         "schema_version": "1.0",
         "operation_id": operation_id,

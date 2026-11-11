@@ -40,7 +40,18 @@ async def lookup_drug_interaction(
 ) -> dict[str, object]:
     """Look up a medication pair in the synthetic interaction catalog."""
     # LAB PLACEHOLDER 1: Replace this line with the Task 1 sample.
-    raise NotImplementedError("Complete lookup_drug_interaction in Task 1")
+    requested_pair = sorted((drug_a.strip().casefold(), drug_b.strip().casefold()))
+    for record in _load_json("drug_interactions.json"):
+        stored_pair = sorted(str(drug).casefold() for drug in record["drugs"])
+        if requested_pair == stored_pair:
+            _log_invocation("lookup_drug_interaction", correlation_id, "ok")
+            return {
+                "status": "ok",
+                "severity": record["severity"],
+                "guidance": record["guidance"],
+            }
+    _log_invocation("lookup_drug_interaction", correlation_id, "not_found")
+    return {"status": "not_found", "reason": "pair_not_in_synthetic_catalog"}
 
 
 @mcp.tool()
@@ -51,7 +62,13 @@ async def get_appointment_capacity(
 ) -> dict[str, object]:
     """Return synthetic appointment capacity for a site and date."""
     # LAB PLACEHOLDER 2: Replace this line with the Task 2 sample.
-    raise NotImplementedError("Complete get_appointment_capacity in Task 2")
+    normalized_site = site.strip().casefold()
+    for record in _load_json("appointment_capacity.json"):
+        if str(record["site"]).casefold() == normalized_site and record["date"] == date:
+            _log_invocation("get_appointment_capacity", correlation_id, "ok")
+            return {"status": "ok", **record}
+    _log_invocation("get_appointment_capacity", correlation_id, "not_found")
+    return {"status": "not_found", "reason": "capacity_not_in_synthetic_catalog"}
 
 
 def main() -> None:

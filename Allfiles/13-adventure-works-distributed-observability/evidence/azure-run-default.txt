@@ -1,0 +1,326 @@
+adventureworks.agent.observation
+adventureworks.agent.observation
+adventureworks.agent.observation
+adventureworks.chain.summary
+DefaultAzureCredential acquired a token from AzureCliCredential
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '6143'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '0c59ac52-ddd4-11f1-bcd5-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+DefaultAzureCredential acquired a token from AzureCliCredential
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '5662'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '0cd8b668-ddd4-11f1-862d-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:30:25 GMT'
+Transmission succeeded: Item received: 6. Items accepted: 6
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '6143'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '0eef84d8-ddd4-11f1-9a4c-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:30:25 GMT'
+Transmission succeeded: Item received: 6. Items accepted: 6
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '5662'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '0f37f2df-ddd4-11f1-a493-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:30:26 GMT'
+Transmission succeeded: Item received: 4. Items accepted: 4
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '5111'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '0f662d68-ddd4-11f1-ae43-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:30:26 GMT'
+Transmission succeeded: Item received: 4. Items accepted: 4
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '2242'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '0f775fb1-ddd4-11f1-8e2c-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:30:26 GMT'
+Transmission succeeded: Item received: 8. Items accepted: 8
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '6143'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '0f95dfc8-ddd4-11f1-9fbe-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:30:26 GMT'
+Transmission succeeded: Item received: 3. Items accepted: 3
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '5662'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '0fb0392e-ddd4-11f1-a6a2-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:30:26 GMT'
+Transmission succeeded: Item received: 6. Items accepted: 6
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '5110'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '0fced781-ddd4-11f1-913f-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:30:27 GMT'
+Transmission succeeded: Item received: 4. Items accepted: 4
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '2242'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '0fe1b5f9-ddd4-11f1-a99f-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:30:27 GMT'
+Transmission succeeded: Item received: 8. Items accepted: 8
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '6143'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '10012688-ddd4-11f1-9e61-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:30:27 GMT'
+Transmission succeeded: Item received: 3. Items accepted: 3
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '5662'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '1012cb8d-ddd4-11f1-8924-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:30:27 GMT'
+Transmission succeeded: Item received: 6. Items accepted: 6
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '5112'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '1038d634-ddd4-11f1-89e8-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:30:27 GMT'
+Transmission succeeded: Item received: 4. Items accepted: 4
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '2242'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '104cbe23-ddd4-11f1-9ed2-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:30:27 GMT'
+Transmission succeeded: Item received: 8. Items accepted: 8
+Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:30:28 GMT'
+Transmission succeeded: Item received: 3. Items accepted: 3
+AzureCliCredential.get_token_info succeeded
+DefaultAzureCredential acquired a token from AzureCliCredential
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '5126'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '1084279c-ddd4-11f1-b5a6-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+Shutdown called, ignoring Span.
+Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:30:32 GMT'
+Transmission succeeded: Item received: 8. Items accepted: 8
+AzureCliCredential.get_token_info succeeded
+DefaultAzureCredential acquired a token from AzureCliCredential
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '2107'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '13582a10-ddd4-11f1-8d38-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:30:36 GMT'
+Transmission succeeded: Item received: 3. Items accepted: 3
+{
+  "correlation_complete": true,
+  "trace_id": "824b6706e186868311d096a6925702b0",
+  "span_count": 3,
+  "anomalies": [
+    "recommendation",
+    "inventory"
+  ],
+  "error_rate": 0.3333333333333333,
+  "error_rate_anomaly": true
+}

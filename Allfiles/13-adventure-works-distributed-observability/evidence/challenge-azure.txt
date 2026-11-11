@@ -1,0 +1,98 @@
+adventureworks.agent.observation
+adventureworks.agent.observation
+adventureworks.agent.observation
+adventureworks.chain.summary
+DefaultAzureCredential acquired a token from AzureCliCredential
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '6329'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '40293583-ddd4-11f1-888d-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+DefaultAzureCredential acquired a token from AzureCliCredential
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '5848'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '409b0833-ddd4-11f1-84cb-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:31:51 GMT'
+Transmission succeeded: Item received: 6. Items accepted: 6
+Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:31:52 GMT'
+Transmission succeeded: Item received: 4. Items accepted: 4
+AzureCliCredential.get_token_info succeeded
+DefaultAzureCredential acquired a token from AzureCliCredential
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '5110'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '42f10231-ddd4-11f1-b1c5-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:31:56 GMT'
+Transmission succeeded: Item received: 8. Items accepted: 8
+AzureCliCredential.get_token_info succeeded
+DefaultAzureCredential acquired a token from AzureCliCredential
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '2104'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '45152e69-ddd4-11f1-b1b8-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+Shutdown called, ignoring Span.
+Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:32:02 GMT'
+Transmission succeeded: Item received: 3. Items accepted: 3
+{
+  "correlation_complete": true,
+  "trace_id": "1a50937fe21e580ed6c9794ebe7982dc",
+  "span_count": 3,
+  "anomalies": [
+    "recommendation",
+    "inventory"
+  ],
+  "error_rate": 0.3333333333333333,
+  "error_rate_anomaly": true
+}

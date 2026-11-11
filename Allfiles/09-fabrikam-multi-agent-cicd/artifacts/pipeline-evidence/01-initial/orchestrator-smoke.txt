@@ -1,0 +1,13 @@
+Agent:        fabrikam-review-orchestrator (remote)
+Message:      "Review fabrikam/payments-api commit 0123456789abcdef: validate payment amount bounds."
+Version:      1
+Session:      089916316a2ceee800N30UleBcDaJcErrv5tCqo6AFlVZpHMch
+Conversation: conv_07d6f2ef711bda2900XNXCm1R3suuDl3JEOSWC3O6G2CviBdIy
+
+Trace ID:     e27c179f04ce42fd884e1851c03a55a9
+Response:     caresp_07d6f2ef711bda2900OjnVpcKbYNXL7BzjGXMzKlafr4RRHXfr
+[fabrikam-review-orchestrator] {"coordinate_review":{"status":"unable to assess","agent_results":{"scanner":"error","reviewer":"error"}}}{"coordinate_review":{"status":"unable to assess","agent_results":{"scanner":"error","reviewer":"error"}}}
+
+Client elapsed: 6.410s
+Platform latency (warm): response headers 1153 ms
+  preprocess 146 ms | container 1007 ms

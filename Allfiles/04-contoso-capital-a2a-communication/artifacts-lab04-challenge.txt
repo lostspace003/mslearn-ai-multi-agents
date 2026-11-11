@@ -1,0 +1,9 @@
+starting_etag: "3b005f18-0000-0200-0000-6af46d690000"
+risk-agent: succeeded new_etag="3b006518-0000-0200-0000-6af46d690000"
+compliance-agent: rejected status=412 (stale ETag)
+decision: {'status': 'priority', 'chosen_agent': 'compliance-agent', 'audit_id': '429b0ae3-ba6d-4a67-a6b8-9fea3987f596'}
+proposal_audit_id: f33b3165-322b-434f-898c-661a443e4dbf
+proposal_audit: [{'agent_id': 'risk-agent', 'role': 'risk', 'proposed': {'limit': 'reduce-exposure'}, 'outcome': 'succeeded'}, {'agent_id': 'compliance-agent', 'role': 'compliance', 'proposed': {'limit': 'hold-pending-review'}, 'outcome': 'rejected 412'}]
+cross-tenant leakage check (fabrikam audit docs): []
+stale_etag_resubmit_rejected: 412
+recovered via update_task contributions: ['analysis-agent', 'risk-agent']

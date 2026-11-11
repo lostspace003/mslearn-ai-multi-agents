@@ -35,7 +35,7 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python scripts/preflight.py
       - run: python scripts/validate_workflows.py
-      - run: python -m unittest discover -s Allfiles/09-fabrikam-multi-agent-cicd/tests -v
+      - run: python -m unittest discover -s tests -t . -v
       - name: Export source-derived release evidence
         run: >-
           python scripts/export_release.py

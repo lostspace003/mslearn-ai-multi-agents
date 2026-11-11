@@ -1,0 +1,96 @@
+{
+  "hypotheses": [
+    {
+      "id": "pricing_model_version_regression",
+      "statement": "The failed checkout used synthetic-pricing-v2 and the pricing agent produced a SyntheticPriceFormatError.",
+      "priority": 1,
+      "predicates": [
+        {
+          "path": "model_deployments.*.version",
+          "operator": "contains",
+          "expected": "synthetic-pricing-v2"
+        },
+        {
+          "path": "spans.*.error_type",
+          "operator": "contains",
+          "expected": "SyntheticPriceFormatError"
+        },
+        {
+          "path": "spans.*.success",
+          "operator": "contains",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "id": "prompt_regression",
+      "statement": "The pricing prompt changed within the captured failed operation.",
+      "priority": 2,
+      "predicates": [
+        {
+          "path": "prompt_hashes.*",
+          "operator": "changed",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "id": "tool_response_failure",
+      "statement": "A captured synthetic tool response reported an upstream tool failure.",
+      "priority": 3,
+      "predicates": [
+        {
+          "path": "tool_mocks.*.success",
+          "operator": "contains",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "id": "orchestration_regression",
+      "statement": "The captured operation followed an unexpected orchestration route.",
+      "priority": 4,
+      "predicates": [
+        {
+          "path": "spans.*.span_name",
+          "operator": "contains",
+          "expected": "unexpected_route"
+        }
+      ]
+    },
+    {
+      "id": "configuration_change",
+      "statement": "Multiple component configuration versions were present in the captured operation.",
+      "priority": 5,
+      "predicates": [
+        {
+          "path": "configuration_versions.*.version",
+          "operator": "changed",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "id": "payment_gateway_outage",
+      "statement": "The payment gateway tool failed and caused the checkout failure.",
+      "priority": 0,
+      "predicates": [
+        {
+          "path": "spans.*.success",
+          "operator": "contains",
+          "expected": false
+        },
+        {
+          "path": "tool_mocks.payment_gateway.success",
+          "operator": "contains",
+          "expected": false
+        },
+        {
+          "path": "spans.*.duration_ms",
+          "operator": "greater_than",
+          "expected": 300
+        }
+      ]
+    }
+  ]
+}

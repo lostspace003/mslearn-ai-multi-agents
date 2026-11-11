@@ -1,0 +1,18 @@
+candidate development-ca5ce394b4d543d8 status candidate commit 109eeaa
+{'orchestrator': ('1.3.0', '3'), 'reviewer': ('1.1.0', '3'), 'scanner': ('1.2.1', '3')}
+target https://aifyy4xvw4ho4q2erwh.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/fabrikam-review-orchestrator/versions/3
+traffic [('candidate', 'azd-1794415369', 25), ('stable', 'azd-1794414748', 75)]
+stable https://fabrikam-release-lab09-cicd-d---stable.blackrock-3cd1fc37.eastus2.azurecontainerapps.io
+candidate https://fabrikam-release-lab09-cicd-d---candidate.blackrock-3cd1fc37.eastus2.azurecontainerapps.io
+&quot;served_version&quot;: &quot;3&quot;
+== weighted x16
+     13 weighted azd-1794414748 development-8fdcc5c463c4e9c9 orch v2
+      3 weighted azd-1794415369 development-ca5ce394b4d543d8 orch v3
+== stable x3
+stable azd-1794414748 development-8fdcc5c463c4e9c9 orch v2
+stable azd-1794414748 development-8fdcc5c463c4e9c9 orch v2
+stable azd-1794414748 development-8fdcc5c463c4e9c9 orch v2
+== candidate x3
+candidate azd-1794415369 development-ca5ce394b4d543d8 orch v3
+candidate azd-1794415369 development-ca5ce394b4d543d8 orch v3
+candidate azd-1794415369 development-ca5ce394b4d543d8 orch v3

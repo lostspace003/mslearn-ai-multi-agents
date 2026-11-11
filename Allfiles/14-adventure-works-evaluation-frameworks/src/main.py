@@ -22,20 +22,52 @@ def load_json(path: Path) -> dict[str, Any]:
 
 def calibration_agreement(rows: list[dict[str, Any]]) -> float:
     """Return exact agreement between rounded judge scores and human labels."""
-    # LAB PLACEHOLDER 2
-    return 0.0
+    labeled = []
+    for row in rows:
+        human_label = (
+            row.get("human_label")
+            or row.get("data.human_label")
+            or row.get("inputs.human_label")
+        )
+        judge_score = row.get("outputs.journey_coherence.journey_coherence")
+        if human_label is not None and judge_score is not None:
+            labeled.append(int(human_label) == round(float(judge_score)))
+    return sum(labeled) / len(labeled) if labeled else 0.0
 
 
 def apply_regression_gate(
     metrics: dict[str, float], agreement: float, config: dict[str, Any]
 ) -> dict[str, Any]:
     """Compare measured metrics with absolute, delta, and calibration gates."""
-    # LAB PLACEHOLDER 3
+    comparisons = []
+    failed_gates = []
+    for name, policy in config["metrics"].items():
+        measured = metrics.get(name)
+        if measured is None:
+            failed_gates.append(f"{name}: missing measured metric")
+            comparisons.append({"metric": name, "status": "missing"})
+            continue
+        delta = measured - float(policy["baseline"])
+        passed = measured >= float(policy["minimum"]) and delta >= -float(policy["maximum_drop"])
+        comparisons.append({
+            "metric": name,
+            "measured": measured,
+            "baseline": policy["baseline"],
+            "delta": round(delta, 4),
+            "minimum": policy["minimum"],
+            "maximum_drop": policy["maximum_drop"],
+            "passed": passed,
+        })
+        if not passed:
+            failed_gates.append(name)
+    if agreement < float(config["minimum_calibration_agreement"]):
+        failed_gates.append("judge_calibration")
     return {
-        "passed": False,
-        "failed_gates": ["implementation_incomplete"],
-        "comparisons": [],
+        "passed": not failed_gates,
+        "failed_gates": failed_gates,
+        "comparisons": comparisons,
         "calibration_agreement": agreement,
+        "minimum_calibration_agreement": config["minimum_calibration_agreement"],
     }
 
 
@@ -54,10 +86,39 @@ def run(data_path: Path, output_path: Path) -> dict[str, Any]:
     }
     evaluators = create_evaluators(model_config, credential)
 
-    # LAB PLACEHOLDER 4
-    evaluation = None
-    if evaluation is None:
-        raise NotImplementedError("Complete the batch evaluation task before running the lab.")
+    evaluation = evaluate(
+        data=str(data_path),
+        evaluators=evaluators,
+        evaluator_config={
+            "intent_resolution": {
+                "column_mapping": {
+                    "query": "${data.query}",
+                    "response": "${data.response}",
+                }
+            },
+            "task_adherence": {
+                "column_mapping": {
+                    "query": "${data.query}",
+                    "response": "${data.response}",
+                }
+            },
+            "response_completeness": {
+                "column_mapping": {
+                    "response": "${data.response}",
+                    "ground_truth": "${data.expected_behavior}",
+                }
+            },
+            "journey_coherence": {
+                "column_mapping": {
+                    "query": "${data.query}",
+                    "response": "${data.response}",
+                    "context": "${data.context}",
+                    "expected_behavior": "${data.expected_behavior}",
+                }
+            }
+        },
+        output_path=str(output_path.with_suffix(".rows.jsonl")),
+    )
     rows = list(evaluation["rows"])
     metrics = {name: float(value) for name, value in evaluation["metrics"].items()}
     agreement = calibration_agreement(rows)
@@ -69,7 +130,8 @@ def run(data_path: Path, output_path: Path) -> dict[str, Any]:
         "gate": apply_regression_gate(metrics, agreement, config),
         "row_count": len(rows),
     }
-    # LAB PLACEHOLDER 5
+    if not rows:
+        raise RuntimeError("Evaluation returned no rows; no release decision can be made.")
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
     return report

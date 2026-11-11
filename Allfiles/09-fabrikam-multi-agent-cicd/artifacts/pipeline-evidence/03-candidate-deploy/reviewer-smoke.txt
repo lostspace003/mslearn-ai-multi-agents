@@ -1,0 +1,13 @@
+Agent:        fabrikam-code-reviewer (remote)
+Message:      "Return a one-line readiness response."
+Version:      2
+Session:      0a648beff551ed1300MUpEJIfpp3wrNBPU43peCYkMgurUvpTP
+Conversation: conv_0c238e5b2a4bcec200hnYN5vK7yTUlKok6kY5Ntx0EHAvwhjzW
+
+Trace ID:     5c6e186e105aaa3cbc623c82c176afe9
+Response:     caresp_0c238e5b2a4bcec200ClpGe2AkGaXbyMU9W26vGaJ9kAH4WMQf
+[fabrikam-code-reviewer] {"decision":"not ready","rationale":"The change introduces a new metrics filter path and helper wiring, but there is no visible test coverage for the new behavior, and the code appears to rely on implicit assumptions about metric value types and query parameters that could cause incorrect filtering or regressions."}{"decision":"not ready","rationale":"The change introduces a new metrics filter path and helper wiring, but there is no visible test coverage for the new behavior, and the code appears to rely on implicit assumptions about metric value types and query parameters that could cause incorrect filtering or regressions."}
+
+Client elapsed: 5.132s
+Platform latency (warm): response headers 2295 ms
+  preprocess 164 ms | container 2131 ms

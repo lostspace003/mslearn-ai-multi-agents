@@ -1,0 +1,29 @@
+{
+  "disagreement_count": 1,
+  "selected": {
+    "query": "Which medication requires checking how well the kidneys filter blood?",
+    "selected_route": [
+      "northwind-formulary-v1"
+    ],
+    "winning_mode": "vector",
+    "winning_document": {
+      "id": "structural-parent-child-formulary-metformin-000",
+      "parent_id": "formulary-metformin",
+      "search_score": 0.6426673
+    },
+    "metric": "reciprocal rank of the expected parent (MRR over this single labeled query)",
+    "lexical_rr": 0.3333,
+    "vector_rr": 1.0
+  },
+  "failure_investigation": {
+    "disposable_index": "northwind-challenge-disposable",
+    "removed_field": "section_heading",
+    "error": "() The request is invalid. Details: The property 'section_heading' does not exist on type 'search.documentFields' or is not present in the API version '2026-10-01'. Make sure to only use property names that are defined by the type.\nCode: \nMessage: The request is invalid. Details: The property 'section_heading' does not exist on type 'search.documentFields' or is not present in the API version '202",
+    "classification": "schema (surfaced at ingestion): the index definition lacks 'section_heading', so the service rejects the whole upload batch before indexing; routing and grounding are never reached"
+  }
+}
+Which drug review applies when a patient reports muscle pain? | lexical: formulary-atorvastatin | vector: formulary-atorvastatin
+medication follow-up for kidney function decline | lexical: formulary-metformin | vector: formulary-metformin
+drug guidance on clarithromycin | lexical: formulary-atorvastatin | vector: formulary-atorvastatin
+Which medication requires checking how well the kidneys filter blood? | lexical: formulary-atorvastatin | vector: formulary-metformin
+medication follow-up when adherence questions arise | lexical: formulary-metformin | vector: formulary-metformin

@@ -9,8 +9,18 @@ from typing import Any
 
 
 def values_at_path(document: Any, path: str) -> list[Any]:
-    # LAB PLACEHOLDER 2
-    return []
+    values = [document]
+    for segment in path.split("."):
+        expanded = []
+        for value in values:
+            if segment == "*" and isinstance(value, list):
+                expanded.extend(value)
+            elif segment == "*" and isinstance(value, dict):
+                expanded.extend(value.values())
+            elif isinstance(value, dict) and segment in value:
+                expanded.append(value[segment])
+        values = expanded
+    return values
 
 
 def evaluate_hypothesis(snapshot: dict[str, Any], hypothesis: dict[str, Any]) -> dict[str, Any]:
@@ -40,7 +50,8 @@ def evaluate_hypothesis(snapshot: dict[str, Any], hypothesis: dict[str, Any]) ->
             )
         elif operator == "greater_than":
             passed = any(float(value) > float(expected) for value in values)
-        # LAB PLACEHOLDER 3
+        elif operator == "less_than":
+            passed = any(float(value) < float(expected) for value in values)
         elif operator == "changed":
             passed = (len({json.dumps(value, sort_keys=True) for value in values}) > 1) is bool(expected)
         else:

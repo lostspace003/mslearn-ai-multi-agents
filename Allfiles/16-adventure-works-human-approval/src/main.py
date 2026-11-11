@@ -57,8 +57,11 @@ def main() -> None:
     status.add_argument("--workflow-id", required=True)
     decide = commands.add_parser("decide")
     decide.add_argument("--workflow-id", required=True)
-    # LAB PLACEHOLDER 5
-    decide.add_argument("--decision", choices=["approved", "rejected", "overridden"], required=True)
+    decide.add_argument(
+        "--decision",
+        choices=["approved", "rejected", "overridden", "cancelled"],
+        required=True,
+    )
     decide.add_argument("--reviewer", required=True)
     decide.add_argument("--comment", required=True)
     decide.add_argument("--category", default="other")

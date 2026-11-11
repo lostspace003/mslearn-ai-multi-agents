@@ -1,0 +1,112 @@
+{
+  "schema_version": 2,
+  "reviewed_release_id": "reviewed-a5d9db77e69e964e",
+  "release_set_id": "development-8fdcc5c463c4e9c9",
+  "source": {
+    "commit": "313d6e2fdc1f472b54d74252def6d17c12490118"
+  },
+  "model": {
+    "name": "gpt-5.4-mini",
+    "version": "2026-03-17"
+  },
+  "contract_digest": "sha256:13752a407bee1cceac1d7e16cf983ac529f9eea5e9a6754171657bd258e07435",
+  "dependencies": {
+    "orchestrator": {
+      "scanner": ">=1.0.0,<2.0.0",
+      "reviewer": ">=1.0.0,<2.0.0"
+    },
+    "reviewer": {},
+    "scanner": {}
+  },
+  "evaluation": {
+    "dataset": "fabrikam-release-smoke",
+    "dataset_version": "1",
+    "evaluator": "deterministic-contract-smoke",
+    "evaluator_version": "1"
+  },
+  "environment": "development",
+  "status": "verified",
+  "agents": {
+    "orchestrator": {
+      "logical_version": "1.3.0",
+      "depends_on": {
+        "scanner": ">=1.0.0,<2.0.0",
+        "reviewer": ">=1.0.0,<2.0.0"
+      },
+      "contract_digest": "sha256:cdc53a6d26ba45e1e5702b136158b9677eaaad3d8f902e65e7b5445e1f4256c4",
+      "hosted_manifest": {
+        "kind": "hosted",
+        "protocol": "responses",
+        "protocol_version": "2.0.0",
+        "runtime": "python_3_13",
+        "entry_point": "src/orchestrator_agent.py"
+      },
+      "hosted_deployment": {
+        "name": "fabrikam-review-orchestrator",
+        "version": "2",
+        "responses_endpoint": "https://aifyy4xvw4ho4q2erwh.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/fabrikam-review-orchestrator/endpoint/protocols/openai/responses?api-version=v1",
+        "version_endpoint": "https://aifyy4xvw4ho4q2erwh.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/fabrikam-review-orchestrator/versions/2"
+      }
+    },
+    "reviewer": {
+      "logical_version": "1.1.0",
+      "depends_on": {},
+      "contract_digest": "sha256:4452407ff75cee292296f275a99568407ad537edca1483cbbba19fd73bed0c41",
+      "hosted_manifest": {
+        "kind": "hosted",
+        "protocol": "responses",
+        "protocol_version": "2.0.0",
+        "runtime": "python_3_13",
+        "entry_point": "src/reviewer_agent.py"
+      },
+      "hosted_deployment": {
+        "name": "fabrikam-code-reviewer",
+        "version": "2",
+        "responses_endpoint": "https://aifyy4xvw4ho4q2erwh.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/fabrikam-code-reviewer/endpoint/protocols/openai/responses?api-version=v1",
+        "version_endpoint": "https://aifyy4xvw4ho4q2erwh.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/fabrikam-code-reviewer/versions/2"
+      }
+    },
+    "scanner": {
+      "logical_version": "1.2.0",
+      "depends_on": {},
+      "contract_digest": "sha256:95423f3a1deccf26ed5651068e00958d02ed55bb270e4715772f4a8044e6efb6",
+      "hosted_manifest": {
+        "kind": "hosted",
+        "protocol": "responses",
+        "protocol_version": "2.0.0",
+        "runtime": "python_3_13",
+        "entry_point": "src/scanner_agent.py"
+      },
+      "hosted_deployment": {
+        "name": "fabrikam-code-scanner",
+        "version": "2",
+        "responses_endpoint": "https://aifyy4xvw4ho4q2erwh.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/fabrikam-code-scanner/endpoint/protocols/openai/responses?api-version=v1",
+        "version_endpoint": "https://aifyy4xvw4ho4q2erwh.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/fabrikam-code-scanner/versions/2"
+      }
+    }
+  },
+  "dashboard": {
+    "app_name": "fabrikam-release-lab09-cicd-d",
+    "revision": "fabrikam-release-lab09-cicd-d--azd-1794414748",
+    "release_channel": "stable",
+    "url": "https://fabrikam-release-lab09-cicd-d.blackrock-3cd1fc37.eastus2.azurecontainerapps.io",
+    "stable_label_url": "https://fabrikam-release-lab09-cicd-d---stable.blackrock-3cd1fc37.eastus2.azurecontainerapps.io",
+    "candidate_label_url": null,
+    "target_orchestrator": {
+      "name": "fabrikam-review-orchestrator",
+      "version": "2",
+      "responses_endpoint": "https://aifyy4xvw4ho4q2erwh.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/fabrikam-review-orchestrator/endpoint/protocols/openai/responses?api-version=v1",
+      "version_endpoint": "https://aifyy4xvw4ho4q2erwh.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/fabrikam-review-orchestrator/versions/2"
+    },
+    "label_mapping": {
+      "stable": "fabrikam-release-lab09-cicd-d--azd-1794414748"
+    },
+    "traffic": [
+      {
+        "label": "stable",
+        "revisionName": "fabrikam-release-lab09-cicd-d--azd-1794414748",
+        "weight": 100
+      }
+    ]
+  }
+}

@@ -37,4 +37,92 @@ def enforce_and_meter_usage(
 ) -> dict[str, Any]:
     """Atomically enforce one rate window and monthly token quota, then meter cost."""
     # LAB PLACEHOLDER 2: Replace this line with the Task 2 sample.
-    raise NotImplementedError("Complete enforce_and_meter_usage in Task 2")
+    controls = policy["usage_governance"]
+    token_count = int(request["token_count"])
+    if token_count <= 0:
+        raise ValueError("token_count must be positive")
+    tenant_id = str(request["tenant_id"])
+    cost_center = str(request["cost_center"])
+    if not tenant_id or not cost_center:
+        raise ValueError("tenant_id and cost_center are required")
+
+    now = datetime.now(timezone.utc)
+    month = now.strftime("%Y-%m")
+    rate_window = now.strftime("%Y-%m-%dT%H:%M")
+    allocation_key = f"{tenant_id}:{cost_center}"
+    meter_id = f"{allocation_key}:{month}"
+
+    for _ in range(max_attempts):
+        try:
+            meter = container.read_item(item=meter_id, partition_key=allocation_key)
+        except CosmosResourceNotFoundError:
+            meter = {
+                "id": meter_id,
+                "allocation_key": allocation_key,
+                "tenant_id": tenant_id,
+                "cost_center": cost_center,
+                "month": month,
+                "monthly_tokens": 0,
+                "request_count": 0,
+                "estimated_charge": 0.0,
+                "rate_window": rate_window,
+                "rate_window_requests": 0,
+            }
+            try:
+                container.create_item(meter)
+            except CosmosResourceExistsError:
+                continue
+            meter = container.read_item(item=meter_id, partition_key=allocation_key)
+
+        window_requests = (
+            int(meter["rate_window_requests"])
+            if meter["rate_window"] == rate_window
+            else 0
+        )
+        if window_requests + 1 > int(controls["requests_per_minute"]):
+            raise PermissionError("Per-minute request limit exceeded")
+        new_monthly_tokens = int(meter["monthly_tokens"]) + token_count
+        if new_monthly_tokens > int(controls["monthly_token_quota"]):
+            raise PermissionError("Monthly token quota exceeded")
+
+        charge = token_count / 1000 * float(controls["price_per_1000_tokens"])
+        meter.update(
+            {
+                "monthly_tokens": new_monthly_tokens,
+                "request_count": int(meter["request_count"]) + 1,
+                "estimated_charge": round(
+                    float(meter["estimated_charge"]) + charge,
+                    6,
+                ),
+                "rate_window": rate_window,
+                "rate_window_requests": window_requests + 1,
+                "last_metered_at": now.isoformat(),
+                "currency": str(controls["currency"]),
+                "agent_id": str(request["agent_id"]),
+                "agent_version": str(request["agent_version"]),
+            }
+        )
+        try:
+            saved = container.replace_item(
+                item=meter_id,
+                body=meter,
+                etag=meter["_etag"],
+                match_condition=MatchConditions.IfNotModified,
+            )
+            return {
+                "decision": "allow",
+                "meter_id": saved["id"],
+                "allocation_key": allocation_key,
+                "monthly_tokens": saved["monthly_tokens"],
+                "monthly_token_quota": int(controls["monthly_token_quota"]),
+                "rate_window_requests": saved["rate_window_requests"],
+                "requests_per_minute": int(controls["requests_per_minute"]),
+                "estimated_charge": saved["estimated_charge"],
+                "currency": saved["currency"],
+                "metered_at": saved["last_metered_at"],
+            }
+        except CosmosHttpResponseError as error:
+            if error.status_code != 412:
+                raise
+
+    raise RuntimeError("Usage meter update conflicted too many times")

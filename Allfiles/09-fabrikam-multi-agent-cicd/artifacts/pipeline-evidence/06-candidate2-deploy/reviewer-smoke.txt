@@ -1,0 +1,13 @@
+Agent:        fabrikam-code-reviewer (remote)
+Message:      "Return a one-line readiness response."
+Version:      3
+Session:      0d2fb361a968357b00zRsEEdug8AR9gvYVo5Kjuw25HUajFKXi
+Conversation: conv_02e2e1927b7c26e500KX2iDsP101nT7AhqNviTjuB2I9yzA5JW
+
+Trace ID:     673c05d1d528ea1548bb0df5ea10e7bf
+Response:     caresp_02e2e1927b7c26e500XfqNyPjevwWHgEB3KydSDE6cgOJxLVbq
+[fabrikam-code-reviewer] {"review_findings":{"decision":"not ready","rationale":"The change introduces behavior-dependent code paths without visible test coverage or validation for edge cases, so correctness and regressions cannot be confidently assessed from the diff alone."}}{"review_findings":{"decision":"not ready","rationale":"The change introduces behavior-dependent code paths without visible test coverage or validation for edge cases, so correctness and regressions cannot be confidently assessed from the diff alone."}}
+
+Client elapsed: 3.880s
+Platform latency (warm): response headers 1356 ms
+  preprocess 124 ms | container 1232 ms

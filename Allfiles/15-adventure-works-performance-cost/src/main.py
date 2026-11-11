@@ -25,15 +25,30 @@ def read_jsonl(path: Path) -> list[dict[str, Any]]:
 
 def classify_tier(request: dict[str, Any]) -> int:
     """Classify request complexity without spending model tokens."""
-    # LAB PLACEHOLDER 1
-    return 3
+    message = request["message"].lower()
+    if (
+        request.get("policy_exception")
+        or float(request.get("transaction_amount", 0)) > 200
+        or any(term in message for term in ("legal", "regulatory", "chargeback"))
+    ):
+        return 3
+    if "compare" in message or len(request.get("dependencies", [])) > 1:
+        return 2
+    return 1
 
 
 def apply_context_budget(request: dict[str, Any], budget: int) -> str:
     """Build context that preserves required facts within a character proxy budget."""
-    # LAB PLACEHOLDER 2
-    context = json.dumps(request["context"], sort_keys=True)
-    return context[: budget * 4]
+    context = request["context"]
+    required = set(request.get("required_context_fields", context.keys())) - {"unused_fields"}
+    selected = {key: context[key] for key in context if key in required}
+    rendered = json.dumps(selected, sort_keys=True, separators=(",", ":"))
+    character_limit = budget * 4
+    if len(rendered) > character_limit:
+        raise ValueError(
+            f"Required context needs {len(rendered)} characters; tier budget allows {character_limit}."
+        )
+    return rendered
 
 
 def invoke(openai_client: Any, deployment: str, request: dict[str, Any], context: str) -> dict[str, Any]:

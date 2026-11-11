@@ -10,7 +10,44 @@ from pathlib import Path
 def prepare(records:list[dict])->list[dict]:
     """Learner task: retain only reviewed, deidentified, consented examples."""
     # LAB PLACEHOLDER 6: Replace this line with the Task 7 sample.
-    raise NotImplementedError("Complete dataset preparation in Task 7")
+    prepared = []
+    identifier_pattern = re.compile(
+        r"\b(?:patient|member|record)[-_ ]?id\s*[:=]\s*\S+",
+        flags=re.IGNORECASE,
+    )
+    for record in records:
+        if not (
+            record.get("reviewed") is True
+            and record.get("deidentified") is True
+            and record.get("consent") == "synthetic"
+            and isinstance(record.get("provenance"), str)
+            and record.get("provenance")
+            and isinstance(record.get("reviewer_id"), str)
+            and record.get("reviewer_id")
+        ):
+            continue
+
+        messages = record.get("messages")
+        if not isinstance(messages, list) or len(messages) < 3:
+            continue
+        if messages[0].get("role") != "system" or messages[1].get("role") != "user" or messages[-1].get("role") != "assistant":
+            continue
+        if any(
+            message.get("role") not in {"system", "user", "assistant"}
+            or not isinstance(message.get("content"), str)
+            or not message["content"].strip()
+            for message in messages
+        ):
+            continue
+        if identifier_pattern.search(json.dumps(messages)):
+            continue
+
+        prepared.append({
+            "messages": messages,
+            "provenance": record["provenance"],
+            "reviewer_id": record["reviewer_id"],
+        })
+    return prepared
 
 
 def sha256(path: Path) -> str:

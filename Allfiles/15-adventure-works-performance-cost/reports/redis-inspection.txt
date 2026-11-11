@@ -1,0 +1,11 @@
+key_count 5
+aw:prompt:1143a733b1193f781a0b7976b71aec124135c611eb00d39f654993635cf9af05 ttl 3527 fields ['context', 'dependencies'] deps ['return-policy:v5', 'order:AW-3003'] credential_like False
+   context: {"customer_tier":"gold","days_since_delivery":50,"order_id":"AW-3003","paid_amount":850,"return_window_days":30}
+aw:prompt:2889813425b23e0ed2902bb2c23a68f35459659862c2562e4806d2c8a7a96899 ttl 3524 fields ['context', 'dependencies'] deps ['catalog:v12'] credential_like False
+   context: {"preferences":["rain-ready","12-mile commute"],"products":[{"fenders":true,"price":799,"sku":"SYN-BIKE-A","weight_kg":13},{"fenders":false,"price":699,"sku":"SYN-BIKE-B","weight_kg":11}]}
+aw:prompt:8b28f7b2bff75e7981183158caf09bcf6c5863b6bfbfe19b3f529c6560f1811d ttl 3519 fields ['context', 'dependencies'] deps ['order:AW-1001', 'carrier:synthetic-express'] credential_like False
+   context: {"carrier":"Synthetic Express","eta":"2026-09-01","order_id":"AW-1001","status":"in transit"}
+aw:result:093d15004890fe1ba7541d513c0c1fd48af2de68e2d337b0502683a0920d033a ttl 3557 fields ['dependencies', 'metadata', 'response'] deps ['order:AW-1001', 'carrier:synthetic-express'] credential_like False
+   meta {'tier': 2, 'deployment': 'gpt-5.4-mini', 'price_version': 'verified-2026-10-01-global-standard', 'quality_score': 100} answer: Order AW-1001 is currently in transit with Synthetic Express. Estimated delivery is 2026-09-01.
+aw:result:2a0dcd8326029a6dd4f04281f5dc9b99bc2159adb7554f20ecbb28dfb62da8db ttl 3525 fields ['dependencies', 'metadata', 'response'] deps ['catalog:v12'] credential_like False
+   meta {'tier': 2, 'deployment': 'gpt-5.4-mini', 'price_version': 'verified-2026-10-01-global-standard', 'quality_score': 100} answer: For a rainy 12-mile commute, I’d recommend SYN-BIKE-A. It includes fenders, which better suits rainy conditions, while SYN-BIKE-B does not. SYN-BIKE-B is lighte

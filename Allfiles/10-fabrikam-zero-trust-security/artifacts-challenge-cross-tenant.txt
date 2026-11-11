@@ -1,0 +1,2 @@
+{"case": "challenge-cross-tenant", "verifiedTenant": "tenant-a", "requestedTenant": "tenant-b", "decision": "deny", "boundary": "tenant-policy", "reason": "Tenant context does not match the verified caller", "downstreamCallsBeforeDenial": {"cosmos": 0, "model": 0}}
+partition probe: review-policy not found under partition tenant-b (404) - data partition isolation holds

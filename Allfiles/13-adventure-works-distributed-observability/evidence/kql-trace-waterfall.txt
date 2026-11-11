@@ -1,0 +1,10 @@
+TimeGenerated | ItemType | Name | OperationName | AgentId | AgentName | InputTokens | OutputTokens | ErrorType | ParentId | Id | DurationMs | Success
+2026-11-11T13:30:23.384594Z | AppDependencies | agent.router | LLM_ROUTING | router:1.4.0 | router | 120 | 18 |  | 824b6706e186868311d096a6925702b0 | bc1db6c393988192 | 16 | True
+2026-11-11T13:30:23.400325Z | AppTraces |  | LLM_ROUTING | router:1.4.0 | router | 120 | 18 |  | bc1db6c393988192 |  | None | None
+2026-11-11T13:30:23.40137Z | AppDependencies | agent.recommendation | LLM_RECOMMENDATION | recommendation:3.2.1 | recommendation | 420 | 96 |  | bc1db6c393988192 | a39191bb590c58fc | 87 | True
+2026-11-11T13:30:23.487065Z | AppTraces |  |  |  |  | None | None |  | a39191bb590c58fc |  | None | None
+2026-11-11T13:30:23.487127Z | AppTraces |  |  |  |  | None | None |  | a39191bb590c58fc |  | None | None
+2026-11-11T13:30:23.487301Z | AppTraces |  | LLM_RECOMMENDATION | recommendation:3.2.1 | recommendation | 420 | 96 |  | a39191bb590c58fc |  | None | None
+2026-11-11T13:30:23.488388Z | AppDependencies | agent.inventory | TOOL_INVOCATION | inventory:2.0.3 | inventory | 0 | 0 |  | a39191bb590c58fc | 5a8aedd9201d7f83 | 24 | False
+2026-11-11T13:30:23.511563Z | AppTraces |  | TOOL_INVOCATION | inventory:2.0.3 | inventory | 0 | 0 | SyntheticAgentError | 5a8aedd9201d7f83 |  | None | None
+rows: 8

@@ -1,0 +1,14 @@
+{
+  "example_count": 2,
+  "decision_counts": {
+    "OVERRIDDEN": 1,
+    "REJECTED": 1
+  },
+  "rationale_category_counts": {
+    "supervisor_override": 1,
+    "insufficient_evidence": 1
+  },
+  "rejection_rate": 0.5,
+  "override_rate": 0.5,
+  "trace_coverage": 1
+}

@@ -1,0 +1,41 @@
+{
+  "session_id": "synthetic-session-aw-2026-08",
+  "agents": [
+    {
+      "name": "router",
+      "version": "1.4.0",
+      "operation": "LLM_ROUTING",
+      "latency_ms": 15,
+      "input_tokens": 120,
+      "output_tokens": 18,
+      "expected_tokens": 150,
+      "token_stddev": 25,
+      "error": false,
+      "decision_summary": "Route the synthetic request to recommendations"
+    },
+    {
+      "name": "recommendation",
+      "version": "3.2.1",
+      "operation": "LLM_RECOMMENDATION",
+      "latency_ms": 60,
+      "input_tokens": 420,
+      "output_tokens": 96,
+      "expected_tokens": 350,
+      "token_stddev": 50,
+      "error": false,
+      "decision_summary": "Select synthetic products from approved catalog IDs"
+    },
+    {
+      "name": "inventory",
+      "version": "2.0.3",
+      "operation": "TOOL_INVOCATION",
+      "latency_ms": 22,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "expected_tokens": 0,
+      "token_stddev": 1,
+      "error": true,
+      "decision_summary": "Confirm synthetic SKU availability"
+    }
+  ]
+}

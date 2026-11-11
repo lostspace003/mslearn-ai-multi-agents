@@ -1,16 +1,29 @@
-# Microsoft Lab Exercises
-<!-- Change the title above as appropriate -->
+# Multi-Agent AI Labs (Microsoft Foundry)
 
-<!-- Review the notes in the index.md file to set up the repo for GitHub Pages -->
+**What this is:** 17 hands-on labs on building teams of AI agents that work together, with finished code and step-by-step guides.
 
-This repo contains exercises and supporting files for Microsoft skilling content.
+## Start here
+- Open a guide in `Lab-Guide/Word` or `Lab-Guide/PDF`. Start with Lab 01.
+- Each guide has every command and code block ready to copy and paste, plus screenshots.
+- You need: an Azure subscription, Azure CLI, Python 3.11+, VS Code.
 
-The exercises may be used in both self-paced skilling experiences on [Microsoft Learn](https://learn.microsoft.com) and in Microsoft authorized instructor-led training.
-<!-- Update the paragraph above with a link to a specific Learning Path or course as appropriate -->
+## How each lab works
+- Deploy the Azure resources with Azure CLI.
+- Paste the missing code into the marked `LAB PLACEHOLDER` spots.
+- Run it, then check the result against the guide.
+- Delete the resource group when you finish, to stop charges.
 
-## Information for MCTs
-<!-- You can remove this section if the exercises will not be used to support Microsoft Official Curriculum ILT -->
+## What the labs cover
+- **01–04:** agent loops, orchestration, splitting tasks, agents talking to each other.
+- **05–08:** prompting, tools (MCP), search (RAG), shared memory.
+- **09–12:** automated releases, security, responsible AI, agent lifecycle.
+- **13–17:** monitoring, evaluation, speed and cost, human approval, incident response.
 
-**Are you an MCT?** - Have a look at our [GitHub User Guide for MCTs](https://microsoftlearning.github.io/MCT-User-Guide/)
+## What was changed from the original Microsoft repo
+- Completed the missing code in all 17 labs (`Allfiles/`).
+- Deployed with Azure CLI instead of `azd`.
+- Fixed lab bugs and added missing permission steps (details in each `LAB-REPORT.md`).
+- Added the Word and PDF guides in `Lab-Guide/`.
+- Added `LABS-SUMMARY.md`: results for every lab.
 
-Any MCT (Microsoft Certified Trainer) can submit a pull request to the code or content in the GitHub repro. Microsoft and the course author will then triage and include content and lab code changes as needed. You can submit bugs, changes, improvement, and ideas. Find a new Azure or Microsoft 365 feature before we have? Submit a new demo!
+Original labs: [MicrosoftLearning/mslearn-ai-multi-agents](https://github.com/MicrosoftLearning/mslearn-ai-multi-agents)

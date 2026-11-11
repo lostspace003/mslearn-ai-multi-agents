@@ -16,9 +16,10 @@ app = FastAPI(title="Fabrikam release dashboard")
 
 def release_channel(host: str) -> str:
     prefix = host.split(".", 1)[0].lower()
-    if prefix.startswith("stable---"):
+    # Azure serves label routes as <app>---<label>.<environment-domain>.
+    if prefix.startswith("stable---") or prefix.endswith("---stable"):
         return "stable"
-    if prefix.startswith("candidate---"):
+    if prefix.startswith("candidate---") or prefix.endswith("---candidate"):
         return "candidate"
     return "weighted"
 

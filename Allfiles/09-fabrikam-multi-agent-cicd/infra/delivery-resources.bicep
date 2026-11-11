@@ -22,7 +22,6 @@ resource registry 'Microsoft.ContainerRegistry/registries@2023-07-01' = {
   properties: {
     adminUserEnabled: false
     publicNetworkAccess: 'Enabled'
-    networkRuleSet: { defaultAction: 'Allow' }
   }
 }
 
@@ -55,6 +54,8 @@ resource foundryProject 'Microsoft.CognitiveServices/accounts/projects@2026-05-0
   name: foundryProjectName
   location: location
   identity: { type: 'SystemAssigned' }
+  // Serialize child writes on the Foundry account; concurrent project and deployment PUTs return RequestConflict.
+  dependsOn: [ modelDeployment ]
   properties: {
     displayName: 'Fabrikam agent review ${environmentName}'
     description: 'Foundry hosted-agent CI/CD training project.'
@@ -156,7 +157,18 @@ resource githubPushRole 'Microsoft.Authorization/roleAssignments@2022-04-01' = i
   }
 }
 
+resource githubFoundryRole 'Microsoft.Authorization/roleAssignments@2022-04-01' = if (!empty(githubPrincipalId)) {
+  name: guid(foundryProject.id, githubPrincipalId, foundryUserRole)
+  scope: foundryProject
+  properties: {
+    principalId: githubPrincipalId
+    principalType: 'ServicePrincipal'
+    roleDefinitionId: foundryUserRole
+  }
+}
+
 output registryName string = registry.name
+output foundryAccountName string = foundry.name
 output registryEndpoint string = registry.properties.loginServer
 output foundryProjectId string = foundryProject.id
 output foundryProjectName string = foundryProject.name

@@ -41,7 +41,17 @@ def calculate_fairness_evidence(probes: list[dict[str, Any]]) -> dict[str, Any]:
 def requires_human_review(policy: dict[str, Any], evidence: dict[str, Any]) -> bool:
     """Apply the fairness threshold to complete governance evidence."""
     # LAB PLACEHOLDER 1: Replace this line with the Task 1 sample.
-    raise NotImplementedError("Complete requires_human_review in Task 1")
+    fairness = evidence.get("fairness")
+    if not isinstance(fairness, dict) or "max_disparity" not in fairness:
+        return True
+
+    try:
+        return (
+            float(fairness["max_disparity"])
+            > float(policy["thresholds"]["max_fairness_disparity"])
+        )
+    except (KeyError, TypeError, ValueError):
+        return True
 
 
 def build_agent_payload(

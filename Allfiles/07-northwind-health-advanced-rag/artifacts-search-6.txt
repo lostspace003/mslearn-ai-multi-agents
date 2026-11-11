@@ -1,0 +1,101 @@
+### python -m src.main search --query atorvastatin contraindications --mode hybrid --embedding-profile content-aware --chunk-strategy structural-parent-child
+{
+  "northwind-formulary-v1": [
+    {
+      "@search.score": 0.028333334252238274,
+      "@search.rerankerScore": 2.630600690841675,
+      "@search.captions": [
+        "{'text': 'Atorvastatin synthetic monograph Contraindications and interactions Training-only interaction guidance: concurrent clarithromycin requires pharmacist review before atorvastatin is continued or adjusted. This statement is synthetic and does not replace an approved medication policy.', 'highlights': 'Atorvastatin synthetic monograph<em> Contraindications </em>and interactions Training-only interaction guidance: concurrent clarithromycin requires pharmacist review before atorvastatin is continued or adjusted. This statement is synthetic and does not replace an approved medication policy.'}"
+      ],
+      "id": "structural-parent-child-formulary-atorvastatin-000",
+      "content": "Atorvastatin synthetic monograph\nContraindications and interactions\nTraining-only interaction guidance: concurrent clarithromycin requires pharmacist review before atorvastatin is continued or adjusted. This statement is synthetic and does not replace an approved medication policy.",
+      "title": "Atorvastatin synthetic monograph",
+      "source": "synthetic-formulary-v2",
+      "parent_id": "formulary-atorvastatin",
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 0,
+      "boundary_end": 214,
+      "section_heading": "Contraindications and interactions",
+      "@search.reranker_score": 2.630600690841675,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Atorvastatin synthetic monograph (synthetic-formulary-v2#structural-parent-child-formulary-atorvastatin-000)",
+      "captions": [
+        "Atorvastatin synthetic monograph Contraindications and interactions Training-only interaction guidance: concurrent clarithromycin requires pharmacist review before atorvastatin is continued or adjusted. This statement is synthetic and does not replace an approved medication policy."
+      ]
+    },
+    {
+      "@search.score": 0.027868852019309998,
+      "@search.rerankerScore": 1.991315484046936,
+      "@search.captions": [
+        "{'text': 'Atorvastatin synthetic monograph Monitoring Review reported muscle symptoms, the active medication list, and the locally approved monitoring workflow. Escalate unresolved interaction risk to an authorized clinician.', 'highlights': 'Atorvastatin synthetic monograph Monitoring Review reported<em> muscle symptoms, </em>the active<em> medication list, </em>and the locally approved monitoring workflow. <em>Escalate unresolved interaction risk to an authorized clinician.</em>'}"
+      ],
+      "id": "structural-parent-child-formulary-atorvastatin-001",
+      "content": "Atorvastatin synthetic monograph\nMonitoring\nReview reported muscle symptoms, the active medication list, and the locally approved monitoring workflow. Escalate unresolved interaction risk to an authorized clinician.",
+      "title": "Atorvastatin synthetic monograph",
+      "source": "synthetic-formulary-v2",
+      "parent_id": "formulary-atorvastatin",
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 216,
+      "boundary_end": 387,
+      "section_heading": "Monitoring",
+      "@search.reranker_score": 1.991315484046936,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Atorvastatin synthetic monograph (synthetic-formulary-v2#structural-parent-child-formulary-atorvastatin-001)",
+      "captions": [
+        "Atorvastatin synthetic monograph Monitoring Review reported muscle symptoms, the active medication list, and the locally approved monitoring workflow. Escalate unresolved interaction risk to an authorized clinician."
+      ]
+    },
+    {
+      "@search.score": 0.011111111380159855,
+      "@search.rerankerScore": 1.1407667398452759,
+      "@search.captions": [
+        "{'text': 'Metformin synthetic monograph Follow-up Document adherence questions and route clinically significant changes to an authorized clinician. No patient-specific recommendation is made by this synthetic monograph.', 'highlights': 'Metformin synthetic monograph Follow-up Document adherence questions and route clinically significant changes to an authorized clinician. <em>No patient-specific recommendation is made by </em>this synthetic monograph.'}"
+      ],
+      "id": "structural-parent-child-formulary-metformin-001",
+      "content": "Metformin synthetic monograph\nFollow-up\nDocument adherence questions and route clinically significant changes to an authorized clinician. No patient-specific recommendation is made by this synthetic monograph.",
+      "title": "Metformin synthetic monograph",
+      "source": "synthetic-formulary-v2",
+      "parent_id": "formulary-metformin",
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 175,
+      "boundary_end": 344,
+      "section_heading": "Follow-up",
+      "@search.reranker_score": 1.1407667398452759,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Metformin synthetic monograph (synthetic-formulary-v2#structural-parent-child-formulary-metformin-001)",
+      "captions": [
+        "Metformin synthetic monograph Follow-up Document adherence questions and route clinically significant changes to an authorized clinician. No patient-specific recommendation is made by this synthetic monograph."
+      ]
+    },
+    {
+      "@search.score": 0.011290322057902813,
+      "@search.rerankerScore": 0.8706613183021545,
+      "@search.captions": [
+        "{'text': 'Metformin synthetic monograph Renal monitoring Training-only monitoring guidance: review renal function according to local policy before treatment decisions. Coordinate laboratory trends with the current medication plan.', 'highlights': ''}"
+      ],
+      "id": "structural-parent-child-formulary-metformin-000",
+      "content": "Metformin synthetic monograph\nRenal monitoring\nTraining-only monitoring guidance: review renal function according to local policy before treatment decisions. Coordinate laboratory trends with the current medication plan.",
+      "title": "Metformin synthetic monograph",
+      "source": "synthetic-formulary-v2",
+      "parent_id": "formulary-metformin",
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 0,
+      "boundary_end": 173,
+      "section_heading": "Renal monitoring",
+      "@search.reranker_score": 0.8706613183021545,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Metformin synthetic monograph (synthetic-formulary-v2#structural-parent-child-formulary-metformin-000)",
+      "captions": [
+        "Metformin synthetic monograph Renal monitoring Training-only monitoring guidance: review renal function according to local policy before treatment decisions. Coordinate laboratory trends with the current medication plan."
+      ]
+    }
+  ]
+}

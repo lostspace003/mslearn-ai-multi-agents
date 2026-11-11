@@ -1,0 +1,13 @@
+Agent:        fabrikam-code-reviewer (remote)
+Message:      "Return a one-line readiness response."
+Version:      1
+Session:      0e01dd0bf3b2423000mOGQGuxpf7i0AJEUGp7xPIGjnfNxmEtO
+Conversation: conv_075eee2ed6f63e36004FRQUMuLTTdaE4EfXEkzkwitg2Py447M
+
+Trace ID:     3b7452a334eda5c10df1c56c97efb8dd
+Response:     caresp_075eee2ed6f63e3600a9Wj212g2faWtNwZGPFIWX21SL4H6o1o
+[fabrikam-code-reviewer] {"decision":"not ready","rationale":"The change introduces behavior that can mis-handle paths outside the project root and lacks visible tests for edge cases around path resolution, so correctness and regressions are not sufficiently covered yet."}{"decision":"not ready","rationale":"The change introduces behavior that can mis-handle paths outside the project root and lacks visible tests for edge cases around path resolution, so correctness and regressions are not sufficiently covered yet."}
+
+Client elapsed: 4.033s
+Platform latency (warm): response headers 1399 ms
+  preprocess 131 ms | container 1268 ms

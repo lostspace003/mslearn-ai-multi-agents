@@ -1,0 +1,218 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.38.33.27573",
+      "templateHash": "11041483327032771807"
+    }
+  },
+  "parameters": {
+    "environmentName": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "principalId": {
+      "type": "string"
+    },
+    "embeddingDeploymentName": {
+      "type": "string",
+      "defaultValue": "text-embedding-3-small"
+    }
+  },
+  "variables": {
+    "suffix": "[take(uniqueString(subscription().id, resourceGroup().id, parameters('environmentName')), 8)]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "[format('search-resources-{0}', variables('suffix'))]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "environmentName": {
+            "value": "[parameters('environmentName')]"
+          },
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "principalId": {
+            "value": "[parameters('principalId')]"
+          },
+          "suffix": {
+            "value": "[variables('suffix')]"
+          },
+          "embeddingDeploymentName": {
+            "value": "[parameters('embeddingDeploymentName')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.38.33.27573",
+              "templateHash": "1074061739851487607"
+            }
+          },
+          "parameters": {
+            "environmentName": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "principalId": {
+              "type": "string"
+            },
+            "suffix": {
+              "type": "string"
+            },
+            "embeddingDeploymentName": {
+              "type": "string"
+            }
+          },
+          "variables": {
+            "searchName": "[format('srch{0}{1}', replace(take(parameters('environmentName'), 12), '-', ''), parameters('suffix'))]",
+            "openAIName": "[format('aoai{0}{1}', replace(take(parameters('environmentName'), 12), '-', ''), parameters('suffix'))]",
+            "searchServiceContributorRole": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '7ca78c08-252a-4471-8644-bb5ff32d4ba0')]",
+            "searchIndexDataContributorRole": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '8ebe5a00-799e-43f5-93ac-243d3dce84a7')]",
+            "openAIUserRole": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '5e0bd9bd-7b93-4f28-af87-19fc36ad61bd')]"
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Search/searchServices",
+              "apiVersion": "2024-03-01-preview",
+              "name": "[variables('searchName')]",
+              "location": "[parameters('location')]",
+              "sku": {
+                "name": "standard"
+              },
+              "properties": {
+                "disableLocalAuth": true,
+                "hostingMode": "default",
+                "publicNetworkAccess": "Enabled",
+                "replicaCount": 1,
+                "partitionCount": 1,
+                "semanticSearch": "free"
+              }
+            },
+            {
+              "type": "Microsoft.CognitiveServices/accounts",
+              "apiVersion": "2024-10-01",
+              "name": "[variables('openAIName')]",
+              "location": "[parameters('location')]",
+              "kind": "OpenAI",
+              "sku": {
+                "name": "S0"
+              },
+              "properties": {
+                "customSubDomainName": "[variables('openAIName')]",
+                "disableLocalAuth": true,
+                "publicNetworkAccess": "Enabled"
+              }
+            },
+            {
+              "type": "Microsoft.CognitiveServices/accounts/deployments",
+              "apiVersion": "2024-10-01",
+              "name": "[format('{0}/{1}', variables('openAIName'), parameters('embeddingDeploymentName'))]",
+              "sku": {
+                "name": "GlobalStandard",
+                "capacity": 20
+              },
+              "properties": {
+                "model": {
+                  "format": "OpenAI",
+                  "name": "text-embedding-3-small",
+                  "version": "1"
+                },
+                "versionUpgradeOption": "OnceCurrentVersionExpired"
+              },
+              "dependsOn": [
+                "[resourceId('Microsoft.CognitiveServices/accounts', variables('openAIName'))]"
+              ]
+            },
+            {
+              "type": "Microsoft.Authorization/roleAssignments",
+              "apiVersion": "2022-04-01",
+              "scope": "[format('Microsoft.Search/searchServices/{0}', variables('searchName'))]",
+              "name": "[guid(resourceId('Microsoft.Search/searchServices', variables('searchName')), parameters('principalId'), variables('searchServiceContributorRole'))]",
+              "properties": {
+                "principalId": "[parameters('principalId')]",
+                "principalType": "User",
+                "roleDefinitionId": "[variables('searchServiceContributorRole')]"
+              },
+              "dependsOn": [
+                "[resourceId('Microsoft.Search/searchServices', variables('searchName'))]"
+              ]
+            },
+            {
+              "type": "Microsoft.Authorization/roleAssignments",
+              "apiVersion": "2022-04-01",
+              "scope": "[format('Microsoft.Search/searchServices/{0}', variables('searchName'))]",
+              "name": "[guid(resourceId('Microsoft.Search/searchServices', variables('searchName')), parameters('principalId'), variables('searchIndexDataContributorRole'))]",
+              "properties": {
+                "principalId": "[parameters('principalId')]",
+                "principalType": "User",
+                "roleDefinitionId": "[variables('searchIndexDataContributorRole')]"
+              },
+              "dependsOn": [
+                "[resourceId('Microsoft.Search/searchServices', variables('searchName'))]"
+              ]
+            },
+            {
+              "type": "Microsoft.Authorization/roleAssignments",
+              "apiVersion": "2022-04-01",
+              "scope": "[format('Microsoft.CognitiveServices/accounts/{0}', variables('openAIName'))]",
+              "name": "[guid(resourceId('Microsoft.CognitiveServices/accounts', variables('openAIName')), parameters('principalId'), variables('openAIUserRole'))]",
+              "properties": {
+                "principalId": "[parameters('principalId')]",
+                "principalType": "User",
+                "roleDefinitionId": "[variables('openAIUserRole')]"
+              },
+              "dependsOn": [
+                "[resourceId('Microsoft.CognitiveServices/accounts', variables('openAIName'))]"
+              ]
+            }
+          ],
+          "outputs": {
+            "searchEndpoint": {
+              "type": "string",
+              "value": "[format('https://{0}.search.windows.net', variables('searchName'))]"
+            },
+            "openAIEndpoint": {
+              "type": "string",
+              "value": "[reference(resourceId('Microsoft.CognitiveServices/accounts', variables('openAIName')), '2024-10-01').endpoint]"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "AZURE_RESOURCE_GROUP_NAME": {
+      "type": "string",
+      "value": "[resourceGroup().name]"
+    },
+    "AZURE_SEARCH_ENDPOINT": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Resources/deployments', format('search-resources-{0}', variables('suffix'))), '2025-04-01').outputs.searchEndpoint.value]"
+    },
+    "AZURE_OPENAI_ENDPOINT": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Resources/deployments', format('search-resources-{0}', variables('suffix'))), '2025-04-01').outputs.openAIEndpoint.value]"
+    },
+    "AZURE_OPENAI_EMBEDDING_DEPLOYMENT": {
+      "type": "string",
+      "value": "[parameters('embeddingDeploymentName')]"
+    }
+  }
+}

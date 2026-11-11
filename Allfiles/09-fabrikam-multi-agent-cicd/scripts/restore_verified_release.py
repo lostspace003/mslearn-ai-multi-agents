@@ -25,15 +25,30 @@ def main() -> int:
     if not revision:
         raise ValueError("Verified release manifest does not contain a dashboard revision")
 
-    subprocess.run(
+    active = subprocess.run(
         [
-            "az", "containerapp", "revision", "activate",
+            "az", "containerapp", "revision", "show",
             "--resource-group", args.resource_group,
             "--name", args.app,
             "--revision", revision,
+            "--query", "properties.active",
+            "--output", "tsv",
         ],
         check=True,
-    )
+        capture_output=True,
+        text=True,
+    ).stdout.strip().lower()
+    # Azure rejects activating an already-active revision (RevisionAlreadyInRequestedState).
+    if active != "true":
+        subprocess.run(
+            [
+                "az", "containerapp", "revision", "activate",
+                "--resource-group", args.resource_group,
+                "--name", args.app,
+                "--revision", revision,
+            ],
+            check=True,
+        )
     subprocess.run(
         [
             "az", "containerapp", "ingress", "traffic", "set",

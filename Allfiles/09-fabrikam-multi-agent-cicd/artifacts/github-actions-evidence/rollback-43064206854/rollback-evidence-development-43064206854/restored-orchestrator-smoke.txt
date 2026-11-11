@@ -1,0 +1,19 @@
+
+ERROR: create_session: POST https://aifyy4xvw4ho4q2erwh.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/orchestrator/endpoint/sessions
+--------------------------------------------------------------------------------
+RESPONSE 404: 404 Not Found
+ERROR CODE: not_found
+--------------------------------------------------------------------------------
+{
+  "error": {
+    "code": "not_found",
+    "message": "Agent 'orchestrator' not found [Request ID: b63f5876de5322b10bf8bbaca1d190c0]",
+    "type": "error",
+    "details": [],
+    "additionalInfo": {
+      "request_id": "b63f5876de5322b10bf8bbaca1d190c0"
+    }
+  }
+}
+--------------------------------------------------------------------------------
+

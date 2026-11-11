@@ -1,0 +1,36 @@
+== GET /
+{"status":"ready","agent_card":"/.well-known/agent-card.json","message_endpoint":"/a2a"}
+== GET agent-card
+{"name":"contoso-risk-agent","description":"Synthetic portfolio risk analysis","url":"http://127.0.0.1:8000/a2a","version":"1.0.0","skills":[{"id":"risk-analysis","name":"risk-analysis","description":"Analyze synthetic risk scenarios","tags":["risk","synthetic"]}]}
+== discover
+[
+  {
+    "id": "risk-east-v1",
+    "name": "contoso-risk-agent",
+    "url": "http://127.0.0.1:8000/a2a",
+    "version": "1.0.0",
+    "capabilities": [
+      "risk-analysis"
+    ],
+    "load": 0.25,
+    "tenantId": "contoso",
+    "health": "healthy",
+    "heartbeat": 1794403529,
+    "ttl": 300,
+    "_rid": "KKY6AND8LEkBAAAAAAAAAA==",
+    "_self": "dbs/KKY6AA==/colls/KKY6AND8LEk=/docs/KKY6AND8LEkBAAAAAAAAAA==/",
+    "_etag": "\"3b00370c-0000-0200-0000-6af46cc90000\"",
+    "_attachments": "attachments/",
+    "_ts": 1794403529
+  }
+]
+== send
+{
+  "jsonrpc": "2.0",
+  "id": "request-001",
+  "result": {
+    "tenantId": "contoso",
+    "response_id": "resp_01415204a6d935e7006af46cf053dc81948e4ba7c6dbc09da9",
+    "text": "I can assess the risk, but I\u2019ll need the portfolio details first.\n\nPlease provide the synthetic portfolio scenario, including as many of these as possible:\n- Underlying assets or exposures\n- Position sizes / weights\n- Leverage or notional amounts\n- Instruments used to synthesize exposure\n- Correlations or covariance assumptions\n- Time horizon\n- Rebalancing frequency\n- Financing / margin / collateral terms\n- Any concentration or sector/country/issuer limits\n- Stress scenarios you want considered\n\nOnce you share the scenario, I\u2019ll:\n- State explicit assumptions\n- Identify missing evidence / unknowns\n- Analyze synthetic portfolio risk only\n- Avoid investment advice"
+  }
+}

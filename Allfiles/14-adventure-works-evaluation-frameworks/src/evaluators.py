@@ -179,9 +179,18 @@ class ResponseCompletenessEvaluator(ResponsesMetricEvaluator):
         )
 
 
-# LAB PLACEHOLDER 1
 def create_evaluators(
     model_config: dict[str, str], credential: TokenCredential
 ) -> dict[str, Any]:
-    """Create built-in and domain-specific evaluators for the batch run."""
-    return {}
+    """Create Responses-based evaluators for the batch run."""
+    judge_options = {
+        "project_endpoint": model_config["project_endpoint"],
+        "deployment_name": model_config["azure_deployment"],
+        "credential": credential,
+    }
+    return {
+        "intent_resolution": IntentResolutionEvaluator(**judge_options),
+        "task_adherence": TaskAdherenceEvaluator(**judge_options),
+        "response_completeness": ResponseCompletenessEvaluator(**judge_options),
+        "journey_coherence": JourneyCoherenceEvaluator(**judge_options),
+    }

@@ -1,0 +1,13 @@
+Agent:        fabrikam-code-scanner (remote)
+Message:      "Return a one-line readiness response."
+Version:      2
+Session:      06634fc162b420f300UbimoAXpRWhae5COFpbmKVNtLOUTElDf
+Conversation: conv_0ebafebe90cffc2f00otYi45KhonLWQzxlXwKa6TsBAE6ifTd0
+
+Trace ID:     a51dde04440432b45c33a0a3074d0b43
+Response:     caresp_0ebafebe90cffc2f00MD1OSGvalWGVf7PoLbZ4irPlWp567GP3
+[fabrikam-code-scanner] {"schema_version":"1.0","findings":[{"severity":"medium","file":"unknown","line":"unknown","remediation":"No code diff or commit contents were provided to review; supply the repository and commit to perform a security assessment.","confidence":"High: the request lacks the required source-controlled inputs, so no code-based findings can be verified."}]}{"schema_version":"1.0","findings":[{"severity":"medium","file":"unknown","line":"unknown","remediation":"No code diff or commit contents were provided to review; supply the repository and commit to perform a security assessment.","confidence":"High: the request lacks the required source-controlled inputs, so no code-based findings can be verified."}]}
+
+Client elapsed: 3.886s
+Platform latency (warm): response headers 1147 ms
+  preprocess 116 ms | container 1031 ms

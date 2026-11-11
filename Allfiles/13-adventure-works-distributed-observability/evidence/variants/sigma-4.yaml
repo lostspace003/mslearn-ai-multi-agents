@@ -1,0 +1,20 @@
+alerts:
+  error_rate_threshold: 0.05
+  latency_threshold_ms: 60
+  token_anomaly_sigma: 4.0
+policy_id: adventure-works-agent-telemetry
+privacy:
+  hash_session_ids: true
+  prohibited_fields:
+  - raw_customer_id
+  - email
+  - payment_card
+  - raw_prompt
+  - chain_of_thought
+retention_days: 30
+sampling:
+  lab_export_ratio: 1.0
+  local: always_on
+  production_head_ratio: 0.05
+service_name: adventure-works-agent-lab
+version: 1.0.0

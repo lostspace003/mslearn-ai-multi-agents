@@ -1,0 +1,31 @@
+resp_00ee7923d25a8420006af46d3c3638819788aaa5eb87209a32
+resp_06bee8e7f9936bfc006af46d42ebf88196864c58271e3f9da0
+resp_0e00e200cf4cec37006af46d488d208197bbbb1d5d6ffdd8ef
+
+id             : review-policy
+tenantId       : tenant-a
+allowedRegion  : eastus2
+classification : confidential
+_rid           : yJo0AK3IJO4BAAAAAAAAAA==
+_self          : dbs/yJo0AA==/colls/yJo0AK3IJO4=/docs/yJo0AK3IJO4BAAAAAAAAAA==/
+_etag          : "040024c4-0000-0200-0000-6af46d360000"
+_attachments   : attachments/
+_ts            : 1794403638
+
+
+id            : c654c6df-e842-4dfa-9db5-ff21ae0f859c
+tenantId      : tenant-a
+agentId       : review-orchestrator
+action        : multi_agent_review
+decision      : allow
+correlationId : req-001
+timestamp     : 11-11-2026 18:57:40
+
+TENANT_AND_AUDIT_EVIDENCE_VALIDATED
+--- Foundry agent versions ---
+review-orchestrator latest version: 1
+security-scanner latest version: 1
+compliance-agent latest version: 1
+--- Task 7.9 deterministic rerun ---
+productionControlFailures count: 0
+decisions: allow,deny,deny,allow

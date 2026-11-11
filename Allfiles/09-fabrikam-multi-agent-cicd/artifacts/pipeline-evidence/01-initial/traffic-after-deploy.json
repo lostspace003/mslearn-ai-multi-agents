@@ -1,0 +1,31 @@
+{
+  "action": "promote",
+  "strategy": "initial",
+  "weights": {
+    "fabrikam-release-lab09-cicd-d--lz3lpoe": 0,
+    "fabrikam-release-lab09-cicd-d--r1-1-3cbc3c": 0,
+    "fabrikam-release-lab09-cicd-d--r2-v1": 0,
+    "fabrikam-release-lab09-cicd-d--r3-v1": 100
+  },
+  "stable": {
+    "name": "fabrikam-release-lab09-cicd-d--r3-v1",
+    "fqdn": "fabrikam-release-lab09-cicd-d--r3-v1.victoriouscliff-2501048e.eastus2.azurecontainerapps.io"
+  },
+  "candidate": null,
+  "routing": {
+    "fqdn": "fabrikam-release-lab09-cicd-d.victoriouscliff-2501048e.eastus2.azurecontainerapps.io",
+    "labels": {
+      "stable": "fabrikam-release-lab09-cicd-d--r3-v1"
+    },
+    "label_urls": {
+      "stable": "https://fabrikam-release-lab09-cicd-d---stable.victoriouscliff-2501048e.eastus2.azurecontainerapps.io"
+    },
+    "traffic": [
+      {
+        "label": "stable",
+        "revisionName": "fabrikam-release-lab09-cicd-d--r3-v1",
+        "weight": 100
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "desc": "Action group ag-aw-agent-anomaly-p6ayjdwzzwra2 executed (Configured on alert rule)",
+    "details": "",
+    "event": "ActionsTriggered",
+    "time": "2026-11-11T13:31:16.7542581Z"
+  },
+  {
+    "desc": "Alert fired",
+    "details": "",
+    "event": "AlertCreated",
+    "time": "2026-11-11T13:31:16.4528017Z"
+  }
+]

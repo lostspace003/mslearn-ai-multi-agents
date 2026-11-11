@@ -1,0 +1,61 @@
+[
+  {
+    "id": "/subscriptions/<subscription-id>/resourceGroups/rg-lab09-dev-09d06da4/providers/Microsoft.App/containerApps/fabrikam-release-lab09-cicd-d/revisions/fabrikam-release-lab09-cicd-d--totfidr",
+    "name": "fabrikam-release-lab09-cicd-d--totfidr",
+    "properties": {
+      "active": true,
+      "createdTime": "2026-11-11T16:12:20+00:00",
+      "fqdn": "fabrikam-release-lab09-cicd-d--totfidr.blackrock-3cd1fc37.eastus2.azurecontainerapps.io",
+      "healthState": "None",
+      "provisioningState": "Provisioned",
+      "replicas": 0,
+      "runningState": "ActivationFailed",
+      "template": {
+        "containers": [
+          {
+            "env": [
+              {
+                "name": "RELEASE_SET_ID",
+                "value": "bootstrap"
+              },
+              {
+                "name": "ORCHESTRATOR_AGENT_NAME",
+                "value": "not-deployed"
+              },
+              {
+                "name": "ORCHESTRATOR_AGENT_VERSION",
+                "value": "not-deployed"
+              },
+              {
+                "name": "ORCHESTRATOR_RESPONSES_ENDPOINT",
+                "value": "https://example.invalid"
+              }
+            ],
+            "image": "mcr.microsoft.com/k8se/quickstart:latest",
+            "name": "dashboard",
+            "probes": [],
+            "resources": {
+              "cpu": 0.5,
+              "memory": "1Gi"
+            }
+          }
+        ],
+        "initContainers": null,
+        "revisionSuffix": null,
+        "scale": {
+          "cooldownPeriod": null,
+          "maxReplicas": 2,
+          "minReplicas": 0,
+          "pollingInterval": null,
+          "rules": null
+        },
+        "serviceBinds": null,
+        "terminationGracePeriodSeconds": null,
+        "volumes": null
+      },
+      "trafficWeight": 100
+    },
+    "resourceGroup": "rg-lab09-dev-09d06da4",
+    "type": "Microsoft.App/containerapps/revisions"
+  }
+]

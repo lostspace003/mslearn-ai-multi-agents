@@ -37,12 +37,52 @@ class PatientMemoryStore:
     async def upsert_memory(self, memory: dict[str, Any]) -> dict[str, Any]:
         """Persist one memory and return request diagnostics including session token."""
         # LAB PLACEHOLDER 1: Replace this line with the Task 1 sample.
-        raise NotImplementedError("Complete upsert_memory in Task 1")
+        patient_id = str(memory["patientId"])
+        self._authorize(patient_id)
+        item = {
+            **memory,
+            "embedding": self._embeddings.embed(str(memory["content"])),
+        }
+        response = await self._memories.upsert_item(item)
+        headers = response.get_response_headers()
+        return {
+            "id": response["id"],
+            "patientId": response["patientId"],
+            "request_charge": float(headers.get("x-ms-request-charge", 0)),
+            "session_token": headers.get("x-ms-session-token"),
+        }
 
     async def vector_recall(self, patient_id: str, query_text: str, top_k: int) -> list[dict[str, Any]]:
         """Run a partition-scoped vector query ordered by VectorDistance."""
         # LAB PLACEHOLDER 2: Replace this line with the Task 2 sample.
-        raise NotImplementedError("Complete vector_recall in Task 2")
+        self._authorize(patient_id)
+        if isinstance(top_k, bool) or not isinstance(top_k, int) or not 1 <= top_k <= 20:
+            raise ValueError("top_k must be an integer from 1 through 20")
+        embedding = self._embeddings.embed(query_text)
+        query = f"""
+            SELECT TOP {top_k}
+                c.id, c.patientId, c.content, c.importance, c.memoryType,
+                c.critical, c.timestamp, c.ttl,
+                VectorDistance(c.embedding, @embedding) AS vector_distance
+            FROM c
+            WHERE c.patientId = @patientId
+            ORDER BY VectorDistance(c.embedding, @embedding)
+        """
+        response_headers: dict[str, str] = {}
+        iterator = self._memories.query_items(
+            query=query,
+            parameters=[
+                {"name": "@patientId", "value": patient_id},
+                {"name": "@embedding", "value": embedding},
+            ],
+            partition_key=patient_id,
+            response_hook=lambda headers, _: response_headers.update(headers),
+        )
+        results = [item async for item in iterator]
+        request_charge = float(response_headers.get("x-ms-request-charge", 0))
+        for item in results:
+            item["request_charge"] = request_charge
+        return results
 
     async def write_audit(
         self,
@@ -55,7 +95,17 @@ class PatientMemoryStore:
     ) -> None:
         """Write content-free audit metadata for a memory operation."""
         # LAB PLACEHOLDER 3: Replace this line with the Task 3 sample.
-        raise NotImplementedError("Complete write_audit in Task 3")
+        self._authorize(patient_id)
+        await self._audit.upsert_item(
+            {
+                "id": event_id or str(uuid4()),
+                "patientId": patient_id,
+                "operation": operation,
+                "memoryIds": sorted(set(memory_ids)),
+                "reason": reason,
+                "timestamp": event_timestamp or datetime.now(UTC).isoformat(),
+            }
+        )
 
     async def consolidate_episodic_memories(
         self,
@@ -64,6 +114,7 @@ class PatientMemoryStore:
         semantic_content: str,
         reviewer_id: str,
         dry_run: bool,
+        min_confidence: float | None = None,
     ) -> dict[str, Any]:
         """Consolidate reviewed episodic records into one persisted semantic pattern."""
         self._authorize(patient_id)
@@ -77,14 +128,29 @@ class PatientMemoryStore:
         if not reviewer_id.strip():
             raise ValueError("A reviewer ID is required")
 
-        digest = hashlib.sha256(f"{patient_id}:{':'.join(unique_ids)}".encode()).hexdigest()[:16]
-        semantic_id = f"semantic-{digest}"
         sources = [
             await self._memories.read_item(item=memory_id, partition_key=patient_id)
             for memory_id in unique_ids
         ]
         if any(source.get("memoryType") != "episodic" for source in sources):
             raise ValueError("Every consolidation source must be episodic")
+        # Optional challenge: confidence gate. Sources below the documented threshold stay
+        # untouched in source history and are excluded from the consolidated pattern.
+        rejected_ids: list[str] = []
+        if min_confidence is not None:
+            if not 0.0 <= min_confidence <= 1.0:
+                raise ValueError("min_confidence must be between 0.0 and 1.0")
+            rejected_ids = [
+                str(source["id"])
+                for source in sources
+                if float(source.get("confidence", 0.0)) < min_confidence
+            ]
+            sources = [source for source in sources if str(source["id"]) not in rejected_ids]
+            unique_ids = [str(source["id"]) for source in sources]
+            if len(unique_ids) < 2:
+                raise ValueError("Fewer than two sources meet the confidence threshold")
+        digest = hashlib.sha256(f"{patient_id}:{':'.join(unique_ids)}".encode()).hexdigest()[:16]
+        semantic_id = f"semantic-{digest}"
         consolidation_targets = {
             str(source["consolidatedInto"])
             for source in sources
@@ -119,6 +185,7 @@ class PatientMemoryStore:
                 "status": "already_consolidated",
                 "semantic_memory_id": semantic_id,
                 "source_memory_ids": unique_ids,
+                "rejected_source_ids": rejected_ids,
                 "source_records_retained": True,
                 "ttl": int(semantic["ttl"]),
             }
@@ -142,6 +209,9 @@ class PatientMemoryStore:
             "reviewerId": reviewer_id,
             "retentionPolicy": "preserve-source-lineage",
         }
+        if min_confidence is not None:
+            semantic["confidenceThreshold"] = min_confidence
+            semantic["rejectedSourceIds"] = rejected_ids
         if dry_run:
             return {"status": "dry_run", "semantic_memory": semantic, "source_count": len(sources)}
 
@@ -179,6 +249,7 @@ class PatientMemoryStore:
             "status": "consolidated",
             "semantic_memory_id": semantic_id,
             "source_memory_ids": unique_ids,
+            "rejected_source_ids": rejected_ids,
             "source_records_retained": True,
             "ttl": ttl,
             "write_diagnostics": {

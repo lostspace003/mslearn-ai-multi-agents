@@ -1,0 +1,7 @@
+{
+  "action": "rollback",
+  "reasons": [
+    "quality_drop",
+    "schema_violation_rate"
+  ]
+}

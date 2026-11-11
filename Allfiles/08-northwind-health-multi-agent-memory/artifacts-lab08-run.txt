@@ -1,0 +1,193 @@
+=== preflight
+FOUNDRY_PROJECT_ENDPOINT configured: True
+AZURE_COSMOS_ENDPOINT configured: True
+AZURE_OPENAI_ENDPOINT configured: True
+Preflight passed. Live service values may remain unset until provisioning.
+=== ingest
+[
+  {
+    "id": "mem-100-1",
+    "patientId": "synthetic-patient-100",
+    "request_charge": 25.51,
+    "session_token": "0:-1#3"
+  },
+  {
+    "id": "mem-100-2",
+    "patientId": "synthetic-patient-100",
+    "request_charge": 25.32,
+    "session_token": "0:-1#4"
+  },
+  {
+    "id": "mem-100-3",
+    "patientId": "synthetic-patient-100",
+    "request_charge": 25.51,
+    "session_token": "0:-1#5"
+  },
+  {
+    "id": "mem-100-4",
+    "patientId": "synthetic-patient-100",
+    "request_charge": 25.51,
+    "session_token": "0:-1#6"
+  },
+  {
+    "id": "mem-100-5",
+    "patientId": "synthetic-patient-100",
+    "request_charge": 25.51,
+    "session_token": "0:-1#7"
+  }
+]
+=== recall
+{
+  "retrieved_memories": [
+    {
+      "id": "mem-100-2",
+      "patientId": "synthetic-patient-100",
+      "content": "Synthetic training note: reports fatigue after a medication schedule change.",
+      "importance": 8,
+      "memoryType": "clinical_pattern",
+      "critical": true,
+      "timestamp": "2026-08-22T10:00:00Z",
+      "ttl": -1,
+      "vector_distance": 0.4522414631206603,
+      "request_charge": 3.3
+    },
+    {
+      "id": "mem-100-1",
+      "patientId": "synthetic-patient-100",
+      "content": "Prefers morning appointments and written summaries.",
+      "importance": 7,
+      "memoryType": "preference",
+      "critical": false,
+      "timestamp": "2026-08-20T09:00:00Z",
+      "ttl": 2592000,
+      "vector_distance": 0.4354879541393209,
+      "request_charge": 3.3
+    },
+    {
+      "id": "mem-100-4",
+      "patientId": "synthetic-patient-100",
+      "content": "Requested a written reminder before a second synthetic follow-up.",
+      "importance": 4,
+      "memoryType": "episodic",
+      "critical": false,
+      "timestamp": "2026-08-17T12:00:00Z",
+      "ttl": 2592000,
+      "vector_distance": 0.39754808122952595,
+      "request_charge": 3.3
+    },
+    {
+      "id": "mem-100-5",
+      "patientId": "synthetic-patient-100",
+      "content": "Asked for written reminder details during a third synthetic follow-up.",
+      "importance": 4,
+      "memoryType": "episodic",
+      "critical": false,
+      "timestamp": "2026-08-24T12:00:00Z",
+      "ttl": 2592000,
+      "vector_distance": 0.37310065748871923,
+      "request_charge": 3.3
+    },
+    {
+      "id": "mem-100-3",
+      "patientId": "synthetic-patient-100",
+      "content": "Requested a written reminder about the next training follow-up.",
+      "importance": 3,
+      "memoryType": "episodic",
+      "critical": false,
+      "timestamp": "2026-08-10T12:00:00Z",
+      "ttl": 2592000,
+      "vector_distance": 0.3150447688846285,
+      "request_charge": 3.3
+    }
+  ],
+  "bounded_context": {
+    "selected_ids": [
+      "mem-100-5",
+      "mem-100-2",
+      "mem-100-1",
+      "mem-100-4",
+      "mem-100-3"
+    ],
+    "token_count": 132,
+    "context": "<patient_memory>\n<memory id=\"mem-100-5\">Asked for written reminder details during a third synthetic follow-up.</memory>\n<memory id=\"mem-100-2\">Synthetic training note: reports fatigue after a medication schedule change.</memory>\n<memory id=\"mem-100-1\">Prefers morning appointments and written summaries.</memory>\n<memory id=\"mem-100-4\">Requested a written reminder before a second synthetic follow-up.</memory>\n<memory id=\"mem-100-3\">Requested a written reminder about the next training follow-up.</memory>\n</patient_memory>"
+  }
+}
+=== consistency
+{
+  "write_id": "consistency-1794403465.588119",
+  "read_id": "consistency-1794403465.588119",
+  "patientId": "synthetic-patient-100",
+  "session_token_transferred": true,
+  "request_charge": 25.51
+}
+=== prune --dry-run
+{
+  "status": "dry_run",
+  "eligible_ids": [
+    "mem-100-3",
+    "mem-100-4",
+    "mem-100-5"
+  ],
+  "deleted_count": 0
+}
+=== consolidate --dry-run
+{
+  "status": "dry_run",
+  "semantic_memory": {
+    "id": "semantic-c6b8c2798801c14c",
+    "patientId": "synthetic-patient-100",
+    "content": "Repeatedly requests written reminders before synthetic follow-ups.",
+    "importance": 3.67,
+    "memoryType": "semantic_pattern",
+    "critical": false,
+    "timestamp": "2026-11-11T13:24:54.549077+00:00",
+    "ttl": 2592000,
+    "schemaVersion": "1.0",
+    "sourceMemoryIds": [
+      "mem-100-3",
+      "mem-100-4",
+      "mem-100-5"
+    ],
+    "reviewerId": "reviewer-07",
+    "retentionPolicy": "preserve-source-lineage"
+  },
+  "source_count": 3
+}
+=== consolidate (apply)
+{
+  "status": "consolidated",
+  "semantic_memory_id": "semantic-c6b8c2798801c14c",
+  "source_memory_ids": [
+    "mem-100-3",
+    "mem-100-4",
+    "mem-100-5"
+  ],
+  "source_records_retained": true,
+  "ttl": 2592000,
+  "write_diagnostics": {
+    "transactional_batch": true,
+    "operation_count": 4
+  }
+}
+=== Task 6 step 8: consolidate retry (apply)
+{
+  "status": "already_consolidated",
+  "semantic_memory_id": "semantic-c6b8c2798801c14c",
+  "source_memory_ids": [
+    "mem-100-3",
+    "mem-100-4",
+    "mem-100-5"
+  ],
+  "source_records_retained": true,
+  "ttl": 2592000
+}
+=== Task 6 step 10: prune (apply)
+{
+  "status": "applied",
+  "eligible_ids": [
+    "mem-100-3",
+    "mem-100-4",
+    "mem-100-5"
+  ],
+  "deleted_count": 3
+}

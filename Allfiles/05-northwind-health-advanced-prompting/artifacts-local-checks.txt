@@ -1,0 +1,38 @@
+== py_compile
+OK
+== preflight
+PASS python_3_11
+PASS prompt_versions
+PASS synthetic_cases
+PASS syntax
+== unittest
+test_invalid_structured_output_is_rejected (tests.test_fail_closed.FailClosedGuardrailTests.test_invalid_structured_output_is_rejected) ... ok
+test_malicious_prompt_is_rejected (tests.test_fail_closed.FailClosedGuardrailTests.test_malicious_prompt_is_rejected) ... ok
+test_required_tool_call_cannot_be_skipped (tests.test_fail_closed.FailClosedGuardrailTests.test_required_tool_call_cannot_be_skipped) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+OK
+== dataset_prep
+{
+  "manifest_version": "1.0",
+  "source": {
+    "path": "assets/prompt-cases.jsonl",
+    "sha256": "216a66fb7a22d68c6d06bfbfb7f844d6d0cee4212d659f0cada55509e2a35ed6",
+    "record_count": 3
+  },
+  "output": {
+    "path": "artifacts-training-candidates.jsonl",
+    "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+    "record_count": 0
+  },
+  "provenance": [],
+  "filters": [
+    "reviewed=true",
+    "deidentified=true",
+    "consent=synthetic",
+    "schema-valid"
+  ],
+  "reviewer_ids": []
+}

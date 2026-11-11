@@ -1,0 +1,17 @@
+== cross-tenant send
+{
+  "detail": "Tenant is unavailable"
+}
+== cosmos data-explorer equivalents
+registry risk-east-v1: {'tenantId': 'contoso', 'health': 'healthy', 'heartbeat': 1794403529, 'ttl': 300, 'url': 'http://127.0.0.1:8000/a2a'}
+tasks task-001 contributions: ['compliance-agent', 'risk-agent', 'supervisor-agent'] False "3b003012-0000-0200-0000-6af46d140000"
+audit: {'id': 'ad793c4d-b5cc-4be7-830b-fe148db81a66', 'taskId': 'task-001', 'resolution': 'priority', 'chosenAgent': 'compliance-agent', 'candidates': [{'agent_id': 'risk-agent', 'role': 'risk'}, {'agent_id': 'compliance-agent', 'role': 'compliance'}]}
+fabrikam partition docs: []
+== uvicorn access log
+INFO:     127.0.0.1:62995 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62996 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62997 - "GET /.well-known/agent-card.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63045 - "POST /a2a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51782 - "GET /.well-known/agent-card.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59088 - "POST /a2a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59272 - "POST /a2a HTTP/1.1" 400 Bad Request

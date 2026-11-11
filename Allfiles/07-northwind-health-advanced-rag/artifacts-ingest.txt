@@ -1,0 +1,8 @@
+{
+  "fixed-overlap:formulary": 6,
+  "fixed-overlap:guidelines": 5,
+  "fixed-overlap:labs": 5,
+  "structural-parent-child:formulary": 4,
+  "structural-parent-child:guidelines": 4,
+  "structural-parent-child:labs": 4
+}

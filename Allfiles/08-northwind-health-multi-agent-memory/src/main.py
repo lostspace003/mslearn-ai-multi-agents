@@ -35,6 +35,7 @@ def _parser() -> argparse.ArgumentParser:
     consolidate.add_argument("--summary", required=True)
     consolidate.add_argument("--reviewer-id", required=True)
     consolidate.add_argument("--dry-run", action="store_true")
+    consolidate.add_argument("--min-confidence", type=float, default=None)
     return parser
 
 
@@ -82,6 +83,7 @@ async def _run() -> None:
                 args.summary,
                 args.reviewer_id,
                 args.dry_run,
+                args.min_confidence,
             )
         print(json.dumps(output, indent=2, default=str))
     finally:

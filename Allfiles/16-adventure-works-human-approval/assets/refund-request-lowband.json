@@ -1,0 +1,16 @@
+{
+  "request_id": "SYN-REFUND-1603-LOWBAND",
+  "action": "refund_exception",
+  "financial_amount": 120.0,
+  "customers_affected": 1,
+  "reversible": true,
+  "requires_exception": false,
+  "ambiguity_detected": false,
+  "raw_confidence": 0.62,
+  "calibrated_confidence": 0.78,
+  "customer_tier": "synthetic-gold",
+  "recommendation": "Approve a return-window exception because the synthetic carrier delay consumed 18 days.",
+  "policy_version": "return-policy-v5",
+  "trace_id": "SYN-TRACE-1603",
+  "review_timeout_minutes": 30
+}

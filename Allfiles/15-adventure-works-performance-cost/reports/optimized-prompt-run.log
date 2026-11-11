@@ -1,0 +1,97 @@
+{
+  "policy": "optimized",
+  "request_count": 3,
+  "successful_count": 2,
+  "total_cost_usd": 0.000783,
+  "total_input_tokens": 246,
+  "total_output_tokens": 133,
+  "retry_rate": 0.0,
+  "quality_mean": 77.67,
+  "latency_p50_ms": 1666.4,
+  "latency_p95_ms": 3628.1,
+  "price_version": "verified-2026-10-01-global-standard",
+  "evidence": [
+    {
+      "request_id": "SYN-LOOKUP-001",
+      "policy": "optimized",
+      "initial_tier": 2,
+      "final_tier": 2,
+      "cache_hit": false,
+      "cache_level": "prompt",
+      "prompt_cache_hit": true,
+      "deployment": "gpt-5.4-mini",
+      "price_version": "verified-2026-10-01-global-standard",
+      "elapsed_ms": 3628.1,
+      "input_tokens": 117,
+      "output_tokens": 40,
+      "cost_usd": 0.000268,
+      "quality_score": 100,
+      "retry_count": 0,
+      "attempts": [
+        {
+          "tier": 2,
+          "deployment": "gpt-5.4-mini",
+          "price_version": "verified-2026-10-01-global-standard",
+          "prompt_cache_hit": true,
+          "elapsed_ms": 3628.1,
+          "input_tokens": 117,
+          "output_tokens": 40,
+          "cost_usd": 0.000268,
+          "quality_score": 100
+        }
+      ],
+      "needs_human_review": false
+    },
+    {
+      "request_id": "SYN-COMPARE-002",
+      "policy": "optimized",
+      "initial_tier": 2,
+      "final_tier": 2,
+      "cache_hit": true,
+      "cache_level": "exact_result",
+      "prompt_cache_hit": false,
+      "deployment": "gpt-5.4-mini",
+      "price_version": "verified-2026-10-01-global-standard",
+      "elapsed_ms": 0.0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cost_usd": 0.0,
+      "quality_score": 100,
+      "retry_count": 0
+    },
+    {
+      "request_id": "SYN-EXCEPTION-003",
+      "policy": "optimized",
+      "initial_tier": 3,
+      "final_tier": 3,
+      "cache_hit": false,
+      "cache_level": "prompt",
+      "prompt_cache_hit": true,
+      "deployment": "gpt-5.4-mini",
+      "price_version": "verified-2026-10-01-global-standard",
+      "elapsed_ms": 1666.4,
+      "input_tokens": 129,
+      "output_tokens": 93,
+      "cost_usd": 0.000515,
+      "quality_score": 33,
+      "retry_count": 0,
+      "attempts": [
+        {
+          "tier": 3,
+          "deployment": "gpt-5.4-mini",
+          "price_version": "verified-2026-10-01-global-standard",
+          "prompt_cache_hit": true,
+          "elapsed_ms": 1666.4,
+          "input_tokens": 129,
+          "output_tokens": 93,
+          "cost_usd": 0.000515,
+          "quality_score": 33
+        }
+      ],
+      "needs_human_review": true
+    }
+  ],
+  "cache_hit_rate": 1.0,
+  "exact_result_cache_hit_rate": 0.3333333333333333,
+  "prompt_cache_hit_rate": 0.6666666666666666
+}

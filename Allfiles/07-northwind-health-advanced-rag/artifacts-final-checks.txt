@@ -1,0 +1,92 @@
+AZURE_SEARCH_ENDPOINT configured: True
+AZURE_OPENAI_ENDPOINT configured: True
+AZURE_OPENAI_EMBEDDING_DEPLOYMENT configured: True
+Preflight passed. Live service configuration may remain unset until provisioning.
+py_compile __init__.py exit=0
+py_compile chunking.py exit=0
+py_compile config.py exit=0
+py_compile embeddings.py exit=0
+py_compile experiment.py exit=0
+py_compile index_manager.py exit=0
+py_compile ingest.py exit=0
+py_compile main.py exit=0
+py_compile router.py exit=0
+py_compile search_pipeline.py exit=0
+bicep exit=0
+
+strategy                chunk_count
+--------                -----------
+fixed-overlap                    16
+structural-parent-child          12
+
+
+
+chunk_strategy          mode     embedding_profile trial_count  mrr average_latency_ms
+--------------          ----     ----------------- -----------  --- ------------------
+fixed-overlap           hybrid   baseline                    5 1.00            4811.82
+structural-parent-child hybrid   baseline                    5 1.00            4509.75
+fixed-overlap           hybrid   content-aware               5 1.00            4487.89
+structural-parent-child hybrid   content-aware               5 1.00            4238.46
+fixed-overlap           semantic not-applicable              5 1.00            3756.20
+structural-parent-child semantic not-applicable              5 1.00            3550.82
+fixed-overlap           vector   baseline                    5 1.00            5742.13
+structural-parent-child vector   baseline                    5 1.00            4968.05
+fixed-overlap           vector   content-aware               5 1.00            5031.84
+structural-parent-child vector   content-aware               5 1.00            4354.60
+
+
+
+query                                                      index                   chunk_strategy          mode     embedding_profile reciprocal_rank latency_ms
+-----                                                      -----                   --------------          ----     ----------------- --------------- ----------
+atorvastatin contraindications                             northwind-formulary-v1  fixed-overlap           hybrid   baseline                     1.00    5017.27
+atorvastatin contraindications                             northwind-formulary-v1  structural-parent-child hybrid   baseline                     1.00    4475.37
+atorvastatin contraindications                             northwind-formulary-v1  fixed-overlap           hybrid   content-aware                1.00    4542.79
+atorvastatin contraindications                             northwind-formulary-v1  structural-parent-child hybrid   content-aware                1.00    4083.91
+atorvastatin contraindications                             northwind-formulary-v1  fixed-overlap           semantic not-applicable               1.00    3796.23
+atorvastatin contraindications                             northwind-formulary-v1  structural-parent-child semantic not-applicable               1.00    3716.18
+atorvastatin contraindications                             northwind-formulary-v1  fixed-overlap           vector   baseline                     1.00    8338.41
+atorvastatin contraindications                             northwind-formulary-v1  structural-parent-child vector   baseline                     1.00    4962.72
+atorvastatin contraindications                             northwind-formulary-v1  fixed-overlap           vector   content-aware                1.00    4444.88
+atorvastatin contraindications                             northwind-formulary-v1  structural-parent-child vector   content-aware                1.00    4790.33
+How should diabetes therapy and monitoring be coordinated? northwind-formulary-v1  fixed-overlap           hybrid   baseline                     1.00    5895.10
+How should diabetes therapy and monitoring be coordinated? northwind-formulary-v1  structural-parent-child hybrid   baseline                     1.00    4314.01
+How should diabetes therapy and monitoring be coordinated? northwind-formulary-v1  fixed-overlap           hybrid   content-aware                1.00    4403.93
+How should diabetes therapy and monitoring be coordinated? northwind-formulary-v1  structural-parent-child hybrid   content-aware                1.00    3823.60
+How should diabetes therapy and monitoring be coordinated? northwind-formulary-v1  fixed-overlap           semantic not-applicable               1.00    3716.31
+How should diabetes therapy and monitoring be coordinated? northwind-formulary-v1  structural-parent-child semantic not-applicable               1.00    3337.58
+How should diabetes therapy and monitoring be coordinated? northwind-formulary-v1  fixed-overlap           vector   baseline                     1.00    6141.35
+How should diabetes therapy and monitoring be coordinated? northwind-formulary-v1  structural-parent-child vector   baseline                     1.00    4832.94
+How should diabetes therapy and monitoring be coordinated? northwind-formulary-v1  fixed-overlap           vector   content-aware                1.00    7529.63
+How should diabetes therapy and monitoring be coordinated? northwind-formulary-v1  structural-parent-child vector   content-aware                1.00    5064.68
+How should diabetes therapy and monitoring be coordinated? northwind-guidelines-v1 fixed-overlap           hybrid   baseline                     1.00    4503.57
+How should diabetes therapy and monitoring be coordinated? northwind-guidelines-v1 structural-parent-child hybrid   baseline                     1.00    4535.41
+How should diabetes therapy and monitoring be coordinated? northwind-guidelines-v1 fixed-overlap           hybrid   content-aware                1.00    4098.51
+How should diabetes therapy and monitoring be coordinated? northwind-guidelines-v1 structural-parent-child hybrid   content-aware                1.00    4223.15
+How should diabetes therapy and monitoring be coordinated? northwind-guidelines-v1 fixed-overlap           semantic not-applicable               1.00    3607.98
+How should diabetes therapy and monitoring be coordinated? northwind-guidelines-v1 structural-parent-child semantic not-applicable               1.00    3356.25
+How should diabetes therapy and monitoring be coordinated? northwind-guidelines-v1 fixed-overlap           vector   baseline                     1.00    4770.29
+How should diabetes therapy and monitoring be coordinated? northwind-guidelines-v1 structural-parent-child vector   baseline                     1.00    5524.05
+How should diabetes therapy and monitoring be coordinated? northwind-guidelines-v1 fixed-overlap           vector   content-aware                1.00    5358.37
+How should diabetes therapy and monitoring be coordinated? northwind-guidelines-v1 structural-parent-child vector   content-aware                1.00    3720.76
+How should diabetes therapy and monitoring be coordinated? northwind-labs-v1       fixed-overlap           hybrid   baseline                     1.00    4199.69
+How should diabetes therapy and monitoring be coordinated? northwind-labs-v1       structural-parent-child hybrid   baseline                     1.00    4696.94
+How should diabetes therapy and monitoring be coordinated? northwind-labs-v1       fixed-overlap           hybrid   content-aware                1.00    4607.13
+How should diabetes therapy and monitoring be coordinated? northwind-labs-v1       structural-parent-child hybrid   content-aware                1.00    3937.57
+How should diabetes therapy and monitoring be coordinated? northwind-labs-v1       fixed-overlap           semantic not-applicable               1.00    3476.94
+How should diabetes therapy and monitoring be coordinated? northwind-labs-v1       structural-parent-child semantic not-applicable               1.00    3379.47
+How should diabetes therapy and monitoring be coordinated? northwind-labs-v1       fixed-overlap           vector   baseline                     1.00    4645.92
+How should diabetes therapy and monitoring be coordinated? northwind-labs-v1       structural-parent-child vector   baseline                     1.00    4853.53
+How should diabetes therapy and monitoring be coordinated? northwind-labs-v1       fixed-overlap           vector   content-aware                1.00    4020.93
+How should diabetes therapy and monitoring be coordinated? northwind-labs-v1       structural-parent-child vector   content-aware                1.00    4402.47
+What A1C range requires follow-up?                         northwind-labs-v1       fixed-overlap           hybrid   baseline                     1.00    4443.47
+What A1C range requires follow-up?                         northwind-labs-v1       structural-parent-child hybrid   baseline                     1.00    4527.01
+What A1C range requires follow-up?                         northwind-labs-v1       fixed-overlap           hybrid   content-aware                1.00    4787.08
+What A1C range requires follow-up?                         northwind-labs-v1       structural-parent-child hybrid   content-aware                1.00    5124.09
+What A1C range requires follow-up?                         northwind-labs-v1       fixed-overlap           semantic not-applicable               1.00    4183.55
+What A1C range requires follow-up?                         northwind-labs-v1       structural-parent-child semantic not-applicable               1.00    3964.64
+What A1C range requires follow-up?                         northwind-labs-v1       fixed-overlap           vector   baseline                     1.00    4814.67
+What A1C range requires follow-up?                         northwind-labs-v1       structural-parent-child vector   baseline                     1.00    4667.01
+What A1C range requires follow-up?                         northwind-labs-v1       fixed-overlap           vector   content-aware                1.00    3805.41
+What A1C range requires follow-up?                         northwind-labs-v1       structural-parent-child vector   content-aware                1.00    3794.77
+
+

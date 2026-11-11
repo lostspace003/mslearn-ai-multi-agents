@@ -1,0 +1,172 @@
+2026-11-11 19:00:47 +0530   46552 execution.bulk     INFO     Finished 1 / 3 lines.
+2026-11-11 19:00:47 +0530   46552 execution.bulk     INFO     Average execution time for completed lines: 5.56 seconds. Estimated time for incomplete lines: 11.12 seconds.
+2026-11-11 19:00:47 +0530   15548 execution.bulk     INFO     Finished 1 / 3 lines.
+2026-11-11 19:00:47 +0530   15548 execution.bulk     INFO     Average execution time for completed lines: 5.98 seconds. Estimated time for incomplete lines: 11.96 seconds.
+2026-11-11 19:00:47 +0530   13668 execution.bulk     INFO     Finished 1 / 3 lines.
+2026-11-11 19:00:47 +0530   13668 execution.bulk     INFO     Average execution time for completed lines: 6.03 seconds. Estimated time for incomplete lines: 12.06 seconds.
+2026-11-11 19:00:48 +0530   13668 execution.bulk     INFO     Finished 2 / 3 lines.
+2026-11-11 19:00:48 +0530   13668 execution.bulk     INFO     Average execution time for completed lines: 3.07 seconds. Estimated time for incomplete lines: 3.07 seconds.
+2026-11-11 19:00:48 +0530   32356 execution.bulk     INFO     Finished 1 / 3 lines.
+2026-11-11 19:00:48 +0530   32356 execution.bulk     INFO     Average execution time for completed lines: 6.28 seconds. Estimated time for incomplete lines: 12.56 seconds.
+2026-11-11 19:00:48 +0530   13668 execution.bulk     INFO     Finished 3 / 3 lines.
+2026-11-11 19:00:48 +0530   13668 execution.bulk     INFO     Average execution time for completed lines: 2.11 seconds. Estimated time for incomplete lines: 0.0 seconds.
+Aggregated metrics for evaluator is not a dictionary will not be logged as metrics
+======= Run Summary =======
+
+Run name: "intent_resolution_20261111_133041_958970"
+Run status: "Completed"
+Start time: "2026-11-11 13:30:41.958970+00:00"
+Duration: "0:00:07.049025"
+
+2026-11-11 19:00:49 +0530   15548 execution.bulk     INFO     Finished 2 / 3 lines.
+2026-11-11 19:00:49 +0530   15548 execution.bulk     INFO     Average execution time for completed lines: 3.98 seconds. Estimated time for incomplete lines: 3.98 seconds.
+2026-11-11 19:00:50 +0530   15548 execution.bulk     INFO     Finished 3 / 3 lines.
+2026-11-11 19:00:50 +0530   15548 execution.bulk     INFO     Average execution time for completed lines: 2.75 seconds. Estimated time for incomplete lines: 0.0 seconds.
+2026-11-11 19:00:50 +0530   46552 execution.bulk     INFO     Finished 2 / 3 lines.
+2026-11-11 19:00:50 +0530   46552 execution.bulk     INFO     Average execution time for completed lines: 4.17 seconds. Estimated time for incomplete lines: 4.17 seconds.
+2026-11-11 19:00:50 +0530   32356 execution.bulk     INFO     Finished 2 / 3 lines.
+2026-11-11 19:00:50 +0530   32356 execution.bulk     INFO     Average execution time for completed lines: 4.46 seconds. Estimated time for incomplete lines: 4.46 seconds.
+2026-11-11 19:00:50 +0530   32356 execution.bulk     INFO     Finished 3 / 3 lines.
+2026-11-11 19:00:50 +0530   32356 execution.bulk     INFO     Average execution time for completed lines: 2.98 seconds. Estimated time for incomplete lines: 0.0 seconds.
+======= Run Summary =======
+
+Run name: "journey_coherence_20261111_133041_963787"
+Run status: "Completed"
+Start time: "2026-11-11 13:30:41.963787+00:00"
+Duration: "0:00:09.076786"
+
+======= Run Summary =======
+
+Run name: "response_completeness_20261111_133041_966901"
+Run status: "Completed"
+Start time: "2026-11-11 13:30:41.966901+00:00"
+Duration: "0:00:09.074776"
+
+2026-11-11 19:00:54 +0530   46552 execution.bulk     INFO     Finished 3 / 3 lines.
+2026-11-11 19:00:54 +0530   46552 execution.bulk     INFO     Average execution time for completed lines: 4.06 seconds. Estimated time for incomplete lines: 0.0 seconds.
+Aggregated metrics for evaluator is not a dictionary will not be logged as metrics
+Aggregated metrics for evaluator is not a dictionary will not be logged as metrics
+Aggregated metrics for evaluator is not a dictionary will not be logged as metrics
+======= Run Summary =======
+
+Run name: "task_adherence_20261111_133041_965685"
+Run status: "Completed"
+Start time: "2026-11-11 13:30:41.965685+00:00"
+Duration: "0:00:13.108959"
+
+======= Combined Run Summary (Per Evaluator) =======
+
+{
+    "intent_resolution": {
+        "status": "Completed",
+        "duration": "0:00:07.049025",
+        "completed_lines": 3,
+        "failed_lines": 0,
+        "log_path": null,
+        "per_line_errors": {},
+        "error_message": null,
+        "error_code": null
+    },
+    "task_adherence": {
+        "status": "Completed",
+        "duration": "0:00:13.108959",
+        "completed_lines": 3,
+        "failed_lines": 0,
+        "log_path": null,
+        "per_line_errors": {},
+        "error_message": null,
+        "error_code": null
+    },
+    "response_completeness": {
+        "status": "Completed",
+        "duration": "0:00:09.074776",
+        "completed_lines": 3,
+        "failed_lines": 0,
+        "log_path": null,
+        "per_line_errors": {},
+        "error_message": null,
+        "error_code": null
+    },
+    "journey_coherence": {
+        "status": "Completed",
+        "duration": "0:00:09.076786",
+        "completed_lines": 3,
+        "failed_lines": 0,
+        "log_path": null,
+        "per_line_errors": {},
+        "error_message": null,
+        "error_code": null
+    }
+}
+
+====================================================
+
+Evaluation results saved to "C:/Users/<user>\Desktop\mslearn-ai-multi-agents\Allfiles\14-adventure-works-evaluation-frameworks\reports\evaluation-result-contradiction.rows.jsonl".
+
+{
+  "dataset": "assets\\evaluation-data-contradiction.jsonl",
+  "deployment": "gpt-5.4-mini",
+  "evaluators": [
+    "intent_resolution",
+    "journey_coherence",
+    "response_completeness",
+    "task_adherence"
+  ],
+  "metrics": {
+    "intent_resolution.intent_resolution": 1.6666666666666667,
+    "task_adherence.task_adherence": 0.0,
+    "response_completeness.response_completeness": 2.6666666666666665,
+    "journey_coherence.journey_coherence": 3.0
+  },
+  "gate": {
+    "passed": false,
+    "failed_gates": [
+      "journey_coherence.journey_coherence",
+      "intent_resolution.intent_resolution",
+      "task_adherence.task_adherence",
+      "response_completeness.response_completeness",
+      "judge_calibration"
+    ],
+    "comparisons": [
+      {
+        "metric": "journey_coherence.journey_coherence",
+        "measured": 3.0,
+        "baseline": 4.4,
+        "delta": -1.4,
+        "minimum": 4.0,
+        "maximum_drop": 0.3,
+        "passed": false
+      },
+      {
+        "metric": "intent_resolution.intent_resolution",
+        "measured": 1.6666666666666667,
+        "baseline": 4.5,
+        "delta": -2.8333,
+        "minimum": 4.0,
+        "maximum_drop": 0.3,
+        "passed": false
+      },
+      {
+        "metric": "task_adherence.task_adherence",
+        "measured": 0.0,
+        "baseline": 1.0,
+        "delta": -1.0,
+        "minimum": 0.67,
+        "maximum_drop": 0.33,
+        "passed": false
+      },
+      {
+        "metric": "response_completeness.response_completeness",
+        "measured": 2.6666666666666665,
+        "baseline": 4.2,
+        "delta": -1.5333,
+        "minimum": 3.8,
+        "maximum_drop": 0.4,
+        "passed": false
+      }
+    ],
+    "calibration_agreement": 0.6666666666666666,
+    "minimum_calibration_agreement": 0.67
+  },
+  "row_count": 3
+}

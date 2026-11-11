@@ -1,0 +1,188 @@
+INFO DefaultAzureCredential acquired a token from AzureCliCredential
+INFO Request URL: 'https://fdry2oor6hpbx2yki.services.ai.azure.com/api/projects/lab03-lab03-bb4dd2/agents/research-planner/versions?api-version=v1'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '1017'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '761781a9-ddd3-11f1-b16f-f6c52bffa401'
+    'User-Agent': 'azsdk-python-ai-projects/2.10.0 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+INFO Response status: 200
+Response headers:
+    'Content-Type': 'application/json; charset=utf-8'
+    'Date': 'Wed, 11 Nov 2026 13:26:12 GMT'
+    'Server': 'istio-envoy'
+    'Access-Control-Expose-Headers': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+    'Vary': 'REDACTED'
+    'request-context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-request-id': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+INFO Request URL: 'https://fdry2oor6hpbx2yki.services.ai.azure.com/api/projects/lab03-lab03-bb4dd2/agents/financial-data/versions?api-version=v1'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '145'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '77fdfbe0-ddd3-11f1-8130-f6c52bffa401'
+    'User-Agent': 'azsdk-python-ai-projects/2.10.0 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+INFO Response status: 200
+Response headers:
+    'Content-Type': 'application/json; charset=utf-8'
+    'Date': 'Wed, 11 Nov 2026 13:26:12 GMT'
+    'Server': 'istio-envoy'
+    'Access-Control-Expose-Headers': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+    'Vary': 'REDACTED'
+    'request-context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-request-id': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+INFO Request URL: 'https://fdry2oor6hpbx2yki.services.ai.azure.com/api/projects/lab03-lab03-bb4dd2/agents/macro-risk/versions?api-version=v1'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '145'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '783194f7-ddd3-11f1-ab65-f6c52bffa401'
+    'User-Agent': 'azsdk-python-ai-projects/2.10.0 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+INFO Response status: 200
+Response headers:
+    'Content-Type': 'application/json; charset=utf-8'
+    'Date': 'Wed, 11 Nov 2026 13:26:13 GMT'
+    'Server': 'istio-envoy'
+    'Access-Control-Expose-Headers': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+    'Vary': 'REDACTED'
+    'request-context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-request-id': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+INFO Request URL: 'https://fdry2oor6hpbx2yki.services.ai.azure.com/api/projects/lab03-lab03-bb4dd2/agents/compliance-review/versions?api-version=v1'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '134'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '7863ef85-ddd3-11f1-bb01-f6c52bffa401'
+    'User-Agent': 'azsdk-python-ai-projects/2.10.0 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+INFO Response status: 200
+Response headers:
+    'Content-Type': 'application/json; charset=utf-8'
+    'Date': 'Wed, 11 Nov 2026 13:26:13 GMT'
+    'Server': 'istio-envoy'
+    'Access-Control-Expose-Headers': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+    'Vary': 'REDACTED'
+    'request-context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-request-id': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+INFO Request URL: 'https://fdry2oor6hpbx2yki.services.ai.azure.com/api/projects/lab03-lab03-bb4dd2/agents/thesis-synthesis/versions?api-version=v1'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '156'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '7897819c-ddd3-11f1-881f-f6c52bffa401'
+    'User-Agent': 'azsdk-python-ai-projects/2.10.0 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+INFO Response status: 200
+Response headers:
+    'Content-Type': 'application/json; charset=utf-8'
+    'Date': 'Wed, 11 Nov 2026 13:26:13 GMT'
+    'Server': 'istio-envoy'
+    'Access-Control-Expose-Headers': 'REDACTED'
+    'Content-Encoding': 'REDACTED'
+    'Transfer-Encoding': 'chunked'
+    'Vary': 'REDACTED'
+    'request-context': 'REDACTED'
+    'x-ms-response-type': 'REDACTED'
+    'x-request-id': 'REDACTED'
+    'api-supported-versions': 'REDACTED'
+    'azureml-served-by-cluster': 'REDACTED'
+    'apim-request-id': 'REDACTED'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'x-ms-region': 'REDACTED'
+INFO AzureCliCredential.get_token_info succeeded
+INFO DefaultAzureCredential acquired a token from AzureCliCredential
+INFO HTTP Request: POST https://fdry2oor6hpbx2yki.services.ai.azure.com/api/projects/lab03-lab03-bb4dd2/agents/research-planner/endpoint/protocols/openai/responses?api-version=v1 "HTTP/1.1 200 OK"
+INFO AzureCliCredential.get_token_info succeeded
+INFO DefaultAzureCredential acquired a token from AzureCliCredential
+INFO HTTP Request: POST https://fdry2oor6hpbx2yki.services.ai.azure.com/api/projects/lab03-lab03-bb4dd2/agents/financial-data/endpoint/protocols/openai/responses?api-version=v1 "HTTP/1.1 200 OK"
+INFO AzureCliCredential.get_token_info succeeded
+INFO DefaultAzureCredential acquired a token from AzureCliCredential
+INFO HTTP Request: POST https://fdry2oor6hpbx2yki.services.ai.azure.com/api/projects/lab03-lab03-bb4dd2/agents/thesis-synthesis/endpoint/protocols/openai/responses?api-version=v1 "HTTP/1.1 200 OK"
+{
+  "planner_response_id": "resp_01fd7c0dedb8e491006af46cf8d4d48190b5700d042e7a0111",
+  "plan": [
+    {
+      "id": "T1",
+      "objective": "Assess the fictional issuer under changing rates using synthetic facts, focusing on financial observations and evidence gaps relevant to diligence.",
+      "agent": "financial-data",
+      "depends_on": [],
+      "expected_schema": "{\"issuer_assessment\":\"string\",\"financial_observations\":[\"string\"],\"evidence_gaps\":[\"string\"],\"rate_sensitivity_notes\":[\"string\"]}"
+    },
+    {
+      "id": "T2",
+      "objective": "Synthesize the supplied evidence into a caveated diligence recommendation for the fictional issuer under changing rates, identifying missing evidence only from the provided task output.",
+      "agent": "thesis-synthesis",
+      "depends_on": [
+        "T1"
+      ],
+      "expected_schema": "{\"recommendation\":\"string\",\"thesis\":\"string\",\"caveats\":[\"string\"],\"missing_evidence\":[\"string\"]}"
+    }
+  ],
+  "task_count": 2,
+  "handoff_count": 2,
+  "replan_count": 1,
+  "coordination_ratio": 1.0,
+  "elapsed_ms": 22398,
+  "results": {
+    "T1": {
+      "status": "success",
+      "response_id": "resp_05cc80f95279568a006af46cfd7a288194a67b9dcd37c2d163",
+      "summary": "{\n  \"issuer_assessment\": \"The fictional issuer appears moderately exposed to changing interest rates, with financial flexibility likely dependent on refinancing access, debt maturity profile, and the stability of operating cash flows. Based on synthetic facts only, the issuer should be treated as a rate-sensitive credit that warrants closer diligence on leverage, liquidity, and hedging.\",\n  \"financial_observations\": [\n    \"Synthetic balance-sheet profile suggests leverage may be elevated relative to cash generation, increasing sensitivity to higher borrowing costs.\",\n    \"Interest expense could rise meaningfully if floating-rate debt or near-term refinancing is material.\",\n    \"Liquidity appears adequate on a near-term basis only if committed facilities remain available and covenant headroom is preserved.\",\n    \"Cash flow coverage may compress under a higher-rate scenario, especially if margins are already under pressure.\",\n    \"Any asset base with long-duration cash flows may provide some natural offset, but this depends on the issuer's ability to pass through costs.\"\n  ],\n  \"evidence_gaps\": [\n    \"No verified debt maturity schedule is provided, limiting assessment of refinancing risk.\",\n    \"No disclosure on fixed-versus-floating rate debt mix is available.\",\n    \"No interest rate hedge documentation or derivative notional amounts are available.\",\n    \"No covenant package, headroom, or trigger levels are disclosed.\",\n    \"No historical EBITDA, free cash flow, or interest coverage trend data is provided.\",\n    \"No details on committed liquidity sources, revolver capacity, or availability conditions are available.\"\n  ],\n  \"rate_sensitivity_notes\": [\n    \"If a larger share of debt is floating-rate, earnings and cash flow would deteriorate more quickly as rates rise.\",\n    \"If debt maturities cluster in the next 12 to 24 months, refinancing at higher coupons could materially weaken coverage ratios.\",\n    \"If the issuer has strong pricing power, some rate pressure may be offset through margin preservation, but this should be verified.\",\n    \"A meaningful hedge book would reduce near-term sensitivity, though hedge effectiveness and rollover timing remain key risks.\",\n    \"Stress testing should focus on higher base rates, wider spreads, and slower operating growth to capture combined downside effects.\"\n  ]\n}"
+    },
+    "T2": {
+      "status": "success",
+      "response_id": "resp_04bdb7044bba1e45006af46d058cb081909eac5c2c30682633",
+      "summary": "{\"recommendation\":\"Proceed only with caution. The synthetic evidence suggests the issuer is moderately exposed to rising rates and should be treated as a rate-sensitive credit until leverage, liquidity, refinancing, and hedging are verified. A positive diligence view would require confirmation that debt maturities are manageable, liquidity is durable, and any floating-rate exposure is meaningfully hedged.\",\"thesis\":\"Based only on the supplied synthetic facts, the issuer\u2019s credit profile appears vulnerable to higher interest rates because elevated leverage, possible floating-rate debt exposure, and refinancing risk could pressure interest coverage and free cash flow. That said, the evidence is incomplete, so the severity of the risk cannot be confirmed. The appropriate conclusion is a cautious, provisional stance: changing rates could be manageable if the issuer has long-dated fixed-rate debt, strong committed liquidity, covenant headroom, and effective hedging, but none of those mitigants are evidenced here.\",\"caveats\":[\"This is a synthetic, evidence-limited assessment and should not be treated as a confirmed credit view.\",\"The issuer\u2019s true sensitivity depends heavily on debt maturity timing, fixed-versus-floating mix, and refinancing access.\",\"Liquidity risk may be understated if revolver availability or covenant headroom is weaker than assumed.\",\"Any apparent resilience from operating cash flow could reverse if margins compress or rates rise faster than expected.\",\"A meaningful hedge book could reduce near-term exposure, but hedge effectiveness and rollover timing are unknown.\"],\"missing_evidence\":[\"No verified debt maturity schedule is provided, limiting assessment of refinancing risk.\",\"No disclosure on fixed-versus-floating rate debt mix is available.\",\"No interest rate hedge documentation or derivative notional amounts are available.\",\"No covenant package, headroom, or trigger levels are disclosed.\",\"No historical EBITDA, free cash flow, or interest coverage trend data is provided.\",\"No details on committed liquidity sources, revolver capacity, or availability conditions are available.\"]}"
+    }
+  }
+}

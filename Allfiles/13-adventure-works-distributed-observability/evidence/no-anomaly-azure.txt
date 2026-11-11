@@ -1,0 +1,96 @@
+adventureworks.agent.observation
+adventureworks.agent.observation
+adventureworks.agent.observation
+adventureworks.chain.summary
+DefaultAzureCredential acquired a token from AzureCliCredential
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '4851'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '02d3b71c-ddd5-11f1-8cb5-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+DefaultAzureCredential acquired a token from AzureCliCredential
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '5788'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '03452d04-ddd5-11f1-8fb7-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:37:18 GMT'
+Transmission succeeded: Item received: 4. Items accepted: 4
+Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:37:19 GMT'
+Transmission succeeded: Item received: 4. Items accepted: 4
+Shutdown called, ignoring Span.
+AzureCliCredential.get_token_info succeeded
+DefaultAzureCredential acquired a token from AzureCliCredential
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '5111'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '058e9c6c-ddd5-11f1-b554-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:37:23 GMT'
+Transmission succeeded: Item received: 8. Items accepted: 8
+AzureCliCredential.get_token_info succeeded
+DefaultAzureCredential acquired a token from AzureCliCredential
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '2104'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '082c7bda-ddd5-11f1-9e7e-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+Response status: 200
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:37:27 GMT'
+    'Connection': 'close'
+Transmission succeeded: Item received: 3. Items accepted: 3
+{
+  "correlation_complete": true,
+  "trace_id": "273e9591bc0601e1196bc259289f61b4",
+  "span_count": 3,
+  "anomalies": [],
+  "error_rate": 0.0,
+  "error_rate_anomaly": false
+}

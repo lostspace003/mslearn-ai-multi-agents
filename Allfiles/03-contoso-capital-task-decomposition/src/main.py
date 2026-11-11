@@ -13,21 +13,136 @@ load_dotenv(Path(__file__).resolve().parents[1] / ".env")
 def validate_plan(plan: dict[str, Any], registry: dict[str, Any]) -> None:
     """Learner task: validate IDs, capabilities, dependencies, DAG, and final task."""
     # LAB PLACEHOLDER 1: Replace this line with the Task 1 sample.
-    raise NotImplementedError("Complete validate_plan in Task 1")
+    tasks = plan.get("tasks")
+    if not isinstance(tasks, list) or not 1 <= len(tasks) <= 6:
+        raise ValueError("Plan must contain between 1 and 6 tasks")
+
+    task_ids = [task.get("id") for task in tasks]
+    if any(not isinstance(task_id, str) or not task_id for task_id in task_ids):
+        raise ValueError("Every task requires a nonempty string ID")
+    if len(task_ids) != len(set(task_ids)):
+        raise ValueError("Task IDs must be unique")
+
+    known_ids = set(task_ids)
+    for task in tasks:
+        if task.get("agent") not in registry:
+            raise ValueError(f"Unknown agent for task {task['id']}")
+        dependencies = task.get("depends_on", [])
+        if not isinstance(dependencies, list):
+            raise ValueError(f"depends_on must be a list for task {task['id']}")
+        if task["id"] in dependencies or not set(dependencies) <= known_ids:
+            raise ValueError(f"Invalid dependency for task {task['id']}")
+
+    remaining = {
+        task["id"]: set(task.get("depends_on", []))
+        for task in tasks
+    }
+    resolved: set[str] = set()
+    while remaining:
+        ready = {
+            task_id
+            for task_id, dependencies in remaining.items()
+            if dependencies <= resolved
+        }
+        if not ready:
+            raise ValueError("Plan dependencies contain a cycle")
+        resolved.update(ready)
+        remaining = {
+            task_id: dependencies
+            for task_id, dependencies in remaining.items()
+            if task_id not in ready
+        }
+
+    synthesis_tasks = [
+        task for task in tasks if task["agent"] == "thesis-synthesis"
+    ]
+    if len(synthesis_tasks) != 1:
+        raise ValueError("The plan must contain exactly one thesis-synthesis task")
+    synthesis = synthesis_tasks[0]
+    non_synthesis_dependency_ids = {
+        dependency
+        for task in tasks
+        if task["id"] != synthesis["id"]
+        for dependency in task.get("depends_on", [])
+    }
+    terminal_evidence_ids = {
+        task["id"]
+        for task in tasks
+        if task["id"] not in non_synthesis_dependency_ids and task["id"] != synthesis["id"]
+    }
+    if set(synthesis.get("depends_on", [])) != terminal_evidence_ids:
+        raise ValueError(
+            "The thesis-synthesis task must depend on every terminal evidence task"
+        )
+    if any(synthesis["id"] in task.get("depends_on", []) for task in tasks):
+        raise ValueError("No task can depend on the thesis-synthesis task")
 
 def ready_tasks(tasks: list[dict[str, Any]], completed: dict[str, Any]) -> list[dict[str, Any]]:
     """Learner task: select dependency-ready tasks or identify a deadlock."""
     # LAB PLACEHOLDER 2: Replace this line with the Task 2 sample.
-    raise NotImplementedError("Complete ready_tasks in Task 2")
+    unfinished = [task for task in tasks if task["id"] not in completed]
+    ready = [
+        task
+        for task in unfinished
+        if all(
+            completed.get(dependency, {}).get("status") == "success"
+            for dependency in task.get("depends_on", [])
+        )
+    ]
+    if unfinished and not ready:
+        blocked = ", ".join(task["id"] for task in unfinished)
+        raise RuntimeError(f"Plan deadlock: blocked tasks: {blocked}")
+    return ready
 def build_handoff(task: dict[str, Any], completed: dict[str, Any], correlation_id: str) -> dict[str, Any]:
     """Learner task: construct and size-check a context-preserving envelope."""
     # LAB PLACEHOLDER 3: Replace this line with the Task 3 sample.
-    raise NotImplementedError("Complete build_handoff in Task 3")
+    max_chars = int(os.getenv("MAX_HANDOFF_CHARS", "6000"))
+    dependencies = task.get("depends_on", [])
+    summary_limit = max(256, max_chars // max(2, len(dependencies) + 1))
+    dependency_context = [
+        {
+            "task_id": dependency,
+            "response_id": completed[dependency]["response_id"],
+            "summary": completed[dependency]["summary"][:summary_limit],
+        }
+        for dependency in dependencies
+    ]
+    envelope = {
+        "task_id": task["id"],
+        "objective": task["objective"],
+        "dependency_context": dependency_context,
+        "source_response_ids": [
+            item["response_id"] for item in dependency_context
+        ],
+        "expected_schema": task["expected_schema"],
+        "deadline_seconds": int(os.getenv("HANDOFF_DEADLINE_SECONDS", "45")),
+        "correlation_id": correlation_id,
+    }
+    if len(json.dumps(envelope)) > max_chars:
+        raise ValueError("Handoff envelope exceeds MAX_HANDOFF_CHARS")
+    return envelope
 
 def should_replan(result: dict[str, Any], replan_count: int) -> bool:
     """Learner task: allow one evidence-driven replan only."""
     # LAB PLACEHOLDER 4: Replace this line with the Task 4 sample.
-    raise NotImplementedError("Complete should_replan in Task 4")
+    if replan_count >= 1:
+        return False
+    if result.get("status") != "success":
+        return True
+
+    try:
+        payload = json.loads(result.get("summary", "{}"))
+    except json.JSONDecodeError:
+        return False
+
+    status = str(payload.get("status", "")).lower()
+    confidence = payload.get("confidence")
+    low_confidence = isinstance(confidence, (int, float)) and confidence < 0.5
+    return (
+        status in {"missing_evidence", "capability_unavailable"}
+        or bool(payload.get("missing_evidence"))
+        or low_confidence
+    )
 
 def response_text(response: Any) -> str:
     return "\n".join(getattr(p,"text","") for i in response.output if getattr(i,"type",None)=="message" for p in getattr(i,"content",[])).strip()

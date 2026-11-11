@@ -1,0 +1,489 @@
+=== A: approved -> executed, then duplicate
+A=72ec1293-7ec7-4c35-a3d5-b4579e86e21a (submitted earlier, see artifacts-submit-A.json)
+
+>>> python -m src.main status --workflow-id 72ec1293-7ec7-4c35-a3d5-b4579e86e21a
+{
+  "id": "72ec1293-7ec7-4c35-a3d5-b4579e86e21a",
+  "workflow_id": "72ec1293-7ec7-4c35-a3d5-b4579e86e21a",
+  "state": "WAITING_FOR_REVIEW",
+  "request": {
+    "request_id": "SYN-REFUND-1601",
+    "action": "refund_exception",
+    "financial_amount": 249.99,
+    "customers_affected": 1,
+    "reversible": true,
+    "requires_exception": true,
+    "ambiguity_detected": false,
+    "raw_confidence": 0.91,
+    "calibrated_confidence": 0.78,
+    "customer_tier": "synthetic-gold",
+    "recommendation": "Approve a return-window exception because the synthetic carrier delay consumed 18 days.",
+    "policy_version": "return-policy-v5",
+    "trace_id": "SYN-TRACE-1601",
+    "review_timeout_minutes": 30
+  },
+  "risk": {
+    "risk_level": "exception",
+    "required_confidence": 1,
+    "calibrated_confidence": 0.78,
+    "requires_review": true,
+    "reason": "policy_exception"
+  },
+  "policy_version": "return-policy-v5",
+  "trace_id": "SYN-TRACE-1601",
+  "review_deadline": "2026-11-11T13:55:52.048509+00:00",
+  "version": 1,
+  "updated_at": "2026-11-11T13:25:52.048492+00:00",
+  "last_transition": {
+    "event_id": "89761efa-a294-472e-94c4-553070618536",
+    "event_type": "submitted",
+    "actor_hash": "d4f0bc5a29de06b510f9aa428f1eedba926012b591fef7a518e776a7c9bd1824",
+    "previous_state": null,
+    "new_state": "WAITING_FOR_REVIEW",
+    "timestamp": "2026-11-11T13:25:52.048492+00:00"
+  },
+  "_rid": "kKlXAOOSb08BAAAAAAAAAA==",
+  "_self": "dbs/kKlXAA==/colls/kKlXAOOSb08=/docs/kKlXAOOSb08BAAAAAAAAAA==/",
+  "_etag": "\"350153b0-0000-0200-0000-6af46ce00000\"",
+  "_attachments": "attachments/",
+  "_ts": 1794403552
+}
+
+>>> python -m src.main decide --workflow-id 72ec1293-7ec7-4c35-a3d5-b4579e86e21a --decision approved --reviewer SYN-REVIEWER-01 --comment Within exception authority --category within_authority
+{
+  "decision_event": "queued",
+  "workflow_id": "72ec1293-7ec7-4c35-a3d5-b4579e86e21a"
+}
+
+>>> python -m src.main resume
+[
+  {
+    "id": "72ec1293-7ec7-4c35-a3d5-b4579e86e21a",
+    "workflow_id": "72ec1293-7ec7-4c35-a3d5-b4579e86e21a",
+    "state": "EXECUTED",
+    "request": {
+      "request_id": "SYN-REFUND-1601",
+      "action": "refund_exception",
+      "financial_amount": 249.99,
+      "customers_affected": 1,
+      "reversible": true,
+      "requires_exception": true,
+      "ambiguity_detected": false,
+      "raw_confidence": 0.91,
+      "calibrated_confidence": 0.78,
+      "customer_tier": "synthetic-gold",
+      "recommendation": "Approve a return-window exception because the synthetic carrier delay consumed 18 days.",
+      "policy_version": "return-policy-v5",
+      "trace_id": "SYN-TRACE-1601",
+      "review_timeout_minutes": 30
+    },
+    "risk": {
+      "risk_level": "exception",
+      "required_confidence": 1,
+      "calibrated_confidence": 0.78,
+      "requires_review": true,
+      "reason": "policy_exception"
+    },
+    "policy_version": "return-policy-v5",
+    "trace_id": "SYN-TRACE-1601",
+    "review_deadline": "2026-11-11T13:55:52.048509+00:00",
+    "version": 2,
+    "updated_at": "2026-11-11T13:26:49.224072+00:00",
+    "last_transition": {
+      "event_id": "efef9472-61bb-4ca5-87f6-d5625dabe115",
+      "event_type": "decision_applied",
+      "actor_hash": "d96a36f8486f9f4480fdbafee3d7047fc4a1663683c2d0a32144caa595f9bcc5",
+      "previous_state": "WAITING_FOR_REVIEW",
+      "new_state": "EXECUTED",
+      "timestamp": "2026-11-11T13:26:49.224072+00:00"
+    },
+    "_rid": "kKlXAOOSb08BAAAAAAAAAA==",
+    "_self": "dbs/kKlXAA==/colls/kKlXAOOSb08=/docs/kKlXAOOSb08BAAAAAAAAAA==/",
+    "_etag": "\"3501e4b3-0000-0200-0000-6af46d170000\"",
+    "_attachments": "attachments/",
+    "human_review": {
+      "decision": "APPROVED",
+      "category": "within_authority",
+      "comment": "Within exception authority",
+      "reviewed_at": "2026-11-11T13:26:32.927759+00:00"
+    },
+    "execution": {
+      "mode": "synthetic",
+      "status": "completed",
+      "executed_at": "2026-11-11T13:26:49.224054+00:00"
+    },
+    "_ts": 1794403607
+  }
+]
+
+>>> python -m src.main decide --workflow-id 72ec1293-7ec7-4c35-a3d5-b4579e86e21a --decision approved --reviewer SYN-REVIEWER-01 --comment Duplicate redelivery test --category within_authority
+{
+  "decision_event": "queued",
+  "workflow_id": "72ec1293-7ec7-4c35-a3d5-b4579e86e21a"
+}
+
+>>> python -m src.main resume
+[
+  {
+    "workflow_id": "72ec1293-7ec7-4c35-a3d5-b4579e86e21a",
+    "state": "EXECUTED",
+    "duplicate": true
+  }
+]
+=== B: rejected -> closed
+>>> submit assets/refund-request.json -> f573a4d5-e0f3-4101-bcf0-818ceab38b9f state=WAITING_FOR_REVIEW
+
+>>> python -m src.main decide --workflow-id f573a4d5-e0f3-4101-bcf0-818ceab38b9f --decision rejected --reviewer SYN-REVIEWER-02 --comment Carrier delay evidence insufficient --category insufficient_evidence
+{
+  "decision_event": "queued",
+  "workflow_id": "f573a4d5-e0f3-4101-bcf0-818ceab38b9f"
+}
+
+>>> python -m src.main resume
+[
+  {
+    "id": "f573a4d5-e0f3-4101-bcf0-818ceab38b9f",
+    "workflow_id": "f573a4d5-e0f3-4101-bcf0-818ceab38b9f",
+    "state": "REJECTED",
+    "request": {
+      "request_id": "SYN-REFUND-1601",
+      "action": "refund_exception",
+      "financial_amount": 249.99,
+      "customers_affected": 1,
+      "reversible": true,
+      "requires_exception": true,
+      "ambiguity_detected": false,
+      "raw_confidence": 0.91,
+      "calibrated_confidence": 0.78,
+      "customer_tier": "synthetic-gold",
+      "recommendation": "Approve a return-window exception because the synthetic carrier delay consumed 18 days.",
+      "policy_version": "return-policy-v5",
+      "trace_id": "SYN-TRACE-1601",
+      "review_timeout_minutes": 30
+    },
+    "risk": {
+      "risk_level": "exception",
+      "required_confidence": 1,
+      "calibrated_confidence": 0.78,
+      "requires_review": true,
+      "reason": "policy_exception"
+    },
+    "policy_version": "return-policy-v5",
+    "trace_id": "SYN-TRACE-1601",
+    "review_deadline": "2026-11-11T13:57:17.840969+00:00",
+    "version": 2,
+    "updated_at": "2026-11-11T13:27:44.248211+00:00",
+    "last_transition": {
+      "event_id": "0cca2f2c-c0aa-4fab-ae3f-58ba7b395191",
+      "event_type": "decision_applied",
+      "actor_hash": "9056cba9a73c797b3b0d312c5c390f2a0b7f35db91af719fb7505ffb6df4db8f",
+      "previous_state": "WAITING_FOR_REVIEW",
+      "new_state": "REJECTED",
+      "timestamp": "2026-11-11T13:27:44.248211+00:00"
+    },
+    "_rid": "kKlXAOOSb08CAAAAAAAAAA==",
+    "_self": "dbs/kKlXAA==/colls/kKlXAOOSb08=/docs/kKlXAOOSb08CAAAAAAAAAA==/",
+    "_etag": "\"35014bb7-0000-0200-0000-6af46d4e0000\"",
+    "_attachments": "attachments/",
+    "human_review": {
+      "decision": "REJECTED",
+      "category": "insufficient_evidence",
+      "comment": "Carrier delay evidence insufficient",
+      "reviewed_at": "2026-11-11T13:27:26.494501+00:00"
+    },
+    "execution": null,
+    "_ts": 1794403662
+  }
+]
+=== C: overridden -> executed
+>>> submit assets/refund-request.json -> cf061d75-0d22-4311-9e0f-62911c7c9853 state=WAITING_FOR_REVIEW
+
+>>> python -m src.main decide --workflow-id cf061d75-0d22-4311-9e0f-62911c7c9853 --decision overridden --reviewer SYN-REVIEWER-03 --comment Supervisor override for gold tier --category supervisor_override
+{
+  "decision_event": "queued",
+  "workflow_id": "cf061d75-0d22-4311-9e0f-62911c7c9853"
+}
+
+>>> python -m src.main resume
+[
+  {
+    "id": "cf061d75-0d22-4311-9e0f-62911c7c9853",
+    "workflow_id": "cf061d75-0d22-4311-9e0f-62911c7c9853",
+    "state": "EXECUTED",
+    "request": {
+      "request_id": "SYN-REFUND-1601",
+      "action": "refund_exception",
+      "financial_amount": 249.99,
+      "customers_affected": 1,
+      "reversible": true,
+      "requires_exception": true,
+      "ambiguity_detected": false,
+      "raw_confidence": 0.91,
+      "calibrated_confidence": 0.78,
+      "customer_tier": "synthetic-gold",
+      "recommendation": "Approve a return-window exception because the synthetic carrier delay consumed 18 days.",
+      "policy_version": "return-policy-v5",
+      "trace_id": "SYN-TRACE-1601",
+      "review_timeout_minutes": 30
+    },
+    "risk": {
+      "risk_level": "exception",
+      "required_confidence": 1,
+      "calibrated_confidence": 0.78,
+      "requires_review": true,
+      "reason": "policy_exception"
+    },
+    "policy_version": "return-policy-v5",
+    "trace_id": "SYN-TRACE-1601",
+    "review_deadline": "2026-11-11T13:57:51.265222+00:00",
+    "version": 2,
+    "updated_at": "2026-11-11T13:28:17.306963+00:00",
+    "last_transition": {
+      "event_id": "7a21ff19-92b8-40d4-9d70-a6338ac95c05",
+      "event_type": "decision_applied",
+      "actor_hash": "db5a38a3bf05e46d94037745ec4be32af6774e20ca81df4fccff18df9722f3ca",
+      "previous_state": "WAITING_FOR_REVIEW",
+      "new_state": "EXECUTED",
+      "timestamp": "2026-11-11T13:28:17.306963+00:00"
+    },
+    "_rid": "kKlXAOOSb08DAAAAAAAAAA==",
+    "_self": "dbs/kKlXAA==/colls/kKlXAOOSb08=/docs/kKlXAOOSb08DAAAAAAAAAA==/",
+    "_etag": "\"35015db9-0000-0200-0000-6af46d6f0000\"",
+    "_attachments": "attachments/",
+    "human_review": {
+      "decision": "OVERRIDDEN",
+      "category": "supervisor_override",
+      "comment": "Supervisor override for gold tier",
+      "reviewed_at": "2026-11-11T13:28:00.109338+00:00"
+    },
+    "execution": {
+      "mode": "synthetic",
+      "status": "completed_after_override",
+      "executed_at": "2026-11-11T13:28:17.306949+00:00"
+    },
+    "_ts": 1794403695
+  }
+]
+=== E: cancelled -> no execution
+>>> submit assets/refund-request.json -> efa66631-84d2-4454-8d3a-ff7978172bf0 state=WAITING_FOR_REVIEW
+
+>>> python -m src.main decide --workflow-id efa66631-84d2-4454-8d3a-ff7978172bf0 --decision cancelled --reviewer SYN-REVIEWER-01 --comment Customer withdrew request --category customer_withdrew
+{
+  "decision_event": "queued",
+  "workflow_id": "efa66631-84d2-4454-8d3a-ff7978172bf0"
+}
+
+>>> python -m src.main resume
+[
+  {
+    "id": "efa66631-84d2-4454-8d3a-ff7978172bf0",
+    "workflow_id": "efa66631-84d2-4454-8d3a-ff7978172bf0",
+    "state": "CANCELLED",
+    "request": {
+      "request_id": "SYN-REFUND-1601",
+      "action": "refund_exception",
+      "financial_amount": 249.99,
+      "customers_affected": 1,
+      "reversible": true,
+      "requires_exception": true,
+      "ambiguity_detected": false,
+      "raw_confidence": 0.91,
+      "calibrated_confidence": 0.78,
+      "customer_tier": "synthetic-gold",
+      "recommendation": "Approve a return-window exception because the synthetic carrier delay consumed 18 days.",
+      "policy_version": "return-policy-v5",
+      "trace_id": "SYN-TRACE-1601",
+      "review_timeout_minutes": 30
+    },
+    "risk": {
+      "risk_level": "exception",
+      "required_confidence": 1,
+      "calibrated_confidence": 0.78,
+      "requires_review": true,
+      "reason": "policy_exception"
+    },
+    "policy_version": "return-policy-v5",
+    "trace_id": "SYN-TRACE-1601",
+    "review_deadline": "2026-11-11T13:58:25.847677+00:00",
+    "version": 2,
+    "updated_at": "2026-11-11T13:28:51.417685+00:00",
+    "last_transition": {
+      "event_id": "41dc7218-fce7-41e5-9171-76c7f7454ba8",
+      "event_type": "decision_applied",
+      "actor_hash": "d96a36f8486f9f4480fdbafee3d7047fc4a1663683c2d0a32144caa595f9bcc5",
+      "previous_state": "WAITING_FOR_REVIEW",
+      "new_state": "CANCELLED",
+      "timestamp": "2026-11-11T13:28:51.417685+00:00"
+    },
+    "_rid": "kKlXAOOSb08EAAAAAAAAAA==",
+    "_self": "dbs/kKlXAA==/colls/kKlXAOOSb08=/docs/kKlXAOOSb08EAAAAAAAAAA==/",
+    "_etag": "\"3501b1bb-0000-0200-0000-6af46d910000\"",
+    "_attachments": "attachments/",
+    "human_review": {
+      "decision": "CANCELLED",
+      "category": "customer_withdrew",
+      "comment": "Customer withdrew request",
+      "reviewed_at": "2026-11-11T13:28:35.273920+00:00"
+    },
+    "execution": {
+      "mode": "synthetic",
+      "status": "cancelled_before_execution",
+      "executed_at": null
+    },
+    "_ts": 1794403729
+  }
+]
+=== D: overdue -> escalated
+>>> submit assets/refund-request-overdue.json -> d4a546b8-afb6-46a7-b19a-f4a7ebcda80d state=WAITING_FOR_REVIEW
+
+>>> python -m src.main escalate
+{
+  "escalated": [
+    "d4a546b8-afb6-46a7-b19a-f4a7ebcda80d"
+  ]
+}
+
+>>> python -m src.main status --workflow-id d4a546b8-afb6-46a7-b19a-f4a7ebcda80d
+{
+  "id": "d4a546b8-afb6-46a7-b19a-f4a7ebcda80d",
+  "workflow_id": "d4a546b8-afb6-46a7-b19a-f4a7ebcda80d",
+  "state": "ESCALATED",
+  "request": {
+    "request_id": "SYN-REFUND-1602-OVERDUE",
+    "action": "refund_exception",
+    "financial_amount": 249.99,
+    "customers_affected": 1,
+    "reversible": true,
+    "requires_exception": true,
+    "ambiguity_detected": false,
+    "raw_confidence": 0.91,
+    "calibrated_confidence": 0.78,
+    "customer_tier": "synthetic-gold",
+    "recommendation": "Approve a return-window exception because the synthetic carrier delay consumed 18 days.",
+    "policy_version": "return-policy-v5",
+    "trace_id": "SYN-TRACE-1602",
+    "review_timeout_minutes": 0
+  },
+  "risk": {
+    "risk_level": "exception",
+    "required_confidence": 1,
+    "calibrated_confidence": 0.78,
+    "requires_review": true,
+    "reason": "policy_exception"
+  },
+  "policy_version": "return-policy-v5",
+  "trace_id": "SYN-TRACE-1602",
+  "review_deadline": "2026-11-11T13:28:58.384905+00:00",
+  "version": 2,
+  "updated_at": "2026-11-11T13:29:12.379020+00:00",
+  "last_transition": {
+    "event_id": "272ac937-d810-4a1d-a0a4-e3655d0a5c8f",
+    "event_type": "escalated",
+    "actor_hash": "a02ba163f3a02db22fdd14b310119f1a4c2f9e4a773a573f757904dd5433d4dd",
+    "previous_state": "WAITING_FOR_REVIEW",
+    "new_state": "ESCALATED",
+    "timestamp": "2026-11-11T13:29:12.379020+00:00"
+  },
+  "_rid": "kKlXAOOSb08FAAAAAAAAAA==",
+  "_self": "dbs/kKlXAA==/colls/kKlXAOOSb08=/docs/kKlXAOOSb08FAAAAAAAAAA==/",
+  "_etag": "\"350187bd-0000-0200-0000-6af46da80000\"",
+  "_attachments": "attachments/",
+  "_ts": 1794403752
+}
+=== W: webhook reviewer path
+>>> submit assets/refund-request.json -> 137515d4-8bed-4088-ae6a-bc300ff27dae state=WAITING_FOR_REVIEW
+--- queue counts (before webhook POST)
+approval-requests: {"active":7,"dead":0}
+approval-decisions: {"active":0,"dead":0}
+>>> POST /api/reviewer-decisions (X-MS-CLIENT-PRINCIPAL-ID: SYN-REVIEWER-01)
+{"status": "queued", "workflow_id": "137515d4-8bed-4088-ae6a-bc300ff27dae"}
+HTTP 202
+>>> POST without principal header (expect 401)
+{"error":"authenticated_reviewer_required"}
+HTTP 401
+--- queue counts (after webhook POST, before resume)
+approval-requests: {"active":7,"dead":0}
+approval-decisions: {"active":1,"dead":0}
+
+>>> python -m src.main resume
+[
+  {
+    "id": "137515d4-8bed-4088-ae6a-bc300ff27dae",
+    "workflow_id": "137515d4-8bed-4088-ae6a-bc300ff27dae",
+    "state": "EXECUTED",
+    "request": {
+      "request_id": "SYN-REFUND-1601",
+      "action": "refund_exception",
+      "financial_amount": 249.99,
+      "customers_affected": 1,
+      "reversible": true,
+      "requires_exception": true,
+      "ambiguity_detected": false,
+      "raw_confidence": 0.91,
+      "calibrated_confidence": 0.78,
+      "customer_tier": "synthetic-gold",
+      "recommendation": "Approve a return-window exception because the synthetic carrier delay consumed 18 days.",
+      "policy_version": "return-policy-v5",
+      "trace_id": "SYN-TRACE-1601",
+      "review_timeout_minutes": 30
+    },
+    "risk": {
+      "risk_level": "exception",
+      "required_confidence": 1,
+      "calibrated_confidence": 0.78,
+      "requires_review": true,
+      "reason": "policy_exception"
+    },
+    "policy_version": "return-policy-v5",
+    "trace_id": "SYN-TRACE-1601",
+    "review_deadline": "2026-11-11T13:59:38.091600+00:00",
+    "version": 2,
+    "updated_at": "2026-11-11T13:30:31.578826+00:00",
+    "last_transition": {
+      "event_id": "d122a260-02d9-4e51-a9ee-404b3e1879c6",
+      "event_type": "decision_applied",
+      "actor_hash": "d96a36f8486f9f4480fdbafee3d7047fc4a1663683c2d0a32144caa595f9bcc5",
+      "previous_state": "WAITING_FOR_REVIEW",
+      "new_state": "EXECUTED",
+      "timestamp": "2026-11-11T13:30:31.578826+00:00"
+    },
+    "_rid": "kKlXAOOSb08GAAAAAAAAAA==",
+    "_self": "dbs/kKlXAA==/colls/kKlXAOOSb08=/docs/kKlXAOOSb08GAAAAAAAAAA==/",
+    "_etag": "\"3501a9c2-0000-0200-0000-6af46df50000\"",
+    "_attachments": "attachments/",
+    "human_review": {
+      "decision": "APPROVED",
+      "category": "within_authority",
+      "comment": "Synthetic local reviewer test",
+      "reviewed_at": "2026-11-11T13:30:02.419838+00:00"
+    },
+    "execution": {
+      "mode": "synthetic",
+      "status": "completed",
+      "executed_at": "2026-11-11T13:30:31.578802+00:00"
+    },
+    "_ts": 1794403829
+  }
+]
+--- queue counts (after resume)
+approval-requests: {"active":7,"dead":0}
+approval-decisions: {"active":0,"dead":0}
+=== Active learning
+>>> python -m src.active_learning
+{
+  "dataset": "reports\\active-learning.jsonl",
+  "evaluation": "reports\\active-learning-evaluation.json",
+  "example_count": 2,
+  "decision_counts": {
+    "OVERRIDDEN": 1,
+    "REJECTED": 1
+  },
+  "rationale_category_counts": {
+    "supervisor_override": 1,
+    "insufficient_evidence": 1
+  },
+  "rejection_rate": 0.5,
+  "override_rate": 0.5,
+  "trace_coverage": 1
+}
+IDS A=72ec1293-7ec7-4c35-a3d5-b4579e86e21a B=f573a4d5-e0f3-4101-bcf0-818ceab38b9f C=cf061d75-0d22-4311-9e0f-62911c7c9853 D=d4a546b8-afb6-46a7-b19a-f4a7ebcda80d E=efa66631-84d2-4454-8d3a-ff7978172bf0 W=137515d4-8bed-4088-ae6a-bc300ff27dae

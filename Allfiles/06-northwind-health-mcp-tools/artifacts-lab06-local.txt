@@ -1,0 +1,80 @@
+### Task 4/5 local: preflight
+Local MCP URL configured: False
+Remote token scope configured: False
+Preflight passed. Numbered LAB PLACEHOLDER blocks remain intentionally incomplete.
+### discover
+[
+  {
+    "name": "lookup_drug_interaction",
+    "description": "Look up a medication pair in the synthetic interaction catalog.",
+    "inputSchema": {
+      "properties": {
+        "drug_a": {
+          "title": "Drug A",
+          "type": "string"
+        },
+        "drug_b": {
+          "title": "Drug B",
+          "type": "string"
+        },
+        "correlation_id": {
+          "title": "Correlation Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "drug_a",
+        "drug_b",
+        "correlation_id"
+      ],
+      "title": "lookup_drug_interactionArguments",
+      "type": "object"
+    }
+  },
+  {
+    "name": "get_appointment_capacity",
+    "description": "Return synthetic appointment capacity for a site and date.",
+    "inputSchema": {
+      "properties": {
+        "site": {
+          "title": "Site",
+          "type": "string"
+        },
+        "date": {
+          "title": "Date",
+          "type": "string"
+        },
+        "correlation_id": {
+          "title": "Correlation Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "site",
+        "date",
+        "correlation_id"
+      ],
+      "title": "get_appointment_capacityArguments",
+      "type": "object"
+    }
+  }
+]
+### call drug
+{
+  "status": "ok",
+  "severity": "high",
+  "guidance": "Synthetic record: pause automated workflow and consult a pharmacist."
+}
+### call capacity
+{
+  "status": "ok",
+  "site": "northwind-central",
+  "date": "2026-09-28",
+  "available_slots": 4
+}
+### Task 5 unknown drug (drug_a=synthetic-unknown-drug)
+{
+  "status": "unavailable",
+  "reason": "result_validation_failed",
+  "fallback": "consult_pharmacist"
+}

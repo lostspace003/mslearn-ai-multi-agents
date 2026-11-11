@@ -1,0 +1,1 @@
+reviewed_release_id before reviewed-c97c7923332c4457 after reviewed-30b8c5f8003ba0b1 | contract_digest unchanged: True | model {'name': 'gpt-5.4-mini', 'version': '2026-03-17'} | eval {'dataset': 'fabrikam-release-smoke', 'dataset_version': '2', 'evaluator': 'deterministic-contract-smoke', 'evaluator_version': '1'}

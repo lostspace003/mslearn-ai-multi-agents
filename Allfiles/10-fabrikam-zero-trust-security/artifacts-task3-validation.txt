@@ -1,0 +1,32 @@
+
+case                                 decision target           reason
+----                                 -------- ------           ------
+allowed-orchestrator-to-scanner      allow    security-scanner 
+denied-cross-tenant                  deny                      Tenant context does not match the verified caller
+denied-specialist-lateral-movement   deny                      Agent call denied: security-scanner cannot call compliance-agent
+allowed-minimized-compliance-handoff allow    compliance-agent 
+
+
+consentRecorded
+dataClassification
+repositoryRegion
+requestId
+tenantId
+
+agentToAzure            : managed_identity
+userToMicrosoftResource : on_behalf_of
+userToThirdParty        : oauth2_pkce
+legacyApi               : key_vault_fallback
+
+PASS python_3_10_or_newer
+PASS azure_ai_projects_package
+PASS azure_cosmos_package
+PASS policy_json
+PASS request_json
+PASS source_syntax
+PASS placeholder_1_present
+INFO foundry_project_configured
+INFO model_configured
+INFO cosmos_configured
+READY (local)
+TASK_1_VALIDATION_PASSED

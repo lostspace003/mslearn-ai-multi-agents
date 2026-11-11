@@ -1,0 +1,297 @@
+### python -m src.main search --query How should diabetes therapy and monitoring be coordinated?
+{
+  "northwind-formulary-v1": [
+    {
+      "@search.score": 0.0277956984937191,
+      "@search.rerankerScore": 2.2914621829986572,
+      "@search.captions": [
+        "{'text': 'Metformin synthetic monograph Renal monitoring Training-only monitoring guidance: review renal function according to local policy before treatment decisions. Coordinate laboratory trends with the current medication plan.', 'highlights': 'Metformin synthetic monograph<em> Renal monitoring Training-only monitoring guidance: review renal function </em>according to<em> local policy </em>before treatment decisions. <em>Coordinate laboratory trends with the current medication plan.</em>'}"
+      ],
+      "id": "structural-parent-child-formulary-metformin-000",
+      "content": "Metformin synthetic monograph\nRenal monitoring\nTraining-only monitoring guidance: review renal function according to local policy before treatment decisions. Coordinate laboratory trends with the current medication plan.",
+      "title": "Metformin synthetic monograph",
+      "source": "synthetic-formulary-v2",
+      "parent_id": "formulary-metformin",
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 0,
+      "boundary_end": 173,
+      "section_heading": "Renal monitoring",
+      "@search.reranker_score": 2.2914621829986572,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Metformin synthetic monograph (synthetic-formulary-v2#structural-parent-child-formulary-metformin-000)",
+      "captions": [
+        "Metformin synthetic monograph Renal monitoring Training-only monitoring guidance: review renal function according to local policy before treatment decisions. Coordinate laboratory trends with the current medication plan."
+      ]
+    },
+    {
+      "@search.score": 0.02734842523932457,
+      "@search.rerankerScore": 1.692675232887268,
+      "@search.captions": [
+        "{'text': 'Metformin synthetic monograph Follow-up Document adherence questions and route clinically significant changes to an authorized clinician. No patient-specific recommendation is made by this synthetic monograph.', 'highlights': '<em>Metformin </em>synthetic monograph Follow-up Document<em> adherence questions </em>and<em> route clinically significant changes </em>to an authorized clinician. No patient-specific recommendation is made by this synthetic monograph.'}"
+      ],
+      "id": "structural-parent-child-formulary-metformin-001",
+      "content": "Metformin synthetic monograph\nFollow-up\nDocument adherence questions and route clinically significant changes to an authorized clinician. No patient-specific recommendation is made by this synthetic monograph.",
+      "title": "Metformin synthetic monograph",
+      "source": "synthetic-formulary-v2",
+      "parent_id": "formulary-metformin",
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 175,
+      "boundary_end": 344,
+      "section_heading": "Follow-up",
+      "@search.reranker_score": 1.692675232887268,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Metformin synthetic monograph (synthetic-formulary-v2#structural-parent-child-formulary-metformin-001)",
+      "captions": [
+        "Metformin synthetic monograph Follow-up Document adherence questions and route clinically significant changes to an authorized clinician. No patient-specific recommendation is made by this synthetic monograph."
+      ]
+    },
+    {
+      "@search.score": 0.027956988662481308,
+      "@search.rerankerScore": 1.1372220516204834,
+      "@search.captions": [
+        "{'text': 'Atorvastatin synthetic monograph Monitoring Review reported muscle symptoms, the active medication list, and the locally approved monitoring workflow. Escalate unresolved interaction risk to an authorized clinician.', 'highlights': 'Atorvastatin synthetic monograph<em> Monitoring </em>Review reported muscle symptoms, the active medication list, and the<em> locally </em>approved<em> monitoring workflow.</em> Escalate unresolved interaction risk to an authorized clinician.'}"
+      ],
+      "id": "structural-parent-child-formulary-atorvastatin-001",
+      "content": "Atorvastatin synthetic monograph\nMonitoring\nReview reported muscle symptoms, the active medication list, and the locally approved monitoring workflow. Escalate unresolved interaction risk to an authorized clinician.",
+      "title": "Atorvastatin synthetic monograph",
+      "source": "synthetic-formulary-v2",
+      "parent_id": "formulary-atorvastatin",
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 216,
+      "boundary_end": 387,
+      "section_heading": "Monitoring",
+      "@search.reranker_score": 1.1372220516204834,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Atorvastatin synthetic monograph (synthetic-formulary-v2#structural-parent-child-formulary-atorvastatin-001)",
+      "captions": [
+        "Atorvastatin synthetic monograph Monitoring Review reported muscle symptoms, the active medication list, and the locally approved monitoring workflow. Escalate unresolved interaction risk to an authorized clinician."
+      ]
+    },
+    {
+      "@search.score": 0.02750455215573311,
+      "@search.rerankerScore": 0.6033915877342224,
+      "@search.captions": [
+        "{'text': 'Atorvastatin synthetic monograph Contraindications and interactions Training-only interaction guidance: concurrent clarithromycin requires pharmacist review before atorvastatin is continued or adjusted. This statement is synthetic and does not replace an approved medication policy.', 'highlights': 'Atorvastatin synthetic monograph Contraindications and interactions Training-only interaction guidance: concurrent clarithromycin requires pharmacist review before atorvastatin is continued or adjusted. This statement is synthetic and<em> does not replace an approved medication policy.</em>'}"
+      ],
+      "id": "structural-parent-child-formulary-atorvastatin-000",
+      "content": "Atorvastatin synthetic monograph\nContraindications and interactions\nTraining-only interaction guidance: concurrent clarithromycin requires pharmacist review before atorvastatin is continued or adjusted. This statement is synthetic and does not replace an approved medication policy.",
+      "title": "Atorvastatin synthetic monograph",
+      "source": "synthetic-formulary-v2",
+      "parent_id": "formulary-atorvastatin",
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 0,
+      "boundary_end": 214,
+      "section_heading": "Contraindications and interactions",
+      "@search.reranker_score": 0.6033915877342224,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Atorvastatin synthetic monograph (synthetic-formulary-v2#structural-parent-child-formulary-atorvastatin-000)",
+      "captions": [
+        "Atorvastatin synthetic monograph Contraindications and interactions Training-only interaction guidance: concurrent clarithromycin requires pharmacist review before atorvastatin is continued or adjusted. This statement is synthetic and does not replace an approved medication policy."
+      ]
+    }
+  ],
+  "northwind-guidelines-v1": [
+    {
+      "@search.score": 0.027868852019309998,
+      "@search.rerankerScore": 2.567859649658203,
+      "@search.captions": [
+        "{'text': 'Synthetic diabetes follow-up guideline Coordinated review Coordinate diabetes treatment decisions with adherence review, laboratory trends, medication tolerance, and shared decision-making. Use the approved clinical workflow for escalation.', 'highlights': 'Synthetic diabetes follow-up guideline Coordinated review<em> Coordinate diabetes treatment decisions </em>with<em> adherence review, laboratory trends, medication tolerance, and shared decision-making.</em> <em>Use the approved clinical workflow for escalation.</em>'}"
+      ],
+      "id": "structural-parent-child-guideline-diabetes-000",
+      "content": "Synthetic diabetes follow-up guideline\nCoordinated review\nCoordinate diabetes treatment decisions with adherence review, laboratory trends, medication tolerance, and shared decision-making. Use the approved clinical workflow for escalation.",
+      "title": "Synthetic diabetes follow-up guideline",
+      "source": "synthetic-guidelines-v2",
+      "parent_id": "guideline-diabetes",
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 0,
+      "boundary_end": 182,
+      "section_heading": "Coordinated review",
+      "@search.reranker_score": 2.567859649658203,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Synthetic diabetes follow-up guideline (synthetic-guidelines-v2#structural-parent-child-guideline-diabetes-000)",
+      "captions": [
+        "Synthetic diabetes follow-up guideline Coordinated review Coordinate diabetes treatment decisions with adherence review, laboratory trends, medication tolerance, and shared decision-making. Use the approved clinical workflow for escalation."
+      ]
+    },
+    {
+      "@search.score": 0.028333334252238274,
+      "@search.rerankerScore": 2.386725902557373,
+      "@search.captions": [
+        "{'text': 'Synthetic diabetes follow-up guideline Monitoring plan Record the responsible follow-up role and the next review point. Reconcile the treatment plan with current formulary guidance and validated laboratory evidence.', 'highlights': '<em>Synthetic diabetes follow-up guideline Monitoring plan Record the responsible follow-up role and the next review point.</em> <em>Reconcile the treatment plan with current formulary guidance and validated laboratory evidence.</em>'}"
+      ],
+      "id": "structural-parent-child-guideline-diabetes-001",
+      "content": "Synthetic diabetes follow-up guideline\nMonitoring plan\nRecord the responsible follow-up role and the next review point. Reconcile the treatment plan with current formulary guidance and validated laboratory evidence.",
+      "title": "Synthetic diabetes follow-up guideline",
+      "source": "synthetic-guidelines-v2",
+      "parent_id": "guideline-diabetes",
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 184,
+      "boundary_end": 344,
+      "section_heading": "Monitoring plan",
+      "@search.reranker_score": 2.386725902557373,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Synthetic diabetes follow-up guideline (synthetic-guidelines-v2#structural-parent-child-guideline-diabetes-001)",
+      "captions": [
+        "Synthetic diabetes follow-up guideline Monitoring plan Record the responsible follow-up role and the next review point. Reconcile the treatment plan with current formulary guidance and validated laboratory evidence."
+      ]
+    },
+    {
+      "@search.score": 0.02698412910103798,
+      "@search.rerankerScore": 1.3272175788879395,
+      "@search.captions": [
+        "{'text': 'Synthetic lipid management guideline Escalation Escalate unresolved adverse-effect or interaction concerns through the authorized clinical workflow and retain source citations in the review record.', 'highlights': '<em>Synthetic lipid management </em>guideline Escalation<em> Escalate unresolved adverse-effect or interaction concerns through </em>the<em> authorized clinical workflow </em>and<em> retain source citations </em>in the review record.'}"
+      ],
+      "id": "structural-parent-child-guideline-lipid-001",
+      "content": "Synthetic lipid management guideline\nEscalation\nEscalate unresolved adverse-effect or interaction concerns through the authorized clinical workflow and retain source citations in the review record.",
+      "title": "Synthetic lipid management guideline",
+      "source": "synthetic-guidelines-v2",
+      "parent_id": "guideline-lipid",
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 145,
+      "boundary_end": 294,
+      "section_heading": "Escalation",
+      "@search.reranker_score": 1.3272175788879395,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Synthetic lipid management guideline (synthetic-guidelines-v2#structural-parent-child-guideline-lipid-001)",
+      "captions": [
+        "Synthetic lipid management guideline Escalation Escalate unresolved adverse-effect or interaction concerns through the authorized clinical workflow and retain source citations in the review record."
+      ]
+    },
+    {
+      "@search.score": 0.027419354766607285,
+      "@search.rerankerScore": 1.0684551000595093,
+      "@search.captions": [
+        "{'text': 'Synthetic lipid management guideline Therapy review Review medication tolerance and interaction risk before changing lipid therapy. Confirm exact drug names against the approved formulary source.', 'highlights': 'Synthetic lipid management guideline Therapy review Review<em> medication tolerance </em>and<em> interaction </em>risk before changing lipid therapy. Confirm exact drug names against the approved formulary source.'}"
+      ],
+      "id": "structural-parent-child-guideline-lipid-000",
+      "content": "Synthetic lipid management guideline\nTherapy review\nReview medication tolerance and interaction risk before changing lipid therapy. Confirm exact drug names against the approved formulary source.",
+      "title": "Synthetic lipid management guideline",
+      "source": "synthetic-guidelines-v2",
+      "parent_id": "guideline-lipid",
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 0,
+      "boundary_end": 143,
+      "section_heading": "Therapy review",
+      "@search.reranker_score": 1.0684551000595093,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Synthetic lipid management guideline (synthetic-guidelines-v2#structural-parent-child-guideline-lipid-000)",
+      "captions": [
+        "Synthetic lipid management guideline Therapy review Review medication tolerance and interaction risk before changing lipid therapy. Confirm exact drug names against the approved formulary source."
+      ]
+    }
+  ],
+  "northwind-labs-v1": [
+    {
+      "@search.score": 0.027539683505892754,
+      "@search.rerankerScore": 2.2931458950042725,
+      "@search.captions": [
+        "{'text': 'Synthetic A1C reference Follow-up When the approved protocol identifies a follow-up range, coordinate the laboratory finding with adherence review, treatment context, and an authorized clinician.', 'highlights': '<em>Synthetic A1C reference Follow-up </em>When the approved protocol<em> identifies a follow-up range, coordinate the laboratory finding with adherence review, treatment context, and an authorized clinician.</em>'}"
+      ],
+      "id": "structural-parent-child-labs-a1c-001",
+      "content": "Synthetic A1C reference\nFollow-up\nWhen the approved protocol identifies a follow-up range, coordinate the laboratory finding with adherence review, treatment context, and an authorized clinician.",
+      "title": "Synthetic A1C reference",
+      "source": "synthetic-lab-reference-v2",
+      "parent_id": "labs-a1c",
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 168,
+      "boundary_end": 329,
+      "section_heading": "Follow-up",
+      "@search.reranker_score": 2.2931458950042725,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Synthetic A1C reference (synthetic-lab-reference-v2#structural-parent-child-labs-a1c-001)",
+      "captions": [
+        "Synthetic A1C reference Follow-up When the approved protocol identifies a follow-up range, coordinate the laboratory finding with adherence review, treatment context, and an authorized clinician."
+      ]
+    },
+    {
+      "@search.score": 0.027240142226219177,
+      "@search.rerankerScore": 1.6845225095748901,
+      "@search.captions": [
+        "{'text': 'Synthetic A1C reference Interpretation Training-only reference: interpret A1C ranges and trends with the approved clinical protocol. This synthetic source intentionally does not assert a patient threshold.', 'highlights': '<em>Synthetic A1C reference Interpretation </em>Training-only reference: interpret<em> A1C ranges </em>and<em> trends </em>with the<em> approved clinical protocol.</em> This synthetic source intentionally does not assert a patient threshold.'}"
+      ],
+      "id": "structural-parent-child-labs-a1c-000",
+      "content": "Synthetic A1C reference\nInterpretation\nTraining-only reference: interpret A1C ranges and trends with the approved clinical protocol. This synthetic source intentionally does not assert a patient threshold.",
+      "title": "Synthetic A1C reference",
+      "source": "synthetic-lab-reference-v2",
+      "parent_id": "labs-a1c",
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 0,
+      "boundary_end": 166,
+      "section_heading": "Interpretation",
+      "@search.reranker_score": 1.6845225095748901,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Synthetic A1C reference (synthetic-lab-reference-v2#structural-parent-child-labs-a1c-000)",
+      "captions": [
+        "Synthetic A1C reference Interpretation Training-only reference: interpret A1C ranges and trends with the approved clinical protocol. This synthetic source intentionally does not assert a patient threshold."
+      ]
+    },
+    {
+      "@search.score": 0.027683764696121216,
+      "@search.rerankerScore": 1.628161907196045,
+      "@search.captions": [
+        "{'text': 'Synthetic renal function reference Escalation Route clinically significant renal trends to an authorized clinician and reconcile the finding with medications that require renal monitoring.', 'highlights': 'Synthetic<em> renal </em>function reference Escalation Route clinically significant<em> renal </em>trends to an authorized clinician and<em> reconcile </em>the<em> finding </em>with<em> medications that require renal monitoring.</em>'}"
+      ],
+      "id": "structural-parent-child-labs-renal-001",
+      "content": "Synthetic renal function reference\nEscalation\nRoute clinically significant renal trends to an authorized clinician and reconcile the finding with medications that require renal monitoring.",
+      "title": "Synthetic renal function reference",
+      "source": "synthetic-lab-reference-v2",
+      "parent_id": "labs-renal",
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 148,
+      "boundary_end": 290,
+      "section_heading": "Escalation",
+      "@search.reranker_score": 1.628161907196045,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Synthetic renal function reference (synthetic-lab-reference-v2#structural-parent-child-labs-renal-001)",
+      "captions": [
+        "Synthetic renal function reference Escalation Route clinically significant renal trends to an authorized clinician and reconcile the finding with medications that require renal monitoring."
+      ]
+    },
+    {
+      "@search.score": 0.02814207598567009,
+      "@search.rerankerScore": 1.3839325904846191,
+      "@search.captions": [
+        "{'text': 'Synthetic renal function reference Monitoring context Training-only renal reference: preserve the reported test name, unit, range, and collection context when applying an approved monitoring workflow.', 'highlights': 'Synthetic<em> renal </em>function reference<em> Monitoring </em>context Training-only<em> renal </em>reference: preserve the reported test<em> name, </em>unit, range, and collection context when applying an approved<em> monitoring </em>workflow.'}"
+      ],
+      "id": "structural-parent-child-labs-renal-000",
+      "content": "Synthetic renal function reference\nMonitoring context\nTraining-only renal reference: preserve the reported test name, unit, range, and collection context when applying an approved monitoring workflow.",
+      "title": "Synthetic renal function reference",
+      "source": "synthetic-lab-reference-v2",
+      "parent_id": "labs-renal",
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 0,
+      "boundary_end": 146,
+      "section_heading": "Monitoring context",
+      "@search.reranker_score": 1.3839325904846191,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Synthetic renal function reference (synthetic-lab-reference-v2#structural-parent-child-labs-renal-000)",
+      "captions": [
+        "Synthetic renal function reference Monitoring context Training-only renal reference: preserve the reported test name, unit, range, and collection context when applying an approved monitoring workflow."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "tenant_a_result_key": "aw:SYN-TENANT-A:result:1fc6d5de773a2ae761c7bdad2519ac23392afcc73f6e6582a3536f2d2cf78718",
+  "tenant_b_result_key": "aw:SYN-TENANT-B:result:66486c68c78ec3fac066ff33be127f93949ba1fabffde6c6540228111013c340",
+  "result_keys_distinct": true,
+  "prompt_keys_distinct": true,
+  "stale_invalidation": {
+    "exact_result_key": "aw:SYN-TENANT-A:result:8a955c995189a2a985a58729ac74a112856e1a5c4421cc4bd919126990d93f6d",
+    "deleted": 0,
+    "tenant_a_still_cached": true,
+    "diagnosis": "key construction: stale agent_version yields a different digest, so scope was never reached"
+  },
+  "targeted_invalidation": {
+    "exact_result_key": "aw:SYN-TENANT-A:result:1fc6d5de773a2ae761c7bdad2519ac23392afcc73f6e6582a3536f2d2cf78718",
+    "deleted": 1,
+    "tenant_a_result_present": false,
+    "tenant_b_result_present": true
+  },
+  "passed": true,
+  "cleanup_deleted": 3
+}

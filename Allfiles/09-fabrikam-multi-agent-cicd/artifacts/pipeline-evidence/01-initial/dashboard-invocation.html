@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Fabrikam release dashboard</title>
+  <style>
+    body { font-family: Segoe UI, sans-serif; max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+    .channel { display: inline-block; color: white; background: #0f6cbd; padding: .4rem .8rem; border-radius: 1rem; }
+    table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+    th, td { border: 1px solid #d1d1d1; padding: .6rem; text-align: left; }
+    th { width: 30%; background: #f5f5f5; }
+    input { width: 100%; padding: .5rem; margin: .2rem 0 .8rem; box-sizing: border-box; }
+    button { padding: .6rem 1rem; }
+    pre { white-space: pre-wrap; background: #f5f5f5; padding: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>Fabrikam progressive-release dashboard</h1>
+  <p class="channel">STABLE dashboard revision</p>
+  <p>Refresh the weighted application URL to observe 75/25 stable/candidate routing.
+     Use the stable and candidate label URLs for deterministic verification.</p>
+  <table><tr><th>Release Set Id</th><td><code>development-c748e167856d87d5</code></td></tr><tr><th>Release Channel</th><td><code>stable</code></td></tr><tr><th>Container App Revision</th><td><code>fabrikam-release-lab09-cicd-d--r3-v1</code></td></tr><tr><th>Orchestrator Name</th><td><code>fabrikam-review-orchestrator</code></td></tr><tr><th>Orchestrator Version</th><td><code>1</code></td></tr><tr><th>Orchestrator Responses Endpoint</th><td><code>https://aifqytjyfbxugnmi2cy.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/fabrikam-review-orchestrator/endpoint/protocols/openai/responses?api-version=v1</code></td></tr></table>
+  <h2>Invoke this revision's immutable orchestrator</h2>
+  <form method="post" action="/invoke">
+    <label>Repository<input name="repository" value="fabrikam/payments-api"></label>
+    <label>Commit<input name="commit" value="0123456789abcdef"></label>
+    <label>Change summary<input name="change_summary" value="Validate a payment amount before processing."></label>
+    <button type="submit">Request release recommendation</button>
+  </form>
+  <h2>Orchestrator response</h2><pre>{
+  &quot;text&quot;: &quot;{\&quot;coordinate_review\&quot;:{\&quot;status\&quot;:\&quot;inconclusive\&quot;,\&quot;agent_results\&quot;:{\&quot;scanner\&quot;:\&quot;error\&quot;,\&quot;reviewer\&quot;:\&quot;error\&quot;}}}{\&quot;coordinate_review\&quot;:{\&quot;status\&quot;:\&quot;inconclusive\&quot;,\&quot;agent_results\&quot;:{\&quot;scanner\&quot;:\&quot;error\&quot;,\&quot;reviewer\&quot;:\&quot;error\&quot;}}}&quot;,
+  &quot;agent_name&quot;: &quot;fabrikam-review-orchestrator&quot;,
+  &quot;requested_version&quot;: &quot;1&quot;,
+  &quot;served_version&quot;: &quot;1&quot;,
+  &quot;agent_session_id&quot;: &quot;0e7a4668335d9bed00094pNNTlkEKorjevGV6zUzRzReDBEGGr&quot;,
+  &quot;response_id&quot;: &quot;caresp_0bffcbe4163d4c2c00qL4vIjjm4vk42kt7ol2f3LzHv2u5l18g&quot;
+}</pre>
+</body>
+</html>

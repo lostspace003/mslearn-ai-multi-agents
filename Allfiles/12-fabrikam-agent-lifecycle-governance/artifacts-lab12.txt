@@ -1,0 +1,304 @@
+=== preflight
+PASS python_3_10_or_newer
+PASS projects_sdk
+PASS cosmos_sdk
+PASS packaging_sdk
+PASS manifest_present
+PASS technical_file_present
+PASS starter_syntax
+PASS placeholder_1_present
+PASS placeholder_2_present
+PASS project_configured
+PASS cosmos_configured
+READY (local)
+=== Task5.1 inventory (baseline)
+[]
+=== Task5.2 promote
+{
+  "release_id": "2.4.0",
+  "versions": {
+    "scanner": {
+      "logical_version": "1.2.0",
+      "foundry_version": "1",
+      "status": "active"
+    },
+    "reviewer": {
+      "logical_version": "1.1.0",
+      "foundry_version": "1",
+      "status": "active"
+    },
+    "orchestrator": {
+      "logical_version": "1.3.0",
+      "foundry_version": "1",
+      "status": "active"
+    }
+  }
+}
+=== Task5.4 inventory after promotion
+[
+  {
+    "agent": "orchestrator",
+    "versions": [
+      {
+        "version": "1",
+        "status": "active"
+      }
+    ]
+  },
+  {
+    "agent": "reviewer",
+    "versions": [
+      {
+        "version": "1",
+        "status": "active"
+      }
+    ]
+  },
+  {
+    "agent": "scanner",
+    "versions": [
+      {
+        "version": "1",
+        "status": "active"
+      }
+    ]
+  }
+]
+=== Task5.6 inventory before denied promotion
+[
+  {
+    "agent": "orchestrator",
+    "versions": [
+      {
+        "version": "1",
+        "status": "active"
+      }
+    ]
+  },
+  {
+    "agent": "reviewer",
+    "versions": [
+      {
+        "version": "1",
+        "status": "active"
+      }
+    ]
+  },
+  {
+    "agent": "scanner",
+    "versions": [
+      {
+        "version": "1",
+        "status": "active"
+      }
+    ]
+  }
+]
+--- manifest edit:
+26:    precision: 0.94
+28:    minimum_precision: 0.95
+=== Task5.8 promote (precision 0.94)
+PermissionError: Promotion denied: precision is below its minimum
+=== Task5.10 compare
+NO DIFFERENCES
+restored:
+26:    precision: 0.96
+--- manifest edit:
+22:      reviewer_requires_scanner_schema: '>=3.0,<4.0'
+=== Task5.13 promote (schema >=3.0,<4.0)
+PermissionError: Promotion denied: scanner output schema is incompatible with reviewer
+=== Task5.16 compare
+NO DIFFERENCES
+restored:
+22:      reviewer_requires_scanner_schema: '>=2.0,<3.0'
+=== Reconcile (no orphans reported by any rollback; demo with non-existent synthetic target scanner:999 only)
+{
+  "status": "reconciled",
+  "deleted": [],
+  "already_absent": [
+    "scanner:999"
+  ]
+}
+=== Task5.18 meter #1
+{
+  "decision": "allow",
+  "meter_id": "synthetic-tenant-a:FAB-SEC-042:2026-11",
+  "allocation_key": "synthetic-tenant-a:FAB-SEC-042",
+  "monthly_tokens": 1250,
+  "monthly_token_quota": 1000000,
+  "rate_window_requests": 1,
+  "requests_per_minute": 60,
+  "estimated_charge": 0.00625,
+  "currency": "USD",
+  "metered_at": "2026-11-11T13:29:16.278202+00:00"
+}
+=== Task5.19 meter #2
+{
+  "decision": "allow",
+  "meter_id": "synthetic-tenant-a:FAB-SEC-042:2026-11",
+  "allocation_key": "synthetic-tenant-a:FAB-SEC-042",
+  "monthly_tokens": 2500,
+  "monthly_token_quota": 1000000,
+  "rate_window_requests": 2,
+  "requests_per_minute": 60,
+  "estimated_charge": 0.0125,
+  "currency": "USD",
+  "metered_at": "2026-11-11T13:29:33.161530+00:00"
+}
+=== Task5.20 Cosmos item snapshot (Data Explorer equivalent via SDK)
+{"id": "synthetic-tenant-a:FAB-SEC-042:2026-11", "allocation_key": "synthetic-tenant-a:FAB-SEC-042", "monthly_tokens": 2500, "request_count": 2, "rate_window_requests": 2, "estimated_charge": 0.0125, "_ts": 1794403773, "agent_id": "scanner", "agent_version": "1.2.0", "tenant_id": "synthetic-tenant-a", "cost_center": "FAB-SEC-042", "rate_window": "2026-11-11T13:29"}
+--- policy edit:
+16:  requests_per_minute: 1
+=== Task5.22 meter (rpm=1, new UTC minute)
+{
+  "decision": "allow",
+  "meter_id": "synthetic-tenant-a:FAB-SEC-042:2026-11",
+  "allocation_key": "synthetic-tenant-a:FAB-SEC-042",
+  "monthly_tokens": 3750,
+  "monthly_token_quota": 1000000,
+  "rate_window_requests": 1,
+  "requests_per_minute": 1,
+  "estimated_charge": 0.01875,
+  "currency": "USD",
+  "metered_at": "2026-11-11T13:31:11.514580+00:00"
+}
+--- snapshot after allowed request
+{"id": "synthetic-tenant-a:FAB-SEC-042:2026-11", "allocation_key": "synthetic-tenant-a:FAB-SEC-042", "monthly_tokens": 3750, "request_count": 3, "rate_window_requests": 1, "estimated_charge": 0.01875, "_ts": 1794403872, "agent_id": "scanner", "agent_version": "1.2.0", "tenant_id": "synthetic-tenant-a", "cost_center": "FAB-SEC-042", "rate_window": "2026-11-11T13:31"}
+=== Task5.24 meter again same minute
+PermissionError: Per-minute request limit exceeded
+--- snapshot after denial
+{"id": "synthetic-tenant-a:FAB-SEC-042:2026-11", "allocation_key": "synthetic-tenant-a:FAB-SEC-042", "monthly_tokens": 3750, "request_count": 3, "rate_window_requests": 1, "estimated_charge": 0.01875, "_ts": 1794403872, "agent_id": "scanner", "agent_version": "1.2.0", "tenant_id": "synthetic-tenant-a", "cost_center": "FAB-SEC-042", "rate_window": "2026-11-11T13:31"}
+UNCHANGED after rate-limit denial
+restored:
+16:  requests_per_minute: 60
+--- usage-request edit:
+  "token_count": 1000001
+--- snapshot before quota test
+{"id": "synthetic-tenant-a:FAB-SEC-042:2026-11", "allocation_key": "synthetic-tenant-a:FAB-SEC-042", "monthly_tokens": 3750, "request_count": 3, "rate_window_requests": 1, "estimated_charge": 0.01875, "_ts": 1794403872, "agent_id": "scanner", "agent_version": "1.2.0", "tenant_id": "synthetic-tenant-a", "cost_center": "FAB-SEC-042", "rate_window": "2026-11-11T13:31"}
+=== Task5.27 meter (token_count 1000001)
+PermissionError: Monthly token quota exceeded
+--- snapshot after quota denial
+{"id": "synthetic-tenant-a:FAB-SEC-042:2026-11", "allocation_key": "synthetic-tenant-a:FAB-SEC-042", "monthly_tokens": 3750, "request_count": 3, "rate_window_requests": 1, "estimated_charge": 0.01875, "_ts": 1794403872, "agent_id": "scanner", "agent_version": "1.2.0", "tenant_id": "synthetic-tenant-a", "cost_center": "FAB-SEC-042", "rate_window": "2026-11-11T13:31"}
+UNCHANGED after quota denial
+restored:
+  "token_count": 1250
+=== Task6 inventory (compare with original evidence)
+[
+  {
+    "agent": "orchestrator",
+    "versions": [
+      {
+        "version": "1",
+        "status": "active"
+      }
+    ]
+  },
+  {
+    "agent": "reviewer",
+    "versions": [
+      {
+        "version": "1",
+        "status": "active"
+      }
+    ]
+  },
+  {
+    "agent": "scanner",
+    "versions": [
+      {
+        "version": "1",
+        "status": "active"
+      }
+    ]
+  }
+]
+=== Task6.6 approved retirement request
+{
+  "agent_id": "scanner",
+  "version": "1",
+  "deprecated_date": "2026-05-01",
+  "deletion_date": "2026-08-01",
+  "replacement_version": "2",
+  "active_consumers": 0,
+  "active_pins": 0,
+  "archive_complete": true,
+  "deprecation_recorded": true,
+  "governance_approval": "approved"
+}
+=== Task6.9 gate test: active_consumers=1 (target scanner:1)
+PermissionError: Retirement denied: active consumers remain
+--- inventory scanner versions after denial: ['1']
+=== Task6.9 gate test: active_pins=1 (target scanner:1)
+PermissionError: Retirement denied: active version pins remain
+--- inventory scanner versions after denial: ['1']
+=== Task6.9 gate test: archive_complete=false (target scanner:1)
+PermissionError: Retirement denied: archive is incomplete
+--- inventory scanner versions after denial: ['1']
+=== Task6.9 gate test: deprecation_recorded=false (target scanner:1)
+PermissionError: Retirement denied: deprecation is not recorded
+--- inventory scanner versions after denial: ['1']
+=== Task6.9 gate test: governance_approval="pending" (target scanner:1)
+PermissionError: Retirement denied: governance approval is missing
+--- inventory scanner versions after denial: ['1']
+=== Task6.9 gate test: version="2" (target scanner:1)
+PermissionError: Retirement denied: request target does not match agent name and version
+--- inventory scanner versions after denial: ['1']
+=== Task6.9 gate test: deletion_date="2026-07-01" (target scanner:1)
+PermissionError: Retirement denied: minimum retirement notice not met
+--- inventory scanner versions after denial: ['1']
+=== Task6.9 gate test: deletion_date="2027-03-01" (target scanner:1)
+PermissionError: Retirement denied: retirement effective date has not been reached
+--- inventory scanner versions after denial: ['1']
+=== Task6.12 restored request
+{
+  "agent_id": "scanner",
+  "version": "1",
+  "deprecated_date": "2026-05-01",
+  "deletion_date": "2026-08-01",
+  "replacement_version": "2",
+  "active_consumers": 0,
+  "active_pins": 0,
+  "archive_complete": true,
+  "deprecation_recorded": true,
+  "governance_approval": "approved"
+}
+=== Task6.13 retire scanner:1
+{
+  "agent": "scanner",
+  "version": "1",
+  "retired": true,
+  "notice_days": 92,
+  "active_consumers": 0,
+  "active_pins": 0,
+  "archive_complete": true,
+  "deprecation_recorded": true,
+  "governance_approval": "approved"
+}
+=== Task6.15 inventory after retirement
+[
+  {
+    "agent": "orchestrator",
+    "versions": [
+      {
+        "version": "1",
+        "status": "active"
+      }
+    ]
+  },
+  {
+    "agent": "reviewer",
+    "versions": [
+      {
+        "version": "1",
+        "status": "active"
+      }
+    ]
+  }
+]
+=== Optional challenge: promote synthetic reviewer 2.0.0 (orchestrator requires >=1.1.0,<2.0.0)
+15:        version: 2.0.0
+PermissionError: Promotion denied: reviewer version is incompatible with orchestrator
+=== Optional failure investigation: retire reviewer:1 still referenced by topology (consumers=1, pins=1)
+PermissionError: Retirement denied: active consumers remain; active version pins remain
+=== Final inventory
+{'orchestrator': ['1'], 'reviewer': ['1']}

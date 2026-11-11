@@ -1,0 +1,39 @@
+{
+  "action": "promote",
+  "strategy": "blue-green",
+  "weights": {
+    "fabrikam-release-lab09-cicd-d--r3-v1": 0,
+    "fabrikam-release-lab09-cicd-d--r4-v2": 100
+  },
+  "stable": {
+    "name": "fabrikam-release-lab09-cicd-d--r3-v1",
+    "fqdn": "fabrikam-release-lab09-cicd-d--r3-v1.victoriouscliff-2501048e.eastus2.azurecontainerapps.io"
+  },
+  "candidate": {
+    "name": "fabrikam-release-lab09-cicd-d--r4-v2",
+    "fqdn": "fabrikam-release-lab09-cicd-d--r4-v2.victoriouscliff-2501048e.eastus2.azurecontainerapps.io"
+  },
+  "routing": {
+    "fqdn": "fabrikam-release-lab09-cicd-d.victoriouscliff-2501048e.eastus2.azurecontainerapps.io",
+    "labels": {
+      "stable": "fabrikam-release-lab09-cicd-d--r4-v2",
+      "previous": "fabrikam-release-lab09-cicd-d--r3-v1"
+    },
+    "label_urls": {
+      "stable": "https://fabrikam-release-lab09-cicd-d---stable.victoriouscliff-2501048e.eastus2.azurecontainerapps.io",
+      "previous": "https://fabrikam-release-lab09-cicd-d---previous.victoriouscliff-2501048e.eastus2.azurecontainerapps.io"
+    },
+    "traffic": [
+      {
+        "label": "stable",
+        "revisionName": "fabrikam-release-lab09-cicd-d--r4-v2",
+        "weight": 100
+      },
+      {
+        "label": "previous",
+        "revisionName": "fabrikam-release-lab09-cicd-d--r3-v1",
+        "weight": 0
+      }
+    ]
+  }
+}

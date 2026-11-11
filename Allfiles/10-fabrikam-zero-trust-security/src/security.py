@@ -17,7 +17,10 @@ class VerifiedCaller:
 def enforce_tenant(requested_tenant_id: str, verified_tenant_id: str) -> None:
     """Reject missing or mismatched tenant context before any downstream call."""
     # LAB PLACEHOLDER 1: Replace this line with the Task 1 sample.
-    raise NotImplementedError("Complete enforce_tenant in Task 1")
+    if not requested_tenant_id:
+        raise PermissionError("Tenant context is required")
+    if requested_tenant_id != verified_tenant_id:
+        raise PermissionError("Tenant context does not match the verified caller")
 
 
 def authorize_handoff(

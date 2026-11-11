@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "alert_id": "/subscriptions/<subscription-id>/providers/Microsoft.AlertsManagement/alerts/87f7a571-da59-0bf9-8c87-7f653bf70004",
+  "alert_rule": "Adventure Works synthetic pricing failure",
+  "severity": "Sev2",
+  "monitor_condition": "Fired",
+  "received_at": "2026-11-11T13:29:22.549573+00:00",
+  "remediation": "isolate synthetic pricing failures and require operator-approved rollback",
+  "status": "evidence_recorded",
+  "side_effects_enabled": false
+}

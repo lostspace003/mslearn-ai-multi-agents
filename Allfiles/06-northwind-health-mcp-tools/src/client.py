@@ -27,7 +27,18 @@ async def discover_tools(server_url: str, token_scope: str | None = None) -> lis
     """Initialize an MCP session and return protocol-discovered tool metadata."""
     headers = await _authorization_headers(server_url, token_scope)
     # LAB PLACEHOLDER 4: Replace this line with the Task 4 sample.
-    raise NotImplementedError("Complete discover_tools in Task 4")
+    async with streamablehttp_client(server_url, headers=headers) as (read, write, _):
+        async with ClientSession(read, write) as session:
+            await session.initialize()
+            discovered = await session.list_tools()
+            return [
+                {
+                    "name": tool.name,
+                    "description": tool.description,
+                    "inputSchema": tool.inputSchema,
+                }
+                for tool in discovered.tools
+            ]
 
 
 async def call_catalog_tool(
@@ -38,4 +49,27 @@ async def call_catalog_tool(
     """Discover, select, invoke, and validate an MCP tool."""
     headers = await _authorization_headers(server_url, token_scope)
     # LAB PLACEHOLDER 5: Replace this line with the Task 5 sample.
-    raise NotImplementedError("Complete call_catalog_tool in Task 5")
+    async with streamablehttp_client(server_url, headers=headers) as (read, write, _):
+        async with ClientSession(read, write) as session:
+            await session.initialize()
+            discovered = await session.list_tools()
+            catalog_entry = select_compatible_tool(
+                {tool.name for tool in discovered.tools},
+                request["tool"],
+                int(request["required_major"]),
+            )
+            try:
+                tool_result = await session.call_tool(
+                    catalog_entry["name"], arguments=request["arguments"]
+                )
+            except httpx.HTTPError:
+                return dict(catalog_entry["fallback"])
+
+            structured = getattr(tool_result, "structuredContent", None)
+            if structured is None:
+                structured = getattr(tool_result, "structured_content", None)
+            if structured is None and tool_result.content:
+                structured = json.loads(tool_result.content[0].text)
+            if not isinstance(structured, dict):
+                return dict(catalog_entry["fallback"])
+            return validate_or_fallback(structured, catalog_entry)

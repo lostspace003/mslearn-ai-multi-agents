@@ -1,0 +1,36 @@
+{
+  "route": "guarded-high-risk",
+  "request": "Assess a synthetic balanced portfolio under a fictional severe rate shock flagged as high risk. Compliance caveats must be established before market and risk analysis.",
+  "required_agents": [
+    "market-spoke",
+    "risk-spoke"
+  ],
+  "simulate_optional_failure": false,
+  "agents": [
+    {
+      "name": "compliance-spoke",
+      "assignment": "Return compliance caveats that must gate the remaining analysis.",
+      "instructions": "Identify policy caveats in the synthetic scenario. Return concise JSON."
+    },
+    {
+      "name": "market-spoke",
+      "assignment": "Return market assumptions and evidence gaps.",
+      "instructions": "Analyze only the supplied synthetic scenario. Return concise JSON.",
+      "depends_on": [
+        "compliance-spoke"
+      ]
+    },
+    {
+      "name": "risk-spoke",
+      "assignment": "Return risk drivers and limits.",
+      "instructions": "Assess risk without investment advice. Return concise JSON.",
+      "depends_on": [
+        "compliance-spoke"
+      ]
+    }
+  ],
+  "supervisor": {
+    "name": "research-supervisor",
+    "instructions": "Synthesize accepted specialist evidence. State missing evidence and do not invent facts."
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "risk-east-v1",
+  "name": "contoso-risk-agent",
+  "url": "http://127.0.0.1:8000/a2a",
+  "version": "1.0.0",
+  "capabilities": [
+    "risk-analysis"
+  ],
+  "load": 0.25,
+  "tenantId": "contoso",
+  "health": "healthy",
+  "heartbeat": 1794403529,
+  "ttl": 300,
+  "_rid": "KKY6AND8LEkBAAAAAAAAAA==",
+  "_self": "dbs/KKY6AA==/colls/KKY6AND8LEk=/docs/KKY6AND8LEkBAAAAAAAAAA==/",
+  "_etag": "\"3b00370c-0000-0200-0000-6af46cc90000\"",
+  "_attachments": "attachments/",
+  "_ts": 1794403529
+}

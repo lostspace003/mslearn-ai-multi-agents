@@ -1,0 +1,11 @@
+== py_compile
+(no output, exit 0)
+== preflight
+python_3_10_or_newer: ready
+dataset_present: ready
+configuration_present: ready
+evaluation_sdk_installed: ready
+endpoint_configured: ready
+deployment_configured: ready
+learner_code_complete: ready
+exit=0

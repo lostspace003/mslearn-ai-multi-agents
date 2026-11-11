@@ -1,0 +1,12 @@
+### Task 7 step 7: final checks
+Local MCP URL configured: True
+Remote token scope configured: True
+Preflight passed. Numbered LAB PLACEHOLDER blocks remain intentionally incomplete.
+py_compile OK src/__init__.py
+py_compile OK src/catalog.py
+py_compile OK src/client.py
+py_compile OK src/main.py
+py_compile OK src/result_validation.py
+py_compile OK src/server.py
+py_compile OK scripts/preflight.py
+bicep exit=0 (warnings: 1)

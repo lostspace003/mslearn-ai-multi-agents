@@ -1,0 +1,125 @@
+### python -m src.main search --query atorvastatin contraindications --chunk-strategy fixed-overlap
+{
+  "northwind-formulary-v1": [
+    {
+      "@search.score": 0.027604442089796066,
+      "@search.rerankerScore": 2.0531704425811768,
+      "@search.captions": [
+        "{'text': 'statement is synthetic and does not replace an approved medication policy. Review reported muscle symptoms, the active medication list, and the locally approved monitoring workflo.', 'highlights': 'statement is synthetic and<em> does not replace an approved medication policy.</em> Review<em> reported muscle symptoms, the active medication list, </em>and the<em> locally approved monitoring </em>workflo.'}"
+      ],
+      "id": "fixed-overlap-formulary-atorvastatin-001",
+      "content": "statement is synthetic and does not replace an approved medication policy.\n\nReview reported muscle symptoms, the active medication list, and the locally approved monitoring workflo",
+      "title": "Atorvastatin synthetic monograph",
+      "source": "synthetic-formulary-v2",
+      "parent_id": "formulary-atorvastatin",
+      "chunk_strategy": "fixed-overlap",
+      "boundary_start": 140,
+      "boundary_end": 320,
+      "section_heading": null,
+      "@search.reranker_score": 2.0531704425811768,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Atorvastatin synthetic monograph (synthetic-formulary-v2#fixed-overlap-formulary-atorvastatin-001)",
+      "captions": [
+        "statement is synthetic and does not replace an approved medication policy. Review reported muscle symptoms, the active medication list, and the locally approved monitoring workflo."
+      ]
+    },
+    {
+      "@search.score": 0.027683764696121216,
+      "@search.rerankerScore": 1.9480702877044678,
+      "@search.captions": [
+        "{'text': 'the locally approved monitoring workflow. Escalate unresolved interaction risk to an authorized clinician.', 'highlights': 'the<em> locally approved monitoring workflow.</em> <em>Escalate unresolved interaction risk to an authorized clinician.</em>'}"
+      ],
+      "id": "fixed-overlap-formulary-atorvastatin-002",
+      "content": " the locally approved monitoring workflow. Escalate unresolved interaction risk to an authorized clinician.",
+      "title": "Atorvastatin synthetic monograph",
+      "source": "synthetic-formulary-v2",
+      "parent_id": "formulary-atorvastatin",
+      "chunk_strategy": "fixed-overlap",
+      "boundary_start": 280,
+      "boundary_end": 387,
+      "section_heading": null,
+      "@search.reranker_score": 1.9480702877044678,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Atorvastatin synthetic monograph (synthetic-formulary-v2#fixed-overlap-formulary-atorvastatin-002)",
+      "captions": [
+        "the locally approved monitoring workflow. Escalate unresolved interaction risk to an authorized clinician."
+      ]
+    },
+    {
+      "@search.score": 0.028333334252238274,
+      "@search.rerankerScore": 1.9416898488998413,
+      "@search.captions": [
+        "{'text': 'Training-only interaction guidance: concurrent clarithromycin requires pharmacist review before atorvastatin is continued or adjusted. This statement is synthetic and does not repl.', 'highlights': 'Training-only interaction guidance:<em> concurrent clarithromycin </em>requires<em> pharmacist review </em>before<em> atorvastatin </em>is<em> continued or </em>adjusted. This statement is<em> synthetic </em>and<em> does not repl.</em>'}"
+      ],
+      "id": "fixed-overlap-formulary-atorvastatin-000",
+      "content": "Training-only interaction guidance: concurrent clarithromycin requires pharmacist review before atorvastatin is continued or adjusted. This statement is synthetic and does not repl",
+      "title": "Atorvastatin synthetic monograph",
+      "source": "synthetic-formulary-v2",
+      "parent_id": "formulary-atorvastatin",
+      "chunk_strategy": "fixed-overlap",
+      "boundary_start": 0,
+      "boundary_end": 180,
+      "section_heading": null,
+      "@search.reranker_score": 1.9416898488998413,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Atorvastatin synthetic monograph (synthetic-formulary-v2#fixed-overlap-formulary-atorvastatin-000)",
+      "captions": [
+        "Training-only interaction guidance: concurrent clarithromycin requires pharmacist review before atorvastatin is continued or adjusted. This statement is synthetic and does not repl."
+      ]
+    },
+    {
+      "@search.score": 0.011111111380159855,
+      "@search.rerankerScore": 1.3690448999404907,
+      "@search.captions": [
+        "{'text': 'with the current medication plan. Document adherence questions and route clinically significant changes to an authorized clinician. No patient-specific recommendation is made by t.', 'highlights': 'with the current medication plan. Document<em> adherence questions and route clinically significant changes to an authorized clinician.</em> No patient-specific recommendation is made by t.'}"
+      ],
+      "id": "fixed-overlap-formulary-metformin-001",
+      "content": "with the current medication plan.\n\nDocument adherence questions and route clinically significant changes to an authorized clinician. No patient-specific recommendation is made by t",
+      "title": "Metformin synthetic monograph",
+      "source": "synthetic-formulary-v2",
+      "parent_id": "formulary-metformin",
+      "chunk_strategy": "fixed-overlap",
+      "boundary_start": 140,
+      "boundary_end": 320,
+      "section_heading": null,
+      "@search.reranker_score": 1.3690448999404907,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Metformin synthetic monograph (synthetic-formulary-v2#fixed-overlap-formulary-metformin-001)",
+      "captions": [
+        "with the current medication plan. Document adherence questions and route clinically significant changes to an authorized clinician. No patient-specific recommendation is made by t."
+      ]
+    },
+    {
+      "@search.score": 0.010937499813735485,
+      "@search.rerankerScore": 1.20457124710083,
+      "@search.captions": [
+        "{'text': 'Training-only monitoring guidance: review renal function according to local policy before treatment decisions. Coordinate laboratory trends with the current medication plan. Docum.', 'highlights': 'Training-only monitoring guidance:<em> review renal function </em>according to local policy before treatment decisions. <em>Coordinate laboratory trends with the current medication plan.</em> <em>Docum.</em>'}"
+      ],
+      "id": "fixed-overlap-formulary-metformin-000",
+      "content": "Training-only monitoring guidance: review renal function according to local policy before treatment decisions. Coordinate laboratory trends with the current medication plan.\n\nDocum",
+      "title": "Metformin synthetic monograph",
+      "source": "synthetic-formulary-v2",
+      "parent_id": "formulary-metformin",
+      "chunk_strategy": "fixed-overlap",
+      "boundary_start": 0,
+      "boundary_end": 180,
+      "section_heading": null,
+      "@search.reranker_score": 1.20457124710083,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Metformin synthetic monograph (synthetic-formulary-v2#fixed-overlap-formulary-metformin-000)",
+      "captions": [
+        "Training-only monitoring guidance: review renal function according to local policy before treatment decisions. Coordinate laboratory trends with the current medication plan. Docum."
+      ]
+    }
+  ]
+}

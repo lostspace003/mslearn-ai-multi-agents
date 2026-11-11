@@ -1,0 +1,13 @@
+Agent:        fabrikam-review-orchestrator (remote)
+Message:      "Return a one-line rollback verification response."
+Version:      2
+Session:      0498a5be3c8bf8bd005fobthWycUyU3IYuT6zuE1fCLLtYj985
+Conversation: conv_07d2ed683e0c094600GdR83I4eczxU95dKSFqljmw40UlXWdzR
+
+Trace ID:     b726bdee16ce92b3bdc4bc8433c9a2ce
+Response:     caresp_07d2ed683e0c094600vtxDVbAn5w2FhpQPUIJZjXZvVO8oHwTD
+[fabrikam-review-orchestrator] {"coordinate_review":{"status":"cannot_verify","agent_results":{"scan_code":"failed: missing repository/commit","review_change":"failed: missing repository/commit"}}}{"coordinate_review":{"status":"cannot_verify","agent_results":{"scan_code":"failed: missing repository/commit","review_change":"failed: missing repository/commit"}}}
+
+Client elapsed: 8.145s
+Platform latency (warm): response headers 2082 ms
+  preprocess 118 ms | container 1964 ms

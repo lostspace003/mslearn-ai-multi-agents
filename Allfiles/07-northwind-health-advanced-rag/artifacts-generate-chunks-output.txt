@@ -1,0 +1,587 @@
+{
+  "strategy_summaries": [
+    {
+      "strategy": "fixed-overlap",
+      "configuration": {
+        "strategy": "fixed-overlap",
+        "size_chars": 180,
+        "overlap_chars": 40
+      },
+      "chunk_count": 16,
+      "boundaries": [
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-000",
+          "parent_id": "formulary-atorvastatin",
+          "start": 0,
+          "end": 180,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-001",
+          "parent_id": "formulary-atorvastatin",
+          "start": 140,
+          "end": 320,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-002",
+          "parent_id": "formulary-atorvastatin",
+          "start": 280,
+          "end": 387,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-000",
+          "parent_id": "formulary-metformin",
+          "start": 0,
+          "end": 180,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-001",
+          "parent_id": "formulary-metformin",
+          "start": 140,
+          "end": 320,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-002",
+          "parent_id": "formulary-metformin",
+          "start": 280,
+          "end": 344,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-000",
+          "parent_id": "guideline-diabetes",
+          "start": 0,
+          "end": 180,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-001",
+          "parent_id": "guideline-diabetes",
+          "start": 140,
+          "end": 320,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-002",
+          "parent_id": "guideline-diabetes",
+          "start": 280,
+          "end": 344,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-guideline-lipid-000",
+          "parent_id": "guideline-lipid",
+          "start": 0,
+          "end": 180,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-guideline-lipid-001",
+          "parent_id": "guideline-lipid",
+          "start": 140,
+          "end": 294,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-000",
+          "parent_id": "labs-a1c",
+          "start": 0,
+          "end": 180,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-001",
+          "parent_id": "labs-a1c",
+          "start": 140,
+          "end": 320,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-002",
+          "parent_id": "labs-a1c",
+          "start": 280,
+          "end": 329,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-labs-renal-000",
+          "parent_id": "labs-renal",
+          "start": 0,
+          "end": 180,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-labs-renal-001",
+          "parent_id": "labs-renal",
+          "start": 140,
+          "end": 290,
+          "section_heading": null
+        }
+      ]
+    },
+    {
+      "strategy": "structural-parent-child",
+      "configuration": {
+        "strategy": "structural-parent-child",
+        "include_parent_title": true
+      },
+      "chunk_count": 12,
+      "boundaries": [
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-000",
+          "parent_id": "formulary-atorvastatin",
+          "start": 0,
+          "end": 214,
+          "section_heading": "Contraindications and interactions"
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-001",
+          "parent_id": "formulary-atorvastatin",
+          "start": 216,
+          "end": 387,
+          "section_heading": "Monitoring"
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-000",
+          "parent_id": "formulary-metformin",
+          "start": 0,
+          "end": 173,
+          "section_heading": "Renal monitoring"
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-001",
+          "parent_id": "formulary-metformin",
+          "start": 175,
+          "end": 344,
+          "section_heading": "Follow-up"
+        },
+        {
+          "id": "structural-parent-child-guideline-diabetes-000",
+          "parent_id": "guideline-diabetes",
+          "start": 0,
+          "end": 182,
+          "section_heading": "Coordinated review"
+        },
+        {
+          "id": "structural-parent-child-guideline-diabetes-001",
+          "parent_id": "guideline-diabetes",
+          "start": 184,
+          "end": 344,
+          "section_heading": "Monitoring plan"
+        },
+        {
+          "id": "structural-parent-child-guideline-lipid-000",
+          "parent_id": "guideline-lipid",
+          "start": 0,
+          "end": 143,
+          "section_heading": "Therapy review"
+        },
+        {
+          "id": "structural-parent-child-guideline-lipid-001",
+          "parent_id": "guideline-lipid",
+          "start": 145,
+          "end": 294,
+          "section_heading": "Escalation"
+        },
+        {
+          "id": "structural-parent-child-labs-a1c-000",
+          "parent_id": "labs-a1c",
+          "start": 0,
+          "end": 166,
+          "section_heading": "Interpretation"
+        },
+        {
+          "id": "structural-parent-child-labs-a1c-001",
+          "parent_id": "labs-a1c",
+          "start": 168,
+          "end": 329,
+          "section_heading": "Follow-up"
+        },
+        {
+          "id": "structural-parent-child-labs-renal-000",
+          "parent_id": "labs-renal",
+          "start": 0,
+          "end": 146,
+          "section_heading": "Monitoring context"
+        },
+        {
+          "id": "structural-parent-child-labs-renal-001",
+          "parent_id": "labs-renal",
+          "start": 148,
+          "end": 290,
+          "section_heading": "Escalation"
+        }
+      ]
+    }
+  ],
+  "chunks": [
+    {
+      "id": "fixed-overlap-formulary-atorvastatin-000",
+      "title": "Atorvastatin synthetic monograph",
+      "content": "Training-only interaction guidance: concurrent clarithromycin requires pharmacist review before atorvastatin is continued or adjusted. This statement is synthetic and does not repl",
+      "category": "formulary",
+      "source": "synthetic-formulary-v2",
+      "parent_id": "formulary-atorvastatin",
+      "chunk_order": 0,
+      "chunk_strategy": "fixed-overlap",
+      "boundary_start": 0,
+      "boundary_end": 180,
+      "section_heading": null
+    },
+    {
+      "id": "fixed-overlap-formulary-atorvastatin-001",
+      "title": "Atorvastatin synthetic monograph",
+      "content": "statement is synthetic and does not replace an approved medication policy.\n\nReview reported muscle symptoms, the active medication list, and the locally approved monitoring workflo",
+      "category": "formulary",
+      "source": "synthetic-formulary-v2",
+      "parent_id": "formulary-atorvastatin",
+      "chunk_order": 1,
+      "chunk_strategy": "fixed-overlap",
+      "boundary_start": 140,
+      "boundary_end": 320,
+      "section_heading": null
+    },
+    {
+      "id": "fixed-overlap-formulary-atorvastatin-002",
+      "title": "Atorvastatin synthetic monograph",
+      "content": " the locally approved monitoring workflow. Escalate unresolved interaction risk to an authorized clinician.",
+      "category": "formulary",
+      "source": "synthetic-formulary-v2",
+      "parent_id": "formulary-atorvastatin",
+      "chunk_order": 2,
+      "chunk_strategy": "fixed-overlap",
+      "boundary_start": 280,
+      "boundary_end": 387,
+      "section_heading": null
+    },
+    {
+      "id": "fixed-overlap-formulary-metformin-000",
+      "title": "Metformin synthetic monograph",
+      "content": "Training-only monitoring guidance: review renal function according to local policy before treatment decisions. Coordinate laboratory trends with the current medication plan.\n\nDocum",
+      "category": "formulary",
+      "source": "synthetic-formulary-v2",
+      "parent_id": "formulary-metformin",
+      "chunk_order": 0,
+      "chunk_strategy": "fixed-overlap",
+      "boundary_start": 0,
+      "boundary_end": 180,
+      "section_heading": null
+    },
+    {
+      "id": "fixed-overlap-formulary-metformin-001",
+      "title": "Metformin synthetic monograph",
+      "content": "with the current medication plan.\n\nDocument adherence questions and route clinically significant changes to an authorized clinician. No patient-specific recommendation is made by t",
+      "category": "formulary",
+      "source": "synthetic-formulary-v2",
+      "parent_id": "formulary-metformin",
+      "chunk_order": 1,
+      "chunk_strategy": "fixed-overlap",
+      "boundary_start": 140,
+      "boundary_end": 320,
+      "section_heading": null
+    },
+    {
+      "id": "fixed-overlap-formulary-metformin-002",
+      "title": "Metformin synthetic monograph",
+      "content": "ent-specific recommendation is made by this synthetic monograph.",
+      "category": "formulary",
+      "source": "synthetic-formulary-v2",
+      "parent_id": "formulary-metformin",
+      "chunk_order": 2,
+      "chunk_strategy": "fixed-overlap",
+      "boundary_start": 280,
+      "boundary_end": 344,
+      "section_heading": null
+    },
+    {
+      "id": "fixed-overlap-guideline-diabetes-000",
+      "title": "Synthetic diabetes follow-up guideline",
+      "content": "Coordinate diabetes treatment decisions with adherence review, laboratory trends, medication tolerance, and shared decision-making. Use the approved clinical workflow for escalatio",
+      "category": "guidelines",
+      "source": "synthetic-guidelines-v2",
+      "parent_id": "guideline-diabetes",
+      "chunk_order": 0,
+      "chunk_strategy": "fixed-overlap",
+      "boundary_start": 0,
+      "boundary_end": 180,
+      "section_heading": null
+    },
+    {
+      "id": "fixed-overlap-guideline-diabetes-001",
+      "title": "Synthetic diabetes follow-up guideline",
+      "content": "approved clinical workflow for escalation.\n\nRecord the responsible follow-up role and the next review point. Reconcile the treatment plan with current formulary guidance and valida",
+      "category": "guidelines",
+      "source": "synthetic-guidelines-v2",
+      "parent_id": "guideline-diabetes",
+      "chunk_order": 1,
+      "chunk_strategy": "fixed-overlap",
+      "boundary_start": 140,
+      "boundary_end": 320,
+      "section_heading": null
+    },
+    {
+      "id": "fixed-overlap-guideline-diabetes-002",
+      "title": "Synthetic diabetes follow-up guideline",
+      "content": "th current formulary guidance and validated laboratory evidence.",
+      "category": "guidelines",
+      "source": "synthetic-guidelines-v2",
+      "parent_id": "guideline-diabetes",
+      "chunk_order": 2,
+      "chunk_strategy": "fixed-overlap",
+      "boundary_start": 280,
+      "boundary_end": 344,
+      "section_heading": null
+    },
+    {
+      "id": "fixed-overlap-guideline-lipid-000",
+      "title": "Synthetic lipid management guideline",
+      "content": "Review medication tolerance and interaction risk before changing lipid therapy. Confirm exact drug names against the approved formulary source.\n\nEscalate unresolved adverse-effect ",
+      "category": "guidelines",
+      "source": "synthetic-guidelines-v2",
+      "parent_id": "guideline-lipid",
+      "chunk_order": 0,
+      "chunk_strategy": "fixed-overlap",
+      "boundary_start": 0,
+      "boundary_end": 180,
+      "section_heading": null
+    },
+    {
+      "id": "fixed-overlap-guideline-lipid-001",
+      "title": "Synthetic lipid management guideline",
+      "content": "ce.\n\nEscalate unresolved adverse-effect or interaction concerns through the authorized clinical workflow and retain source citations in the review record.",
+      "category": "guidelines",
+      "source": "synthetic-guidelines-v2",
+      "parent_id": "guideline-lipid",
+      "chunk_order": 1,
+      "chunk_strategy": "fixed-overlap",
+      "boundary_start": 140,
+      "boundary_end": 294,
+      "section_heading": null
+    },
+    {
+      "id": "fixed-overlap-labs-a1c-000",
+      "title": "Synthetic A1C reference",
+      "content": "Training-only reference: interpret A1C ranges and trends with the approved clinical protocol. This synthetic source intentionally does not assert a patient threshold.\n\nWhen the app",
+      "category": "labs",
+      "source": "synthetic-lab-reference-v2",
+      "parent_id": "labs-a1c",
+      "chunk_order": 0,
+      "chunk_strategy": "fixed-overlap",
+      "boundary_start": 0,
+      "boundary_end": 180,
+      "section_heading": null
+    },
+    {
+      "id": "fixed-overlap-labs-a1c-001",
+      "title": "Synthetic A1C reference",
+      "content": "ssert a patient threshold.\n\nWhen the approved protocol identifies a follow-up range, coordinate the laboratory finding with adherence review, treatment context, and an authorized c",
+      "category": "labs",
+      "source": "synthetic-lab-reference-v2",
+      "parent_id": "labs-a1c",
+      "chunk_order": 1,
+      "chunk_strategy": "fixed-overlap",
+      "boundary_start": 140,
+      "boundary_end": 320,
+      "section_heading": null
+    },
+    {
+      "id": "fixed-overlap-labs-a1c-002",
+      "title": "Synthetic A1C reference",
+      "content": ", treatment context, and an authorized clinician.",
+      "category": "labs",
+      "source": "synthetic-lab-reference-v2",
+      "parent_id": "labs-a1c",
+      "chunk_order": 2,
+      "chunk_strategy": "fixed-overlap",
+      "boundary_start": 280,
+      "boundary_end": 329,
+      "section_heading": null
+    },
+    {
+      "id": "fixed-overlap-labs-renal-000",
+      "title": "Synthetic renal function reference",
+      "content": "Training-only renal reference: preserve the reported test name, unit, range, and collection context when applying an approved monitoring workflow.\n\nRoute clinically significant ren",
+      "category": "labs",
+      "source": "synthetic-lab-reference-v2",
+      "parent_id": "labs-renal",
+      "chunk_order": 0,
+      "chunk_strategy": "fixed-overlap",
+      "boundary_start": 0,
+      "boundary_end": 180,
+      "section_heading": null
+    },
+    {
+      "id": "fixed-overlap-labs-renal-001",
+      "title": "Synthetic renal function reference",
+      "content": "kflow.\n\nRoute clinically significant renal trends to an authorized clinician and reconcile the finding with medications that require renal monitoring.",
+      "category": "labs",
+      "source": "synthetic-lab-reference-v2",
+      "parent_id": "labs-renal",
+      "chunk_order": 1,
+      "chunk_strategy": "fixed-overlap",
+      "boundary_start": 140,
+      "boundary_end": 290,
+      "section_heading": null
+    },
+    {
+      "id": "structural-parent-child-formulary-atorvastatin-000",
+      "title": "Atorvastatin synthetic monograph",
+      "content": "Atorvastatin synthetic monograph\nContraindications and interactions\nTraining-only interaction guidance: concurrent clarithromycin requires pharmacist review before atorvastatin is continued or adjusted. This statement is synthetic and does not replace an approved medication policy.",
+      "category": "formulary",
+      "source": "synthetic-formulary-v2",
+      "parent_id": "formulary-atorvastatin",
+      "chunk_order": 0,
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 0,
+      "boundary_end": 214,
+      "section_heading": "Contraindications and interactions"
+    },
+    {
+      "id": "structural-parent-child-formulary-atorvastatin-001",
+      "title": "Atorvastatin synthetic monograph",
+      "content": "Atorvastatin synthetic monograph\nMonitoring\nReview reported muscle symptoms, the active medication list, and the locally approved monitoring workflow. Escalate unresolved interaction risk to an authorized clinician.",
+      "category": "formulary",
+      "source": "synthetic-formulary-v2",
+      "parent_id": "formulary-atorvastatin",
+      "chunk_order": 1,
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 216,
+      "boundary_end": 387,
+      "section_heading": "Monitoring"
+    },
+    {
+      "id": "structural-parent-child-formulary-metformin-000",
+      "title": "Metformin synthetic monograph",
+      "content": "Metformin synthetic monograph\nRenal monitoring\nTraining-only monitoring guidance: review renal function according to local policy before treatment decisions. Coordinate laboratory trends with the current medication plan.",
+      "category": "formulary",
+      "source": "synthetic-formulary-v2",
+      "parent_id": "formulary-metformin",
+      "chunk_order": 0,
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 0,
+      "boundary_end": 173,
+      "section_heading": "Renal monitoring"
+    },
+    {
+      "id": "structural-parent-child-formulary-metformin-001",
+      "title": "Metformin synthetic monograph",
+      "content": "Metformin synthetic monograph\nFollow-up\nDocument adherence questions and route clinically significant changes to an authorized clinician. No patient-specific recommendation is made by this synthetic monograph.",
+      "category": "formulary",
+      "source": "synthetic-formulary-v2",
+      "parent_id": "formulary-metformin",
+      "chunk_order": 1,
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 175,
+      "boundary_end": 344,
+      "section_heading": "Follow-up"
+    },
+    {
+      "id": "structural-parent-child-guideline-diabetes-000",
+      "title": "Synthetic diabetes follow-up guideline",
+      "content": "Synthetic diabetes follow-up guideline\nCoordinated review\nCoordinate diabetes treatment decisions with adherence review, laboratory trends, medication tolerance, and shared decision-making. Use the approved clinical workflow for escalation.",
+      "category": "guidelines",
+      "source": "synthetic-guidelines-v2",
+      "parent_id": "guideline-diabetes",
+      "chunk_order": 0,
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 0,
+      "boundary_end": 182,
+      "section_heading": "Coordinated review"
+    },
+    {
+      "id": "structural-parent-child-guideline-diabetes-001",
+      "title": "Synthetic diabetes follow-up guideline",
+      "content": "Synthetic diabetes follow-up guideline\nMonitoring plan\nRecord the responsible follow-up role and the next review point. Reconcile the treatment plan with current formulary guidance and validated laboratory evidence.",
+      "category": "guidelines",
+      "source": "synthetic-guidelines-v2",
+      "parent_id": "guideline-diabetes",
+      "chunk_order": 1,
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 184,
+      "boundary_end": 344,
+      "section_heading": "Monitoring plan"
+    },
+    {
+      "id": "structural-parent-child-guideline-lipid-000",
+      "title": "Synthetic lipid management guideline",
+      "content": "Synthetic lipid management guideline\nTherapy review\nReview medication tolerance and interaction risk before changing lipid therapy. Confirm exact drug names against the approved formulary source.",
+      "category": "guidelines",
+      "source": "synthetic-guidelines-v2",
+      "parent_id": "guideline-lipid",
+      "chunk_order": 0,
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 0,
+      "boundary_end": 143,
+      "section_heading": "Therapy review"
+    },
+    {
+      "id": "structural-parent-child-guideline-lipid-001",
+      "title": "Synthetic lipid management guideline",
+      "content": "Synthetic lipid management guideline\nEscalation\nEscalate unresolved adverse-effect or interaction concerns through the authorized clinical workflow and retain source citations in the review record.",
+      "category": "guidelines",
+      "source": "synthetic-guidelines-v2",
+      "parent_id": "guideline-lipid",
+      "chunk_order": 1,
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 145,
+      "boundary_end": 294,
+      "section_heading": "Escalation"
+    },
+    {
+      "id": "structural-parent-child-labs-a1c-000",
+      "title": "Synthetic A1C reference",
+      "content": "Synthetic A1C reference\nInterpretation\nTraining-only reference: interpret A1C ranges and trends with the approved clinical protocol. This synthetic source intentionally does not assert a patient threshold.",
+      "category": "labs",
+      "source": "synthetic-lab-reference-v2",
+      "parent_id": "labs-a1c",
+      "chunk_order": 0,
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 0,
+      "boundary_end": 166,
+      "section_heading": "Interpretation"
+    },
+    {
+      "id": "structural-parent-child-labs-a1c-001",
+      "title": "Synthetic A1C reference",
+      "content": "Synthetic A1C reference\nFollow-up\nWhen the approved protocol identifies a follow-up range, coordinate the laboratory finding with adherence review, treatment context, and an authorized clinician.",
+      "category": "labs",
+      "source": "synthetic-lab-reference-v2",
+      "parent_id": "labs-a1c",
+      "chunk_order": 1,
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 168,
+      "boundary_end": 329,
+      "section_heading": "Follow-up"
+    },
+    {
+      "id": "structural-parent-child-labs-renal-000",
+      "title": "Synthetic renal function reference",
+      "content": "Synthetic renal function reference\nMonitoring context\nTraining-only renal reference: preserve the reported test name, unit, range, and collection context when applying an approved monitoring workflow.",
+      "category": "labs",
+      "source": "synthetic-lab-reference-v2",
+      "parent_id": "labs-renal",
+      "chunk_order": 0,
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 0,
+      "boundary_end": 146,
+      "section_heading": "Monitoring context"
+    },
+    {
+      "id": "structural-parent-child-labs-renal-001",
+      "title": "Synthetic renal function reference",
+      "content": "Synthetic renal function reference\nEscalation\nRoute clinically significant renal trends to an authorized clinician and reconcile the finding with medications that require renal monitoring.",
+      "category": "labs",
+      "source": "synthetic-lab-reference-v2",
+      "parent_id": "labs-renal",
+      "chunk_order": 1,
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 148,
+      "boundary_end": 290,
+      "section_heading": "Escalation"
+    }
+  ]
+}

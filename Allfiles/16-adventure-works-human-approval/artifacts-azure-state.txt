@@ -1,0 +1,27 @@
+== Azure resources in rg-lab16-fbdf8faa
+Name                      Location
+------------------------  ----------
+awapprovalawhwfwl7x6qsc   eastus2
+awapproval-awhwfwl7x6qsc  eastus2
+
+== Cosmos SQL databases/containers
+approvals
+workflow-state
+approval-audit
+
+== Service Bus queues
+Name                Active    DupDetect
+------------------  --------  -----------
+approval-decisions  0         True
+approval-requests   7         True
+
+== Service Bus metrics per queue (PT5M totals, last 1h)
+== Service Bus metrics per queue (PT5M buckets, last 1h, non-zero only)
+IncomingMessages
+   approval-requests [('13:27', 7.0, 1.75)]
+   approval-decisions [('13:27', 6.0, 1.5)]
+CompleteMessage
+   approval-decisions [('13:27', 6.0, 1.5)]
+ActiveMessages
+   approval-requests [('13:27', 15.0, 3.0)]
+   approval-decisions [('13:27', 2.0, 0.4)]

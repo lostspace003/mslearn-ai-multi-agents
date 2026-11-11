@@ -1,0 +1,17 @@
+# App Insights invoke_agent spans (az monitor app-insights query), UTC. start end name duration_ms response_id
+13:24:57.084 13:24:58.885 invoke_agent compliance-spoke:1      1801 resp_0734030f3ea7c421006af46ca8f0ec81979b2ec27bd7dbfade
+13:24:57.154 13:24:58.931 invoke_agent market-spoke:1          1777 resp_0b22e549a8cf9277006af46ca8eb5081959f15444d2c0805e3
+13:24:57.424 13:24:59.867 invoke_agent risk-spoke:1            2443 resp_09f4d8a7293c27c8006af46ca941e4819080f2d7c945699c7c
+13:25:04.867 13:25:07.355 invoke_agent research-supervisor:1   2488 resp_00ba5866700967ce006af46cb0bac8819098f8da5034a0c961
+13:25:27.947 13:25:29.821 invoke_agent risk-spoke:1            1874 resp_05648ffd6dfc7b74006af46cc7d1f081939eb54ce960ae7c8b
+13:25:28.259 13:25:31.633 invoke_agent market-spoke:1          3374 resp_0e3c8d987aa4c9f0006af46cc823648196a254dfc4c657485c
+13:25:28.264 13:25:30.080 invoke_agent compliance-spoke:1      1815 resp_003d5cda2f23c3a3006af46cc821788194a6b9b99c578b66b6
+13:25:35.102 13:25:38.580 invoke_agent research-supervisor:1   3478 resp_0802676c07b6f2d5006af46ccef9a08190a044c4659db3b1cd
+13:26:43.382 13:26:45.274 invoke_agent market-spoke:1          1893 resp_0ef66b29b4e181ac006af46d1345488197a649465473e22d58
+13:26:48.435 13:26:50.397 invoke_agent risk-spoke:1            1962 resp_0f01712525a37f73006af46d18533c819090a0c9a7abc54ba1
+13:26:54.054 13:26:55.447 invoke_agent compliance-spoke:1      1393 resp_0940c76c80eb6798006af46d1df2548190abb06ad4d03bcba9
+13:26:58.783 13:27:00.649 invoke_agent research-supervisor:1   1866 resp_0d7aed9a3e2ebc42006af46d22a32c819497fa3ba520c6d3bf
+13:28:15.519 13:28:17.576 invoke_agent compliance-spoke:1      2057 resp_0a5c80af65796e6c006af46d6f572081969e3bd55f13b18c2d
+13:28:53.877 13:28:56.369 invoke_agent market-spoke:1          2492 resp_007e7d9846708660006af46d95bea081938a95c37bf1975e2e
+13:29:00.332 13:29:06.664 invoke_agent risk-spoke:1            6332 resp_0465bbb1971ac0df006af46d9bfb0c819398d1ed8856d038be
+13:29:10.218 13:29:13.672 invoke_agent research-supervisor:1   3454 resp_0e92f5c7b8d3ee19006af46da60a448195b76f95424aaaa849

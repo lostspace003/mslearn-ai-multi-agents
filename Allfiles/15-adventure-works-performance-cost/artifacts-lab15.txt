@@ -1,0 +1,155 @@
+### py_compile
+(no output)
+### preflight --require-complete
+python_3_10_or_newer: ready
+synthetic_requests_present: ready
+project_endpoint: ready
+redis_host: ready
+redis_port: ready
+principal_id: ready
+three_deployments: ready
+current_prices_entered: ready
+exact_result_invalidation: ready
+multilevel_cache_metrics: ready
+learner_code_complete: ready
+exit=0
+
+### Benchmark runs (full JSON in reports/*-summary.json, logs reports/*-run.log, rows reports/evidence.jsonl)
+== control: {"policy": "control", "request_count": 3, "successful_count": 2, "total_cost_usd": 0.001455, "total_input_tokens": 404, "total_output_tokens": 256, "retry_rate": 0.0, "quality_mean": 77.67, "latency_p50_ms": 2027.7, "latency_p95_ms": 6175.9, "price_version": "verified-2026-10-01-global-standard", "cache_hit_rate": 0.0, "exact_result_cache_hit_rate": 0.0, "prompt_cache_hit_rate": 0.0}
+   request_id | initial_tier | final_tier | cache_level | prompt_cache_hit | retries | elapsed_ms | in_tok | out_tok | cost_usd | quality | needs_human_review
+   SYN-LOOKUP-001 | 3 | 3 | miss | False | 0 | 6175.9 | 117 | 41 | 0.000272 | 100 | False
+   SYN-COMPARE-002 | 3 | 3 | miss | False | 0 | 2027.7 | 158 | 114 | 0.000632 | 100 | False
+   SYN-EXCEPTION-003 | 3 | 3 | miss | False | 0 | 1529.3 | 129 | 101 | 0.000551 | 33 | True
+== optimized: {"policy": "optimized", "request_count": 3, "successful_count": 2, "total_cost_usd": 0.001522, "total_input_tokens": 404, "total_output_tokens": 271, "retry_rate": 0.0, "quality_mean": 66.67, "latency_p50_ms": 1776.0, "latency_p95_ms": 3549.9, "price_version": "verified-2026-10-01-global-standard", "cache_hit_rate": 0.0, "exact_result_cache_hit_rate": 0.0, "prompt_cache_hit_rate": 0.0}
+   request_id | initial_tier | final_tier | cache_level | prompt_cache_hit | retries | elapsed_ms | in_tok | out_tok | cost_usd | quality | needs_human_review
+   SYN-LOOKUP-001 | 2 | 2 | miss | False | 0 | 3549.9 | 117 | 39 | 0.000263 | 100 | False
+   SYN-COMPARE-002 | 2 | 2 | miss | False | 0 | 1739.6 | 158 | 141 | 0.000753 | 100 | False
+   SYN-EXCEPTION-003 | 3 | 3 | miss | False | 0 | 1776.0 | 129 | 91 | 0.000506 | 0 | True
+== optimized-cached: {"policy": "optimized", "request_count": 3, "successful_count": 2, "total_cost_usd": 0.000556, "total_input_tokens": 129, "total_output_tokens": 102, "retry_rate": 0.0, "quality_mean": 66.67, "latency_p50_ms": 0.0, "latency_p95_ms": 4038.0, "price_version": "verified-2026-10-01-global-standard", "cache_hit_rate": 1.0, "exact_result_cache_hit_rate": 0.6666666666666666, "prompt_cache_hit_rate": 0.3333333333333333}
+   request_id | initial_tier | final_tier | cache_level | prompt_cache_hit | retries | elapsed_ms | in_tok | out_tok | cost_usd | quality | needs_human_review
+   SYN-LOOKUP-001 | 2 | 2 | exact_result | False | 0 | 0.0 | 0 | 0 | 0.0 | 100 | None
+   SYN-COMPARE-002 | 2 | 2 | exact_result | False | 0 | 0.0 | 0 | 0 | 0.0 | 100 | None
+   SYN-EXCEPTION-003 | 3 | 3 | prompt | True | 0 | 4038.0 | 129 | 102 | 0.000556 | 0 | True
+== optimized-prompt-cached: {"policy": "optimized", "request_count": 3, "successful_count": 2, "total_cost_usd": 0.000783, "total_input_tokens": 246, "total_output_tokens": 133, "retry_rate": 0.0, "quality_mean": 77.67, "latency_p50_ms": 1666.4, "latency_p95_ms": 3628.1, "price_version": "verified-2026-10-01-global-standard", "cache_hit_rate": 1.0, "exact_result_cache_hit_rate": 0.3333333333333333, "prompt_cache_hit_rate": 0.6666666666666666}
+   request_id | initial_tier | final_tier | cache_level | prompt_cache_hit | retries | elapsed_ms | in_tok | out_tok | cost_usd | quality | needs_human_review
+   SYN-LOOKUP-001 | 2 | 2 | prompt | True | 0 | 3628.1 | 117 | 40 | 0.000268 | 100 | False
+   SYN-COMPARE-002 | 2 | 2 | exact_result | False | 0 | 0.0 | 0 | 0 | 0.0 | 100 | None
+   SYN-EXCEPTION-003 | 3 | 3 | prompt | True | 0 | 1666.4 | 129 | 93 | 0.000515 | 33 | True
+
+### python -m src.main --invalidate-exact SYN-LOOKUP-001
+{
+  "request_id": "SYN-LOOKUP-001",
+  "exact_result_key": "aw:result:093d15004890fe1ba7541d513c0c1fd48af2de68e2d337b0502683a0920d033a",
+  "deleted": 1
+}
+
+### compare_runs.py control optimized optimized-cached
+[
+  {
+    "policy": "optimized",
+    "cost_delta_usd": 6.7e-05,
+    "input_token_delta": 0,
+    "quality_delta": -11.0,
+    "p95_latency_delta_ms": -2625.9999999999995,
+    "cache_hit_rate": 0.0,
+    "exact_result_cache_hit_rate": 0.0,
+    "prompt_cache_hit_rate": 0.0
+  },
+  {
+    "policy": "optimized",
+    "cost_delta_usd": -0.000899,
+    "input_token_delta": -275,
+    "quality_delta": -11.0,
+    "p95_latency_delta_ms": -2137.8999999999996,
+    "cache_hit_rate": 1.0,
+    "exact_result_cache_hit_rate": 0.6666666666666666,
+    "prompt_cache_hit_rate": 0.3333333333333333
+  }
+]
+
+### Redis inspection (Task 6.7)
+key_count 5
+aw:prompt:1143a733b1193f781a0b7976b71aec124135c611eb00d39f654993635cf9af05 ttl 3527 fields ['context', 'dependencies'] deps ['return-policy:v5', 'order:AW-3003'] credential_like False
+   context: {"customer_tier":"gold","days_since_delivery":50,"order_id":"AW-3003","paid_amount":850,"return_window_days":30}
+aw:prompt:2889813425b23e0ed2902bb2c23a68f35459659862c2562e4806d2c8a7a96899 ttl 3524 fields ['context', 'dependencies'] deps ['catalog:v12'] credential_like False
+   context: {"preferences":["rain-ready","12-mile commute"],"products":[{"fenders":true,"price":799,"sku":"SYN-BIKE-A","weight_kg":13},{"fenders":false,"price":699,"sku":"SYN-BIKE-B","weight_kg":11}]}
+aw:prompt:8b28f7b2bff75e7981183158caf09bcf6c5863b6bfbfe19b3f529c6560f1811d ttl 3519 fields ['context', 'dependencies'] deps ['order:AW-1001', 'carrier:synthetic-express'] credential_like False
+   context: {"carrier":"Synthetic Express","eta":"2026-09-01","order_id":"AW-1001","status":"in transit"}
+aw:result:093d15004890fe1ba7541d513c0c1fd48af2de68e2d337b0502683a0920d033a ttl 3557 fields ['dependencies', 'metadata', 'response'] deps ['order:AW-1001', 'carrier:synthetic-express'] credential_like False
+   meta {'tier': 2, 'deployment': 'gpt-5.4-mini', 'price_version': 'verified-2026-10-01-global-standard', 'quality_score': 100} answer: Order AW-1001 is currently in transit with Synthetic Express. Estimated delivery is 2026-09-01.
+aw:result:2a0dcd8326029a6dd4f04281f5dc9b99bc2159adb7554f20ecbb28dfb62da8db ttl 3525 fields ['dependencies', 'metadata', 'response'] deps ['catalog:v12'] credential_like False
+   meta {'tier': 2, 'deployment': 'gpt-5.4-mini', 'price_version': 'verified-2026-10-01-global-standard', 'quality_score': 100} answer: For a rainy 12-mile commute, I’d recommend SYN-BIKE-A. It includes fenders, which better suits rainy conditions, while SYN-BIKE-B does not. SYN-BIKE-B is lighte
+
+### Azure validation (Task 6.8/6.9)
+### Foundry account
+{
+  "kind": "AIServices",
+  "location": "westus3",
+  "name": "awoptbtdjtstq6y4ey",
+  "state": "Succeeded"
+}
+### Foundry project
+{
+  "endpoints": {
+    "AI Foundry API": "https://awoptbtdjtstq6y4ey.services.ai.azure.com/api/projects/aw-optimization"
+  },
+  "name": "awoptbtdjtstq6y4ey/aw-optimization",
+  "state": "Succeeded"
+}
+### Model deployments
+[
+  {
+    "model": "gpt-5.4-mini",
+    "name": "gpt-5.4-mini",
+    "sku": "GlobalStandard",
+    "state": "Succeeded",
+    "version": "2026-03-17"
+  }
+]
+### Redis cluster
+{
+  "host": "awopt-cache-btdjtstq6y4ey.westus3.redis.azure.net",
+  "name": "awopt-cache-btdjtstq6y4ey",
+  "resourceState": "Running",
+  "sku": "Balanced_B0",
+  "state": "Succeeded"
+}
+### Redis database
+{
+  "accessKeysAuthentication": "Disabled",
+  "clientProtocol": "Encrypted",
+  "name": "default",
+  "port": 10000,
+  "state": "Succeeded"
+}
+### Redis access policy assignments
+[
+  {
+    "name": "mkg57rzomtuhi",
+    "policy": "default",
+    "state": "Succeeded",
+    "userMatchesSignedIn": "<signed-in-user>"
+  }
+]
+
+### Optional challenge: scripts/tenant_challenge.py
+{
+  "tenant_a_result_key": "aw:SYN-TENANT-A:result:1fc6d5de773a2ae761c7bdad2519ac23392afcc73f6e6582a3536f2d2cf78718",
+  "tenant_b_result_key": "aw:SYN-TENANT-B:result:66486c68c78ec3fac066ff33be127f93949ba1fabffde6c6540228111013c340",
+  "result_keys_distinct": true,
+  "prompt_keys_distinct": true,
+  "stale_invalidation": {
+    "exact_result_key": "aw:SYN-TENANT-A:result:8a955c995189a2a985a58729ac74a112856e1a5c4421cc4bd919126990d93f6d",
+    "deleted": 0,
+    "tenant_a_still_cached": true,
+    "diagnosis": "key construction: stale agent_version yields a different digest, so scope was never reached"
+  },
+  "targeted_invalidation": {
+    "exact_result_key": "aw:SYN-TENANT-A:result:1fc6d5de773a2ae761c7bdad2519ac23392afcc73f6e6582a3536f2d2cf78718",
+    "deleted": 1,
+    "tenant_a_result_present": false,
+    "tenant_b_result_present": true
+  },
+  "passed": true,
+  "cleanup_deleted": 3
+}

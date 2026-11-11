@@ -1,0 +1,419 @@
+===== Task 3: Event Hubs boundary check
+{
+  "defaultAction": "Allow",
+  "publicNetworkAccess": "Enabled"
+}
+hub=/subscriptions/<subscription-id>/resourceGroups/rg-lab17-8ea5486e/providers/Microsoft.EventHub/namespaces/aw-incident-alerts-hsmf4ri4zq246/eventhubs/incident-alerts
+receiver roles at exact hub:
+[
+  {
+    "role": "Azure Event Hubs Data Receiver",
+    "scope": "/subscriptions/<subscription-id>/resourcegroups/rg-lab17-8ea5486e/providers/Microsoft.EventHub/namespaces/aw-incident-alerts-hsmf4ri4zq246/eventhubs/incident-alerts"
+  }
+]
+sender/owner roles at/below hub (lab check): 0
+sender/owner roles inherited from ancestors: 0
+EVENT_HUB_BOUNDARIES_VALIDATED (Enabled/Allow, 1 exact-hub receiver, 0 broader sender/owner; scope compare case-insensitive as in PowerShell -ne)
+
+===== Task 4: py_compile + preflight
+(py_compile: no output)
+python_3_10_or_newer: ready
+three_kql_queries: ready
+hypotheses_present: ready
+hypotheses_match_snapshot: ready
+app_insights_connection: ready
+workspace_id: ready
+blob_account_url: ready
+alert_eventhub_namespace: ready
+learner_code_complete: ready
+preflight exit=0
+
+===== Task 5.1: emit_synthetic_trace.py
+Emitted and flushed four bounded synthetic traces. Allow several minutes for ingestion.
+
+===== Task 6.16: alert rule + action group
+{
+  "actionGroups": [
+    "/subscriptions/<subscription-id>/resourceGroups/rg-lab17-8ea5486e/providers/Microsoft.Insights/actionGroups/aw-incident-response"
+  ],
+  "enabled": true,
+  "evaluationFrequency": "PT1M",
+  "name": "aw-synthetic-pricing-failure",
+  "severity": 2,
+  "windowSize": "PT15M"
+}
+{
+  "enabled": true,
+  "eventHubReceivers": [
+    {
+      "commonSchema": true,
+      "hub": "incident-alerts",
+      "name": "remediation-handler",
+      "namespace": "aw-incident-alerts-hsmf4ri4zq246"
+    }
+  ]
+}
+
+===== Task 6.30: provisioned resources
+Name
+--------------------------------
+awincidenthsmf4ri4zq246
+aw-incident-hsmf4ri4zq246
+aw-incident-alerts-hsmf4ri4zq246
+aw-incident-hsmf4ri4zq246
+aw-incident-response
+aw-synthetic-pricing-failure
+Blob containers:
+incident-reports
+trace-snapshots
+Microsoft.Storage/storageAccounts	awincidenthsmf4ri4zq246
+Microsoft.OperationalInsights/workspaces	aw-incident-hsmf4ri4zq246
+Microsoft.EventHub/namespaces	aw-incident-alerts-hsmf4ri4zq246
+Microsoft.Insights/components	aw-incident-hsmf4ri4zq246
+Microsoft.Insights/actiongroups	aw-incident-response
+Microsoft.Insights/scheduledqueryrules	aw-synthetic-pricing-failure
+
+===== Task 5.2: candidates (kql/01-find-candidates.kql)
+[
+  {
+    "TimeGenerated": "2026-11-11 13:24:01.040431+00:00",
+    "OperationId": "1f810da4110ddfbcc2de8d1935c2143f",
+    "CaseId": "SYN-FAILURE-02",
+    "Success": false,
+    "DurationMs": 351,
+    "ResultCode": "0"
+  },
+  {
+    "TimeGenerated": "2026-11-11 13:24:00.689346+00:00",
+    "OperationId": "a9dc2509fec95f219151f9ee1605614d",
+    "CaseId": "SYN-FAILURE-01",
+    "Success": false,
+    "DurationMs": 351,
+    "ResultCode": "0"
+  },
+  {
+    "TimeGenerated": "2026-11-11 13:24:00.638016+00:00",
+    "OperationId": "ae5975b9c7c9416a03c834a52cdf8ada",
+    "CaseId": "SYN-SUCCESS-02",
+    "Success": true,
+    "DurationMs": 51,
+    "ResultCode": "0"
+  },
+  {
+    "TimeGenerated": "2026-11-11 13:24:00.586523+00:00",
+    "OperationId": "41942beda71baf96ca7db1612b637cc6",
+    "CaseId": "SYN-SUCCESS-01",
+    "Success": true,
+    "DurationMs": 51,
+    "ResultCode": "0"
+  }
+]
+
+===== Task 5.3: capture a9dc2509fec95f219151f9ee1605614d (SYN-FAILURE-01)
+{
+  "local_snapshot": "reports\\a9dc2509fec95f219151f9ee1605614d.snapshot.json",
+  "blob": "a9dc2509fec95f219151f9ee1605614d.snapshot.json"
+}
+
+===== Task 5.4: analysis
+[
+  {
+    "hypothesis_id": "pricing_model_version_regression",
+    "statement": "The failed checkout used synthetic-pricing-v2 and the pricing agent produced a SyntheticPriceFormatError.",
+    "priority": 1,
+    "status": "supported",
+    "supporting": [
+      {
+        "path": "model_deployments.*.version",
+        "operator": "contains",
+        "expected": "synthetic-pricing-v2",
+        "observed": [
+          "synthetic-pricing-v2"
+        ]
+      },
+      {
+        "path": "spans.*.error_type",
+        "operator": "contains",
+        "expected": "SyntheticPriceFormatError",
+        "observed": [
+          null,
+          "SyntheticPriceFormatError",
+          null
+        ]
+      },
+      {
+        "path": "spans.*.success",
+        "operator": "contains",
+        "expected": false,
+        "observed": [
+          false,
+          false,
+          false
+        ]
+      }
+    ],
+    "contradicting": [],
+    "missing": []
+  },
+  {
+    "hypothesis_id": "prompt_regression",
+    "statement": "The pricing prompt changed within the captured failed operation.",
+    "priority": 2,
+    "status": "rejected",
+    "supporting": [],
+    "contradicting": [
+      {
+        "path": "prompt_hashes.*",
+        "operator": "changed",
+        "expected": true,
+        "observed": [
+          "192c21cc95826877264c9b558ba2bcaad2724b1d1788cc2462c91dae64e76c85"
+        ]
+      }
+    ],
+    "missing": []
+  },
+  {
+    "hypothesis_id": "tool_response_failure",
+    "statement": "A captured synthetic tool response reported an upstream tool failure.",
+    "priority": 3,
+    "status": "rejected",
+    "supporting": [],
+    "contradicting": [
+      {
+        "path": "tool_mocks.*.success",
+        "operator": "contains",
+        "expected": false,
+        "observed": [
+          true,
+          true
+        ]
+      }
+    ],
+    "missing": []
+  },
+  {
+    "hypothesis_id": "orchestration_regression",
+    "statement": "The captured operation followed an unexpected orchestration route.",
+    "priority": 4,
+    "status": "rejected",
+    "supporting": [],
+    "contradicting": [
+      {
+        "path": "spans.*.span_name",
+        "operator": "contains",
+        "expected": "unexpected_route",
+        "observed": [
+          "POST /synthetic/checkout",
+          "pricing_agent.calculate_total",
+          "payment_agent.authorize"
+        ]
+      }
+    ],
+    "missing": []
+  },
+  {
+    "hypothesis_id": "configuration_change",
+    "statement": "Multiple component configuration versions were present in the captured operation.",
+    "priority": 5,
+    "status": "rejected",
+    "supporting": [],
+    "contradicting": [
+      {
+        "path": "configuration_versions.*.version",
+        "operator": "changed",
+        "expected": true,
+        "observed": [
+          "checkout-flow-v1",
+          "checkout-flow-v1"
+        ]
+      }
+    ],
+    "missing": []
+  }
+]
+
+===== Task 5.5: replay
+{
+  "operation_id": "a9dc2509fec95f219151f9ee1605614d",
+  "side_effects_enabled": false,
+  "prompt_checks": [
+    {
+      "agent": "pricing_agent.calculate_total",
+      "expected_hash": "192c21cc95826877264c9b558ba2bcaad2724b1d1788cc2462c91dae64e76c85",
+      "actual_hash": "192c21cc95826877264c9b558ba2bcaad2724b1d1788cc2462c91dae64e76c85",
+      "matches": true
+    }
+  ],
+  "steps": [
+    {
+      "sequence": 1,
+      "span_name": "POST /synthetic/checkout",
+      "status": false,
+      "mock_used": false,
+      "mock_response": null,
+      "duration_ms": 351
+    },
+    {
+      "sequence": 2,
+      "span_name": "pricing_agent.calculate_total",
+      "status": false,
+      "mock_used": true,
+      "mock_response": {
+        "currency": "USD",
+        "quantity": 1,
+        "sku": "SYN-BIKE-01",
+        "unit_price": 1200.0
+      },
+      "duration_ms": 351
+    },
+    {
+      "sequence": 3,
+      "span_name": "payment_agent.authorize",
+      "status": false,
+      "mock_used": true,
+      "mock_response": {
+        "approved": true,
+        "authorization": "SYN-AUTH-01"
+      },
+      "duration_ms": 0
+    }
+  ],
+  "divergences": [],
+  "comparison_metrics": {
+    "prompt_count": 1,
+    "prompt_match_rate": 1.0,
+    "tool_step_count": 2,
+    "tool_mock_response_count": 2,
+    "failed_step_count": 3,
+    "divergence_count": 0
+  }
+}
+
+===== Task 6.3-6.6: Blob snapshot round-trip
+a9dc2509fec95f219151f9ee1605614d.snapshot.json	2974
+e3b29679e7df0feba97b63eff1cc085cc12557fba3de6d8757b332e46485b94e *reports/a9dc2509fec95f219151f9ee1605614d.snapshot.json
+local snapshot deleted: yes
+Alive[################################################################]  100.0000%Finished[#############################################################]  100.0000%
+0e315341ffb972d6676df8540b0b1ec298ff8e487bf4d7c9baffcd8eb56b81ed *reports/a9dc2509fec95f219151f9ee1605614d.snapshot.json
+schema validation of downloaded snapshot:
+VALID; spans 3 keys ['captured_at', 'configuration_versions', 'model_deployments', 'operation_id', 'prompt_hashes', 'prompts', 'replay_mode', 'schema_version', 'spans', 'tool_mocks']
+re-run replay on downloaded snapshot (metrics only):
+{"prompt_count": 1, "prompt_match_rate": 1.0, "tool_step_count": 2, "tool_mock_response_count": 2, "failed_step_count": 3, "divergence_count": 0}
+
+===== Task 6.2: parent-child order and durations
+2026-11-11 13:24:00.689346+00:00 POST /synthetic/checkout parent= operation root (a9dc2509fec95f219151f9ee1605614d) dur_ms= 351 success= False
+2026-11-11 13:24:00.689405+00:00 pricing_agent.calculate_total parent= POST /synthetic/checkout dur_ms= 351 success= False
+2026-11-11 13:24:01.040164+00:00 payment_agent.authorize parent= POST /synthetic/checkout dur_ms= 0 success= False
+(hash differs only because Path.write_text writes CRLF on Windows while the blob was uploaded with LF; JSON content identical)
+
+===== Task 6.14-6.15: cohort comparison (kql/03-hypothesis-comparison.kql)
+[
+  {
+    "CheckoutSuccess": true,
+    "Samples": 2,
+    "AvgPricingDurationMs": 51,
+    "PricingFailureRate": 0,
+    "ModelVersions": "[\"synthetic-pricing-v1\"]",
+    "ErrorTypes": "[]"
+  },
+  {
+    "CheckoutSuccess": false,
+    "Samples": 2,
+    "AvgPricingDurationMs": 350.5,
+    "PricingFailureRate": 1,
+    "ModelVersions": "[\"synthetic-pricing-v2\"]",
+    "ErrorTypes": "[\"SyntheticPriceFormatError\"]"
+  }
+]
+
+===== Task 6.12-6.13: prompt text changed in a copy -> hash divergence
+{
+  "divergences": [
+    {
+      "agent": "pricing_agent.calculate_total",
+      "expected_hash": "192c21cc95826877264c9b558ba2bcaad2724b1d1788cc2462c91dae64e76c85",
+      "actual_hash": "d0d112a392d186ae155f863f141e796b6a2e25df4eb27269623aed6dde953713",
+      "matches": false
+    }
+  ],
+  "comparison_metrics": {
+    "prompt_count": 1,
+    "prompt_match_rate": 0.0,
+    "tool_step_count": 2,
+    "tool_mock_response_count": 2,
+    "failed_step_count": 3,
+    "divergence_count": 1
+  }
+}
+postmortem root cause under divergence: Replay detected 1 prompt divergence(s) for pricing_agent.calculate_total; the causal statement remains bounded to the observed comparison evidence.
+
+===== Task 6.17: alert activation + Event Hubs incoming messages
+[
+  {
+    "alertId": "Adventure Works synthetic pricing failure",
+    "condition": "Fired",
+    "fired": "2026-11-11T13:27:44.2995775Z",
+    "rule": "/subscriptions/<subscription-id>/resourceGroups/rg-lab17-8ea5486e/providers/microsoft.insights/scheduledqueryrules/aw-synthetic-pricing-failure",
+    "state": "New"
+  }
+]
+[]
+===== Task 5.6 / 6.18-6.21: bounded remediation consumer
+{
+  "processed": 1,
+  "evidence_blobs": [
+    "remediation/_subscriptions_<subscription-id>_providers_Microsoft.AlertsManagement_alerts_87f7a571-da59-0bf9-8c87-7f653bf70004.json"
+  ]
+}
+exit=0 elapsed=35s
+
+===== Task 5.7: postmortem
+{
+  "local_report": "reports\\a9dc2509fec95f219151f9ee1605614d.postmortem.md",
+  "blob": "a9dc2509fec95f219151f9ee1605614d.postmortem.md"
+}
+
+===== Task 6.21/6.27: incident-reports container
+a9dc2509fec95f219151f9ee1605614d.postmortem.md	1533
+remediation/_subscriptions_<subscription-id>_providers_Microsoft.AlertsManagement_alerts_87f7a571-da59-0bf9-8c87-7f653bf70004.json	507
+remediation evidence blob content:
+{
+  "schema_version": "1.0",
+  "alert_id": "/subscriptions/<subscription-id>/providers/Microsoft.AlertsManagement/alerts/87f7a571-da59-0bf9-8c87-7f653bf70004",
+  "alert_rule": "Adventure Works synthetic pricing failure",
+  "severity": "Sev2",
+  "monitor_condition": "Fired",
+  "received_at": "2026-11-11T13:29:22.549573+00:00",
+  "remediation": "isolate synthetic pricing failures and require operator-approved rollback",
+  "status": "evidence_recorded",
+  "side_effects_enabled": false
+}
+postmortem Root cause section:
+## Root cause
+
+Current evidence result: The failed checkout used synthetic-pricing-v2 and the pricing agent produced a SyntheticPriceFormatError. Evidence: model_deployments.*.version observed ["synthetic-pricing-v2"]; spans.*.error_type observed [null, "SyntheticPriceFormatError", null]; spans.*.success observed [false, false, false]. Replay matched 1 prompt(s), used 2/2 captured tool response(s), and preserved 3 failed step(s).
+
+Replay comparison metrics: `{"divergence_count": 0, "failed_step_count": 3, "prompt_count": 1, "prompt_match_rate": 1.0, "tool_mock_response_count": 2, "tool_step_count": 2}`
+
+Observed causal evidence: model_deployments.*.version observed ["synthetic-pricing-v2"]; spans.*.error_type observed [null, "SyntheticPriceFormatError", null]; spans.*.success observed [false, false, false]
+
+Do not finalize this section until one causal hypothesis is supported and alternatives are falsified.
+
+## Contributing factors
+EH IncomingMessages (namespace, last hour):
+[
+  {
+    "incoming": 1.0,
+    "time": "2026-11-11T13:29:00Z"
+  }
+]
+
+===== Optional challenge: competing hypothesis (assets/hypotheses-challenge.json)
+1 pricing_model_version_regression supported | falsified by: []
+2 prompt_regression rejected | falsified by: [('prompt_hashes.*', ['192c21cc95826877264c9b558ba2bcaad2724b1d1788cc2462c91dae64e76c85'])]
+3 tool_response_failure rejected | falsified by: [('tool_mocks.*.success', [True, True])]
+4 orchestration_regression rejected | falsified by: [('spans.*.span_name', ['POST /synthetic/checkout', 'pricing_agent.calculate_total', 'payment_agent.authorize'])]
+5 configuration_change rejected | falsified by: [('configuration_versions.*.version', ['checkout-flow-v1', 'checkout-flow-v1'])]
+0 payment_gateway_outage rejected | falsified by: [('tool_mocks.payment_gateway.success', [True])]
+root cause selected: The failed checkout used synthetic-pricing-v2 and the pricing agent produced a SyntheticPriceFormatError. Evidence: mode ...

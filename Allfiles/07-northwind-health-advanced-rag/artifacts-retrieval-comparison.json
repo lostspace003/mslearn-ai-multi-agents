@@ -1,0 +1,3237 @@
+{
+  "service": "Azure AI Search",
+  "chunk_strategies": [
+    {
+      "strategy": "fixed-overlap",
+      "configuration": {
+        "strategy": "fixed-overlap",
+        "size_chars": 180,
+        "overlap_chars": 40
+      },
+      "chunk_count": 16,
+      "boundaries": [
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-000",
+          "parent_id": "formulary-atorvastatin",
+          "start": 0,
+          "end": 180,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-001",
+          "parent_id": "formulary-atorvastatin",
+          "start": 140,
+          "end": 320,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-002",
+          "parent_id": "formulary-atorvastatin",
+          "start": 280,
+          "end": 387,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-000",
+          "parent_id": "formulary-metformin",
+          "start": 0,
+          "end": 180,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-001",
+          "parent_id": "formulary-metformin",
+          "start": 140,
+          "end": 320,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-002",
+          "parent_id": "formulary-metformin",
+          "start": 280,
+          "end": 344,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-000",
+          "parent_id": "guideline-diabetes",
+          "start": 0,
+          "end": 180,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-001",
+          "parent_id": "guideline-diabetes",
+          "start": 140,
+          "end": 320,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-002",
+          "parent_id": "guideline-diabetes",
+          "start": 280,
+          "end": 344,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-guideline-lipid-000",
+          "parent_id": "guideline-lipid",
+          "start": 0,
+          "end": 180,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-guideline-lipid-001",
+          "parent_id": "guideline-lipid",
+          "start": 140,
+          "end": 294,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-000",
+          "parent_id": "labs-a1c",
+          "start": 0,
+          "end": 180,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-001",
+          "parent_id": "labs-a1c",
+          "start": 140,
+          "end": 320,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-002",
+          "parent_id": "labs-a1c",
+          "start": 280,
+          "end": 329,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-labs-renal-000",
+          "parent_id": "labs-renal",
+          "start": 0,
+          "end": 180,
+          "section_heading": null
+        },
+        {
+          "id": "fixed-overlap-labs-renal-001",
+          "parent_id": "labs-renal",
+          "start": 140,
+          "end": 290,
+          "section_heading": null
+        }
+      ]
+    },
+    {
+      "strategy": "structural-parent-child",
+      "configuration": {
+        "strategy": "structural-parent-child",
+        "include_parent_title": true
+      },
+      "chunk_count": 12,
+      "boundaries": [
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-000",
+          "parent_id": "formulary-atorvastatin",
+          "start": 0,
+          "end": 214,
+          "section_heading": "Contraindications and interactions"
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-001",
+          "parent_id": "formulary-atorvastatin",
+          "start": 216,
+          "end": 387,
+          "section_heading": "Monitoring"
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-000",
+          "parent_id": "formulary-metformin",
+          "start": 0,
+          "end": 173,
+          "section_heading": "Renal monitoring"
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-001",
+          "parent_id": "formulary-metformin",
+          "start": 175,
+          "end": 344,
+          "section_heading": "Follow-up"
+        },
+        {
+          "id": "structural-parent-child-guideline-diabetes-000",
+          "parent_id": "guideline-diabetes",
+          "start": 0,
+          "end": 182,
+          "section_heading": "Coordinated review"
+        },
+        {
+          "id": "structural-parent-child-guideline-diabetes-001",
+          "parent_id": "guideline-diabetes",
+          "start": 184,
+          "end": 344,
+          "section_heading": "Monitoring plan"
+        },
+        {
+          "id": "structural-parent-child-guideline-lipid-000",
+          "parent_id": "guideline-lipid",
+          "start": 0,
+          "end": 143,
+          "section_heading": "Therapy review"
+        },
+        {
+          "id": "structural-parent-child-guideline-lipid-001",
+          "parent_id": "guideline-lipid",
+          "start": 145,
+          "end": 294,
+          "section_heading": "Escalation"
+        },
+        {
+          "id": "structural-parent-child-labs-a1c-000",
+          "parent_id": "labs-a1c",
+          "start": 0,
+          "end": 166,
+          "section_heading": "Interpretation"
+        },
+        {
+          "id": "structural-parent-child-labs-a1c-001",
+          "parent_id": "labs-a1c",
+          "start": 168,
+          "end": 329,
+          "section_heading": "Follow-up"
+        },
+        {
+          "id": "structural-parent-child-labs-renal-000",
+          "parent_id": "labs-renal",
+          "start": 0,
+          "end": 146,
+          "section_heading": "Monitoring context"
+        },
+        {
+          "id": "structural-parent-child-labs-renal-001",
+          "parent_id": "labs-renal",
+          "start": 148,
+          "end": 290,
+          "section_heading": "Escalation"
+        }
+      ]
+    }
+  ],
+  "aggregates": [
+    {
+      "chunk_strategy": "fixed-overlap",
+      "mode": "hybrid",
+      "embedding_profile": "baseline",
+      "trial_count": 5,
+      "mrr": 1.0,
+      "average_latency_ms": 4811.82
+    },
+    {
+      "chunk_strategy": "fixed-overlap",
+      "mode": "hybrid",
+      "embedding_profile": "content-aware",
+      "trial_count": 5,
+      "mrr": 1.0,
+      "average_latency_ms": 4487.89
+    },
+    {
+      "chunk_strategy": "fixed-overlap",
+      "mode": "semantic",
+      "embedding_profile": "not-applicable",
+      "trial_count": 5,
+      "mrr": 1.0,
+      "average_latency_ms": 3756.2
+    },
+    {
+      "chunk_strategy": "fixed-overlap",
+      "mode": "vector",
+      "embedding_profile": "baseline",
+      "trial_count": 5,
+      "mrr": 1.0,
+      "average_latency_ms": 5742.13
+    },
+    {
+      "chunk_strategy": "fixed-overlap",
+      "mode": "vector",
+      "embedding_profile": "content-aware",
+      "trial_count": 5,
+      "mrr": 1.0,
+      "average_latency_ms": 5031.84
+    },
+    {
+      "chunk_strategy": "structural-parent-child",
+      "mode": "hybrid",
+      "embedding_profile": "baseline",
+      "trial_count": 5,
+      "mrr": 1.0,
+      "average_latency_ms": 4509.75
+    },
+    {
+      "chunk_strategy": "structural-parent-child",
+      "mode": "hybrid",
+      "embedding_profile": "content-aware",
+      "trial_count": 5,
+      "mrr": 1.0,
+      "average_latency_ms": 4238.46
+    },
+    {
+      "chunk_strategy": "structural-parent-child",
+      "mode": "semantic",
+      "embedding_profile": "not-applicable",
+      "trial_count": 5,
+      "mrr": 1.0,
+      "average_latency_ms": 3550.82
+    },
+    {
+      "chunk_strategy": "structural-parent-child",
+      "mode": "vector",
+      "embedding_profile": "baseline",
+      "trial_count": 5,
+      "mrr": 1.0,
+      "average_latency_ms": 4968.05
+    },
+    {
+      "chunk_strategy": "structural-parent-child",
+      "mode": "vector",
+      "embedding_profile": "content-aware",
+      "trial_count": 5,
+      "mrr": 1.0,
+      "average_latency_ms": 4354.6
+    }
+  ],
+  "trials": [
+    {
+      "query": "atorvastatin contraindications",
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "vector",
+      "embedding_profile": "baseline",
+      "latency_ms": 8338.41,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-000",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-001",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-001",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-000",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-002",
+          "parent_id": "formulary-metformin"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-000",
+          "search_score": 0.67684644,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-001",
+          "search_score": 0.6100174,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-001",
+          "search_score": 0.59603745,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-000",
+          "search_score": 0.57984,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-002",
+          "search_score": 0.5746554,
+          "reranker_score": null
+        }
+      ]
+    },
+    {
+      "query": "atorvastatin contraindications",
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "vector",
+      "embedding_profile": "content-aware",
+      "latency_ms": 4444.88,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-000",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-001",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-002",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-001",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-000",
+          "parent_id": "formulary-metformin"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-000",
+          "search_score": 0.65577835,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-001",
+          "search_score": 0.6510982,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-002",
+          "search_score": 0.6357653,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-001",
+          "search_score": 0.5764368,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-000",
+          "search_score": 0.5749737,
+          "reranker_score": null
+        }
+      ]
+    },
+    {
+      "query": "atorvastatin contraindications",
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "hybrid",
+      "embedding_profile": "baseline",
+      "latency_ms": 5017.27,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-001",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-002",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-000",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-001",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-000",
+          "parent_id": "formulary-metformin"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-001",
+          "search_score": 0.027604442089796066,
+          "reranker_score": 2.0531704425811768
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-002",
+          "search_score": 0.016393441706895828,
+          "reranker_score": 1.9480702877044678
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-000",
+          "search_score": 0.028333334252238274,
+          "reranker_score": 1.9416898488998413
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-001",
+          "search_score": 0.011290322057902813,
+          "reranker_score": 1.3690448999404907
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-000",
+          "search_score": 0.011111111380159855,
+          "reranker_score": 1.20457124710083
+        }
+      ]
+    },
+    {
+      "query": "atorvastatin contraindications",
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "hybrid",
+      "embedding_profile": "content-aware",
+      "latency_ms": 4542.79,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-001",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-002",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-000",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-001",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-000",
+          "parent_id": "formulary-metformin"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-001",
+          "search_score": 0.027604442089796066,
+          "reranker_score": 2.0531704425811768
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-002",
+          "search_score": 0.027683764696121216,
+          "reranker_score": 1.9480702877044678
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-000",
+          "search_score": 0.028333334252238274,
+          "reranker_score": 1.9416898488998413
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-001",
+          "search_score": 0.011111111380159855,
+          "reranker_score": 1.3690448999404907
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-000",
+          "search_score": 0.010937499813735485,
+          "reranker_score": 1.20457124710083
+        }
+      ]
+    },
+    {
+      "query": "atorvastatin contraindications",
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "semantic",
+      "embedding_profile": "not-applicable",
+      "latency_ms": 3796.23,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-001",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-002",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-000",
+          "parent_id": "formulary-atorvastatin"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-001",
+          "search_score": 0.25316024,
+          "reranker_score": 2.0531704425811768
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-002",
+          "search_score": 0.25316024,
+          "reranker_score": 1.9480702877044678
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-000",
+          "search_score": 0.5154433,
+          "reranker_score": 1.9416898488998413
+        }
+      ]
+    },
+    {
+      "query": "atorvastatin contraindications",
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "vector",
+      "embedding_profile": "baseline",
+      "latency_ms": 4962.72,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-000",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-001",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-001",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-000",
+          "parent_id": "formulary-metformin"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-000",
+          "search_score": 0.7243457,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-001",
+          "search_score": 0.7077425,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-001",
+          "search_score": 0.59199435,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-000",
+          "search_score": 0.5797063,
+          "reranker_score": null
+        }
+      ]
+    },
+    {
+      "query": "atorvastatin contraindications",
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "vector",
+      "embedding_profile": "content-aware",
+      "latency_ms": 4790.33,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-000",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-001",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-000",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-001",
+          "parent_id": "formulary-metformin"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-000",
+          "search_score": 0.6590528,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-001",
+          "search_score": 0.643698,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-000",
+          "search_score": 0.5734623,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-001",
+          "search_score": 0.5716342,
+          "reranker_score": null
+        }
+      ]
+    },
+    {
+      "query": "atorvastatin contraindications",
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "hybrid",
+      "embedding_profile": "baseline",
+      "latency_ms": 4475.37,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-000",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-001",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-001",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-000",
+          "parent_id": "formulary-metformin"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-000",
+          "search_score": 0.028333334252238274,
+          "reranker_score": 2.630600690841675
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-001",
+          "search_score": 0.027868852019309998,
+          "reranker_score": 1.991315484046936
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-001",
+          "search_score": 0.011290322057902813,
+          "reranker_score": 1.1407667398452759
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-000",
+          "search_score": 0.011111111380159855,
+          "reranker_score": 0.8706613183021545
+        }
+      ]
+    },
+    {
+      "query": "atorvastatin contraindications",
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "hybrid",
+      "embedding_profile": "content-aware",
+      "latency_ms": 4083.91,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-000",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-001",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-001",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-000",
+          "parent_id": "formulary-metformin"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-000",
+          "search_score": 0.028333334252238274,
+          "reranker_score": 2.630600690841675
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-001",
+          "search_score": 0.027868852019309998,
+          "reranker_score": 1.991315484046936
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-001",
+          "search_score": 0.011111111380159855,
+          "reranker_score": 1.1407667398452759
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-000",
+          "search_score": 0.011290322057902813,
+          "reranker_score": 0.8706613183021545
+        }
+      ]
+    },
+    {
+      "query": "atorvastatin contraindications",
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "semantic",
+      "embedding_profile": "not-applicable",
+      "latency_ms": 3716.18,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-000",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-001",
+          "parent_id": "formulary-atorvastatin"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-000",
+          "search_score": 1.4764503,
+          "reranker_score": 2.630600690841675
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-001",
+          "search_score": 0.345473,
+          "reranker_score": 1.991315484046936
+        }
+      ]
+    },
+    {
+      "query": "What A1C range requires follow-up?",
+      "index": "northwind-labs-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "vector",
+      "embedding_profile": "baseline",
+      "latency_ms": 4814.67,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-labs-a1c-000",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-001",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-renal-001",
+          "parent_id": "labs-renal"
+        },
+        {
+          "id": "fixed-overlap-labs-renal-000",
+          "parent_id": "labs-renal"
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-002",
+          "parent_id": "labs-a1c"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-labs-a1c-000",
+          "search_score": 0.6841551,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-001",
+          "search_score": 0.6640169,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-labs-renal-001",
+          "search_score": 0.5912697,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-labs-renal-000",
+          "search_score": 0.5907592,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-002",
+          "search_score": 0.56882215,
+          "reranker_score": null
+        }
+      ]
+    },
+    {
+      "query": "What A1C range requires follow-up?",
+      "index": "northwind-labs-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "vector",
+      "embedding_profile": "content-aware",
+      "latency_ms": 3805.41,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-labs-a1c-001",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-000",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-002",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-renal-001",
+          "parent_id": "labs-renal"
+        },
+        {
+          "id": "fixed-overlap-labs-renal-000",
+          "parent_id": "labs-renal"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-labs-a1c-001",
+          "search_score": 0.67722154,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-000",
+          "search_score": 0.64177847,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-002",
+          "search_score": 0.6404396,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-labs-renal-001",
+          "search_score": 0.5850891,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-labs-renal-000",
+          "search_score": 0.58383274,
+          "reranker_score": null
+        }
+      ]
+    },
+    {
+      "query": "What A1C range requires follow-up?",
+      "index": "northwind-labs-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "hybrid",
+      "embedding_profile": "baseline",
+      "latency_ms": 4443.47,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-labs-a1c-001",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-000",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-002",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-renal-000",
+          "parent_id": "labs-renal"
+        },
+        {
+          "id": "fixed-overlap-labs-renal-001",
+          "parent_id": "labs-renal"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-labs-a1c-001",
+          "search_score": 0.027868852019309998,
+          "reranker_score": 2.484736442565918
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-000",
+          "search_score": 0.028333334252238274,
+          "reranker_score": 2.0957953929901123
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-002",
+          "search_score": 0.027066532522439957,
+          "reranker_score": 1.7713674306869507
+        },
+        {
+          "id": "fixed-overlap-labs-renal-000",
+          "search_score": 0.02698412910103798,
+          "reranker_score": 1.7557708024978638
+        },
+        {
+          "id": "fixed-overlap-labs-renal-001",
+          "search_score": 0.011290322057902813,
+          "reranker_score": 1.7465546131134033
+        }
+      ]
+    },
+    {
+      "query": "What A1C range requires follow-up?",
+      "index": "northwind-labs-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "hybrid",
+      "embedding_profile": "content-aware",
+      "latency_ms": 4787.08,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-labs-a1c-001",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-000",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-002",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-renal-000",
+          "parent_id": "labs-renal"
+        },
+        {
+          "id": "fixed-overlap-labs-renal-001",
+          "parent_id": "labs-renal"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-labs-a1c-001",
+          "search_score": 0.028060108423233032,
+          "reranker_score": 2.484736442565918
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-000",
+          "search_score": 0.02814207598567009,
+          "reranker_score": 2.0957953929901123
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-002",
+          "search_score": 0.027419354766607285,
+          "reranker_score": 1.7713674306869507
+        },
+        {
+          "id": "fixed-overlap-labs-renal-000",
+          "search_score": 0.02681051567196846,
+          "reranker_score": 1.7557708024978638
+        },
+        {
+          "id": "fixed-overlap-labs-renal-001",
+          "search_score": 0.011111111380159855,
+          "reranker_score": 1.7465546131134033
+        }
+      ]
+    },
+    {
+      "query": "What A1C range requires follow-up?",
+      "index": "northwind-labs-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "semantic",
+      "embedding_profile": "not-applicable",
+      "latency_ms": 4183.55,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-labs-a1c-001",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-000",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-002",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-renal-000",
+          "parent_id": "labs-renal"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-labs-a1c-001",
+          "search_score": 1.0842419,
+          "reranker_score": 2.484736442565918
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-000",
+          "search_score": 1.2567555,
+          "reranker_score": 2.0957953929901123
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-002",
+          "search_score": 0.43445712,
+          "reranker_score": 1.7713674306869507
+        },
+        {
+          "id": "fixed-overlap-labs-renal-000",
+          "search_score": 0.26742277,
+          "reranker_score": 1.7557708024978638
+        }
+      ]
+    },
+    {
+      "query": "What A1C range requires follow-up?",
+      "index": "northwind-labs-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "vector",
+      "embedding_profile": "baseline",
+      "latency_ms": 4667.01,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-labs-a1c-001",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "structural-parent-child-labs-a1c-000",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "structural-parent-child-labs-renal-001",
+          "parent_id": "labs-renal"
+        },
+        {
+          "id": "structural-parent-child-labs-renal-000",
+          "parent_id": "labs-renal"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-labs-a1c-001",
+          "search_score": 0.78414696,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-labs-a1c-000",
+          "search_score": 0.68364394,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-labs-renal-001",
+          "search_score": 0.6127947,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-labs-renal-000",
+          "search_score": 0.5877326,
+          "reranker_score": null
+        }
+      ]
+    },
+    {
+      "query": "What A1C range requires follow-up?",
+      "index": "northwind-labs-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "vector",
+      "embedding_profile": "content-aware",
+      "latency_ms": 3794.77,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-labs-a1c-001",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "structural-parent-child-labs-a1c-000",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "structural-parent-child-labs-renal-001",
+          "parent_id": "labs-renal"
+        },
+        {
+          "id": "structural-parent-child-labs-renal-000",
+          "parent_id": "labs-renal"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-labs-a1c-001",
+          "search_score": 0.67916524,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-labs-a1c-000",
+          "search_score": 0.6427313,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-labs-renal-001",
+          "search_score": 0.5853795,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-labs-renal-000",
+          "search_score": 0.57949954,
+          "reranker_score": null
+        }
+      ]
+    },
+    {
+      "query": "What A1C range requires follow-up?",
+      "index": "northwind-labs-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "hybrid",
+      "embedding_profile": "baseline",
+      "latency_ms": 4527.01,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-labs-a1c-001",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "structural-parent-child-labs-a1c-000",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "structural-parent-child-labs-renal-001",
+          "parent_id": "labs-renal"
+        },
+        {
+          "id": "structural-parent-child-labs-renal-000",
+          "parent_id": "labs-renal"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-labs-a1c-001",
+          "search_score": 0.028333334252238274,
+          "reranker_score": 2.4402506351470947
+        },
+        {
+          "id": "structural-parent-child-labs-a1c-000",
+          "search_score": 0.027604442089796066,
+          "reranker_score": 2.1713526248931885
+        },
+        {
+          "id": "structural-parent-child-labs-renal-001",
+          "search_score": 0.011290322057902813,
+          "reranker_score": 1.8333995342254639
+        },
+        {
+          "id": "structural-parent-child-labs-renal-000",
+          "search_score": 0.02750455215573311,
+          "reranker_score": 1.7483268976211548
+        }
+      ]
+    },
+    {
+      "query": "What A1C range requires follow-up?",
+      "index": "northwind-labs-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "hybrid",
+      "embedding_profile": "content-aware",
+      "latency_ms": 5124.09,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-labs-a1c-001",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "structural-parent-child-labs-a1c-000",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "structural-parent-child-labs-renal-001",
+          "parent_id": "labs-renal"
+        },
+        {
+          "id": "structural-parent-child-labs-renal-000",
+          "parent_id": "labs-renal"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-labs-a1c-001",
+          "search_score": 0.028333334252238274,
+          "reranker_score": 2.4402506351470947
+        },
+        {
+          "id": "structural-parent-child-labs-a1c-000",
+          "search_score": 0.027604442089796066,
+          "reranker_score": 2.1713526248931885
+        },
+        {
+          "id": "structural-parent-child-labs-renal-001",
+          "search_score": 0.011290322057902813,
+          "reranker_score": 1.8333995342254639
+        },
+        {
+          "id": "structural-parent-child-labs-renal-000",
+          "search_score": 0.02750455215573311,
+          "reranker_score": 1.7483268976211548
+        }
+      ]
+    },
+    {
+      "query": "What A1C range requires follow-up?",
+      "index": "northwind-labs-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "semantic",
+      "embedding_profile": "not-applicable",
+      "latency_ms": 3964.64,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-labs-a1c-001",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "structural-parent-child-labs-a1c-000",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "structural-parent-child-labs-renal-000",
+          "parent_id": "labs-renal"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-labs-a1c-001",
+          "search_score": 2.1118326,
+          "reranker_score": 2.4402506351470947
+        },
+        {
+          "id": "structural-parent-child-labs-a1c-000",
+          "search_score": 0.6428596,
+          "reranker_score": 2.1713526248931885
+        },
+        {
+          "id": "structural-parent-child-labs-renal-000",
+          "search_score": 0.82229835,
+          "reranker_score": 1.7483268976211548
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "vector",
+      "embedding_profile": "baseline",
+      "latency_ms": 6141.35,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-formulary-metformin-000",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-001",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-002",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-000",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-001",
+          "parent_id": "formulary-atorvastatin"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-formulary-metformin-000",
+          "search_score": 0.6726876,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-001",
+          "search_score": 0.6487125,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-002",
+          "search_score": 0.63791233,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-000",
+          "search_score": 0.61032844,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-001",
+          "search_score": 0.59882134,
+          "reranker_score": null
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "vector",
+      "embedding_profile": "content-aware",
+      "latency_ms": 7529.63,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-formulary-metformin-000",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-001",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-002",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-002",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-000",
+          "parent_id": "formulary-atorvastatin"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-formulary-metformin-000",
+          "search_score": 0.6497471,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-001",
+          "search_score": 0.6371487,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-002",
+          "search_score": 0.6198928,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-002",
+          "search_score": 0.61417264,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-000",
+          "search_score": 0.60337037,
+          "reranker_score": null
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "hybrid",
+      "embedding_profile": "baseline",
+      "latency_ms": 5895.1,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-formulary-metformin-000",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-001",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-002",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-001",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-000",
+          "parent_id": "formulary-atorvastatin"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-formulary-metformin-000",
+          "search_score": 0.027291666716337204,
+          "reranker_score": 2.359874725341797
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-001",
+          "search_score": 0.02734842523932457,
+          "reranker_score": 1.6965744495391846
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-002",
+          "search_score": 0.027683764696121216,
+          "reranker_score": 1.201735496520996
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-001",
+          "search_score": 0.02760416641831398,
+          "reranker_score": 1.0549852848052979
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-000",
+          "search_score": 0.027240142226219177,
+          "reranker_score": 0.787715494632721
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "hybrid",
+      "embedding_profile": "content-aware",
+      "latency_ms": 4403.93,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-formulary-metformin-000",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-001",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-002",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-002",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-001",
+          "parent_id": "formulary-atorvastatin"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-formulary-metformin-000",
+          "search_score": 0.027291666716337204,
+          "reranker_score": 2.359874725341797
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-001",
+          "search_score": 0.02734842523932457,
+          "reranker_score": 1.6965744495391846
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-002",
+          "search_score": 0.011111111380159855,
+          "reranker_score": 1.5544322729110718
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-002",
+          "search_score": 0.027683764696121216,
+          "reranker_score": 1.201735496520996
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-001",
+          "search_score": 0.01666666753590107,
+          "reranker_score": 1.0549852848052979
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "semantic",
+      "embedding_profile": "not-applicable",
+      "latency_ms": 3716.31,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-formulary-metformin-000",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-001",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-002",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-001",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-000",
+          "parent_id": "formulary-atorvastatin"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-formulary-metformin-000",
+          "search_score": 0.17259356,
+          "reranker_score": 2.359874725341797
+        },
+        {
+          "id": "fixed-overlap-formulary-metformin-001",
+          "search_score": 0.17556891,
+          "reranker_score": 1.6965744495391846
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-002",
+          "search_score": 0.26286605,
+          "reranker_score": 1.201735496520996
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-001",
+          "search_score": 0.653139,
+          "reranker_score": 1.0549852848052979
+        },
+        {
+          "id": "fixed-overlap-formulary-atorvastatin-000",
+          "search_score": 0.26228312,
+          "reranker_score": 0.787715494632721
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-guidelines-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "vector",
+      "embedding_profile": "baseline",
+      "latency_ms": 4770.29,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-guideline-diabetes-000",
+          "parent_id": "guideline-diabetes"
+        },
+        {
+          "id": "fixed-overlap-guideline-lipid-000",
+          "parent_id": "guideline-lipid"
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-001",
+          "parent_id": "guideline-diabetes"
+        },
+        {
+          "id": "fixed-overlap-guideline-lipid-001",
+          "parent_id": "guideline-lipid"
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-002",
+          "parent_id": "guideline-diabetes"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-guideline-diabetes-000",
+          "search_score": 0.7363112,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-guideline-lipid-000",
+          "search_score": 0.6335555,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-001",
+          "search_score": 0.62482697,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-guideline-lipid-001",
+          "search_score": 0.5870032,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-002",
+          "search_score": 0.58007216,
+          "reranker_score": null
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-guidelines-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "vector",
+      "embedding_profile": "content-aware",
+      "latency_ms": 5358.37,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-guideline-diabetes-000",
+          "parent_id": "guideline-diabetes"
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-001",
+          "parent_id": "guideline-diabetes"
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-002",
+          "parent_id": "guideline-diabetes"
+        },
+        {
+          "id": "fixed-overlap-guideline-lipid-000",
+          "parent_id": "guideline-lipid"
+        },
+        {
+          "id": "fixed-overlap-guideline-lipid-001",
+          "parent_id": "guideline-lipid"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-guideline-diabetes-000",
+          "search_score": 0.6764501,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-001",
+          "search_score": 0.6654704,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-002",
+          "search_score": 0.6510081,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-guideline-lipid-000",
+          "search_score": 0.6148738,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-guideline-lipid-001",
+          "search_score": 0.60161597,
+          "reranker_score": null
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-guidelines-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "hybrid",
+      "embedding_profile": "baseline",
+      "latency_ms": 4503.57,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-guideline-diabetes-000",
+          "parent_id": "guideline-diabetes"
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-001",
+          "parent_id": "guideline-diabetes"
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-002",
+          "parent_id": "guideline-diabetes"
+        },
+        {
+          "id": "fixed-overlap-guideline-lipid-001",
+          "parent_id": "guideline-lipid"
+        },
+        {
+          "id": "fixed-overlap-guideline-lipid-000",
+          "parent_id": "guideline-lipid"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-guideline-diabetes-000",
+          "search_score": 0.028060108423233032,
+          "reranker_score": 2.6490330696105957
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-001",
+          "search_score": 0.027419354766607285,
+          "reranker_score": 2.1251718997955322
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-002",
+          "search_score": 0.02681051567196846,
+          "reranker_score": 1.8642382621765137
+        },
+        {
+          "id": "fixed-overlap-guideline-lipid-001",
+          "search_score": 0.02673611044883728,
+          "reranker_score": 1.5873979330062866
+        },
+        {
+          "id": "fixed-overlap-guideline-lipid-000",
+          "search_score": 0.02814207598567009,
+          "reranker_score": 1.1471471786499023
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-guidelines-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "hybrid",
+      "embedding_profile": "content-aware",
+      "latency_ms": 4098.51,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-guideline-diabetes-000",
+          "parent_id": "guideline-diabetes"
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-001",
+          "parent_id": "guideline-diabetes"
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-002",
+          "parent_id": "guideline-diabetes"
+        },
+        {
+          "id": "fixed-overlap-guideline-lipid-001",
+          "parent_id": "guideline-lipid"
+        },
+        {
+          "id": "fixed-overlap-guideline-lipid-000",
+          "parent_id": "guideline-lipid"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-guideline-diabetes-000",
+          "search_score": 0.028060108423233032,
+          "reranker_score": 2.6490330696105957
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-001",
+          "search_score": 0.027604442089796066,
+          "reranker_score": 2.1251718997955322
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-002",
+          "search_score": 0.027163337916135788,
+          "reranker_score": 1.8642382621765137
+        },
+        {
+          "id": "fixed-overlap-guideline-lipid-001",
+          "search_score": 0.02656250074505806,
+          "reranker_score": 1.5873979330062866
+        },
+        {
+          "id": "fixed-overlap-guideline-lipid-000",
+          "search_score": 0.0277777798473835,
+          "reranker_score": 1.1471471786499023
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-guidelines-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "semantic",
+      "embedding_profile": "not-applicable",
+      "latency_ms": 3607.98,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-guideline-diabetes-000",
+          "parent_id": "guideline-diabetes"
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-001",
+          "parent_id": "guideline-diabetes"
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-002",
+          "parent_id": "guideline-diabetes"
+        },
+        {
+          "id": "fixed-overlap-guideline-lipid-001",
+          "parent_id": "guideline-lipid"
+        },
+        {
+          "id": "fixed-overlap-guideline-lipid-000",
+          "parent_id": "guideline-lipid"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-guideline-diabetes-000",
+          "search_score": 0.81962,
+          "reranker_score": 2.6490330696105957
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-001",
+          "search_score": 0.6678661,
+          "reranker_score": 2.1251718997955322
+        },
+        {
+          "id": "fixed-overlap-guideline-diabetes-002",
+          "search_score": 0.38855442,
+          "reranker_score": 1.8642382621765137
+        },
+        {
+          "id": "fixed-overlap-guideline-lipid-001",
+          "search_score": 0.12565845,
+          "reranker_score": 1.5873979330062866
+        },
+        {
+          "id": "fixed-overlap-guideline-lipid-000",
+          "search_score": 1.0486585,
+          "reranker_score": 1.1471471786499023
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-labs-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "vector",
+      "embedding_profile": "baseline",
+      "latency_ms": 4645.92,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-labs-renal-001",
+          "parent_id": "labs-renal"
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-001",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-000",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-renal-000",
+          "parent_id": "labs-renal"
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-002",
+          "parent_id": "labs-a1c"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-labs-renal-001",
+          "search_score": 0.6243046,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-001",
+          "search_score": 0.6234157,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-000",
+          "search_score": 0.61611146,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-labs-renal-000",
+          "search_score": 0.61174977,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-002",
+          "search_score": 0.60208654,
+          "reranker_score": null
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-labs-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "vector",
+      "embedding_profile": "content-aware",
+      "latency_ms": 4020.93,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-labs-a1c-001",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-002",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-renal-001",
+          "parent_id": "labs-renal"
+        },
+        {
+          "id": "fixed-overlap-labs-renal-000",
+          "parent_id": "labs-renal"
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-000",
+          "parent_id": "labs-a1c"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-labs-a1c-001",
+          "search_score": 0.60060906,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-002",
+          "search_score": 0.5905808,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-labs-renal-001",
+          "search_score": 0.5850881,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-labs-renal-000",
+          "search_score": 0.58277464,
+          "reranker_score": null
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-000",
+          "search_score": 0.5803779,
+          "reranker_score": null
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-labs-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "hybrid",
+      "embedding_profile": "baseline",
+      "latency_ms": 4199.69,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-labs-a1c-001",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-000",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-renal-001",
+          "parent_id": "labs-renal"
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-002",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-renal-000",
+          "parent_id": "labs-renal"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-labs-a1c-001",
+          "search_score": 0.027604442089796066,
+          "reranker_score": 2.363330841064453
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-000",
+          "search_score": 0.026915322989225388,
+          "reranker_score": 1.722450613975525
+        },
+        {
+          "id": "fixed-overlap-labs-renal-001",
+          "search_score": 0.028333334252238274,
+          "reranker_score": 1.7093353271484375
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-002",
+          "search_score": 0.02681051567196846,
+          "reranker_score": 1.6682168245315552
+        },
+        {
+          "id": "fixed-overlap-labs-renal-000",
+          "search_score": 0.02750455215573311,
+          "reranker_score": 1.522884488105774
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-labs-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "hybrid",
+      "embedding_profile": "content-aware",
+      "latency_ms": 4607.13,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-labs-a1c-001",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-000",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-renal-001",
+          "parent_id": "labs-renal"
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-002",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-renal-000",
+          "parent_id": "labs-renal"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-labs-a1c-001",
+          "search_score": 0.0277956984937191,
+          "reranker_score": 2.363330841064453
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-000",
+          "search_score": 0.02656250074505806,
+          "reranker_score": 1.722450613975525
+        },
+        {
+          "id": "fixed-overlap-labs-renal-001",
+          "search_score": 0.027956988662481308,
+          "reranker_score": 1.7093353271484375
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-002",
+          "search_score": 0.02734842523932457,
+          "reranker_score": 1.6682168245315552
+        },
+        {
+          "id": "fixed-overlap-labs-renal-000",
+          "search_score": 0.02750455215573311,
+          "reranker_score": 1.522884488105774
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-labs-v1",
+      "chunk_strategy": "fixed-overlap",
+      "mode": "semantic",
+      "embedding_profile": "not-applicable",
+      "latency_ms": 3476.94,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "fixed-overlap-labs-a1c-001",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-000",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-renal-001",
+          "parent_id": "labs-renal"
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-002",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "fixed-overlap-labs-renal-000",
+          "parent_id": "labs-renal"
+        }
+      ],
+      "scores": [
+        {
+          "id": "fixed-overlap-labs-a1c-001",
+          "search_score": 0.2770272,
+          "reranker_score": 2.363330841064453
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-000",
+          "search_score": 0.11194879,
+          "reranker_score": 1.722450613975525
+        },
+        {
+          "id": "fixed-overlap-labs-renal-001",
+          "search_score": 0.5649868,
+          "reranker_score": 1.7093353271484375
+        },
+        {
+          "id": "fixed-overlap-labs-a1c-002",
+          "search_score": 0.1801121,
+          "reranker_score": 1.6682168245315552
+        },
+        {
+          "id": "fixed-overlap-labs-renal-000",
+          "search_score": 0.53484553,
+          "reranker_score": 1.522884488105774
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "vector",
+      "embedding_profile": "baseline",
+      "latency_ms": 4832.94,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-formulary-metformin-000",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-001",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-001",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-000",
+          "parent_id": "formulary-atorvastatin"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-formulary-metformin-000",
+          "search_score": 0.68262595,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-001",
+          "search_score": 0.65008444,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-001",
+          "search_score": 0.63626134,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-000",
+          "search_score": 0.6012288,
+          "reranker_score": null
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "vector",
+      "embedding_profile": "content-aware",
+      "latency_ms": 5064.68,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-formulary-metformin-000",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-001",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-001",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-000",
+          "parent_id": "formulary-atorvastatin"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-formulary-metformin-000",
+          "search_score": 0.645998,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-001",
+          "search_score": 0.6240468,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-001",
+          "search_score": 0.61770093,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-000",
+          "search_score": 0.5985642,
+          "reranker_score": null
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "hybrid",
+      "embedding_profile": "baseline",
+      "latency_ms": 4314.01,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-formulary-metformin-000",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-001",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-001",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-000",
+          "parent_id": "formulary-atorvastatin"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-formulary-metformin-000",
+          "search_score": 0.0277956984937191,
+          "reranker_score": 2.2914621829986572
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-001",
+          "search_score": 0.02734842523932457,
+          "reranker_score": 1.692675232887268
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-001",
+          "search_score": 0.027956988662481308,
+          "reranker_score": 1.1372220516204834
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-000",
+          "search_score": 0.02750455215573311,
+          "reranker_score": 0.6033915877342224
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "hybrid",
+      "embedding_profile": "content-aware",
+      "latency_ms": 3823.6,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-formulary-metformin-000",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-001",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-001",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-000",
+          "parent_id": "formulary-atorvastatin"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-formulary-metformin-000",
+          "search_score": 0.0277956984937191,
+          "reranker_score": 2.2914621829986572
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-001",
+          "search_score": 0.02734842523932457,
+          "reranker_score": 1.692675232887268
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-001",
+          "search_score": 0.027956988662481308,
+          "reranker_score": 1.1372220516204834
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-000",
+          "search_score": 0.02750455215573311,
+          "reranker_score": 0.6033915877342224
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "semantic",
+      "embedding_profile": "not-applicable",
+      "latency_ms": 3337.58,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-formulary-metformin-000",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-001",
+          "parent_id": "formulary-metformin"
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-001",
+          "parent_id": "formulary-atorvastatin"
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-000",
+          "parent_id": "formulary-atorvastatin"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-formulary-metformin-000",
+          "search_score": 0.4994563,
+          "reranker_score": 2.2914621829986572
+        },
+        {
+          "id": "structural-parent-child-formulary-metformin-001",
+          "search_score": 0.17556891,
+          "reranker_score": 1.692675232887268
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-001",
+          "search_score": 2.0191813,
+          "reranker_score": 1.1372220516204834
+        },
+        {
+          "id": "structural-parent-child-formulary-atorvastatin-000",
+          "search_score": 0.71791065,
+          "reranker_score": 0.6033915877342224
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-guidelines-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "vector",
+      "embedding_profile": "baseline",
+      "latency_ms": 5524.05,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-guideline-diabetes-000",
+          "parent_id": "guideline-diabetes"
+        },
+        {
+          "id": "structural-parent-child-guideline-diabetes-001",
+          "parent_id": "guideline-diabetes"
+        },
+        {
+          "id": "structural-parent-child-guideline-lipid-000",
+          "parent_id": "guideline-lipid"
+        },
+        {
+          "id": "structural-parent-child-guideline-lipid-001",
+          "parent_id": "guideline-lipid"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-guideline-diabetes-000",
+          "search_score": 0.7348089,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-guideline-diabetes-001",
+          "search_score": 0.7225553,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-guideline-lipid-000",
+          "search_score": 0.63664186,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-guideline-lipid-001",
+          "search_score": 0.6116077,
+          "reranker_score": null
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-guidelines-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "vector",
+      "embedding_profile": "content-aware",
+      "latency_ms": 3720.76,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-guideline-diabetes-001",
+          "parent_id": "guideline-diabetes"
+        },
+        {
+          "id": "structural-parent-child-guideline-diabetes-000",
+          "parent_id": "guideline-diabetes"
+        },
+        {
+          "id": "structural-parent-child-guideline-lipid-000",
+          "parent_id": "guideline-lipid"
+        },
+        {
+          "id": "structural-parent-child-guideline-lipid-001",
+          "parent_id": "guideline-lipid"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-guideline-diabetes-001",
+          "search_score": 0.67948335,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-guideline-diabetes-000",
+          "search_score": 0.670883,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-guideline-lipid-000",
+          "search_score": 0.6173048,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-guideline-lipid-001",
+          "search_score": 0.6032424,
+          "reranker_score": null
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-guidelines-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "hybrid",
+      "embedding_profile": "baseline",
+      "latency_ms": 4535.41,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-guideline-diabetes-000",
+          "parent_id": "guideline-diabetes"
+        },
+        {
+          "id": "structural-parent-child-guideline-diabetes-001",
+          "parent_id": "guideline-diabetes"
+        },
+        {
+          "id": "structural-parent-child-guideline-lipid-001",
+          "parent_id": "guideline-lipid"
+        },
+        {
+          "id": "structural-parent-child-guideline-lipid-000",
+          "parent_id": "guideline-lipid"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-guideline-diabetes-000",
+          "search_score": 0.028060108423233032,
+          "reranker_score": 2.567859649658203
+        },
+        {
+          "id": "structural-parent-child-guideline-diabetes-001",
+          "search_score": 0.02814207598567009,
+          "reranker_score": 2.386725902557373
+        },
+        {
+          "id": "structural-parent-child-guideline-lipid-001",
+          "search_score": 0.02698412910103798,
+          "reranker_score": 1.3272175788879395
+        },
+        {
+          "id": "structural-parent-child-guideline-lipid-000",
+          "search_score": 0.027419354766607285,
+          "reranker_score": 1.0684551000595093
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-guidelines-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "hybrid",
+      "embedding_profile": "content-aware",
+      "latency_ms": 4223.15,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-guideline-diabetes-000",
+          "parent_id": "guideline-diabetes"
+        },
+        {
+          "id": "structural-parent-child-guideline-diabetes-001",
+          "parent_id": "guideline-diabetes"
+        },
+        {
+          "id": "structural-parent-child-guideline-lipid-001",
+          "parent_id": "guideline-lipid"
+        },
+        {
+          "id": "structural-parent-child-guideline-lipid-000",
+          "parent_id": "guideline-lipid"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-guideline-diabetes-000",
+          "search_score": 0.027868852019309998,
+          "reranker_score": 2.567859649658203
+        },
+        {
+          "id": "structural-parent-child-guideline-diabetes-001",
+          "search_score": 0.028333334252238274,
+          "reranker_score": 2.386725902557373
+        },
+        {
+          "id": "structural-parent-child-guideline-lipid-001",
+          "search_score": 0.02698412910103798,
+          "reranker_score": 1.3272175788879395
+        },
+        {
+          "id": "structural-parent-child-guideline-lipid-000",
+          "search_score": 0.027419354766607285,
+          "reranker_score": 1.0684551000595093
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-guidelines-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "semantic",
+      "embedding_profile": "not-applicable",
+      "latency_ms": 3356.25,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-guideline-diabetes-000",
+          "parent_id": "guideline-diabetes"
+        },
+        {
+          "id": "structural-parent-child-guideline-diabetes-001",
+          "parent_id": "guideline-diabetes"
+        },
+        {
+          "id": "structural-parent-child-guideline-lipid-001",
+          "parent_id": "guideline-lipid"
+        },
+        {
+          "id": "structural-parent-child-guideline-lipid-000",
+          "parent_id": "guideline-lipid"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-guideline-diabetes-000",
+          "search_score": 1.3873643,
+          "reranker_score": 2.567859649658203
+        },
+        {
+          "id": "structural-parent-child-guideline-diabetes-001",
+          "search_score": 2.8620155,
+          "reranker_score": 2.386725902557373
+        },
+        {
+          "id": "structural-parent-child-guideline-lipid-001",
+          "search_score": 0.27233243,
+          "reranker_score": 1.3272175788879395
+        },
+        {
+          "id": "structural-parent-child-guideline-lipid-000",
+          "search_score": 0.9112551,
+          "reranker_score": 1.0684551000595093
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-labs-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "vector",
+      "embedding_profile": "baseline",
+      "latency_ms": 4853.53,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-labs-a1c-001",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "structural-parent-child-labs-renal-001",
+          "parent_id": "labs-renal"
+        },
+        {
+          "id": "structural-parent-child-labs-renal-000",
+          "parent_id": "labs-renal"
+        },
+        {
+          "id": "structural-parent-child-labs-a1c-000",
+          "parent_id": "labs-a1c"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-labs-a1c-001",
+          "search_score": 0.66795766,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-labs-renal-001",
+          "search_score": 0.63542736,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-labs-renal-000",
+          "search_score": 0.62053204,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-labs-a1c-000",
+          "search_score": 0.59968936,
+          "reranker_score": null
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-labs-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "vector",
+      "embedding_profile": "content-aware",
+      "latency_ms": 4402.47,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-labs-a1c-001",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "structural-parent-child-labs-renal-000",
+          "parent_id": "labs-renal"
+        },
+        {
+          "id": "structural-parent-child-labs-renal-001",
+          "parent_id": "labs-renal"
+        },
+        {
+          "id": "structural-parent-child-labs-a1c-000",
+          "parent_id": "labs-a1c"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-labs-a1c-001",
+          "search_score": 0.6037084,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-labs-renal-000",
+          "search_score": 0.5927923,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-labs-renal-001",
+          "search_score": 0.58202636,
+          "reranker_score": null
+        },
+        {
+          "id": "structural-parent-child-labs-a1c-000",
+          "search_score": 0.5763158,
+          "reranker_score": null
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-labs-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "hybrid",
+      "embedding_profile": "baseline",
+      "latency_ms": 4696.94,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-labs-a1c-001",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "structural-parent-child-labs-a1c-000",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "structural-parent-child-labs-renal-001",
+          "parent_id": "labs-renal"
+        },
+        {
+          "id": "structural-parent-child-labs-renal-000",
+          "parent_id": "labs-renal"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-labs-a1c-001",
+          "search_score": 0.027539683505892754,
+          "reranker_score": 2.2931458950042725
+        },
+        {
+          "id": "structural-parent-child-labs-a1c-000",
+          "search_score": 0.027240142226219177,
+          "reranker_score": 1.6845225095748901
+        },
+        {
+          "id": "structural-parent-child-labs-renal-001",
+          "search_score": 0.027868852019309998,
+          "reranker_score": 1.628161907196045
+        },
+        {
+          "id": "structural-parent-child-labs-renal-000",
+          "search_score": 0.027956988662481308,
+          "reranker_score": 1.3839325904846191
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-labs-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "hybrid",
+      "embedding_profile": "content-aware",
+      "latency_ms": 3937.57,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-labs-a1c-001",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "structural-parent-child-labs-a1c-000",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "structural-parent-child-labs-renal-001",
+          "parent_id": "labs-renal"
+        },
+        {
+          "id": "structural-parent-child-labs-renal-000",
+          "parent_id": "labs-renal"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-labs-a1c-001",
+          "search_score": 0.027539683505892754,
+          "reranker_score": 2.2931458950042725
+        },
+        {
+          "id": "structural-parent-child-labs-a1c-000",
+          "search_score": 0.027240142226219177,
+          "reranker_score": 1.6845225095748901
+        },
+        {
+          "id": "structural-parent-child-labs-renal-001",
+          "search_score": 0.027683764696121216,
+          "reranker_score": 1.628161907196045
+        },
+        {
+          "id": "structural-parent-child-labs-renal-000",
+          "search_score": 0.02814207598567009,
+          "reranker_score": 1.3839325904846191
+        }
+      ]
+    },
+    {
+      "query": "How should diabetes therapy and monitoring be coordinated?",
+      "index": "northwind-labs-v1",
+      "chunk_strategy": "structural-parent-child",
+      "mode": "semantic",
+      "embedding_profile": "not-applicable",
+      "latency_ms": 3379.47,
+      "reciprocal_rank": 1.0,
+      "ranking": [
+        {
+          "id": "structural-parent-child-labs-a1c-001",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "structural-parent-child-labs-a1c-000",
+          "parent_id": "labs-a1c"
+        },
+        {
+          "id": "structural-parent-child-labs-renal-001",
+          "parent_id": "labs-renal"
+        },
+        {
+          "id": "structural-parent-child-labs-renal-000",
+          "parent_id": "labs-renal"
+        }
+      ],
+      "scores": [
+        {
+          "id": "structural-parent-child-labs-a1c-001",
+          "search_score": 0.28152084,
+          "reranker_score": 2.2931458950042725
+        },
+        {
+          "id": "structural-parent-child-labs-a1c-000",
+          "search_score": 0.28152084,
+          "reranker_score": 1.6845225095748901
+        },
+        {
+          "id": "structural-parent-child-labs-renal-001",
+          "search_score": 0.53484553,
+          "reranker_score": 1.628161907196045
+        },
+        {
+          "id": "structural-parent-child-labs-renal-000",
+          "search_score": 1.5608718,
+          "reranker_score": 1.3839325904846191
+        }
+      ]
+    }
+  ],
+  "embedding_inputs": [
+    {
+      "id": "fixed-overlap-formulary-atorvastatin-000",
+      "category": "formulary",
+      "chunk_strategy": "fixed-overlap",
+      "parent_id": "formulary-atorvastatin",
+      "boundary_start": 0,
+      "boundary_end": 180,
+      "section_heading": null,
+      "baseline_chars": 180,
+      "content_aware_chars": 342
+    },
+    {
+      "id": "fixed-overlap-formulary-atorvastatin-001",
+      "category": "formulary",
+      "chunk_strategy": "fixed-overlap",
+      "parent_id": "formulary-atorvastatin",
+      "boundary_start": 140,
+      "boundary_end": 320,
+      "section_heading": null,
+      "baseline_chars": 180,
+      "content_aware_chars": 342
+    },
+    {
+      "id": "fixed-overlap-formulary-atorvastatin-002",
+      "category": "formulary",
+      "chunk_strategy": "fixed-overlap",
+      "parent_id": "formulary-atorvastatin",
+      "boundary_start": 280,
+      "boundary_end": 387,
+      "section_heading": null,
+      "baseline_chars": 107,
+      "content_aware_chars": 269
+    },
+    {
+      "id": "fixed-overlap-formulary-metformin-000",
+      "category": "formulary",
+      "chunk_strategy": "fixed-overlap",
+      "parent_id": "formulary-metformin",
+      "boundary_start": 0,
+      "boundary_end": 180,
+      "section_heading": null,
+      "baseline_chars": 180,
+      "content_aware_chars": 336
+    },
+    {
+      "id": "fixed-overlap-formulary-metformin-001",
+      "category": "formulary",
+      "chunk_strategy": "fixed-overlap",
+      "parent_id": "formulary-metformin",
+      "boundary_start": 140,
+      "boundary_end": 320,
+      "section_heading": null,
+      "baseline_chars": 180,
+      "content_aware_chars": 336
+    },
+    {
+      "id": "fixed-overlap-formulary-metformin-002",
+      "category": "formulary",
+      "chunk_strategy": "fixed-overlap",
+      "parent_id": "formulary-metformin",
+      "boundary_start": 280,
+      "boundary_end": 344,
+      "section_heading": null,
+      "baseline_chars": 64,
+      "content_aware_chars": 220
+    },
+    {
+      "id": "fixed-overlap-guideline-diabetes-000",
+      "category": "guidelines",
+      "chunk_strategy": "fixed-overlap",
+      "parent_id": "guideline-diabetes",
+      "boundary_start": 0,
+      "boundary_end": 180,
+      "section_heading": null,
+      "baseline_chars": 180,
+      "content_aware_chars": 342
+    },
+    {
+      "id": "fixed-overlap-guideline-diabetes-001",
+      "category": "guidelines",
+      "chunk_strategy": "fixed-overlap",
+      "parent_id": "guideline-diabetes",
+      "boundary_start": 140,
+      "boundary_end": 320,
+      "section_heading": null,
+      "baseline_chars": 180,
+      "content_aware_chars": 342
+    },
+    {
+      "id": "fixed-overlap-guideline-diabetes-002",
+      "category": "guidelines",
+      "chunk_strategy": "fixed-overlap",
+      "parent_id": "guideline-diabetes",
+      "boundary_start": 280,
+      "boundary_end": 344,
+      "section_heading": null,
+      "baseline_chars": 64,
+      "content_aware_chars": 226
+    },
+    {
+      "id": "fixed-overlap-guideline-lipid-000",
+      "category": "guidelines",
+      "chunk_strategy": "fixed-overlap",
+      "parent_id": "guideline-lipid",
+      "boundary_start": 0,
+      "boundary_end": 180,
+      "section_heading": null,
+      "baseline_chars": 180,
+      "content_aware_chars": 337
+    },
+    {
+      "id": "fixed-overlap-guideline-lipid-001",
+      "category": "guidelines",
+      "chunk_strategy": "fixed-overlap",
+      "parent_id": "guideline-lipid",
+      "boundary_start": 140,
+      "boundary_end": 294,
+      "section_heading": null,
+      "baseline_chars": 154,
+      "content_aware_chars": 311
+    },
+    {
+      "id": "fixed-overlap-labs-a1c-000",
+      "category": "labs",
+      "chunk_strategy": "fixed-overlap",
+      "parent_id": "labs-a1c",
+      "boundary_start": 0,
+      "boundary_end": 180,
+      "section_heading": null,
+      "baseline_chars": 180,
+      "content_aware_chars": 329
+    },
+    {
+      "id": "fixed-overlap-labs-a1c-001",
+      "category": "labs",
+      "chunk_strategy": "fixed-overlap",
+      "parent_id": "labs-a1c",
+      "boundary_start": 140,
+      "boundary_end": 320,
+      "section_heading": null,
+      "baseline_chars": 180,
+      "content_aware_chars": 329
+    },
+    {
+      "id": "fixed-overlap-labs-a1c-002",
+      "category": "labs",
+      "chunk_strategy": "fixed-overlap",
+      "parent_id": "labs-a1c",
+      "boundary_start": 280,
+      "boundary_end": 329,
+      "section_heading": null,
+      "baseline_chars": 49,
+      "content_aware_chars": 198
+    },
+    {
+      "id": "fixed-overlap-labs-renal-000",
+      "category": "labs",
+      "chunk_strategy": "fixed-overlap",
+      "parent_id": "labs-renal",
+      "boundary_start": 0,
+      "boundary_end": 180,
+      "section_heading": null,
+      "baseline_chars": 180,
+      "content_aware_chars": 342
+    },
+    {
+      "id": "fixed-overlap-labs-renal-001",
+      "category": "labs",
+      "chunk_strategy": "fixed-overlap",
+      "parent_id": "labs-renal",
+      "boundary_start": 140,
+      "boundary_end": 290,
+      "section_heading": null,
+      "baseline_chars": 150,
+      "content_aware_chars": 312
+    },
+    {
+      "id": "structural-parent-child-formulary-atorvastatin-000",
+      "category": "formulary",
+      "chunk_strategy": "structural-parent-child",
+      "parent_id": "formulary-atorvastatin",
+      "boundary_start": 0,
+      "boundary_end": 214,
+      "section_heading": "Contraindications and interactions",
+      "baseline_chars": 282,
+      "content_aware_chars": 444
+    },
+    {
+      "id": "structural-parent-child-formulary-atorvastatin-001",
+      "category": "formulary",
+      "chunk_strategy": "structural-parent-child",
+      "parent_id": "formulary-atorvastatin",
+      "boundary_start": 216,
+      "boundary_end": 387,
+      "section_heading": "Monitoring",
+      "baseline_chars": 215,
+      "content_aware_chars": 377
+    },
+    {
+      "id": "structural-parent-child-formulary-metformin-000",
+      "category": "formulary",
+      "chunk_strategy": "structural-parent-child",
+      "parent_id": "formulary-metformin",
+      "boundary_start": 0,
+      "boundary_end": 173,
+      "section_heading": "Renal monitoring",
+      "baseline_chars": 220,
+      "content_aware_chars": 376
+    },
+    {
+      "id": "structural-parent-child-formulary-metformin-001",
+      "category": "formulary",
+      "chunk_strategy": "structural-parent-child",
+      "parent_id": "formulary-metformin",
+      "boundary_start": 175,
+      "boundary_end": 344,
+      "section_heading": "Follow-up",
+      "baseline_chars": 209,
+      "content_aware_chars": 365
+    },
+    {
+      "id": "structural-parent-child-guideline-diabetes-000",
+      "category": "guidelines",
+      "chunk_strategy": "structural-parent-child",
+      "parent_id": "guideline-diabetes",
+      "boundary_start": 0,
+      "boundary_end": 182,
+      "section_heading": "Coordinated review",
+      "baseline_chars": 240,
+      "content_aware_chars": 402
+    },
+    {
+      "id": "structural-parent-child-guideline-diabetes-001",
+      "category": "guidelines",
+      "chunk_strategy": "structural-parent-child",
+      "parent_id": "guideline-diabetes",
+      "boundary_start": 184,
+      "boundary_end": 344,
+      "section_heading": "Monitoring plan",
+      "baseline_chars": 215,
+      "content_aware_chars": 377
+    },
+    {
+      "id": "structural-parent-child-guideline-lipid-000",
+      "category": "guidelines",
+      "chunk_strategy": "structural-parent-child",
+      "parent_id": "guideline-lipid",
+      "boundary_start": 0,
+      "boundary_end": 143,
+      "section_heading": "Therapy review",
+      "baseline_chars": 195,
+      "content_aware_chars": 352
+    },
+    {
+      "id": "structural-parent-child-guideline-lipid-001",
+      "category": "guidelines",
+      "chunk_strategy": "structural-parent-child",
+      "parent_id": "guideline-lipid",
+      "boundary_start": 145,
+      "boundary_end": 294,
+      "section_heading": "Escalation",
+      "baseline_chars": 197,
+      "content_aware_chars": 354
+    },
+    {
+      "id": "structural-parent-child-labs-a1c-000",
+      "category": "labs",
+      "chunk_strategy": "structural-parent-child",
+      "parent_id": "labs-a1c",
+      "boundary_start": 0,
+      "boundary_end": 166,
+      "section_heading": "Interpretation",
+      "baseline_chars": 205,
+      "content_aware_chars": 354
+    },
+    {
+      "id": "structural-parent-child-labs-a1c-001",
+      "category": "labs",
+      "chunk_strategy": "structural-parent-child",
+      "parent_id": "labs-a1c",
+      "boundary_start": 168,
+      "boundary_end": 329,
+      "section_heading": "Follow-up",
+      "baseline_chars": 195,
+      "content_aware_chars": 344
+    },
+    {
+      "id": "structural-parent-child-labs-renal-000",
+      "category": "labs",
+      "chunk_strategy": "structural-parent-child",
+      "parent_id": "labs-renal",
+      "boundary_start": 0,
+      "boundary_end": 146,
+      "section_heading": "Monitoring context",
+      "baseline_chars": 200,
+      "content_aware_chars": 362
+    },
+    {
+      "id": "structural-parent-child-labs-renal-001",
+      "category": "labs",
+      "chunk_strategy": "structural-parent-child",
+      "parent_id": "labs-renal",
+      "boundary_start": 148,
+      "boundary_end": 290,
+      "section_heading": "Escalation",
+      "baseline_chars": 188,
+      "content_aware_chars": 350
+    }
+  ]
+}

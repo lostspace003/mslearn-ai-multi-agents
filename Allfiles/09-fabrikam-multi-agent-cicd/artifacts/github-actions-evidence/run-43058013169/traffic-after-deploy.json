@@ -1,0 +1,29 @@
+{
+  "action": "promote",
+  "strategy": "initial",
+  "weights": {
+    "fabrikam-release-lab09-cicd-d--totfidr": 0,
+    "fabrikam-release-lab09-cicd-d--azd-1794414748": 100
+  },
+  "stable": {
+    "name": "fabrikam-release-lab09-cicd-d--azd-1794414748",
+    "fqdn": "fabrikam-release-lab09-cicd-d--azd-1794414748.blackrock-3cd1fc37.eastus2.azurecontainerapps.io"
+  },
+  "candidate": null,
+  "routing": {
+    "fqdn": "fabrikam-release-lab09-cicd-d.blackrock-3cd1fc37.eastus2.azurecontainerapps.io",
+    "labels": {
+      "stable": "fabrikam-release-lab09-cicd-d--azd-1794414748"
+    },
+    "label_urls": {
+      "stable": "https://fabrikam-release-lab09-cicd-d---stable.blackrock-3cd1fc37.eastus2.azurecontainerapps.io"
+    },
+    "traffic": [
+      {
+        "label": "stable",
+        "revisionName": "fabrikam-release-lab09-cicd-d--azd-1794414748",
+        "weight": 100
+      }
+    ]
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "dataset": "assets\\evaluation-data.jsonl",
+  "deployment": "gpt-5.4-mini",
+  "evaluators": [
+    "intent_resolution",
+    "journey_coherence",
+    "response_completeness",
+    "task_adherence"
+  ],
+  "metrics": {
+    "intent_resolution.intent_resolution": 3.0,
+    "task_adherence.task_adherence": 0.3333333333333333,
+    "response_completeness.response_completeness": 4.0,
+    "journey_coherence.journey_coherence": 4.0
+  },
+  "gate": {
+    "passed": false,
+    "failed_gates": [
+      "journey_coherence.journey_coherence",
+      "intent_resolution.intent_resolution",
+      "task_adherence.task_adherence",
+      "judge_calibration"
+    ],
+    "comparisons": [
+      {
+        "metric": "journey_coherence.journey_coherence",
+        "measured": 4.0,
+        "baseline": 4.4,
+        "delta": -0.4,
+        "minimum": 4.0,
+        "maximum_drop": 0.3,
+        "passed": false
+      },
+      {
+        "metric": "intent_resolution.intent_resolution",
+        "measured": 3.0,
+        "baseline": 4.5,
+        "delta": -1.5,
+        "minimum": 4.0,
+        "maximum_drop": 0.3,
+        "passed": false
+      },
+      {
+        "metric": "task_adherence.task_adherence",
+        "measured": 0.3333333333333333,
+        "baseline": 1.0,
+        "delta": -0.6667,
+        "minimum": 0.67,
+        "maximum_drop": 0.33,
+        "passed": false
+      },
+      {
+        "metric": "response_completeness.response_completeness",
+        "measured": 4.0,
+        "baseline": 4.2,
+        "delta": -0.2,
+        "minimum": 3.8,
+        "maximum_drop": 0.4,
+        "passed": true
+      }
+    ],
+    "calibration_agreement": 0.6666666666666666,
+    "minimum_calibration_agreement": 0.67
+  },
+  "row_count": 3
+}

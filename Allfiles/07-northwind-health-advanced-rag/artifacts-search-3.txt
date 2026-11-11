@@ -1,0 +1,101 @@
+### python -m src.main search --query What A1C range requires follow-up?
+{
+  "northwind-labs-v1": [
+    {
+      "@search.score": 0.028333334252238274,
+      "@search.rerankerScore": 2.4402506351470947,
+      "@search.captions": [
+        "{'text': 'Synthetic A1C reference Follow-up When the approved protocol identifies a follow-up range, coordinate the laboratory finding with adherence review, treatment context, and an authorized clinician.', 'highlights': 'Synthetic<em> A1C </em>reference<em> Follow-up </em>When the approved protocol identifies a<em> follow-up range, </em>coordinate the laboratory finding with adherence review, treatment context, and an authorized clinician.'}"
+      ],
+      "id": "structural-parent-child-labs-a1c-001",
+      "content": "Synthetic A1C reference\nFollow-up\nWhen the approved protocol identifies a follow-up range, coordinate the laboratory finding with adherence review, treatment context, and an authorized clinician.",
+      "title": "Synthetic A1C reference",
+      "source": "synthetic-lab-reference-v2",
+      "parent_id": "labs-a1c",
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 168,
+      "boundary_end": 329,
+      "section_heading": "Follow-up",
+      "@search.reranker_score": 2.4402506351470947,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Synthetic A1C reference (synthetic-lab-reference-v2#structural-parent-child-labs-a1c-001)",
+      "captions": [
+        "Synthetic A1C reference Follow-up When the approved protocol identifies a follow-up range, coordinate the laboratory finding with adherence review, treatment context, and an authorized clinician."
+      ]
+    },
+    {
+      "@search.score": 0.027604442089796066,
+      "@search.rerankerScore": 2.1713526248931885,
+      "@search.captions": [
+        "{'text': 'Synthetic A1C reference Interpretation Training-only reference: interpret A1C ranges and trends with the approved clinical protocol. This synthetic source intentionally does not assert a patient threshold.', 'highlights': 'Synthetic A1C reference Interpretation Training-only reference: interpret<em> A1C ranges </em>and trends with the approved clinical protocol. This synthetic source intentionally does not assert a patient threshold.'}"
+      ],
+      "id": "structural-parent-child-labs-a1c-000",
+      "content": "Synthetic A1C reference\nInterpretation\nTraining-only reference: interpret A1C ranges and trends with the approved clinical protocol. This synthetic source intentionally does not assert a patient threshold.",
+      "title": "Synthetic A1C reference",
+      "source": "synthetic-lab-reference-v2",
+      "parent_id": "labs-a1c",
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 0,
+      "boundary_end": 166,
+      "section_heading": "Interpretation",
+      "@search.reranker_score": 2.1713526248931885,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Synthetic A1C reference (synthetic-lab-reference-v2#structural-parent-child-labs-a1c-000)",
+      "captions": [
+        "Synthetic A1C reference Interpretation Training-only reference: interpret A1C ranges and trends with the approved clinical protocol. This synthetic source intentionally does not assert a patient threshold."
+      ]
+    },
+    {
+      "@search.score": 0.011290322057902813,
+      "@search.rerankerScore": 1.8333995342254639,
+      "@search.captions": [
+        "{'text': 'Synthetic renal function reference Escalation Route clinically significant renal trends to an authorized clinician and reconcile the finding with medications that require renal monitoring.', 'highlights': 'Synthetic<em> renal </em>function reference Escalation Route clinically significant renal trends to an authorized clinician and reconcile the finding with medications that require renal monitoring.'}"
+      ],
+      "id": "structural-parent-child-labs-renal-001",
+      "content": "Synthetic renal function reference\nEscalation\nRoute clinically significant renal trends to an authorized clinician and reconcile the finding with medications that require renal monitoring.",
+      "title": "Synthetic renal function reference",
+      "source": "synthetic-lab-reference-v2",
+      "parent_id": "labs-renal",
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 148,
+      "boundary_end": 290,
+      "section_heading": "Escalation",
+      "@search.reranker_score": 1.8333995342254639,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Synthetic renal function reference (synthetic-lab-reference-v2#structural-parent-child-labs-renal-001)",
+      "captions": [
+        "Synthetic renal function reference Escalation Route clinically significant renal trends to an authorized clinician and reconcile the finding with medications that require renal monitoring."
+      ]
+    },
+    {
+      "@search.score": 0.02750455215573311,
+      "@search.rerankerScore": 1.7483268976211548,
+      "@search.captions": [
+        "{'text': 'Synthetic renal function reference Monitoring context Training-only renal reference: preserve the reported test name, unit, range, and collection context when applying an approved monitoring workflow.', 'highlights': 'Synthetic renal function reference Monitoring context Training-only renal reference: preserve the reported test name,<em> unit, range, </em>and collection context when applying an approved monitoring workflow.'}"
+      ],
+      "id": "structural-parent-child-labs-renal-000",
+      "content": "Synthetic renal function reference\nMonitoring context\nTraining-only renal reference: preserve the reported test name, unit, range, and collection context when applying an approved monitoring workflow.",
+      "title": "Synthetic renal function reference",
+      "source": "synthetic-lab-reference-v2",
+      "parent_id": "labs-renal",
+      "chunk_strategy": "structural-parent-child",
+      "boundary_start": 0,
+      "boundary_end": 146,
+      "section_heading": "Monitoring context",
+      "@search.reranker_score": 1.7483268976211548,
+      "@search.highlights": null,
+      "@search.document_debug_info": null,
+      "@search.reranker_boosted_score": null,
+      "citation": "Synthetic renal function reference (synthetic-lab-reference-v2#structural-parent-child-labs-renal-000)",
+      "captions": [
+        "Synthetic renal function reference Monitoring context Training-only renal reference: preserve the reported test name, unit, range, and collection context when applying an approved monitoring workflow."
+      ]
+    }
+  ]
+}

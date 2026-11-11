@@ -1,0 +1,88 @@
+Streaming session logs for fabrikam-review-orchestrator (session: 0e25716d59e03122009ehSb9nQEuJvlxu2wOlnjSVw0cAXgytF)...
+20:00:05  session Running (last accessed: 20:00:05)
+20:00:30  status   Connecting to the container...
+20:00:10  stderr   Class azure.ai.agentserver.responses.store._foundry_settings.FoundryStorageSettings: This is an experimental class, and may change at any time.
+20:00:10  stderr   Class azure.ai.agentserver.responses.store._foundry_provider.FoundryStorageProvider: This is an experimental class, and may change at any time.
+20:00:10  stderr   2026-11-11 14:30:10,501 INFO microsoft.opentelemetry.a365.core.exporters.utils: FIC env vars not set — falling back to DefaultAzureCredential for A365.
+20:00:10  stderr   2026-11-11 14:30:10,521 WARNING microsoft.opentelemetry._distro: Failed to set up A365 OpenAI Agents instrumentation.
+20:00:10  stderr   Traceback (most recent call last):
+20:00:10  stderr     File "/app/pythonenv3.13/lib/python3.13/site-packages/microsoft/opentelemetry/_distro.py", line 867, in _setup_a365_openai_agents_instrumentation
+20:00:10  stderr       from microsoft.opentelemetry._genai._openai_agents._trace_instrumentor import (
+20:00:10  stderr           A365OpenAIAgentsInstrumentor,
+20:00:10  stderr       )
+20:00:10  stderr     File "/app/pythonenv3.13/lib/python3.13/site-packages/microsoft/opentelemetry/_genai/_openai_agents/_trace_instrumentor.py", line 26, in <module>
+20:00:10  stderr       from ._trace_processor import OpenAIAgentsTraceProcessor
+20:00:10  stderr     File "/app/pythonenv3.13/lib/python3.13/site-packages/microsoft/opentelemetry/_genai/_openai_agents/_trace_processor.py", line 15, in <module>
+20:00:10  stderr       from agents import MCPListToolsSpanData
+20:00:10  stderr   ImportError: cannot import name 'MCPListToolsSpanData' from 'agents' (unknown location)
+20:00:10  stderr   2026-11-11 14:30:10,524 INFO azure.ai.agentserver: Tracing configured successfully via microsoft-opentelemetry distro.
+20:00:10  stderr   2026-11-11 14:30:10,524 INFO azure.ai.agentserver: Responses protocol: storage_provider=FoundryStorageProvider, default_model=(not set), default_fetch_history_count=-1, shutdown_grace_period=10s
+20:00:10  stderr   2026-11-11 14:30:10,524 WARNING azure.ai.agentserver: Responses resilience: DISABLED - store=true responses run in-process and are NOT durable across an ungraceful crash: a response in-flight when the process is hard-killed stays in_progress on a later GET (no mark-failed/recovery). Enable the Responses task runtime with resilient_background or steerable_conversations.
+20:00:10  stderr   2026-11-11 14:30:10,591 INFO azure.ai.agentserver: AgentServerHost starting on 0.0.0.0:8088
+20:00:10  stderr   2026-11-11 14:30:10,593 INFO azure.ai.agentserver: AgentServerHost started
+20:00:10  stderr   2026-11-11 14:30:10,593 INFO azure.ai.agentserver: Platform environment: is_hosted=True, agent_name=fabrikam-review-orchestrator, agent_version=2, port=8088, session_id=0e25716d59e03122009ehSb9nQEuJvlxu2wOlnjSVw0cAXgytF, sse_keepalive_interval=15, ws_ping_interval=30.0s
+20:00:10  stderr   2026-11-11 14:30:10,593 INFO azure.ai.agentserver: Connectivity: project_endpoint=https://aifqytjyfbxugnmi2cy.services.ai.azure.com, otlp_endpoint=(not set), appinsights_configured=False
+20:00:10  stderr   2026-11-11 14:30:10,593 INFO azure.ai.agentserver: Host options: shutdown_timeout=30s, protocols=azure-ai-agentserver-core/2.3.0 (python/3.13), azure-ai-agentserver-responses/2.4.0 (python/3.13)
+20:00:10  stderr   2026-11-11 14:30:10,593 INFO azure.ai.agentserver: TaskManager NOT initialized (no protocol requested task execution). Durable tasks and crash recovery are inactive; store=true work degrades to non-durable execution. tasks_declared=True
+20:00:10  stderr   [2026-11-11 14:30:10 +0000] [51] [INFO] Running on http://0.0.0.0:8088 (CTRL + C to quit)
+20:00:10  stderr   2026-11-11 14:30:10,595 INFO hypercorn.error: Running on http://0.0.0.0:8088 (CTRL + C to quit)
+20:00:10  stderr   2026-11-11 14:30:10,649 INFO azure.ai.agentserver: Inbound GET /readiness started (trace-id: 63b86c27cebb1407570bb5e7cb418b4d)
+20:00:10  stderr   2026-11-11 14:30:10,649 INFO azure.ai.agentserver: 192.168.0.1:50232 "GET /readiness 1.1" 200 20 898μs
+20:00:10  stderr   2026-11-11 14:30:10,650 INFO azure.ai.agentserver: Inbound GET /readiness completed with status 200 in 0.7ms (trace-id: 63b86c27cebb1407570bb5e7cb418b4d)
+20:00:12  stderr   2026-11-11 14:30:12,049 INFO azure.ai.agentserver: Inbound POST /responses started (x-request-id: 819f7463a06baab4f927163d863e34e2, x-ms-client-request-id: 31bdbad6-a7a0-4bdb-927d-3f492c641e30, trace-id: 819f7463a06baab4f927163d863e34e2)
+20:00:12  stderr   2026-11-11 14:30:12,050 WARNING azure.ai.agentserver.core._experimental: Class azure.ai.agentserver.core._request_context.FoundryOriginalSubject: This is an experimental class, and may change at any time.
+20:00:12  stderr   2026-11-11 14:30:12,050 INFO azure.ai.agentserver: Creating response caresp_007175f4dfe5130800HGWUAphMVM6YLOMCQh0gre22gH9enWKa: streaming=True background=False store=True model= conversation_id=conv_007175f4dfe5130800pyj6O0RxGgWbTpgNV3itpunYWIJXdLEG previous_response_id=None has_user_id=True has_call_id=True
+20:00:12  stderr   2026-11-11 14:30:12,173 INFO azure.identity.aio._credentials.chained: DefaultAzureCredential acquired a token from ManagedIdentityCredential
+20:00:12  stderr   2026-11-11 14:30:12,318 INFO azure.ai.agentserver: Foundry storage GET ***/storage/history/item_ids?api-version=v1 -> 200 (143.6ms, x-ms-client-request-id=6747f486-dddc-11f1-94e7-2edf748e2649, traceparent=, x-request-id=24c44b86debc0cf5e8ef35cec9025b07, apim-request-id=cadff279-ac3e-4133-a33a-c46ccbca4315, has_call_id=True)
+20:00:12  stderr   2026-11-11 14:30:12,358 INFO azure.ai.agentserver: Invoking handler ResponsesAgentServerHost._dispatch_create for response caresp_007175f4dfe5130800HGWUAphMVM6YLOMCQh0gre22gH9enWKa
+20:00:12  stderr   2026-11-11 14:30:12,568 INFO azure.ai.agentserver: Foundry storage POST ***/storage/responses?api-version=v1 -> 201 (209.4ms, x-ms-client-request-id=677700c8-dddc-11f1-94e7-2edf748e2649, traceparent=, x-request-id=24c44b86debc0cf5e8ef35cec9025b07, apim-request-id=53fe333d-6f8c-4479-b71b-44128c534c91, has_call_id=True)
+20:00:12  stderr   2026-11-11 14:30:12,569 WARNING azure.ai.agentserver.core._experimental: Class azure.ai.agentserver.core.storage._state.FoundryStateStore: This is an experimental class, and may change at any time.
+20:00:12  stderr   2026-11-11 14:30:12,569 INFO azure.identity.aio._credentials.environment: No environment configuration found.
+20:00:12  stderr   2026-11-11 14:30:12,569 INFO azure.identity.aio._credentials.managed_identity: ManagedIdentityCredential will use App Service managed identity
+20:00:12  stderr   2026-11-11 14:30:12,696 INFO azure.identity.aio._credentials.chained: DefaultAzureCredential acquired a token from ManagedIdentityCredential
+20:00:12  stderr   2026-11-11 14:30:12,791 INFO azure.ai.agentserver.core: Foundry storage GET ***/storage/state_stores/*?api-version=v1 -> 200 (94.3ms, x-ms-client-request-id=67973762-dddc-11f1-94e7-2edf748e2649, traceparent=, x-request-id=1feb807315458d283d61e878dbbd744b, apim-request-id=096f3f55-cdad-4259-90bb-61b98e15c0c5)
+20:00:12  stderr   2026-11-11 14:30:12,874 WARNING azure.ai.agentserver.core: Foundry storage GET ***/storage/state_stores/*/items/*?api-version=v1 -> 404 (82.2ms, x-ms-client-request-id=67b900e0-dddc-11f1-94e7-2edf748e2649, traceparent=, x-request-id=1feb807315458d283d61e878dbbd744b, apim-request-id=3c68aea7-ce22-4ae6-a006-17e20ec16872)
+20:00:12  stderr   2026-11-11 14:30:12,874 WARNING azure.ai.agentserver.core._experimental: Class azure.ai.agentserver.core.storage._errors.FoundryStorageNotFoundError: This is an experimental class, and may change at any time.
+20:00:13  stderr   2026-11-11 14:30:13,044 INFO azure.identity._credentials.chained: DefaultAzureCredential acquired a token from ManagedIdentityCredential
+20:00:13  stderr   2026-11-11 14:30:13,645 INFO httpx2: HTTP Request: POST https://aifqytjyfbxugnmi2cy.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/openai/v1/responses "HTTP/1.1 200 OK"
+20:00:15  stderr   2026-11-11 14:30:15,129 INFO agent_framework: Function name: scan_code
+20:00:15  stderr   2026-11-11 14:30:15,130 INFO azure.identity.aio._credentials.environment: No environment configuration found.
+20:00:15  stderr   2026-11-11 14:30:15,131 INFO azure.identity.aio._credentials.managed_identity: ManagedIdentityCredential will use App Service managed identity
+20:00:15  stderr   2026-11-11 14:30:15,243 INFO agent_framework: Function name: review_change
+20:00:15  stderr   2026-11-11 14:30:15,246 INFO azure.identity.aio._credentials.environment: No environment configuration found.
+20:00:15  stderr   2026-11-11 14:30:15,246 INFO azure.identity.aio._credentials.managed_identity: ManagedIdentityCredential will use App Service managed identity
+20:00:15  stderr   2026-11-11 14:30:15,341 INFO azure.identity.aio._credentials.chained: DefaultAzureCredential acquired a token from ManagedIdentityCredential
+20:00:15  stderr   2026-11-11 14:30:15,351 INFO azure.identity.aio._credentials.chained: DefaultAzureCredential acquired a token from ManagedIdentityCredential
+20:00:15  stderr   2026-11-11 14:30:15,506 INFO azure.identity._credentials.environment: No environment configuration found.
+20:00:15  stderr   2026-11-11 14:30:15,506 INFO azure.identity._credentials.managed_identity: ManagedIdentityCredential will use App Service managed identity
+20:00:15  stderr   2026-11-11 14:30:15,562 INFO azure.identity._credentials.chained: DefaultAzureCredential acquired a token from ManagedIdentityCredential
+20:00:23  stderr   2026-11-11 14:30:23,060 INFO httpx: HTTP Request: POST https://aifqytjyfbxugnmi2cy.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/fabrikam-code-reviewer/endpoint/sessions?api-version=v1 "HTTP/1.1 201 Created"
+20:00:23  stderr   2026-11-11 14:30:23,124 INFO httpx: HTTP Request: POST https://aifqytjyfbxugnmi2cy.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/fabrikam-code-scanner/endpoint/sessions?api-version=v1 "HTTP/1.1 201 Created"
+20:00:25  stderr   2026-11-11 14:30:25,973 INFO httpx: HTTP Request: POST https://aifqytjyfbxugnmi2cy.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/fabrikam-code-scanner/endpoint/protocols/openai/responses?api-version=v1 "HTTP/1.1 200 OK"
+20:00:25  stderr   2026-11-11 14:30:25,975 INFO agent_framework: Function scan_code succeeded.
+20:00:25  stderr   2026-11-11 14:30:25,975 INFO agent_framework: Function duration: 10.845049s
+20:00:26  stderr   2026-11-11 14:30:26,173 INFO azure.identity._internal.msal_managed_identity_client: AppServiceCredential.get_token succeeded
+20:00:26  stderr   2026-11-11 14:30:26,174 INFO azure.identity._internal.decorators: ManagedIdentityCredential.get_token succeeded
+20:00:26  stderr   2026-11-11 14:30:26,174 INFO azure.identity._credentials.default: DefaultAzureCredential acquired a token from ManagedIdentityCredential
+20:00:26  stderr   2026-11-11 14:30:26,367 INFO httpx: HTTP Request: POST https://aifqytjyfbxugnmi2cy.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/fabrikam-code-reviewer/endpoint/protocols/openai/responses?api-version=v1 "HTTP/1.1 200 OK"
+20:00:26  stderr   2026-11-11 14:30:26,369 INFO agent_framework: Function review_change succeeded.
+20:00:26  stderr   2026-11-11 14:30:26,369 INFO agent_framework: Function duration: 11.122838s
+20:00:26  stderr   2026-11-11 14:30:26,709 INFO azure.identity._internal.msal_managed_identity_client: AppServiceCredential.get_token succeeded
+20:00:26  stderr   2026-11-11 14:30:26,709 INFO azure.identity._internal.decorators: ManagedIdentityCredential.get_token succeeded
+20:00:26  stderr   2026-11-11 14:30:26,710 INFO azure.identity._credentials.default: DefaultAzureCredential acquired a token from ManagedIdentityCredential
+20:00:27  stderr   2026-11-11 14:30:27,243 INFO httpx2: HTTP Request: POST https://aifqytjyfbxugnmi2cy.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/openai/v1/responses "HTTP/1.1 200 OK"
+20:00:28  stderr   2026-11-11 14:30:28,308 INFO azure.identity.aio._credentials.environment: No environment configuration found.
+20:00:28  stderr   2026-11-11 14:30:28,309 INFO azure.identity.aio._credentials.managed_identity: ManagedIdentityCredential will use App Service managed identity
+20:00:28  stderr   2026-11-11 14:30:28,387 INFO azure.identity.aio._credentials.chained: DefaultAzureCredential acquired a token from ManagedIdentityCredential
+20:00:28  stderr   2026-11-11 14:30:28,500 INFO azure.ai.agentserver.core: Foundry storage GET ***/storage/state_stores/*?api-version=v1 -> 200 (113.0ms, x-ms-client-request-id=70f8d432-dddc-11f1-94e7-2edf748e2649, traceparent=, x-request-id=704ccd984cf1da9ce87eb6bee7225032, apim-request-id=ce98737d-dc6b-4cbd-ae2c-57405549989b)
+20:00:28  stderr   2026-11-11 14:30:28,593 INFO azure.ai.agentserver.core: Foundry storage PUT ***/storage/state_stores/*/items/*?api-version=v1 -> 201 (92.4ms, x-ms-client-request-id=71161d80-dddc-11f1-94e7-2edf748e2649, traceparent=, x-request-id=704ccd984cf1da9ce87eb6bee7225032, apim-request-id=28bc6328-18cd-443e-b9f9-6acb5ea17b7b)
+20:00:28  stderr   2026-11-11 14:30:28,598 WARNING azure.ai.agentserver.core._experimental: Method azure.ai.agentserver.core._tracing.schedule_flush_spans: This is an experimental method, and may change at any time.
+20:00:28  stderr   2026-11-11 14:30:28,599 INFO azure.ai.agentserver: 192.168.0.1:50232 "POST /responses 1.1" 200 - 16550030μs
+20:00:28  stderr   2026-11-11 14:30:28,599 WARNING azure.ai.agentserver.core._experimental: Method azure.ai.agentserver.core._tracing.flush_spans_async: This is an experimental method, and may change at any time.
+20:00:28  stderr   2026-11-11 14:30:28,599 INFO azure.ai.agentserver: Inbound POST /responses completed with status 200 in 16550.1ms (x-request-id: 819f7463a06baab4f927163d863e34e2, x-ms-client-request-id: 31bdbad6-a7a0-4bdb-927d-3f492c641e30, trace-id: 819f7463a06baab4f927163d863e34e2)
+20:00:28  stderr   2026-11-11 14:30:28,600 INFO azure.identity._internal.msal_managed_identity_client: AppServiceCredential.get_token succeeded
+20:00:28  stderr   2026-11-11 14:30:28,600 INFO azure.identity._internal.decorators: ManagedIdentityCredential.get_token succeeded
+20:00:28  stderr   2026-11-11 14:30:28,600 INFO azure.identity._credentials.default: DefaultAzureCredential acquired a token from ManagedIdentityCredential
+20:00:28  stderr   2026-11-11 14:30:28,736 INFO azure.ai.agentserver: Foundry storage POST ***/storage/responses/caresp_007175f4dfe5130800HGWUAphMVM6YLOMCQh0gre22gH9enWKa?api-version=v1 -> 200 (139.6ms, x-ms-client-request-id=7124b318-dddc-11f1-94e7-2edf748e2649, traceparent=, x-request-id=dd70c741546b3ca8085833204e67c1fb, apim-request-id=8b2ca272-2d6c-4022-9b63-fdd8a6927a52, has_call_id=True)
+                   
+20:00:30  status   Successfully connected to container

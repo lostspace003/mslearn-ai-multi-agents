@@ -1,0 +1,43 @@
+{
+  "productionControlFailures": [],
+  "authenticationFlows": {
+    "agentToAzure": "managed_identity",
+    "userToMicrosoftResource": "on_behalf_of",
+    "userToThirdParty": "oauth2_pkce",
+    "legacyApi": "key_vault_fallback"
+  },
+  "decisions": [
+    {
+      "case": "allowed-orchestrator-to-scanner",
+      "decision": "allow",
+      "target": "security-scanner",
+      "fieldsForwarded": [
+        "requestId",
+        "sourceCode",
+        "tenantId"
+      ]
+    },
+    {
+      "case": "denied-cross-tenant",
+      "decision": "deny",
+      "reason": "Tenant context does not match the verified caller"
+    },
+    {
+      "case": "denied-specialist-lateral-movement",
+      "decision": "deny",
+      "reason": "Agent call denied: security-scanner cannot call compliance-agent"
+    },
+    {
+      "case": "allowed-minimized-compliance-handoff",
+      "decision": "allow",
+      "target": "compliance-agent",
+      "fieldsForwarded": [
+        "consentRecorded",
+        "dataClassification",
+        "repositoryRegion",
+        "requestId",
+        "tenantId"
+      ]
+    }
+  ]
+}

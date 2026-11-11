@@ -1,0 +1,5 @@
+adventureworks.chain.summary
+router 952c01ffe59de9af63a9a45b07586548 b435f22b8f1fb92c
+recommendation 952c01ffe59de9af63a9a45b07586548 9a72bf045efcd724
+inventory af746b8f7e163db7433d9e53598e04dc 9365429128cae264
+correlation_complete: False

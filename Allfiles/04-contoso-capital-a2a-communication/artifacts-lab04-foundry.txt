@@ -1,0 +1,2 @@
+agent: contoso-risk-agent latest version: 1
+ version 1 2026-11-11 13:26:02+00:00

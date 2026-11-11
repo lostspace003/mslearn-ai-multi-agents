@@ -1,0 +1,86 @@
+Lab 09 - Implement CI/CD for Foundry hosted agents - run summary (2026-11-11)
+Resource group: rg-lab09-a00d677d (eastus2), env lab09-cicd-dev, subscription "Visual Studio Subscription"
+Foundry: aifqytjyfbxugnmi2cy / project fabrikam-lab09-cicd-dev; model gpt-5.4-mini 2026-03-17 GlobalStandard NoAutoUpgrade
+Dashboard Container App: fabrikam-release-lab09-cicd-d (only Container App in the RG)
+Detailed evidence: artifacts/pipeline-evidence/  (emulation scripts: artifacts/local-pipeline-scripts/)
+
+TASK 2 local validation (artifacts/task2-local-validation.log)
+  preflight: Preflight passed. Three Foundry hosted agents v2 and one release dashboard are ready.
+  validate_workflows: Validated hosted-agent CI/CD, dashboard progressive delivery, and persisted rollback evidence.
+  unittest: 9 tests OK (with -s tests; the lab's "-s Allfiles/09-.../tests" path fails from the lab dir)
+  compatibility-report.json: "compatible": true ; bicep build OK ; release-set.json remote fields all null
+
+RELEASE 1 (initial, bootstrap -> first verified baseline)      pipeline-evidence/01-initial
+  agents: fabrikam-code-scanner:1  fabrikam-code-reviewer:1  fabrikam-review-orchestrator:1 (scanner logical 1.2.0)
+  release_set_id development-c748e167856d87d5 ; evaluation-evidence status=passed (2 samples)
+  dashboard revision fabrikam-release-lab09-cicd-d--r3-v1, label stable, 100% ; dashboard invoke served_version=1
+
+PR VALIDATION (feature/scanner-release-metadata)              pipeline-evidence/02-pr-validation
+  scanner 1.2.1, contract digest sha256:13752a407bee1..., contract_findings [], version_findings [], compatible true
+  orchestrator depends_on scanner >=1.0.0,<2.0.0 ; manifests responses 2.0.0 / python_3_13 ; remote fields null
+
+RELEASE 2 (candidate after merge)                              pipeline-evidence/03-candidate-deploy, task10-canary-75-25.txt
+  agents :2/:2/:2 ; release_set_id development-59e6f2c3aa5728d7 ; evaluation passed ; candidate invoke served_version=2
+  traffic: r3-v1 stable 75 / r4-v2 candidate 25 ; weighted x16 -> 14 stable, 2 candidate
+  stable label x3 -> r3-v1 / orch v1 ; candidate label x3 -> r4-v2 / orch v2
+
+CANARY GATE healthy                                            pipeline-evidence/04-canary-healthy
+  action=promote ; traffic r4-v2 stable 100 / r3-v1 previous 0 ; verified-development = development-59e6f2c3aa5728d7
+
+OPTIONAL CHALLENGE (3rd smoke record, dataset_version 2)       pipeline-evidence/05-challenge-pr-validation
+  reviewed_release_id reviewed-c97c7923332c4457 -> reviewed-30b8c5f8003ba0b1, contract digest unchanged, model unchanged
+  deployed as RELEASE 3 candidate: agents :3, release_set_id development-9823b65f930a6039, 3 samples passed,
+  dashboard r5-v3 candidate 25 / r4-v2 stable 75                pipeline-evidence/06-candidate2-deploy
+
+CANARY GATE regression + ROLLBACK                              pipeline-evidence/07-canary-regression
+  action=rollback reasons [quality_drop, schema_violation_rate] ; closure [orchestrator, scanner]
+  restored development-59e6f2c3aa5728d7 -> dashboard r4-v2 100% stable (r5-v3 0) ; stable /metadata orch v2
+  azd ai agent invoke orchestrator --version 2 -> Version: 2 ; incident body written (GitHub issue not created)
+
+CAVEAT (resolved): before 14:21 UTC the orchestrator -> scanner/reviewer calls returned 403. The agent instance identity
+had no role on the project, so the earlier smoke "passed" only because the evaluator checks for non-empty text.
+
+POST-RBAC VERIFICATION                                         pipeline-evidence/08-post-rbac
+  role: Foundry User (53ca6127-..., formerly Azure AI User) for principal 657fbd36-def7-4c31-a824-3e920d53f20e on project
+        fabrikam-lab09-cicd-dev, created 2026-11-11T14:21:07Z (assigned by the coordinator with the user's approval)
+  14:23 UTC: still 403 (propagation) ; 14:26 UTC: first success
+  14:30 UTC final: azd ai agent invoke orchestrator --version 2 (current verified release development-59e6f2c3aa5728d7)
+    fabrikam-code-reviewer sessions 201 Created ; fabrikam-code-scanner sessions 201 Created
+    fabrikam-code-scanner responses 200 OK      ; fabrikam-code-reviewer responses 200 OK
+    result: coordinate_review status "reject" with real scanner finding (severity high, includes the 1.2.1 confidence
+    explanation) and reviewer decision "reject" for the authorization-header logging change
+
+GITHUB-SIDE ATTEMPT (user option A) - BLOCKED BY PERMISSIONS
+  Task 4 az ad app create fabrikam-agent-github (+ sp create)   -> denied ("Access Added As A Means"); nothing created
+  Task 3 gh repo create lostspace003/fabrikam-agent-cicd --private -> denied ("Public Data-Sharing Upload"); no repo
+  Not started (depend on the above): Task 5 environments/vars/protection, Actions runs, PRs, verified-* releases,
+    staging/production approvals, incident issue. No extra RGs or SP role assignments created.
+  Ready locally: practice repo commit 7a8ffb6 (51 files, .gitignore excludes .azure/.env/.venv/artifacts/__pycache__)
+    at %TEMP%\claude\726b3d4a15383912\af0c9777-47be-46f5-9799-a39e98667458\scratchpad\lab09\gh\fabrikam-agent-cicd
+  CI-enablement fixes added to lab source (workflows + infra): azd useAzCliAuth/extension/subscription, env refresh
+    in canary/rollback, orchestrator Foundry User grant, GitHub SP Foundry User + dashboard ACR identity in Bicep.
+
+OPTION A PROGRESS (after user approvals)
+  repo https://github.com/lostspace003/fabrikam-agent-cicd (private, empty; local commits 7a8ffb6, 4eb926a not pushed)
+  app 07cb0ce4-d617-40d2-a452-4e970dd68627 / SP acaff677-1f5e-4354-b907-5e46a9406176 ; fed creds gh-development/staging/production
+  RGs rg-lab09-{dev,stg,prod}-09d06da4 (eastus2) ; environments + 7 variables each ; staging/production branch policy main
+  required reviewers: refused by GitHub (HTTP 422, plan) ; GITHUB_PRINCIPAL_ID var name forbidden -> AZURE_GITHUB_PRINCIPAL_ID
+  BLOCKED: SP Contributor + RBAC Administrator on the 3 RGs (permission denied) -> push/workflows not started
+  SP roles verified (6). main pushed. Run 43047267416: validate SUCCESS, deploy FAILED at azure/login
+    AADSTS700213: subject is immutable-ID form repo:lostspace003@231288280/fabrikam-agent-cicd@1454134958:environment:development
+  BLOCKED: az ad app federated-credential create with the immutable subjects (permission denied)
+
+REAL GITHUB ACTIONS (option A)  repo https://github.com/lostspace003/fabrikam-agent-cicd (private)
+  OIDC: app 07cb0ce4-... / SP acaff677-... ; fed creds gh-<env>-immutable (immutable subject - lab bug) ; no secret
+  RGs rg-lab09-{dev,stg,prod}-09d06da4 ; SP Contributor + RBAC Admin on those 3 only ; reviewers refused (free plan), branch=main
+  43047267416 cancelled (OIDC subject, then registry identity hang) ; 43051621356 failed (broken app, recreated)
+  43058013169 dev initial release SUCCESS  development-8fdcc5c463c4e9c9 (agents v2) -> verified-development
+  43058118742 PR #1 validation SUCCESS (scanner 1.2.1, compatible, remote fields null) -> merged
+  43059661794 dev candidate SUCCESS development-ca5ce394b4d543d8 (v3) 75/25 ; weighted 13/3 ; labels deterministic
+  43061566053 canary healthy SUCCESS promote -> 0/100 ; verified-development = development-ca5ce394b4d543d8
+  43061925773 staging deploy (109eeaa) SUCCESS staging-525bfc64d603f222 -> verified-staging
+  production deploy: DENIED by permissions (gh workflow run deploy-environment.yml -f environment=production -f source_commit=109eeaaf...)
+  43061982880 PR #2 (challenge) SUCCESS ; 43062156120 dev candidate 2 SUCCESS development-81293fe401ba6ece
+  43064062981 canary regression -> rollback dispatch ; 43064206854 rollback SUCCESS closure [orchestrator, scanner]
+    restored development-ca5ce394b4d543d8 100% stable, orch v3 verified ; incident issue #3
+  extra fix 14: apply_canary_decision az calls --output none (routing JSON was corrupted)

@@ -8,4 +8,8 @@ from jsonschema import ValidationError, validate
 def validate_or_fallback(result: dict[str, Any], catalog_entry: dict[str, Any]) -> dict[str, Any]:
     """Return a validated tool result or the catalog's safe fallback."""
     # LAB PLACEHOLDER 6: Replace this line with the Task 6 sample.
-    raise NotImplementedError("Complete validate_or_fallback in Task 6")
+    try:
+        validate(instance=result, schema=catalog_entry["output_schema"])
+    except ValidationError:
+        return dict(catalog_entry["fallback"])
+    return result

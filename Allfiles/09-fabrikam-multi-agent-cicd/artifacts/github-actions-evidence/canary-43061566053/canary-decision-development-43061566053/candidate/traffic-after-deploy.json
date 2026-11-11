@@ -1,0 +1,39 @@
+{
+  "action": "promote",
+  "strategy": "canary",
+  "weights": {
+    "fabrikam-release-lab09-cicd-d--azd-1794414748": 75,
+    "fabrikam-release-lab09-cicd-d--azd-1794415369": 25
+  },
+  "stable": {
+    "name": "fabrikam-release-lab09-cicd-d--azd-1794414748",
+    "fqdn": "fabrikam-release-lab09-cicd-d--azd-1794414748.blackrock-3cd1fc37.eastus2.azurecontainerapps.io"
+  },
+  "candidate": {
+    "name": "fabrikam-release-lab09-cicd-d--azd-1794415369",
+    "fqdn": "fabrikam-release-lab09-cicd-d--azd-1794415369.blackrock-3cd1fc37.eastus2.azurecontainerapps.io"
+  },
+  "routing": {
+    "fqdn": "fabrikam-release-lab09-cicd-d.blackrock-3cd1fc37.eastus2.azurecontainerapps.io",
+    "labels": {
+      "candidate": "fabrikam-release-lab09-cicd-d--azd-1794415369",
+      "stable": "fabrikam-release-lab09-cicd-d--azd-1794414748"
+    },
+    "label_urls": {
+      "candidate": "https://fabrikam-release-lab09-cicd-d---candidate.blackrock-3cd1fc37.eastus2.azurecontainerapps.io",
+      "stable": "https://fabrikam-release-lab09-cicd-d---stable.blackrock-3cd1fc37.eastus2.azurecontainerapps.io"
+    },
+    "traffic": [
+      {
+        "label": "candidate",
+        "revisionName": "fabrikam-release-lab09-cicd-d--azd-1794415369",
+        "weight": 25
+      },
+      {
+        "label": "stable",
+        "revisionName": "fabrikam-release-lab09-cicd-d--azd-1794414748",
+        "weight": 75
+      }
+    ]
+  }
+}

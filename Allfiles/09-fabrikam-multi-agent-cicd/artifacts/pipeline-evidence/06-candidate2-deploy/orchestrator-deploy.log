@@ -1,0 +1,43 @@
+
+Deploying services (azd deploy)
+
+  orchestrator: Packaging
+  orchestrator: Packaging (Packaging code)
+  orchestrator: Publishing
+  orchestrator: Deploying [1s]
+  orchestrator: Deploying (Loading Foundry project) [5s]
+  orchestrator: Deploying (Loading deployment environment) [5s]
+  orchestrator: Deploying (Validating service dependencies) [5s]
+  orchestrator: Deploying (Deploying hosted agent (code deploy)) [5s]
+  orchestrator: Deploying (Loading code package artifact) [5s]
+  orchestrator: Deploying (Preparing code agent configuration) [5s]
+  orchestrator: Deploying (Checking existing agent) [5s]
+  orchestrator: Deploying (Updating existing agent from code package) [6s]
+  orchestrator: Deploying (Agent version created; waiting for activation) [8s]
+  orchestrator: Deploying (Waiting for agent to become active) [8s]
+  orchestrator: Deploying (Polling agent status (1/48)) [18s]
+  orchestrator: Deploying (Polling agent status (2/48)) [29s]
+  orchestrator: Deploying (Polling agent status (3/48)) [39s]
+  orchestrator: Deploying (Polling agent status (4/48)) [50s]
+  orchestrator: Deploying (Polling agent status (5/48)) [1m0s]
+  orchestrator: Deploying (Polling agent status (6/48)) [1m10s]
+  orchestrator: Deploying (Registering agent environment variables) [1m11s]
+  orchestrator: Done [1m12s]
+- Agent playground (portal): https://ai.azure.com/nextgen/r/L1XKbX84QiCRnFkaZusaKw,rg-lab09-a00d677d,,aifqytjyfbxugnmi2cy,fabrikam-lab09-cicd-dev/build/agents/fabrikam-review-orchestrator/build?version=3 
+- Agent endpoint (responses): https://aifqytjyfbxugnmi2cy.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/fabrikam-review-orchestrator/endpoint/protocols/openai/responses?api-version=v1 
+  For information on invoking the agent, see https://aka.ms/azd-agents-invoke
+
+Install the evaluations extension with azd extension install azure.ai.evaluations.
+Set up an evaluation suite to measure quality and impact with azd ai eval init
+
+Next:
+  azd ai agent show orchestrator
+  verify it's running
+
+  azd ai agent invoke orchestrator '<payload>'
+  test the deployment
+
+
+SUCCESS: Your application was deployed to Azure in 1 minute 12 seconds.
+You can view the resources created under the resource group rg-lab09-a00d677d in Azure Portal:
+https://portal.azure.com/#@/resource/subscriptions/<subscription-id>/resourceGroups/rg-lab09-a00d677d/overview

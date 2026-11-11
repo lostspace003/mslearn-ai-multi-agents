@@ -1,0 +1,13 @@
+Agent:        fabrikam-code-scanner (remote)
+Message:      "Return a one-line readiness response."
+Version:      4
+Session:      0327afdc98131df600GogEqDonYHoq22YpsQ6mlcZOz96EpWeR
+Conversation: conv_00ca6de573b94ab500nFgHoKGmnXVqszqTFTSOYSqPlNUWhl6O
+
+Trace ID:     4c8561c8748e5489b3127898ef8ecfc4
+Response:     caresp_00ca6de573b94ab500c8UyiCA60IwPh0ALpkkF5hCB3cmoC2l8
+[fabrikam-code-scanner] {"schema_version":"1.0","findings":[],"readiness":"ready"}{"schema_version":"1.0","findings":[],"readiness":"ready"}
+
+Client elapsed: 5.563s
+Platform latency (warm): response headers 1126 ms
+  preprocess 120 ms | container 1006 ms

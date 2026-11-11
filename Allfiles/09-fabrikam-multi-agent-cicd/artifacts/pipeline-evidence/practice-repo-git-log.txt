@@ -1,0 +1,14 @@
+* 29b2ba6 Only activate the verified dashboard revision when it is inactive
+*   6794103 Merge pull request: smoke disagreement record
+|\  
+| * e206276 Add specialist-disagreement smoke record (dataset v2)
+|/  
+*   7197ecf Merge pull request: Clarify scanner finding confidence
+|\  
+| * 40adcfe Clarify scanner finding confidence
+|/  
+* a055750 Use Azure <app>---<label> hostname for Container Apps label routes
+* b81d708 Fix capture_release_set import path in deploy workflow
+* 433a41f Serialize Foundry project after model deployment
+* a01fa32 Fix ACR Basic SKU network rule
+* 939d4a7 Initialize Foundry hosted-agent delivery

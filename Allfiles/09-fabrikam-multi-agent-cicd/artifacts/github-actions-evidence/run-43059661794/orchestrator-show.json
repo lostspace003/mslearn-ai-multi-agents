@@ -1,0 +1,59 @@
+{
+  "object": "agent.version",
+  "id": "fabrikam-review-orchestrator:3",
+  "name": "fabrikam-review-orchestrator",
+  "version": "3",
+  "description": "Invokes immutable scanner and reviewer versions and produces one release recommendation.",
+  "metadata": {
+    "enableVnextExperience": "true"
+  },
+  "created_at": 1794415182,
+  "definition": {
+    "code_configuration": {
+      "content_hash": "10a04b067e1ecc32e5fb87a6aa39604e0aebf7cac5a5900cc5a9cea1d4a6fe90",
+      "dependency_resolution": "remote_build",
+      "entry_point": [
+        "python",
+        "src/orchestrator_agent.py"
+      ],
+      "runtime": "python_3_13"
+    },
+    "container_protocol_versions": [],
+    "cpu": "0.5",
+    "environment_variables": {
+      "FOUNDRY_MODEL_NAME": "gpt-5.4-mini",
+      "REVIEWER_AGENT_NAME": "fabrikam-code-reviewer",
+      "REVIEWER_AGENT_VERSION": "3",
+      "REVIEWER_RESPONSES_ENDPOINT": "https://aifyy4xvw4ho4q2erwh.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/fabrikam-code-reviewer/endpoint/protocols/openai/responses?api-version=v1",
+      "SCANNER_AGENT_NAME": "fabrikam-code-scanner",
+      "SCANNER_AGENT_VERSION": "3",
+      "SCANNER_RESPONSES_ENDPOINT": "https://aifyy4xvw4ho4q2erwh.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/fabrikam-code-scanner/endpoint/protocols/openai/responses?api-version=v1"
+    },
+    "kind": "hosted",
+    "memory": "1Gi",
+    "protocol_versions": [
+      {
+        "protocol": "responses",
+        "version": "2.0.0"
+      }
+    ]
+  },
+  "status": "active",
+  "instance_identity": {
+    "principal_id": "d895034c-f0f1-4be6-a5f8-5129e749fca0",
+    "client_id": "d895034c-f0f1-4be6-a5f8-5129e749fca0"
+  },
+  "blueprint": {
+    "principal_id": "7a5cd52a-d0d6-4308-b9e8-b8d2955ce55c",
+    "client_id": "9060acb7-430b-41cf-b6c3-73f973c5093c"
+  },
+  "blueprint_reference": {
+    "type": "ManagedAgentIdentityBlueprint",
+    "blueprint_id": "fabrikam-review-orchestrator-7d407"
+  },
+  "agent_guid": "7d407ac3-600c-4dc5-9475-4fd996ad4ef0",
+  "playground_url": "https://ai.azure.com/nextgen/r/L1XKbX84QiCRnFkaZusaKw,rg-lab09-dev-09d06da4,,aifyy4xvw4ho4q2erwh,fabrikam-lab09-cicd-dev/build/agents/fabrikam-review-orchestrator/build?version=3",
+  "agent_endpoints": {
+    "responses": "https://aifyy4xvw4ho4q2erwh.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/fabrikam-review-orchestrator/endpoint/protocols/openai/responses?api-version=v1"
+  }
+}

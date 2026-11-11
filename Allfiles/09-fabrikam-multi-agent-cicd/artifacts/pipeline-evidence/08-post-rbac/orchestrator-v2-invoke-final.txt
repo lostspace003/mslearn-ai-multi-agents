@@ -1,0 +1,13 @@
+Agent:        fabrikam-review-orchestrator (remote)
+Message:      "Review repository fabrikam/payments-api at commit fedcba9876543210. The change logs the full authorization header when a request fails."
+Version:      2
+Session:      0e25716d59e03122009ehSb9nQEuJvlxu2wOlnjSVw0cAXgytF
+Conversation: conv_007175f4dfe5130800pyj6O0RxGgWbTpgNV3itpunYWIJXdLEG
+
+Trace ID:     819f7463a06baab4f927163d863e34e2
+Response:     caresp_007175f4dfe5130800HGWUAphMVM6YLOMCQh0gre22gH9enWKa
+[fabrikam-review-orchestrator] {"coordinate_review":{"status":"reject","agent_results":{"scanner":{"severity":"high","file":"unknown","line":null,"remediation":"Do not log the full Authorization header. Redact or hash credentials before logging, or omit the header entirely from error logs.","confidence":"High confidence because the change summary explicitly states that the full authorization header is logged on request failure, which can expose bearer tokens or other secrets in logs."},"reviewer":{"decision":"reject","rationale":"Logging the full Authorization header on request failures is a security regression: it can expose bearer tokens or other credentials in logs, which are often broadly accessible and retained. The change increases the risk of secret leakage and should be replaced with redacted or token-safe logging. No evidence of compensating tests or safeguards was provided."}}}}{"coordinate_review":{"status":"reject","agent_results":{"scanner":{"severity":"high","file":"unknown","line":null,"remediation":"Do not log the full Authorization header. Redact or hash credentials before logging, or omit the header entirely from error logs.","confidence":"High confidence because the change summary explicitly states that the full authorization header is logged on request failure, which can expose bearer tokens or other secrets in logs."},"reviewer":{"decision":"reject","rationale":"Logging the full Authorization header on request failures is a security regression: it can expose bearer tokens or other credentials in logs, which are often broadly accessible and retained. The change increases the risk of secret leakage and should be replaced with redacted or token-safe logging. No evidence of compensating tests or safeguards was provided."}}}}
+
+Client elapsed: 16.936s
+Platform latency (warm): response headers 675 ms
+  preprocess 111 ms | container 564 ms

@@ -34,7 +34,64 @@ def definition_from_spec(spec: dict[str, Any], model: str) -> PromptAgentDefinit
 def validate_promotion(manifest: dict[str, Any]) -> None:
     """Fail closed unless approval, evaluation, and technical-file gates pass."""
     # LAB PLACEHOLDER 1: Replace this line with the Task 1 sample.
-    raise NotImplementedError("Complete validate_promotion in Task 1")
+    failures: list[str] = []
+    evaluation = manifest.get("evaluation") or {}
+    approval = manifest.get("approval") or {}
+    compliance = manifest.get("compliance") or {}
+    topology = manifest.get("topology") or {}
+    agent_specs = {
+        str(item.get("agent_id")): item
+        for item in topology.get("agents") or []
+    }
+    compatibility = topology.get("compatibility") or {}
+
+    if manifest.get("status") != "approved":
+        failures.append("manifest status is not approved")
+    if approval.get("status") != "approved":
+        failures.append("approval status is not approved")
+    if set(agent_specs) != {"scanner", "reviewer", "orchestrator"}:
+        failures.append("topology must contain scanner, reviewer, and orchestrator")
+
+    try:
+        scanner_schema = Version(str(compatibility["scanner_output_schema"]))
+        reviewer_requirement = SpecifierSet(
+            str(compatibility["reviewer_requires_scanner_schema"])
+        )
+        if scanner_schema not in reviewer_requirement:
+            failures.append("scanner output schema is incompatible with reviewer")
+    except (KeyError, TypeError, ValueError):
+        failures.append("scanner-to-reviewer compatibility evidence is invalid")
+
+    try:
+        reviewer_version = Version(str(agent_specs["reviewer"]["version"]))
+        orchestrator_requirement = SpecifierSet(
+            str(compatibility["orchestrator_requires_reviewer_version"])
+        )
+        if reviewer_version not in orchestrator_requirement:
+            failures.append("reviewer version is incompatible with orchestrator")
+    except (KeyError, TypeError, ValueError):
+        failures.append("reviewer-to-orchestrator compatibility evidence is invalid")
+
+    try:
+        if float(evaluation["precision"]) < float(evaluation["minimum_precision"]):
+            failures.append("precision is below its minimum")
+    except (KeyError, TypeError, ValueError):
+        failures.append("precision evidence is missing or invalid")
+
+    try:
+        if float(evaluation["recall"]) < float(evaluation["minimum_recall"]):
+            failures.append("recall is below its minimum")
+    except (KeyError, TypeError, ValueError):
+        failures.append("recall evidence is missing or invalid")
+
+    if compliance.get("material_change_assessment") is not True:
+        failures.append("material change assessment is missing")
+    technical_file = str(compliance.get("technical_file_reference", "")).strip()
+    if not technical_file or not Path(technical_file).is_file():
+        failures.append("technical file reference is missing or unavailable")
+
+    if failures:
+        raise PermissionError("Promotion denied: " + "; ".join(failures))
 
 
 def list_inventory(client: AIProjectClient) -> list[dict[str, Any]]:

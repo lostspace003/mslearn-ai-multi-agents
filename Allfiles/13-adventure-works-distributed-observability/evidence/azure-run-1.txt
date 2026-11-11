@@ -1,0 +1,98 @@
+adventureworks.agent.observation
+adventureworks.agent.observation
+adventureworks.agent.observation
+adventureworks.chain.summary
+DefaultAzureCredential acquired a token from AzureCliCredential
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '6143'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '4efc5db6-ddd3-11f1-967f-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+DefaultAzureCredential acquired a token from AzureCliCredential
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '5662'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '4f6de4ae-ddd3-11f1-b9be-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+Response status: 403
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:25:06 GMT'
+Retryable server side error: Operation returned an invalid status 'Forbidden'. Your application may be configured with a token credential but your Application Insights resource may be configured incorrectly. Please make sure your Application Insights resource has enabled entra Id authentication and has the correct `Monitoring Metrics Publisher` role assigned.
+Response status: 403
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:25:07 GMT'
+Retryable server side error: Operation returned an invalid status 'Forbidden'. Your application may be configured with a token credential but your Application Insights resource may be configured incorrectly. Please make sure your Application Insights resource has enabled entra Id authentication and has the correct `Monitoring Metrics Publisher` role assigned.
+AzureCliCredential.get_token_info succeeded
+DefaultAzureCredential acquired a token from AzureCliCredential
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '5111'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '5148ef10-ddd3-11f1-b969-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+Response status: 403
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:25:09 GMT'
+Retryable server side error: Operation returned an invalid status 'Forbidden'. Your application may be configured with a token credential but your Application Insights resource may be configured incorrectly. Please make sure your Application Insights resource has enabled entra Id authentication and has the correct `Monitoring Metrics Publisher` role assigned.
+AzureCliCredential.get_token_info succeeded
+DefaultAzureCredential acquired a token from AzureCliCredential
+Request URL: 'https://eastus2-3.in.applicationinsights.azure.com//v2.1/track'
+Request method: 'POST'
+Request headers:
+    'Content-Type': 'application/json'
+    'Content-Length': '2242'
+    'Accept': 'application/json'
+    'x-ms-client-request-id': '5315d942-ddd3-11f1-9c4c-f6c52bffa401'
+    'User-Agent': 'azsdk-python-monitor-opentelemetry-exporter/1.0.0b1 Python/3.13.0 (Windows-11-10.0.26300-SP0)'
+    'Authorization': 'REDACTED'
+A body is sent with the request
+Response status: 403
+Response headers:
+    'Transfer-Encoding': 'chunked'
+    'Content-Type': 'application/json; charset=utf-8'
+    'Server': 'Microsoft-HTTPAPI/2.0'
+    'Strict-Transport-Security': 'REDACTED'
+    'X-Content-Type-Options': 'REDACTED'
+    'Date': 'Wed, 11 Nov 2026 13:25:12 GMT'
+Retryable server side error: Operation returned an invalid status 'Forbidden'. Your application may be configured with a token credential but your Application Insights resource may be configured incorrectly. Please make sure your Application Insights resource has enabled entra Id authentication and has the correct `Monitoring Metrics Publisher` role assigned.
+Shutdown called, ignoring Span.
+{
+  "correlation_complete": true,
+  "trace_id": "1ffbe22c535cae8817492bb8c33e1ad3",
+  "span_count": 3,
+  "anomalies": [
+    "recommendation",
+    "inventory"
+  ],
+  "error_rate": 0.3333333333333333,
+  "error_rate_anomaly": true
+}

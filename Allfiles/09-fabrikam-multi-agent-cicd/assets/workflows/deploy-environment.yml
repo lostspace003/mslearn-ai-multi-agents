@@ -74,10 +74,13 @@ jobs:
           test "$(jq -r .reviewed_release_id artifacts/staging-verified/release-set.json)" = "$(jq -r .reviewed_release_id artifacts/validation/release-set.json)"
       - name: Select isolated azd environment
         run: |
-          AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd env select "${{ vars.AZURE_ENV_NAME }}" || AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd env new "${{ vars.AZURE_ENV_NAME }}" --no-prompt
+          AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd config set auth.useAzCliAuth true
+          AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd extension install azure.ai.agents
+          AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd env select "${{ vars.AZURE_ENV_NAME }}" || AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd env new "${{ vars.AZURE_ENV_NAME }}" --subscription "${{ vars.AZURE_SUBSCRIPTION_ID }}" --location "${{ vars.AZURE_LOCATION }}" --no-prompt
+          AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd env set AZURE_SUBSCRIPTION_ID "${{ vars.AZURE_SUBSCRIPTION_ID }}"
           AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd env set AZURE_LOCATION "${{ vars.AZURE_LOCATION }}"
           AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd env set AZURE_RESOURCE_GROUP "${{ vars.AZURE_RESOURCE_GROUP_NAME }}"
-          AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd env set GITHUB_PRINCIPAL_ID "${{ vars.GITHUB_PRINCIPAL_ID }}"
+          AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd env set GITHUB_PRINCIPAL_ID "${{ vars.AZURE_GITHUB_PRINCIPAL_ID }}"
       - name: Provision Foundry project, exact model, and dashboard boundary
         run: AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd provision --no-prompt
       - name: Deploy and verify scanner immutable version
@@ -95,6 +98,7 @@ jobs:
       - name: Deploy and verify orchestrator immutable version
         run: |
           AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd deploy orchestrator --no-prompt
+          az role assignment create --assignee-object-id "$(AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd env get-value AGENT_ORCHESTRATOR_INSTANCE_IDENTITY_PRINCIPAL_ID)" --assignee-principal-type ServicePrincipal --role 53ca6127-db72-4b80-b1b0-d745d6d5456d --scope "$(AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd env get-value FOUNDRY_PROJECT_ID)" --output none
           orchestrator_version="$(AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd env get-value AGENT_ORCHESTRATOR_VERSION)"
           AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd ai agent show orchestrator --output json | tee artifacts/orchestrator-show.json
           AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd ai agent invoke orchestrator --version "$orchestrator_version" --protocol responses "Review fabrikam/payments-api commit 0123456789abcdef: validate payment amount bounds." | tee artifacts/orchestrator-smoke.txt
@@ -114,7 +118,7 @@ jobs:
             --environment "$TARGET_ENVIRONMENT" \
             --status validated
           AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd env get-values --output json > artifacts/azd-values.json
-          python scripts/capture_release_set.py \
+          PYTHONPATH=. python scripts/capture_release_set.py \
             --manifest artifacts/release-set-source.json \
             --azd-values artifacts/azd-values.json \
             --output artifacts/release-set-bound.json
@@ -166,6 +170,7 @@ jobs:
         run: |
           release_set_id="$(jq -r .release_set_id artifacts/release-set-bound.json)"
           AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd env set RELEASE_SET_ID "$release_set_id"
+          az containerapp registry set --resource-group "$(AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd env get-value AZURE_RESOURCE_GROUP_NAME)" --name "$(AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd env get-value DASHBOARD_APP_NAME)" --server "$(AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd env get-value AZURE_CONTAINER_REGISTRY_ENDPOINT)" --identity system --output none
           AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd deploy dashboard --no-prompt
       - name: Apply dashboard-only 75/25 exposure
         id: dashboard

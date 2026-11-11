@@ -1,0 +1,31 @@
+{
+  "value": [
+    {
+      "id": "/subscriptions/<subscription-id>/resourcegroups/rg-lab13-c59c747d/providers/microsoft.operationalinsights/workspaces/log-aw-otel-p6ayjdwzzwra2/providers/Microsoft.AlertsManagement/alerts/23693926-7fac-b5c9-d8f2-f7f5b91f0004",
+      "name": "Adventure Works agent policy anomaly",
+      "properties": {
+        "essentials": {
+          "actionStatus": {
+            "isSuppressed": false
+          },
+          "alertRule": "/subscriptions/<subscription-id>/resourceGroups/rg-lab13-c59c747d/providers/microsoft.insights/scheduledqueryrules/alert-aw-agent-policy-anomaly-p6ayjdwzzwra2",
+          "alertState": "New",
+          "description": "Latency, error-rate, or token anomaly emitted by the lab agent chain.",
+          "lastModifiedDateTime": "2026-11-11T13:31:16.4528017Z",
+          "lastModifiedUserName": "System",
+          "monitorCondition": "Fired",
+          "monitorService": "Log Alerts V2",
+          "severity": "Sev2",
+          "signalType": "Log",
+          "sourceCreatedId": "a7cccb1a-ece6-c259-4560-3cc3e635c350",
+          "startDateTime": "2026-11-11T13:31:16.4528017Z",
+          "targetResource": "/subscriptions/<subscription-id>/resourcegroups/rg-lab13-c59c747d/providers/microsoft.operationalinsights/workspaces/log-aw-otel-p6ayjdwzzwra2",
+          "targetResourceGroup": "rg-lab13-c59c747d",
+          "targetResourceName": "log-aw-otel-p6ayjdwzzwra2",
+          "targetResourceType": "workspaces"
+        }
+      },
+      "type": "microsoft.alertsmanagement/alerts"
+    }
+  ]
+}

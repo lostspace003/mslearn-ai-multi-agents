@@ -1,0 +1,53 @@
+{
+  "object": "agent.version",
+  "id": "fabrikam-code-scanner:4",
+  "name": "fabrikam-code-scanner",
+  "version": "4",
+  "description": "Finds security vulnerabilities in a supplied synthetic code-change description.",
+  "metadata": {
+    "enableVnextExperience": "true"
+  },
+  "created_at": 1794415867,
+  "definition": {
+    "code_configuration": {
+      "content_hash": "efa8483b79fb4a78e9dc48b1f3e4157fb082b0ea643cb6fc4a13713180fdee20",
+      "dependency_resolution": "remote_build",
+      "entry_point": [
+        "python",
+        "src/scanner_agent.py"
+      ],
+      "runtime": "python_3_13"
+    },
+    "container_protocol_versions": [],
+    "cpu": "0.5",
+    "environment_variables": {
+      "FOUNDRY_MODEL_NAME": "gpt-5.4-mini"
+    },
+    "kind": "hosted",
+    "memory": "1Gi",
+    "protocol_versions": [
+      {
+        "protocol": "responses",
+        "version": "2.0.0"
+      }
+    ]
+  },
+  "status": "active",
+  "instance_identity": {
+    "principal_id": "aa572999-9fda-43c3-a201-e810bd56d3d7",
+    "client_id": "aa572999-9fda-43c3-a201-e810bd56d3d7"
+  },
+  "blueprint": {
+    "principal_id": "0bfb3f61-28ba-42de-802b-a90f784dc959",
+    "client_id": "2200cc91-bdc2-42c5-b4a9-3f97117b8a5b"
+  },
+  "blueprint_reference": {
+    "type": "ManagedAgentIdentityBlueprint",
+    "blueprint_id": "fabrikam-code-scanner-d2a3b"
+  },
+  "agent_guid": "d2a3b38d-8ad7-473a-8e9a-25ec1460d612",
+  "playground_url": "https://ai.azure.com/nextgen/r/L1XKbX84QiCRnFkaZusaKw,rg-lab09-dev-09d06da4,,aifyy4xvw4ho4q2erwh,fabrikam-lab09-cicd-dev/build/agents/fabrikam-code-scanner/build?version=4",
+  "agent_endpoints": {
+    "responses": "https://aifyy4xvw4ho4q2erwh.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/fabrikam-code-scanner/endpoint/protocols/openai/responses?api-version=v1"
+  }
+}

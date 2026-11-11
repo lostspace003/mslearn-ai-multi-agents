@@ -1,0 +1,23 @@
+[
+  [
+    "2026-11-11T13:31:50.303883Z",
+    "agent.router",
+    "7aaed04a2ea9182f",
+    "1a50937fe21e580ed6c9794ebe7982dc",
+    "synthetic.product_recommendation"
+  ],
+  [
+    "2026-11-11T13:31:50.3205Z",
+    "agent.recommendation",
+    "f0e4a7ef58af8747",
+    "7aaed04a2ea9182f",
+    "synthetic.product_recommendation"
+  ],
+  [
+    "2026-11-11T13:31:50.40839Z",
+    "agent.inventory",
+    "18f459bed5cafb4c",
+    "f0e4a7ef58af8747",
+    "synthetic.product_recommendation"
+  ]
+]

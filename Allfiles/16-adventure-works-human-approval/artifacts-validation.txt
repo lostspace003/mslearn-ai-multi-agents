@@ -1,0 +1,18 @@
+== workflow-state records: 8
+72ec1293-7ec7-4c35-a3d5-b4579e86e21a state=EXECUTED           v=2 decision=APPROVED execution=completed trace=SYN-TRACE-1601
+f573a4d5-e0f3-4101-bcf0-818ceab38b9f state=REJECTED           v=2 decision=REJECTED execution=None trace=SYN-TRACE-1601
+cf061d75-0d22-4311-9e0f-62911c7c9853 state=EXECUTED           v=2 decision=OVERRIDDEN execution=completed_after_override trace=SYN-TRACE-1601
+efa66631-84d2-4454-8d3a-ff7978172bf0 state=CANCELLED          v=2 decision=CANCELLED execution=cancelled_before_execution trace=SYN-TRACE-1601
+d4a546b8-afb6-46a7-b19a-f4a7ebcda80d state=ESCALATED          v=2 decision=None execution=None trace=SYN-TRACE-1602
+137515d4-8bed-4088-ae6a-bc300ff27dae state=EXECUTED           v=2 decision=APPROVED execution=completed trace=SYN-TRACE-1601
+47f371bb-3c99-4d7f-880a-7f6ea540fc7f state=WAITING_FOR_REVIEW v=1 decision=None execution=None trace=SYN-TRACE-1601
+af3ef65a-9bf7-43d5-ac7e-98467285c0c7 state=EXECUTED           v=2 decision=APPROVED execution=completed trace=SYN-TRACE-1603
+
+== approval-audit records: 16 {'submitted': 8, 'decision_applied': 6, 'duplicate_decision': 1, 'escalated': 1}
+audit records missing required fields / non-UTC: none
+submitted records with previous_state None (expected): 8
+states whose last_transition is not linked to an audit record (etag+version): none
+executions from pending/rejected/escalated/cancelled states: none
+
+== active learning: cosmos rejected/overridden = {'REJECTED': 1, 'OVERRIDDEN': 1} | jsonl lines = 2 {'OVERRIDDEN': 1, 'REJECTED': 1} | evaluation = {'OVERRIDDEN': 1, 'REJECTED': 1} example_count 2
+active-learning counts match: True

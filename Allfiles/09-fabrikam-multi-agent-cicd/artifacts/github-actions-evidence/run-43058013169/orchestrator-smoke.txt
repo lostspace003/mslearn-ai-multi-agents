@@ -1,0 +1,13 @@
+Agent:        fabrikam-review-orchestrator (remote)
+Message:      "Review fabrikam/payments-api commit 0123456789abcdef: validate payment amount bounds."
+Version:      2
+Session:      09a169266fe3d5b500USSXUeA1CAPEDgq4m5hNT3PqlReav88u
+Conversation: conv_09fe51acdd7721e600XgfhjvOMQBi76othqE31db8pzDXDtHcN
+
+Trace ID:     b9360b44bf5d9547e6ac5efc459bdfea
+Response:     caresp_09fe51acdd7721e600jPU673IRqzoLhUfQqwgUJADdl9AwkST6
+[fabrikam-review-orchestrator] {"coordinate_review":{"status":"needs_more_info","agent_results":{"scanner":{"severity":"medium","file":"unknown","line":null,"remediation":"Unable to assess security findings because the supplied request did not include the code diff or patch content for commit 0123456789abcdef. Please provide the changed files/lines so the scan can evaluate vulnerabilities."},"reviewer":{"decision":"needs_more_info","rationale":"I can’t assess correctness or test coverage from the provided summary alone. The actual diff for commit 0123456789abcdef is missing, so I can’t verify whether the amount bounds validation handles edge cases, preserves existing behavior, or is covered by tests."}}}}{"coordinate_review":{"status":"needs_more_info","agent_results":{"scanner":{"severity":"medium","file":"unknown","line":null,"remediation":"Unable to assess security findings because the supplied request did not include the code diff or patch content for commit 0123456789abcdef. Please provide the changed files/lines so the scan can evaluate vulnerabilities."},"reviewer":{"decision":"needs_more_info","rationale":"I can’t assess correctness or test coverage from the provided summary alone. The actual diff for commit 0123456789abcdef is missing, so I can’t verify whether the amount bounds validation handles edge cases, preserves existing behavior, or is covered by tests."}}}}
+
+Client elapsed: 21.196s
+Platform latency (warm): response headers 1698 ms
+  preprocess 109 ms | container 1589 ms

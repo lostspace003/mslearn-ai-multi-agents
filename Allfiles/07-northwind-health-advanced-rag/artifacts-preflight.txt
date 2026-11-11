@@ -1,0 +1,4 @@
+AZURE_SEARCH_ENDPOINT configured: True
+AZURE_OPENAI_ENDPOINT configured: True
+AZURE_OPENAI_EMBEDDING_DEPLOYMENT configured: True
+Preflight passed. Live service configuration may remain unset until provisioning.

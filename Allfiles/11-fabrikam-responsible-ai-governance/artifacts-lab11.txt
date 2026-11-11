@@ -1,0 +1,204 @@
+=== preflight ===
+PASS python_3_10_or_newer
+PASS azure_ai_projects_package
+PASS azure_monitor_distro_package
+PASS opentelemetry_sdk_package
+PASS pyyaml_package
+PASS policy_present
+PASS synthetic_scenario
+PASS starter_syntax
+PASS placeholder_1_present
+PASS foundry_project_configured
+PASS model_configured
+PASS application_insights_configured
+READY (Azure configured)
+=== Task 4 checks ===
+NotImplementedError matches: 0
+chain_of_thought|raw_prompt matches: 0
+98:        "tenant_id_hash": _sha256(str(scenario["tenant_id"]))[:16],
+99:        "input_sha256": _sha256(str(scenario["source_code"])),
+148:            "tenant_id_hash": str(record["tenant_id_hash"]),
+149:            "input_sha256": str(record["input_sha256"]),
+153:            "agent_response_ids_json": json.dumps(record["agent_response_ids"], separators=(",", ":")),
+=== Task 5.1 deterministic ===
+{
+  "mode": "deterministic",
+  "agentResponses": {
+    "security-reviewer": {
+      "responseId": "local-security-response",
+      "text": "Use a parameterized query; evidence reference CWE-89."
+    },
+    "fairness-auditor": {
+      "responseId": "local-fairness-response",
+      "text": "The Node probe rate is lower and exceeds the allowed disparity."
+    },
+    "governance-orchestrator": {
+      "responseId": "local-governance-response",
+      "text": "Route this review to a human with attributed specialist evidence."
+    }
+  },
+  "payloadFields": {
+    "security-reviewer": [
+      "evidenceReference",
+      "requestId",
+      "sourceCode"
+    ],
+    "fairness-auditor": [
+      "groupPositiveRates",
+      "maxDisparity",
+      "policyThreshold",
+      "requestId"
+    ],
+    "governance-orchestrator": [
+      "fairness",
+      "humanReviewRequired",
+      "policyVersion",
+      "requestId",
+      "specialistResults"
+    ]
+  },
+  "governanceEvidence": {
+    "schema_version": "2.0",
+    "evidence_scope": "single_process_local_jsonl",
+    "timestamp": "2026-11-11T13:24:51.007594+00:00",
+    "correlation_id": "fab-review-2026-0042",
+    "tenant_id_hash": "37c81e061dfd143e",
+    "input_sha256": "f6118b4e49c8d09ad484a0ef838dbba98544f95a63a29ac58ce8833fd9395dcd",
+    "purpose": "code-review-security-analysis",
+    "policy_id": "fabrikam-rai-code-review",
+    "policy_version": "1.0.0",
+    "fairness_threshold": 0.1,
+    "fairness": {
+      "group_positive_rates": {
+        "python": 1.0,
+        "node": 0.5
+      },
+      "max_disparity": 0.5
+    },
+    "human_review_required": true,
+    "agent_response_ids": {
+      "security-reviewer": "local-security-response",
+      "fairness-auditor": "local-fairness-response",
+      "governance-orchestrator": "local-governance-response"
+    }
+  }
+}
+=== Task 5.3 latest evidence privacy check ===
+raw tenant present: False
+raw source present: False
+evidence_scope: single_process_local_jsonl | keys: ['agent_response_ids', 'correlation_id', 'evidence_scope', 'fairness', 'fairness_threshold', 'human_review_required', 'input_sha256', 'policy_id', 'policy_version', 'purpose', 'schema_version', 'tenant_id_hash', 'timestamp']
+=== Task 5.4 live ===
+GenAI tracing is not enabled. Set environment variable AZURE_EXPERIMENTAL_ENABLE_GENAI_TRACING=true to enable this experimental feature.
+{
+  "mode": "live",
+  "agentResponses": {
+    "security-reviewer": {
+      "responseId": "resp_031f53a356840cd7006af46ccd1a8481908b4b3321b19ed7e5",
+      "text": "Finding: Potential SQL injection risk due to direct string concatenation of untrusted `user_id` into a SQL query.\n\nRecommendation: Use parameterized queries/prepared statements and validate `user_id` as the expected type before query execution.\n\nConfidence: High\n\nExternal evidence reference: CWE-89"
+    },
+    "fairness-auditor": {
+      "responseId": "resp_0521e4df09501371006af46cd2f154819598d531864cff8a67",
+      "text": "The rate gap is:\n\n- Python: 1.0\n- Node: 0.5\n- Difference: 0.5\n\nPolicy threshold: 0.1\n\nAssessment:\n- 0.5 > 0.1, so the supplied group rates exceed the policy threshold.\n\nLower-rate group:\n- Node has the lower rate (0.5)."
+    },
+    "governance-orchestrator": {
+      "responseId": "resp_031b15a473811548006af46cd9f05c8190af022ae616eb039d",
+      "text": "**Recommendation: Escalate to human review and do not auto-approve.**\n\n**Why:**\n- **Security reviewer:** High-confidence finding of a **potential SQL injection risk** from direct string concatenation of untrusted `user_id` in a SQL query. Recommended fix: **use parameterized queries/prepared statements** and validate `user_id` type before execution. Evidence reference: **CWE-89**.\n- **Fairness auditor:** The **group rate disparity is 0.5**, which exceeds the policy threshold of **0.1**. The **Node** group has the lower rate.\n\n**Policy outcome:** `humanReviewRequired = true`, so this should remain **manual review required** until the security issue and fairness gap are addressed."
+    }
+  },
+  "payloadFields": {
+    "security-reviewer": [
+      "evidenceReference",
+      "requestId",
+      "sourceCode"
+    ],
+    "fairness-auditor": [
+      "groupPositiveRates",
+      "maxDisparity",
+      "policyThreshold",
+      "requestId"
+    ],
+    "governance-orchestrator": [
+      "fairness",
+      "humanReviewRequired",
+      "policyVersion",
+      "requestId",
+      "specialistResults"
+    ]
+  },
+  "governanceEvidence": {
+    "schema_version": "2.0",
+    "evidence_scope": "single_process_local_jsonl",
+    "timestamp": "2026-11-11T13:25:09.096946+00:00",
+    "correlation_id": "fab-review-2026-0042",
+    "tenant_id_hash": "37c81e061dfd143e",
+    "input_sha256": "f6118b4e49c8d09ad484a0ef838dbba98544f95a63a29ac58ce8833fd9395dcd",
+    "purpose": "code-review-security-analysis",
+    "policy_id": "fabrikam-rai-code-review",
+    "policy_version": "1.0.0",
+    "fairness_threshold": 0.1,
+    "fairness": {
+      "group_positive_rates": {
+        "python": 1.0,
+        "node": 0.5
+      },
+      "max_disparity": 0.5
+    },
+    "human_review_required": true,
+    "agent_response_ids": {
+      "security-reviewer": "resp_031f53a356840cd7006af46ccd1a8481908b4b3321b19ed7e5",
+      "fairness-auditor": "resp_0521e4df09501371006af46cd2f154819598d531864cff8a67",
+      "governance-orchestrator": "resp_031b15a473811548006af46cd9f05c8190af022ae616eb039d"
+    }
+  }
+}
+exit=0
+=== Task 6.17-18 fairness boundary (node-b=1) ===
+{
+  "group_positive_rates": {
+    "python": 1.0,
+    "node": 1.0
+  },
+  "max_disparity": 0.0
+}
+human_review_required False
+=== Optional challenge (in-memory, no files changed) ===
+balanced: disparity 0.0 threshold 0.1 gate: continue
+added node-c=0: rates {'python': 1.0, 'node': 0.6666666666666666} disparity 0.3333 threshold 0.1 gate: human review required
+missing fairness: requires_human_review -> True
+missing max_disparity: requires_human_review -> True
+malformed max_disparity: requires_human_review -> True
+missing-evidence reason: required fields absent -> ['fairness', 'agent_response_ids']
+=== Task 6.1-5 Foundry agents (SDK equivalent of portal Agents page) ===
+governance-orchestrator latest version: 1 model: gpt-5.4-mini
+   instructions: Combine the supplied specialist results and deterministic policy decision into a concise, attributed recommendation. Never request raw source, tenant identity, or hidden reasoning.
+fairness-auditor latest version: 1 model: gpt-5.4-mini
+   instructions: Explain whether the supplied group rates exceed the policy threshold. Identify the lower-rate group without inferring protected characteristics or requesting source code.
+security-reviewer latest version: 1 model: gpt-5.4-mini
+   instructions: Review only the supplied synthetic source. Return a concise finding, recommendation, confidence, and the supplied external evidence reference. Do not quote the full source.
+=== Model deployment guardrail ===
+N             M             V           Rai
+------------  ------------  ----------  -------------------
+gpt-5.4-mini  gpt-5.4-mini  2026-03-17  Microsoft.DefaultV2
+=== Task 6.7-10 response inputs (Responses API input_items, SDK equivalent of portal Traces) ===
+security-reviewer: resp_031f53a356840cd7006af46ccd1a8481908b4b3321b19ed7e5 status=completed model=gpt-5.4-mini
+   input keys=['evidenceReference', 'requestId', 'sourceCode'] | has sourceCode=True | has raw source=True | has tenant=False
+fairness-auditor: resp_0521e4df09501371006af46cd2f154819598d531864cff8a67 status=completed model=gpt-5.4-mini
+   input keys=['groupPositiveRates', 'maxDisparity', 'policyThreshold', 'requestId'] | has sourceCode=False | has raw source=False | has tenant=False
+governance-orchestrator: resp_031b15a473811548006af46cd9f05c8190af022ae616eb039d status=completed model=gpt-5.4-mini
+   input keys=['fairness', 'humanReviewRequired', 'policyVersion', 'requestId', 'specialistResults'] | has sourceCode=False | has raw source=False | has tenant=False
+=== Task 6.20-25 Application Insights (Log Analytics query API via az rest) ===
+--- q1 (governance-evidence.kql) ---
+rowCount 1
+columns ['PolicyVersion', 'Reviews', 'Escalations', 'MaxDisparity', 'Correlations', 'Responses']
+['1.0.0', 1, 1, 0.5, 1, '["{\\"security-reviewer\\":\\"resp_031f53a356840cd7006af46ccd1a8481908b4b3321b19ed7e5\\",\\"fairness-auditor\\":\\"resp_0521e4df09501371006af46cd2f154819598d531864cff8a67\\",\\"governance-orchestrator\\":\\"resp_031b15a473811548006af46cd9f05c8190af022ae616eb039d\\"}"]']
+--- q2 (privacy query) ---
+rowCount 1
+columns ['TenantId', 'TimeGenerated', 'Message', 'SeverityLevel', 'Properties', 'Measurements', 'OperationName', 'OperationId', 'ParentId', 'SyntheticSource', 'SessionId', 'UserId', 'UserAuthenticatedId', 'UserAccountId', 'AppVersion', 'AppRoleName', 'AppRoleInstance', 'ClientType', 'ClientModel', 'ClientOS', 'ClientIP', 'ClientCity', 'ClientStateOrProvince', 'ClientCountryOrRegion', 'ClientBrowser', 'ResourceGUID', 'IKey', 'SDKVersion', 'ItemCount', 'ReferencedItemId', 'ReferencedType', 'SourceSystem', 'Type', '_ResourceId']
+['17ad139e-dc63-4b48-ad56-c064fb31b1f9', '2026-11-11T13:25:51.474313Z', 'fabrikam.governance.evidence', 1, '{"policy_id":"fabrikam-rai-code-review","policy_version":"1.0.0","correlation_id":"fab-review-2026-0042","tenant_id_hash":"37c81e061dfd143e","input_sha256":"f6118b4e49c8d09ad484a0ef838dbba98544f95a63a29ac58ce8833fd9395dcd","purpose":"code-review-security-analysis","human_review_required":"True","max_fairness_disparity":"0.5","agent_response_ids_json":"{\\"security-reviewer\\":\\"resp_031f53a356840cd7006af46ccd1a8481908b4b3321b19ed7e5\\",\\"fairness-auditor\\":\\"resp_0521e4df09501371006af46cd2f154819598d531864cff8a67\\",\\"governance-orchestrator\\":\\"resp_031b15a473811548006af46cd9f05c8190af022ae616eb039d\\"}","evidence_schema_version":"2.0","logger_name":"fabrikam.governance"}', None, '', '00000000000000000000000000000000', '0000000000000000', '', '', '', '', '', '', 'unknown_service:python.exe', '870c4277-2315-4990-9d5b-8e3628800ad5', 'PC', 'Other', 'Windows', '0.0.0.0', '<city>', '<state>', '<country>', 'Other', 'c6d2929e-25b6-44e3-8f47-5e8330ebff91', 'ebda3bc4-5a74-42c9-b5aa-2502209363a7', 'uwm_py3.13.0:otel1.45.2:dst1.8.12', 1, '', '', 'Azure', 'AppTraces', '/subscriptions/<subscription-id>/resourcegroups/rg-lab11-d0b8f6c1/providers/microsoft.insights/components/appi-lab11-zncrpbetm3dg4']
+--- privacy diagnosis: which term matched? (has-based tokenizer treats '_' as separator, so tenant_id_hash matches 'tenant_id') ---
+tenant_id has-match: [[1]]
+source_code has-match: [[0]]
+raw_prompt has-match: [[0]]
+chain_of_thought has-match: [[0]]
+exact prohibited property keys present (bag_keys): [[0]]
+raw tenant/source values present: [[0]]

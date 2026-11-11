@@ -1,0 +1,46 @@
+{
+  "id": "cf061d75-0d22-4311-9e0f-62911c7c9853",
+  "workflow_id": "cf061d75-0d22-4311-9e0f-62911c7c9853",
+  "state": "WAITING_FOR_REVIEW",
+  "request": {
+    "request_id": "SYN-REFUND-1601",
+    "action": "refund_exception",
+    "financial_amount": 249.99,
+    "customers_affected": 1,
+    "reversible": true,
+    "requires_exception": true,
+    "ambiguity_detected": false,
+    "raw_confidence": 0.91,
+    "calibrated_confidence": 0.78,
+    "customer_tier": "synthetic-gold",
+    "recommendation": "Approve a return-window exception because the synthetic carrier delay consumed 18 days.",
+    "policy_version": "return-policy-v5",
+    "trace_id": "SYN-TRACE-1601",
+    "review_timeout_minutes": 30
+  },
+  "risk": {
+    "risk_level": "exception",
+    "required_confidence": 1,
+    "calibrated_confidence": 0.78,
+    "requires_review": true,
+    "reason": "policy_exception"
+  },
+  "policy_version": "return-policy-v5",
+  "trace_id": "SYN-TRACE-1601",
+  "review_deadline": "2026-11-11T13:57:51.265222+00:00",
+  "version": 1,
+  "updated_at": "2026-11-11T13:27:51.265212+00:00",
+  "last_transition": {
+    "event_id": "d96a4033-51ec-497e-bf09-2b02ffe5a530",
+    "event_type": "submitted",
+    "actor_hash": "d4f0bc5a29de06b510f9aa428f1eedba926012b591fef7a518e776a7c9bd1824",
+    "previous_state": null,
+    "new_state": "WAITING_FOR_REVIEW",
+    "timestamp": "2026-11-11T13:27:51.265212+00:00"
+  },
+  "_rid": "kKlXAOOSb08DAAAAAAAAAA==",
+  "_self": "dbs/kKlXAA==/colls/kKlXAOOSb08=/docs/kKlXAOOSb08DAAAAAAAAAA==/",
+  "_etag": "\"3501d5b7-0000-0200-0000-6af46d570000\"",
+  "_attachments": "attachments/",
+  "_ts": 1794403671
+}

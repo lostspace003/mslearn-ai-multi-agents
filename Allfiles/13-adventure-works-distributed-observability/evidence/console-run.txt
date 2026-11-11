@@ -1,0 +1,157 @@
+adventureworks.agent.observation
+{
+    "name": "agent.router",
+    "context": {
+        "trace_id": "0x8101251477f2619079f877e062ea4b2f",
+        "span_id": "0xf98e31ca50356cb1",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-11-11T13:23:07.737814Z",
+    "end_time": "2026-11-11T13:23:07.753758Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {
+        "gen_ai.operation.name": "LLM_ROUTING",
+        "gen_ai.agent.name": "router",
+        "gen_ai.agent.id": "router:1.4.0",
+        "gen_ai.provider.name": "azure.ai.inference",
+        "gen_ai.conversation.id": "synthetic-session-aw-2026-08",
+        "gen_ai.usage.input_tokens": 120,
+        "gen_ai.usage.output_tokens": 18,
+        "agent.id": "router",
+        "agent.version": "1.4.0",
+        "operation.type": "LLM_ROUTING",
+        "llm.input_tokens": 120,
+        "llm.output_tokens": 18
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.43.0",
+            "service.instance.id": "802e5a80-83fb-4d3a-946e-5c659c910bb4",
+            "service.name": "adventure-works-agent-lab"
+        },
+        "schema_url": ""
+    }
+}
+adventureworks.agent.observation
+{
+    "name": "agent.recommendation",
+    "context": {
+        "trace_id": "0x8101251477f2619079f877e062ea4b2f",
+        "span_id": "0xb430c7b1a9045a99",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "0xf98e31ca50356cb1",
+    "start_time": "2026-11-11T13:23:07.754520Z",
+    "end_time": "2026-11-11T13:23:07.840115Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {
+        "gen_ai.operation.name": "LLM_RECOMMENDATION",
+        "gen_ai.agent.name": "recommendation",
+        "gen_ai.agent.id": "recommendation:3.2.1",
+        "gen_ai.provider.name": "azure.ai.inference",
+        "gen_ai.conversation.id": "synthetic-session-aw-2026-08",
+        "gen_ai.usage.input_tokens": 420,
+        "gen_ai.usage.output_tokens": 96,
+        "agent.id": "recommendation",
+        "agent.version": "3.2.1",
+        "operation.type": "LLM_RECOMMENDATION",
+        "llm.input_tokens": 420,
+        "llm.output_tokens": 96,
+        "agent.anomaly_detected": true
+    },
+    "events": [
+        {
+            "name": "latency.anomaly",
+            "timestamp": "2026-11-11T13:23:07.839825Z",
+            "attributes": {
+                "threshold_ms": 60
+            }
+        },
+        {
+            "name": "token.anomaly",
+            "timestamp": "2026-11-11T13:23:07.839855Z",
+            "attributes": {
+                "threshold_tokens": 500.0,
+                "observed_tokens": 516
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.43.0",
+            "service.instance.id": "802e5a80-83fb-4d3a-946e-5c659c910bb4",
+            "service.name": "adventure-works-agent-lab"
+        },
+        "schema_url": ""
+    }
+}
+adventureworks.agent.observation
+{
+    "name": "agent.inventory",
+    "context": {
+        "trace_id": "0x8101251477f2619079f877e062ea4b2f",
+        "span_id": "0x4c89361558c301fe",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "0xb430c7b1a9045a99",
+    "start_time": "2026-11-11T13:23:07.840528Z",
+    "end_time": "2026-11-11T13:23:07.863344Z",
+    "status": {
+        "status_code": "ERROR",
+        "description": "Synthetic error signal"
+    },
+    "attributes": {
+        "gen_ai.operation.name": "TOOL_INVOCATION",
+        "gen_ai.agent.name": "inventory",
+        "gen_ai.agent.id": "inventory:2.0.3",
+        "gen_ai.provider.name": "azure.ai.inference",
+        "gen_ai.conversation.id": "synthetic-session-aw-2026-08",
+        "gen_ai.usage.input_tokens": 0,
+        "gen_ai.usage.output_tokens": 0,
+        "agent.id": "inventory",
+        "agent.version": "2.0.3",
+        "operation.type": "TOOL_INVOCATION",
+        "llm.input_tokens": 0,
+        "llm.output_tokens": 0,
+        "error.type": "SyntheticAgentError"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.43.0",
+            "service.instance.id": "802e5a80-83fb-4d3a-946e-5c659c910bb4",
+            "service.name": "adventure-works-agent-lab"
+        },
+        "schema_url": ""
+    }
+}
+adventureworks.chain.summary
+{
+  "correlation_complete": true,
+  "trace_id": "8101251477f2619079f877e062ea4b2f",
+  "span_count": 3,
+  "anomalies": [
+    "recommendation",
+    "inventory"
+  ],
+  "error_rate": 0.3333333333333333,
+  "error_rate_anomaly": true
+}

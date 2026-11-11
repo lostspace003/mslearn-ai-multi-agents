@@ -1,0 +1,16 @@
+repo https://github.com/lostspace003/fabrikam-agent-cicd (private)
+43064206854	Restore verified Foundry release set	repository_dispatch	main	success	2026-11-11T17:02:24Z
+43064062981	Assess dashboard canary quality	workflow_dispatch	main	success	2026-11-11T17:01:31Z
+43062156120	Deploy hosted-agent release set	push	main	success	2026-11-11T16:49:49Z
+43061982880	Validate hosted-agent release	pull_request	feature/smoke-disagreement-record	success	2026-11-11T16:48:46Z
+43061925773	Deploy hosted-agent release set	workflow_dispatch	main	success	2026-11-11T16:48:24Z
+43061566053	Assess dashboard canary quality	workflow_dispatch	main	success	2026-11-11T16:46:11Z
+43059661794	Deploy hosted-agent release set	push	main	success	2026-11-11T16:34:29Z
+43058118742	Validate hosted-agent release	pull_request	feature/scanner-release-metadata	success	2026-11-11T16:25:04Z
+43058013169	Deploy hosted-agent release set	push	main	success	2026-11-11T16:24:28Z
+43051621356	Deploy hosted-agent release set	push	main	failure	2026-11-11T15:46:02Z
+43047267416	Deploy hosted-agent release set	push	main	cancelled	2026-11-11T15:19:49Z
+Last verified staging release	Latest	verified-staging	2026-11-11T17:00:44Z
+Last verified development release		verified-development	2026-11-11T16:33:50Z
+PR #2 MERGED Add specialist-disagreement smoke record (optional challenge)
+PR #1 MERGED Clarify scanner finding confidence

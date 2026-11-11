@@ -1,0 +1,8 @@
+{
+  "release_set_id": "development-81293fe401ba6ece",
+  "failed_agent": "scanner",
+  "agents": [
+    "orchestrator",
+    "scanner"
+  ]
+}

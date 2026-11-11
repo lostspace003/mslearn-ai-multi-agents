@@ -14,11 +14,37 @@ from dotenv import load_dotenv
 
 
 def summarize_evidence(analysis: list[dict[str, Any]], replay: dict[str, Any]) -> tuple[str, str]:
-    # LAB PLACEHOLDER 5
-    return (
-        "Root cause is not yet established because evidence synthesis is incomplete.",
-        "No causal observation has enough supporting evidence.",
+    metrics = replay["comparison_metrics"]
+    supported = sorted(
+        (item for item in analysis if item["status"] == "supported"),
+        key=lambda item: item["priority"],
     )
+    leading = supported[0] if supported else None
+    observed = leading["supporting"] if leading else []
+    evidence_summary = "; ".join(
+        f"{item['path']} observed {json.dumps(item['observed'], sort_keys=True)}"
+        for item in observed[:3]
+    ) or "No causal observation has enough supporting evidence."
+    if metrics["divergence_count"]:
+        agents = ", ".join(item["agent"] for item in replay["divergences"])
+        root_cause = (
+            f"Replay detected {metrics['divergence_count']} prompt divergence(s) for {agents}; "
+            "the causal statement remains bounded to the observed comparison evidence."
+        )
+    elif (
+        leading and metrics["prompt_match_rate"] == 1.0
+        and metrics["tool_step_count"] > 0
+        and metrics["tool_mock_response_count"] == metrics["tool_step_count"]
+    ):
+        root_cause = (
+            f"{leading['statement']} Evidence: {evidence_summary}. Replay matched "
+            f"{metrics['prompt_count']} prompt(s), used {metrics['tool_mock_response_count']}/"
+            f"{metrics['tool_step_count']} captured tool response(s), and preserved "
+            f"{metrics['failed_step_count']} failed step(s)."
+        )
+    else:
+        root_cause = "Root cause is not yet established because replay or comparison evidence is incomplete."
+    return root_cause, evidence_summary
 
 
 def upload_report(content: str, operation_id: str, credential: Any) -> str:

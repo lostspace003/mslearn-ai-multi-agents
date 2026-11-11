@@ -1,3 +1,7 @@
 __pycache__/
 *.py[cod]
 .venv/
+
+# local secrets / generated env
+.env
+.azure/

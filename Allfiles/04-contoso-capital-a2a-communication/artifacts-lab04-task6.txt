@@ -1,0 +1,31 @@
+== py_compile
+OK
+== agent-card
+{"name":"contoso-risk-agent","description":"Synthetic portfolio risk analysis","url":"http://127.0.0.1:8000/a2a","version":"1.0.0","skills":[{"id":"risk-analysis","name":"risk-analysis","description":"Analyze synthetic risk scenarios","tags":["risk","synthetic"]}]}
+== send
+{
+  "jsonrpc": "2.0",
+  "id": "request-001",
+  "result": {
+    "tenantId": "contoso",
+    "response_id": "resp_0298df934bcee748006af46d0915788197a57fd3abc98e0eb9",
+    "text": "I can assess the risk, but I need the portfolio details first.\n\nPlease provide the synthetic portfolio scenario, ideally including:\n- Underlying assets or exposures\n- Position sizes / weights\n- Long/short direction\n- Leverage or margin terms\n- Entry prices and current prices\n- Rebalance rules or holding period\n- Constraints (liquidity, concentration, sector/country/currency)\n- Any derivatives used\n- Scenario assumptions you want tested\n\nWhat I can do once you share it:\n- Identify primary risk drivers\n- Estimate concentration, market, liquidity, and leverage risk\n- Flag tail-risk and correlation assumptions\n- Note missing evidence and uncertainty\n- State assumptions explicitly\n\nIf you want, paste the portfolio in any format and I\u2019ll assess the risk."
+  }
+}
+== env checks
+True
+COSMOS_DATABASE_NAME="agent-ecosystem"
+COSMOS_ENDPOINT="https://cosmoss2sx7bnj3e4nk.documents.azure.com:443/"
+Visual Studio Subscription
+== shared state + audit
+stale_write_rejected: 412
+first_etag: "3b000b12-0000-0200-0000-6af46d120000"
+second_etag: "3b002312-0000-0200-0000-6af46d130000"
+recovered_etag: "3b003012-0000-0200-0000-6af46d140000"
+decision: {'status': 'priority', 'chosen_agent': 'compliance-agent', 'audit_id': 'ad793c4d-b5cc-4be7-830b-fe148db81a66'}
+== persistence (new process)
+task_id: task-001
+tenant_id: contoso
+contributions: {'risk-agent': {'status': 'review'}, 'compliance-agent': {'status': 'hold'}, 'supervisor-agent': {'status': 'conflict-observed'}}
+current_etag: "3b003012-0000-0200-0000-6af46d140000"
+stale_writer_present: False

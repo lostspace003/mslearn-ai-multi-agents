@@ -1,0 +1,49 @@
+INFO:     Started server process [11904]
+INFO:     Waiting for application startup.
+StreamableHTTP session manager started
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:59683 - "GET /mcp HTTP/1.1" 406 Not Acceptable
+Terminating session: None
+INFO:     127.0.0.1:51541 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None
+INFO:     127.0.0.1:51542 - "POST /mcp HTTP/1.1" 202 Accepted
+Terminating session: None
+INFO:     127.0.0.1:51543 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Terminating session: None
+INFO:     127.0.0.1:54982 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None
+INFO:     127.0.0.1:54983 - "POST /mcp HTTP/1.1" 202 Accepted
+Terminating session: None
+INFO:     127.0.0.1:54984 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Terminating session: None
+INFO:     127.0.0.1:54985 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+{"event": "mcp_tool_invocation", "tool_name": "lookup_drug_interaction", "correlation_id": "lab06-drug-001", "status": "ok"}
+Terminating session: None
+INFO:     127.0.0.1:63493 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None
+INFO:     127.0.0.1:63494 - "POST /mcp HTTP/1.1" 202 Accepted
+Terminating session: None
+INFO:     127.0.0.1:63495 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Terminating session: None
+INFO:     127.0.0.1:63497 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+{"event": "mcp_tool_invocation", "tool_name": "get_appointment_capacity", "correlation_id": "lab06-capacity-001", "status": "ok"}
+Terminating session: None
+INFO:     127.0.0.1:50794 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None
+INFO:     127.0.0.1:50795 - "POST /mcp HTTP/1.1" 202 Accepted
+Terminating session: None
+INFO:     127.0.0.1:50796 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type ListToolsRequest
+Terminating session: None
+INFO:     127.0.0.1:50797 - "POST /mcp HTTP/1.1" 200 OK
+Processing request of type CallToolRequest
+{"event": "mcp_tool_invocation", "tool_name": "lookup_drug_interaction", "correlation_id": "lab06-drug-001", "status": "not_found"}
+Terminating session: None
+INFO:     127.0.0.1:61517 - "GET / HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61531 - "GET / HTTP/1.1" 404 Not Found

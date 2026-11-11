@@ -1,0 +1,29 @@
+== model deployment
+Name          Model         Version     Sku             Upgrade
+------------  ------------  ----------  --------------  -------------
+gpt-5.4-mini  gpt-5.4-mini  2026-03-17  GlobalStandard  NoAutoUpgrade
+== container apps in RG
+WARNING: The behavior of this command has been altered by the following extension: containerapp
+fabrikam-release-lab09-cicd-d
+== dashboard revisions
+N                                           Active    Weight
+------------------------------------------  --------  --------
+fabrikam-release-lab09-cicd-d--lz3lpoe      True      0
+fabrikam-release-lab09-cicd-d--r1-1-3cbc3c  True      0
+fabrikam-release-lab09-cicd-d--r2-v1        True      0
+fabrikam-release-lab09-cicd-d--r3-v1        True      100
+== ingress traffic
+WARNING: The behavior of this command has been altered by the following extension: containerapp
+[
+  {
+    "label": "stable",
+    "revisionName": "fabrikam-release-lab09-cicd-d--r3-v1",
+    "weight": 100
+  }
+]
+== agent scanner
+fabrikam-code-scanner version 1 kind hosted runtime python_3_13 status active
+== agent reviewer
+fabrikam-code-reviewer version 1 kind hosted runtime python_3_13 status active
+== agent orchestrator
+fabrikam-review-orchestrator version 1 kind hosted runtime python_3_13 status active

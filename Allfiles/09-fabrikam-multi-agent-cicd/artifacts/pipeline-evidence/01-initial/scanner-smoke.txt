@@ -1,0 +1,13 @@
+Agent:        fabrikam-code-scanner (remote)
+Message:      "Return a one-line readiness response."
+Version:      1
+Session:      0adcd387fb45b2dc00ge2YEewN98rTLu1ycS3cahTQbjTHlsrc
+Conversation: conv_0fe208f3705793b500th2yyuvhAlL8WNT0gL6jtzKfof3aBATv
+
+Trace ID:     525cc293200308327efcaf8b53a62076
+Response:     caresp_0fe208f3705793b500HXWQWmZx66VmvMoRDbBzyYDaQP97UqGY
+[fabrikam-code-scanner] {"schema_version":"1.0","findings":[{"severity":"medium","file":"unknown","line":null,"remediation":"No code diff was provided in the prompt; please supply the repository and commit (or patch) to perform a security review."}]}{"schema_version":"1.0","findings":[{"severity":"medium","file":"unknown","line":null,"remediation":"No code diff was provided in the prompt; please supply the repository and commit (or patch) to perform a security review."}]}
+
+Client elapsed: 11.310s
+Platform latency (warm): response headers 8946 ms
+  preprocess 117 ms | container 8829 ms

@@ -65,7 +65,12 @@ jobs:
           subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
       - uses: Azure/setup-azd@v2
       - name: Select environment
-        run: AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd env select "${{ vars.AZURE_ENV_NAME }}"
+        run: |
+          AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd config set auth.useAzCliAuth true
+          AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd extension install azure.ai.agents
+          AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd env select "${{ vars.AZURE_ENV_NAME }}" || AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd env new "${{ vars.AZURE_ENV_NAME }}" --subscription "${{ vars.AZURE_SUBSCRIPTION_ID }}" --location "${{ vars.AZURE_LOCATION }}" --no-prompt
+          AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd env set AZURE_RESOURCE_GROUP "${{ vars.AZURE_RESOURCE_GROUP_NAME }}"
+          AZURE_DEV_USER_AGENT=microsoft_foundry_skill azd env refresh --no-prompt
       - name: Promote dashboard candidate to 100 percent
         if: steps.quality.outputs.action == 'promote'
         run: |

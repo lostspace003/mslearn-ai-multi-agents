@@ -1,0 +1,22 @@
+TimeGenerated | OperationId | Message | AgentId | Status | AnomalyTypes | TokenAnomaly | ErrorRate | ErrorRateAnomaly
+2026-11-11T13:25:05.706818Z | 1ffbe22c535cae8817492bb8c33e1ad3 | adventureworks.agent.observation | router | success |  | False |  | 
+2026-11-11T13:25:05.792935Z | 1ffbe22c535cae8817492bb8c33e1ad3 | adventureworks.agent.observation | recommendation | anomaly | latency,token | True |  | 
+2026-11-11T13:25:05.816205Z | 1ffbe22c535cae8817492bb8c33e1ad3 | adventureworks.agent.observation | inventory | error |  | False |  | 
+2026-11-11T13:25:05.816541Z | 00000000000000000000000000000000 | adventureworks.chain.summary |  |  |  |  | 0.3333333333333333 | True
+2026-11-11T13:26:55.911868Z | 2160f825ba8bdb17e4e9ecaf553b486d | adventureworks.agent.observation | router | success |  | False |  | 
+2026-11-11T13:26:55.998271Z | 2160f825ba8bdb17e4e9ecaf553b486d | adventureworks.agent.observation | recommendation | anomaly | latency,token | True |  | 
+2026-11-11T13:26:56.021083Z | 2160f825ba8bdb17e4e9ecaf553b486d | adventureworks.agent.observation | inventory | error |  | False |  | 
+2026-11-11T13:26:56.021482Z | 00000000000000000000000000000000 | adventureworks.chain.summary |  |  |  |  | 0.3333333333333333 | True
+2026-11-11T13:28:39.005067Z | 04ee28a432223f7fe1a7811209039bca | adventureworks.agent.observation | router | success |  | False |  | 
+2026-11-11T13:28:39.091877Z | 04ee28a432223f7fe1a7811209039bca | adventureworks.agent.observation | recommendation | anomaly | latency,token | True |  | 
+2026-11-11T13:28:39.115237Z | 04ee28a432223f7fe1a7811209039bca | adventureworks.agent.observation | inventory | error |  | False |  | 
+2026-11-11T13:28:39.115705Z | 00000000000000000000000000000000 | adventureworks.chain.summary |  |  |  |  | 0.3333333333333333 | True
+2026-11-11T13:30:23.400325Z | 824b6706e186868311d096a6925702b0 | adventureworks.agent.observation | router | success |  | False |  | 
+2026-11-11T13:30:23.487301Z | 824b6706e186868311d096a6925702b0 | adventureworks.agent.observation | recommendation | anomaly | latency,token | True |  | 
+2026-11-11T13:30:23.511563Z | 824b6706e186868311d096a6925702b0 | adventureworks.agent.observation | inventory | error |  | False |  | 
+2026-11-11T13:30:23.513056Z | 00000000000000000000000000000000 | adventureworks.chain.summary |  |  |  |  | 0.3333333333333333 | True
+2026-11-11T13:31:50.319419Z | 1a50937fe21e580ed6c9794ebe7982dc | adventureworks.agent.observation | router | success |  | False |  | 
+2026-11-11T13:31:50.407171Z | 1a50937fe21e580ed6c9794ebe7982dc | adventureworks.agent.observation | recommendation | anomaly | latency,token | True |  | 
+2026-11-11T13:31:50.43361Z | 1a50937fe21e580ed6c9794ebe7982dc | adventureworks.agent.observation | inventory | error |  | False |  | 
+2026-11-11T13:31:50.434151Z | 00000000000000000000000000000000 | adventureworks.chain.summary |  |  |  |  | 0.3333333333333333 | True
+rows: 20

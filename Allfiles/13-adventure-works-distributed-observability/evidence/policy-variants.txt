@@ -1,0 +1,14 @@
+=== boundary-60ms-80tok
+[('router', 'success', ''), ('recommendation', 'success', ''), ('inventory', 'error', '')] err_rate_anom= True
+=== boundary-60ms-96tok
+[('router', 'success', ''), ('recommendation', 'anomaly', 'token'), ('inventory', 'error', '')] err_rate_anom= True
+=== no-errors
+[('router', 'success', ''), ('recommendation', 'anomaly', 'latency,token'), ('inventory', 'success', '')] err_rate_anom= False
+=== latency-100
+[('router', 'success', ''), ('recommendation', 'anomaly', 'token'), ('inventory', 'error', '')] err_rate_anom= True
+=== errrate-0.5
+[('router', 'success', ''), ('recommendation', 'anomaly', 'latency,token'), ('inventory', 'error', '')] err_rate_anom= False
+=== sigma-4
+[('router', 'success', ''), ('recommendation', 'anomaly', 'latency'), ('inventory', 'error', '')] err_rate_anom= True
+=== no-anomaly
+[('router', 'success', ''), ('recommendation', 'success', ''), ('inventory', 'success', '')] err_rate_anom= False

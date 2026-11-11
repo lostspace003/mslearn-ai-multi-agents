@@ -1,0 +1,74 @@
+{
+  "orchestrator": {
+    "coordinate_review": {
+      "input": {
+        "required": [
+          "repository",
+          "commit"
+        ],
+        "types": {
+          "repository": "string",
+          "commit": "string"
+        }
+      },
+      "output": {
+        "required": [
+          "status",
+          "agent_results"
+        ],
+        "types": {
+          "status": "string",
+          "agent_results": "object"
+        }
+      }
+    }
+  },
+  "reviewer": {
+    "review_findings": {
+      "input": {
+        "required": [
+          "repository",
+          "commit"
+        ],
+        "types": {
+          "repository": "string",
+          "commit": "string"
+        }
+      },
+      "output": {
+        "required": [
+          "decision",
+          "rationale"
+        ],
+        "types": {
+          "decision": "string",
+          "rationale": "string"
+        }
+      }
+    }
+  },
+  "scanner": {
+    "scan_code": {
+      "input": {
+        "required": [
+          "repository",
+          "commit"
+        ],
+        "types": {
+          "repository": "string",
+          "commit": "string"
+        }
+      },
+      "output": {
+        "required": [
+          "findings",
+          "schema_version"
+        ],
+        "types": {
+          "findings": "array",
+          "schema_version": "string"
+        }
+      }
+    }
+  }
+}

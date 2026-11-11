@@ -1,0 +1,29 @@
+{
+  "commonSchema": [
+    true
+  ],
+  "enabled": true,
+  "receivers": [
+    "<your-email>"
+  ],
+  "status": [
+    "Enabled"
+  ]
+}
+{
+  "actions": [
+    "/subscriptions/<subscription-id>/resourceGroups/rg-lab13-c59c747d/providers/Microsoft.Insights/actionGroups/ag-aw-agent-anomaly-p6ayjdwzzwra2"
+  ],
+  "enabled": true,
+  "frequency": "PT5M",
+  "resolve": {
+    "autoResolved": true,
+    "timeToResolve": "PT5M"
+  },
+  "scopes": [
+    "/subscriptions/<subscription-id>/resourceGroups/rg-lab13-c59c747d/providers/Microsoft.OperationalInsights/workspaces/log-aw-otel-p6ayjdwzzwra2"
+  ],
+  "severity": 2,
+  "skipQueryValidation": true,
+  "window": "PT5M"
+}

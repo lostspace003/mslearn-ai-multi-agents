@@ -1,0 +1,111 @@
+{
+  "policy": "control",
+  "request_count": 3,
+  "successful_count": 2,
+  "total_cost_usd": 0.001455,
+  "total_input_tokens": 404,
+  "total_output_tokens": 256,
+  "retry_rate": 0.0,
+  "quality_mean": 77.67,
+  "latency_p50_ms": 2027.7,
+  "latency_p95_ms": 6175.9,
+  "price_version": "verified-2026-10-01-global-standard",
+  "evidence": [
+    {
+      "request_id": "SYN-LOOKUP-001",
+      "policy": "control",
+      "initial_tier": 3,
+      "final_tier": 3,
+      "cache_hit": false,
+      "cache_level": "miss",
+      "prompt_cache_hit": false,
+      "deployment": "gpt-5.4-mini",
+      "price_version": "verified-2026-10-01-global-standard",
+      "elapsed_ms": 6175.9,
+      "input_tokens": 117,
+      "output_tokens": 41,
+      "cost_usd": 0.000272,
+      "quality_score": 100,
+      "retry_count": 0,
+      "attempts": [
+        {
+          "tier": 3,
+          "deployment": "gpt-5.4-mini",
+          "price_version": "verified-2026-10-01-global-standard",
+          "prompt_cache_hit": false,
+          "elapsed_ms": 6175.9,
+          "input_tokens": 117,
+          "output_tokens": 41,
+          "cost_usd": 0.000272,
+          "quality_score": 100
+        }
+      ],
+      "needs_human_review": false
+    },
+    {
+      "request_id": "SYN-COMPARE-002",
+      "policy": "control",
+      "initial_tier": 3,
+      "final_tier": 3,
+      "cache_hit": false,
+      "cache_level": "miss",
+      "prompt_cache_hit": false,
+      "deployment": "gpt-5.4-mini",
+      "price_version": "verified-2026-10-01-global-standard",
+      "elapsed_ms": 2027.7,
+      "input_tokens": 158,
+      "output_tokens": 114,
+      "cost_usd": 0.000632,
+      "quality_score": 100,
+      "retry_count": 0,
+      "attempts": [
+        {
+          "tier": 3,
+          "deployment": "gpt-5.4-mini",
+          "price_version": "verified-2026-10-01-global-standard",
+          "prompt_cache_hit": false,
+          "elapsed_ms": 2027.7,
+          "input_tokens": 158,
+          "output_tokens": 114,
+          "cost_usd": 0.000632,
+          "quality_score": 100
+        }
+      ],
+      "needs_human_review": false
+    },
+    {
+      "request_id": "SYN-EXCEPTION-003",
+      "policy": "control",
+      "initial_tier": 3,
+      "final_tier": 3,
+      "cache_hit": false,
+      "cache_level": "miss",
+      "prompt_cache_hit": false,
+      "deployment": "gpt-5.4-mini",
+      "price_version": "verified-2026-10-01-global-standard",
+      "elapsed_ms": 1529.3,
+      "input_tokens": 129,
+      "output_tokens": 101,
+      "cost_usd": 0.000551,
+      "quality_score": 33,
+      "retry_count": 0,
+      "attempts": [
+        {
+          "tier": 3,
+          "deployment": "gpt-5.4-mini",
+          "price_version": "verified-2026-10-01-global-standard",
+          "prompt_cache_hit": false,
+          "elapsed_ms": 1529.3,
+          "input_tokens": 129,
+          "output_tokens": 101,
+          "cost_usd": 0.000551,
+          "quality_score": 33
+        }
+      ],
+      "needs_human_review": true
+    }
+  ],
+  "cache_hit_rate": 0.0,
+  "exact_result_cache_hit_rate": 0.0,
+  "prompt_cache_hit_rate": 0.0
+}

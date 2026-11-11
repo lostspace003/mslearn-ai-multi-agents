@@ -18,4 +18,16 @@ def select_compatible_tool(
 ) -> dict[str, Any]:
     """Select an active, discovered tool with a compatible semantic version."""
     # LAB PLACEHOLDER 3: Replace this line with the Task 3 sample.
-    raise NotImplementedError("Complete select_compatible_tool in Task 3")
+    candidates = [
+        entry
+        for entry in load_catalog()["tools"]
+        if entry["name"] == requested_name
+        and entry["name"] in discovered_names
+        and entry["lifecycle"] == "active"
+        and int(entry["version"].split(".", maxsplit=1)[0]) == required_major
+    ]
+    if not candidates:
+        raise ValueError(
+            f"No active discovered {requested_name!r} tool supports major {required_major}"
+        )
+    return min(candidates, key=lambda entry: entry["p95_latency_ms"])

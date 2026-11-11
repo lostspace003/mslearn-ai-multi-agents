@@ -1,0 +1,4 @@
+assets/refund-request.json: id=47f371bb-3c99-4d7f-880a-7f6ea540fc7f state=WAITING_FOR_REVIEW calibrated=0.78 required=1 band=near_threshold threshold=0.75 group=SYN-REVIEW-TIER1
+assets/refund-request-lowband.json: id=af3ef65a-9bf7-43d5-ac7e-98467285c0c7 state=WAITING_FOR_REVIEW calibrated=0.55 required=0.75 band=low_confidence threshold=0 group=SYN-REVIEW-SENIOR
+first apply: EXECUTED executed_at= 2026-11-11T13:33:28.010984+00:00 audit records= 2
+replay of same event: {'workflow_id': 'af3ef65a-9bf7-43d5-ac7e-98467285c0c7', 'state': 'EXECUTED', 'duplicate': True} | executed_at unchanged: True | version: 2 | audit records= 2

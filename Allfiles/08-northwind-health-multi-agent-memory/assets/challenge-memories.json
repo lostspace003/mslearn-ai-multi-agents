@@ -1,0 +1,5 @@
+[
+  {"id":"mem-100-c1","patientId":"synthetic-patient-100","content":"Asked for a text-message reminder the day before a synthetic follow-up.","importance":4.0,"memoryType":"episodic","critical":false,"timestamp":"2026-10-01T12:00:00Z","ttl":2592000,"schemaVersion":"1.0","confidence":0.92},
+  {"id":"mem-100-c2","patientId":"synthetic-patient-100","content":"Confirmed a text-message reminder works best before synthetic follow-ups.","importance":4.0,"memoryType":"episodic","critical":false,"timestamp":"2026-10-08T12:00:00Z","ttl":2592000,"schemaVersion":"1.0","confidence":0.85},
+  {"id":"mem-100-c3","patientId":"synthetic-patient-100","content":"Unclear transcription that may mention a phone-call reminder.","importance":2.0,"memoryType":"episodic","critical":false,"timestamp":"2026-10-15T12:00:00Z","ttl":2592000,"schemaVersion":"1.0","confidence":0.40}
+]

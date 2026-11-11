@@ -1,0 +1,56 @@
+== preflight
+Preflight passed. Three Foundry hosted agents v2 and one release dashboard are ready.
+exit=0
+== validate_workflows
+Validated hosted-agent CI/CD, dashboard progressive delivery, and persisted rollback evidence.
+exit=0
+== unittest (as written in lab, from lab dir)
+  File "C:/Users/<user>\AppData\Local\Programs\Python\Python313\Lib\unittest\loader.py", line 308, in discover
+    raise ImportError('Start directory is not importable: %r' % start_dir)
+ImportError: Start directory is not importable: 'Allfiles/09-fabrikam-multi-agent-cicd/tests'
+exit=1
+== unittest -s tests
+test_canary_uses_persisted_stable_revision (tests.test_lab09.DeliveryBoundaryTests.test_canary_uses_persisted_stable_revision) ... ok
+test_dashboard_identifies_exact_target (tests.test_lab09.DeliveryBoundaryTests.test_dashboard_identifies_exact_target) ... ok
+test_reverse_dependency_rollback_closure (tests.test_lab09.DeliveryBoundaryTests.test_reverse_dependency_rollback_closure) ... ok
+test_verified_manifest_validation_fails_closed (tests.test_lab09.DeliveryBoundaryTests.test_verified_manifest_validation_fails_closed) ... ok
+test_binding_requires_all_immutable_outputs (tests.test_lab09.HostedManifestTests.test_binding_requires_all_immutable_outputs) ... ok
+test_exact_model_policy_and_release_shape (tests.test_lab09.HostedManifestTests.test_exact_model_policy_and_release_shape) ... ok
+test_only_dashboard_is_a_container_app (tests.test_lab09.HostedManifestTests.test_only_dashboard_is_a_container_app) ... ok
+test_version_specific_session_urls (tests.test_lab09.HostedManifestTests.test_version_specific_session_urls) ... ok
+test_session_pins_and_verifies_immutable_version (tests.test_lab09.VersionBoundInvocationTests.test_session_pins_and_verifies_immutable_version) ... Executing <Handle BaseProactorEventLoop._loop_self_reading() created at C:/Users/<user>\AppData\Local\Programs\Python\Python313\Lib\asyncio\windows_events.py:320> took 0.112 seconds
+ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.390s
+
+OK
+exit=0
+== export_release
+Exported release metadata for 3 hosted agents.
+exit=0
+== validate
+{
+  "commit": "local-validation",
+  "release_set_id": null,
+  "versions": {
+    "orchestrator": "1.3.0",
+    "reviewer": "1.1.0",
+    "scanner": "1.2.0"
+  },
+  "deployment_order": [
+    "reviewer",
+    "scanner",
+    "orchestrator"
+  ],
+  "version_findings": [],
+  "contract_findings": [],
+  "quality_gate": {
+    "action": "promote",
+    "reasons": []
+  },
+  "compatible": true
+}
+exit=0
+== bicep
+exit=0

@@ -23,8 +23,12 @@ def utc_now() -> str:
 
 def calibrate_confidence(raw_confidence: float, curve_path: Path) -> float:
     """Map raw confidence to observed accuracy using the nearest calibration point."""
-    # LAB PLACEHOLDER 1
-    return raw_confidence
+    curve = json.loads(curve_path.read_text(encoding="utf-8"))
+    nearest = min(
+        curve["points"],
+        key=lambda point: abs(float(point["raw_confidence"]) - raw_confidence),
+    )
+    return float(nearest["observed_accuracy"])
 
 
 def assess_risk(request: dict[str, Any]) -> dict[str, Any]:
@@ -53,8 +57,10 @@ def assess_risk(request: dict[str, Any]) -> dict[str, Any]:
         risk_level = "low"
         required_confidence = 0.60
         reason = "low_business_impact"
-    # LAB PLACEHOLDER 2
-    calibrated = float(request["calibrated_confidence"])
+    calibrated = calibrate_confidence(
+        float(request["raw_confidence"]),
+        Path("assets/calibration-curve.json"),
+    )
     requires_review = risk_level == "exception" or request.get("ambiguity_detected", False) or calibrated < required_confidence
     return {
         "risk_level": risk_level,
@@ -62,7 +68,26 @@ def assess_risk(request: dict[str, Any]) -> dict[str, Any]:
         "calibrated_confidence": calibrated,
         "requires_review": requires_review,
         "reason": reason if requires_review else "confidence_sufficient",
+        # Optional challenge: second confidence band routes to a different reviewer group.
+        **select_reviewer_band(calibrated, requires_review),
     }
+
+
+REVIEWER_BANDS = [
+    # (minimum calibrated confidence, band name, synthetic reviewer group)
+    (0.75, "near_threshold", "SYN-REVIEW-TIER1"),
+    (0.0, "low_confidence", "SYN-REVIEW-SENIOR"),
+]
+
+
+def select_reviewer_band(calibrated: float, requires_review: bool) -> dict[str, Any]:
+    """Optional challenge: pick a reviewer group by calibrated-confidence band."""
+    if not requires_review:
+        return {"review_band": None, "band_threshold": None, "reviewer_group": None}
+    for threshold, band, group in REVIEWER_BANDS:
+        if calibrated >= threshold:
+            return {"review_band": band, "band_threshold": threshold, "reviewer_group": group}
+    return {"review_band": None, "band_threshold": None, "reviewer_group": None}
 
 
 def send_decision_event(
@@ -127,8 +152,35 @@ class ApprovalWorkflow:
         state_etag: str,
         state_version: int,
     ) -> None:
-        # LAB PLACEHOLDER 3
-        raise NotImplementedError("Complete the audit task before submitting a workflow.")
+        actor_hash = hashlib.sha256(actor.encode()).hexdigest()
+        record = {
+            "id": event_id,
+            "event_id": event_id,
+            "workflow_id": workflow_id,
+            "event_type": event_type,
+            "timestamp": utc_now(),
+            "actor_hash": actor_hash,
+            "previous_state": previous_state,
+            "new_state": new_state,
+            "policy_version": policy_version,
+            "trace_id": trace_id,
+            "rationale_category": rationale_category,
+            "state_etag": state_etag,
+            "state_version": state_version,
+            "details": details,
+        }
+        try:
+            self._audit.create_item(record)
+        except exceptions.CosmosResourceExistsError:
+            existing = self._audit.read_item(
+                item=event_id,
+                partition_key=workflow_id,
+            )
+            identity_fields = ("event_id", "workflow_id", "policy_version", "trace_id")
+            if any(existing.get(field) != record.get(field) for field in identity_fields):
+                raise RuntimeError(
+                    f"Audit event ID {event_id} already belongs to different evidence"
+                )
 
     def submit(self, request: dict[str, Any]) -> dict[str, Any]:
         workflow_id = str(uuid.uuid4())
@@ -233,7 +285,13 @@ class ApprovalWorkflow:
         elif decision == "REJECTED":
             new_state = "REJECTED"
             execution = None
-        # LAB PLACEHOLDER 4
+        elif decision == "CANCELLED":
+            new_state = "CANCELLED"
+            execution = {
+                "mode": "synthetic",
+                "status": "cancelled_before_execution",
+                "executed_at": None,
+            }
         else:
             raise ValueError(f"Unsupported decision {decision}")
         item["state"] = new_state
@@ -292,8 +350,49 @@ class ApprovalWorkflow:
         return outcomes
 
     def escalate_expired(self) -> list[str]:
-        # LAB PLACEHOLDER 6
-        return []
+        now = utc_now()
+        query = "SELECT * FROM c WHERE c.state = 'WAITING_FOR_REVIEW' AND c.review_deadline < @now"
+        expired = self._state.query_items(
+            query=query,
+            parameters=[{"name": "@now", "value": now}],
+            enable_cross_partition_query=True,
+        )
+        escalated = []
+        for item in expired:
+            previous = item["state"]
+            item["state"] = "ESCALATED"
+            item["version"] += 1
+            item["updated_at"] = now
+            escalation_event_id = str(uuid.uuid4())
+            item["last_transition"] = {
+                "event_id": escalation_event_id,
+                "event_type": "escalated",
+                "actor_hash": hashlib.sha256(b"scheduler").hexdigest(),
+                "previous_state": previous,
+                "new_state": "ESCALATED",
+                "timestamp": now,
+            }
+            updated = self._state.replace_item(
+                item=item["id"],
+                body=item,
+                etag=item["_etag"],
+                match_condition=MatchConditions.IfNotModified,
+            )
+            self.append_audit(
+                item["id"], "escalated", "scheduler", previous, "ESCALATED", {},
+                policy_version=updated["policy_version"],
+                trace_id=updated["trace_id"],
+                rationale_category="review_deadline_expired",
+                event_id=escalation_event_id,
+                state_etag=updated["_etag"],
+                state_version=updated["version"],
+            )
+            with self._bus.get_queue_sender(self._request_queue) as sender:
+                sender.send_messages(
+                    ServiceBusMessage(json.dumps(updated), message_id=str(uuid.uuid4()))
+                )
+            escalated.append(item["id"])
+        return escalated
 
     def select_active_learning_examples(self, max_items: int = 100) -> list[dict[str, Any]]:
         query = """SELECT TOP @maxItems * FROM c

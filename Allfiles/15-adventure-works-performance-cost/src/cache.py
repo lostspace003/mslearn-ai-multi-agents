@@ -36,8 +36,15 @@ class ResultCache:
 
     @classmethod
     def result_key(cls, request: dict[str, Any], agent_version: str, policy_version: str) -> str:
-        # LAB PLACEHOLDER 3
-        raise NotImplementedError("Complete the result-cache key task before running the lab.")
+        signature = {
+            "request": request["message"].strip().lower(),
+            "segment": request["segment"],
+            "context": request["context"],
+            "dependencies": sorted(request["dependencies"]),
+            "agent_version": agent_version,
+            "policy_version": policy_version,
+        }
+        return f"aw:result:{cls._digest(signature)}"
 
     @classmethod
     def prompt_key(
@@ -48,8 +55,15 @@ class ResultCache:
         agent_version: str,
         policy_version: str,
     ) -> str:
-        # LAB PLACEHOLDER 4
-        raise NotImplementedError("Complete the prompt-cache key task before running the lab.")
+        signature = {
+            "context": request["context"],
+            "dependencies": sorted(request["dependencies"]),
+            "tier": tier,
+            "input_budget": input_budget,
+            "agent_version": agent_version,
+            "policy_version": policy_version,
+        }
+        return f"aw:prompt:{cls._digest(signature)}"
 
     def get(self, key: str) -> dict[str, Any] | None:
         value = self._client.get(key)

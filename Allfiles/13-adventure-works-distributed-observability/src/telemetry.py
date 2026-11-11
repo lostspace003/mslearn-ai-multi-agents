@@ -11,7 +11,9 @@ from typing import Any
 
 from azure.identity import DefaultAzureCredential
 from azure.monitor.opentelemetry import configure_azure_monitor
-from opentelemetry import trace
+from opentelemetry import baggage, trace
+from opentelemetry import context as otel_context
+from opentelemetry.baggage.propagation import W3CBaggagePropagator
 from opentelemetry.sdk.resources import Resource
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import ConsoleSpanExporter, SimpleSpanProcessor
@@ -22,6 +24,9 @@ from opentelemetry.trace.propagation.tracecontext import TraceContextTextMapProp
 LOGGER_NAME = "adventureworks.observability"
 logger = logging.getLogger(LOGGER_NAME)
 propagator = TraceContextTextMapPropagator()
+# Optional challenge: synthetic request classification travels as W3C baggage.
+baggage_propagator = W3CBaggagePropagator()
+CLASSIFICATION_KEY = "request.classification"
 
 
 def configure_telemetry(policy: dict[str, Any]) -> None:
@@ -49,7 +54,10 @@ def configure_telemetry(policy: dict[str, Any]) -> None:
 def build_next_carrier() -> dict[str, str]:
     """Inject the active W3C context into an outgoing carrier."""
     # LAB PLACEHOLDER 1: Replace this line with the Task 1 sample.
-    raise NotImplementedError("Complete build_next_carrier in Task 1")
+    carrier: dict[str, str] = {}
+    propagator.inject(carrier)
+    baggage_propagator.inject(carrier)  # Optional challenge
+    return carrier
 
 
 def _context_ids() -> tuple[str, str]:
@@ -62,6 +70,7 @@ def _structured_log(
     session_id: str,
     status: str,
     anomaly_types: list[str],
+    classification: object = None,
 ) -> dict[str, Any]:
     trace_id, span_id = _context_ids()
     agent_id = f"{agent['name']}:{agent['version']}"
@@ -90,6 +99,8 @@ def _structured_log(
         "gen_ai.usage.input_tokens": agent["input_tokens"],
         "gen_ai.usage.output_tokens": agent["output_tokens"],
     }
+    if classification:
+        record[CLASSIFICATION_KEY] = str(classification)
     if status == "error":
         record["error.type"] = "SyntheticAgentError"
     logger.info("adventureworks.agent.observation", extra=record)
@@ -103,6 +114,8 @@ def execute_agent(
     alert_policy: dict[str, Any],
 ) -> tuple[dict[str, Any], dict[str, str]]:
     parent_context = propagator.extract(incoming_carrier)
+    parent_context = baggage_propagator.extract(incoming_carrier, context=parent_context)
+    classification = baggage.get_baggage(CLASSIFICATION_KEY, parent_context)
     tracer = trace.get_tracer("adventureworks.agent-chain")
     with tracer.start_as_current_span(
         f"agent.{agent['name']}",
@@ -121,6 +134,8 @@ def execute_agent(
         span.set_attribute("operation.type", agent["operation"])
         span.set_attribute("llm.input_tokens", agent["input_tokens"])
         span.set_attribute("llm.output_tokens", agent["output_tokens"])
+        if classification:
+            span.set_attribute(CLASSIFICATION_KEY, str(classification))
         time.sleep(float(agent["latency_ms"]) / 1000.0)
         anomaly_types = []
         latency_threshold_ms = int(alert_policy["latency_threshold_ms"])
@@ -143,7 +158,14 @@ def execute_agent(
             span.set_status(Status(StatusCode.ERROR, f"Synthetic {status} signal"))
         elif anomaly_types:
             span.set_attribute("agent.anomaly_detected", True)
-        record = _structured_log(agent, session_id, status, anomaly_types)
+        record = _structured_log(agent, session_id, status, anomaly_types, classification)
+        if classification:
+            # Optional challenge: keep the baggage active (with this span) for the next hop.
+            token = otel_context.attach(baggage.set_baggage(CLASSIFICATION_KEY, classification))
+            try:
+                return record, build_next_carrier()
+            finally:
+                otel_context.detach(token)
         return record, build_next_carrier()
 
 
@@ -152,6 +174,8 @@ def run_chain(scenario: dict[str, Any], policy: dict[str, Any]) -> dict[str, Any
     alert_policy = policy["alerts"]
     records = []
     carrier: dict[str, str] = {}
+    classification = scenario.get("request_classification", "synthetic.product_recommendation")
+    baggage_propagator.inject(carrier, context=baggage.set_baggage(CLASSIFICATION_KEY, str(classification)))
     for agent in scenario["agents"]:
         record, carrier = execute_agent(
             agent,

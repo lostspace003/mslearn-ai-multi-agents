@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0",
+  "operation_id": "a9dc2509fec95f219151f9ee1605614d",
+  "captured_at": "2026-11-11T13:27:25.916224+00:00",
+  "spans": [
+    {
+      "time_generated": "2026-11-11 13:24:00.689346+00:00",
+      "span_id": "11f3b4c1aa7b6b92",
+      "parent_id": "a9dc2509fec95f219151f9ee1605614d",
+      "span_name": "POST /synthetic/checkout",
+      "duration_ms": 351,
+      "success": false,
+      "result_code": "0",
+      "model_version": null,
+      "configuration_version": "checkout-flow-v1",
+      "prompt_hash": null,
+      "error_type": null,
+      "tool_name": null,
+      "tool_mock_id": null,
+      "tool_mock_response_available": false
+    },
+    {
+      "time_generated": "2026-11-11 13:24:00.689405+00:00",
+      "span_id": "3f7a72940d699886",
+      "parent_id": "11f3b4c1aa7b6b92",
+      "span_name": "pricing_agent.calculate_total",
+      "duration_ms": 351,
+      "success": false,
+      "result_code": "0",
+      "model_version": "synthetic-pricing-v2",
+      "configuration_version": "checkout-flow-v1",
+      "prompt_hash": "192c21cc95826877264c9b558ba2bcaad2724b1d1788cc2462c91dae64e76c85",
+      "error_type": "SyntheticPriceFormatError",
+      "tool_name": "catalog_lookup",
+      "tool_mock_id": "catalog-response-syn-01",
+      "tool_mock_response_available": true
+    },
+    {
+      "time_generated": "2026-11-11 13:24:01.040164+00:00",
+      "span_id": "5e41a4b99371c384",
+      "parent_id": "11f3b4c1aa7b6b92",
+      "span_name": "payment_agent.authorize",
+      "duration_ms": 0,
+      "success": false,
+      "result_code": "0",
+      "model_version": null,
+      "configuration_version": null,
+      "prompt_hash": null,
+      "error_type": null,
+      "tool_name": "payment_gateway",
+      "tool_mock_id": "payment-response-syn-01",
+      "tool_mock_response_available": true
+    }
+  ],
+  "model_deployments": [
+    {
+      "agent": "pricing_agent.calculate_total",
+      "version": "synthetic-pricing-v2"
+    }
+  ],
+  "configuration_versions": [
+    {
+      "component": "POST /synthetic/checkout",
+      "version": "checkout-flow-v1"
+    },
+    {
+      "component": "pricing_agent.calculate_total",
+      "version": "checkout-flow-v1"
+    }
+  ],
+  "prompts": {
+    "pricing_agent.calculate_total": "Calculate the synthetic cart total from the captured catalog response."
+  },
+  "prompt_hashes": {
+    "pricing_agent.calculate_total": "192c21cc95826877264c9b558ba2bcaad2724b1d1788cc2462c91dae64e76c85"
+  },
+  "tool_mocks": {
+    "catalog_lookup": {
+      "mock_id": "catalog-response-syn-01",
+      "response": {
+        "currency": "USD",
+        "quantity": 1,
+        "sku": "SYN-BIKE-01",
+        "unit_price": 1200.0
+      },
+      "success": true,
+      "synthetic": true
+    },
+    "payment_gateway": {
+      "mock_id": "payment-response-syn-01",
+      "response": {
+        "approved": true,
+        "authorization": "SYN-AUTH-01"
+      },
+      "success": true,
+      "synthetic": true
+    }
+  },
+  "replay_mode": true
+}

@@ -1,0 +1,19 @@
+== Valid DAG comparison (MAX_HANDOFF_CHARS=6000) ==
+{"plan": "coarse", "tasks": 2, "handoffs": 2, "sequential_waves": 2, "max_envelope_chars": 3358, "total_handoff_chars": 3682}
+{"plan": "fine", "tasks": 6, "handoffs": 6, "sequential_waves": 4, "max_envelope_chars": 4288, "total_handoff_chars": 12698}
+coarse [('E1', 'financial-data', []), ('S1', 'thesis-synthesis', ['E1'])]
+fine [('F1', 'financial-data', []), ('M1', 'macro-risk', []), ('F2', 'financial-data', ['F1', 'M1']), ('C1', 'compliance-review', []), ('C2', 'compliance-review', ['F2', 'C1']), ('S1', 'thesis-synthesis', ['C2'])]
+
+== Selection (constraints: latency <= 4 sequential waves, envelope <= 6000 chars, >= 3 specialists for a complex query) ==
+coarse: waves=2 specialists=1 max_env=3358 -> fails constraints
+fine: waves=4 specialists=3 max_env=4288 -> meets constraints
+Selected: fine-grained plan. It is the only one meeting the quality constraint (financial, macro and compliance evidence all reach synthesis) within the 4-wave latency and 6000-char envelope budgets; the coarse plan is cheaper (2 handoffs, ~3.7k handoff chars vs 6 / ~12.7k) but drops macro and compliance evidence. Preserved artifacts: every envelope carries source_response_ids for its dependencies; S1 depends on C2, the single terminal evidence branch.
+
+== Failure investigation: shrink MAX_HANDOFF_CHARS until an envelope is rejected (fine plan) ==
+limit=6000: OK max_envelope=4288
+limit=4000: OK max_envelope=3142
+limit=3000: OK max_envelope=2465
+limit=2000: OK max_envelope=1786
+limit=1500: OK max_envelope=1450
+limit=1200: REJECTED -> Handoff envelope exceeds MAX_HANDOFF_CHARS
+Classification: dispatch validation caught it; root cause is decomposition granularity (a fan-in task C2/F2 carries several dependency summaries, each floored at 256 chars plus objective/schema/IDs overhead), not a single oversized artifact.

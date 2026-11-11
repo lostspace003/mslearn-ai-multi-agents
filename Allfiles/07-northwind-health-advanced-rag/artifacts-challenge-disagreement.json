@@ -1,0 +1,341 @@
+{
+  "trials": [
+    {
+      "query": "Which drug review applies when a patient reports muscle pain?",
+      "routed_indexes": [
+        "northwind-formulary-v1"
+      ],
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "structural-parent-child",
+      "expected_parent_id": "formulary-atorvastatin",
+      "lexical": {
+        "mode": "lexical-bm25",
+        "top_parent": "formulary-atorvastatin",
+        "reciprocal_rank": 1.0,
+        "latency_ms": 3463.66,
+        "ranking": [
+          {
+            "id": "structural-parent-child-formulary-atorvastatin-001",
+            "parent_id": "formulary-atorvastatin",
+            "search_score": 0.88847417
+          },
+          {
+            "id": "structural-parent-child-formulary-metformin-001",
+            "parent_id": "formulary-metformin",
+            "search_score": 0.17556891
+          },
+          {
+            "id": "structural-parent-child-formulary-metformin-000",
+            "parent_id": "formulary-metformin",
+            "search_score": 0.17259356
+          },
+          {
+            "id": "structural-parent-child-formulary-atorvastatin-000",
+            "parent_id": "formulary-atorvastatin",
+            "search_score": 0.15732004
+          }
+        ]
+      },
+      "vector": {
+        "mode": "vector",
+        "embedding_profile": "content-aware",
+        "top_parent": "formulary-atorvastatin",
+        "reciprocal_rank": 1.0,
+        "latency_ms": 6798.09,
+        "ranking": [
+          {
+            "id": "structural-parent-child-formulary-atorvastatin-001",
+            "parent_id": "formulary-atorvastatin",
+            "search_score": 0.6525746
+          },
+          {
+            "id": "structural-parent-child-formulary-atorvastatin-000",
+            "parent_id": "formulary-atorvastatin",
+            "search_score": 0.617646
+          },
+          {
+            "id": "structural-parent-child-formulary-metformin-001",
+            "parent_id": "formulary-metformin",
+            "search_score": 0.6169371
+          },
+          {
+            "id": "structural-parent-child-formulary-metformin-000",
+            "parent_id": "formulary-metformin",
+            "search_score": 0.61381084
+          }
+        ]
+      }
+    },
+    {
+      "query": "medication follow-up for kidney function decline",
+      "routed_indexes": [
+        "northwind-formulary-v1"
+      ],
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "structural-parent-child",
+      "expected_parent_id": "formulary-metformin",
+      "lexical": {
+        "mode": "lexical-bm25",
+        "top_parent": "formulary-metformin",
+        "reciprocal_rank": 1.0,
+        "latency_ms": 3324.84,
+        "ranking": [
+          {
+            "id": "structural-parent-child-formulary-metformin-001",
+            "parent_id": "formulary-metformin",
+            "search_score": 1.8511822
+          },
+          {
+            "id": "structural-parent-child-formulary-metformin-000",
+            "parent_id": "formulary-metformin",
+            "search_score": 0.34518713
+          },
+          {
+            "id": "structural-parent-child-formulary-atorvastatin-001",
+            "parent_id": "formulary-atorvastatin",
+            "search_score": 0.18503003
+          },
+          {
+            "id": "structural-parent-child-formulary-atorvastatin-000",
+            "parent_id": "formulary-atorvastatin",
+            "search_score": 0.15732004
+          }
+        ]
+      },
+      "vector": {
+        "mode": "vector",
+        "embedding_profile": "content-aware",
+        "top_parent": "formulary-metformin",
+        "reciprocal_rank": 1.0,
+        "latency_ms": 5074.11,
+        "ranking": [
+          {
+            "id": "structural-parent-child-formulary-metformin-000",
+            "parent_id": "formulary-metformin",
+            "search_score": 0.6454012
+          },
+          {
+            "id": "structural-parent-child-formulary-atorvastatin-001",
+            "parent_id": "formulary-atorvastatin",
+            "search_score": 0.6318849
+          },
+          {
+            "id": "structural-parent-child-formulary-metformin-001",
+            "parent_id": "formulary-metformin",
+            "search_score": 0.62400055
+          },
+          {
+            "id": "structural-parent-child-formulary-atorvastatin-000",
+            "parent_id": "formulary-atorvastatin",
+            "search_score": 0.61212903
+          }
+        ]
+      }
+    },
+    {
+      "query": "drug guidance on clarithromycin",
+      "routed_indexes": [
+        "northwind-formulary-v1"
+      ],
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "structural-parent-child",
+      "expected_parent_id": "formulary-atorvastatin",
+      "lexical": {
+        "mode": "lexical-bm25",
+        "top_parent": "formulary-atorvastatin",
+        "reciprocal_rank": 1.0,
+        "latency_ms": 3351.55,
+        "ranking": [
+          {
+            "id": "structural-parent-child-formulary-atorvastatin-000",
+            "parent_id": "formulary-atorvastatin",
+            "search_score": 1.1961935
+          },
+          {
+            "id": "structural-parent-child-formulary-metformin-000",
+            "parent_id": "formulary-metformin",
+            "search_score": 0.17259356
+          }
+        ]
+      },
+      "vector": {
+        "mode": "vector",
+        "embedding_profile": "content-aware",
+        "top_parent": "formulary-atorvastatin",
+        "reciprocal_rank": 1.0,
+        "latency_ms": 4864.78,
+        "ranking": [
+          {
+            "id": "structural-parent-child-formulary-atorvastatin-000",
+            "parent_id": "formulary-atorvastatin",
+            "search_score": 0.663509
+          },
+          {
+            "id": "structural-parent-child-formulary-metformin-000",
+            "parent_id": "formulary-metformin",
+            "search_score": 0.6285177
+          },
+          {
+            "id": "structural-parent-child-formulary-atorvastatin-001",
+            "parent_id": "formulary-atorvastatin",
+            "search_score": 0.62651044
+          },
+          {
+            "id": "structural-parent-child-formulary-metformin-001",
+            "parent_id": "formulary-metformin",
+            "search_score": 0.623473
+          }
+        ]
+      }
+    },
+    {
+      "query": "Which medication requires checking how well the kidneys filter blood?",
+      "routed_indexes": [
+        "northwind-formulary-v1"
+      ],
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "structural-parent-child",
+      "expected_parent_id": "formulary-metformin",
+      "lexical": {
+        "mode": "lexical-bm25",
+        "top_parent": "formulary-atorvastatin",
+        "reciprocal_rank": 0.3333,
+        "latency_ms": 3126.5,
+        "ranking": [
+          {
+            "id": "structural-parent-child-formulary-atorvastatin-001",
+            "parent_id": "formulary-atorvastatin",
+            "search_score": 1.1477963
+          },
+          {
+            "id": "structural-parent-child-formulary-atorvastatin-000",
+            "parent_id": "formulary-atorvastatin",
+            "search_score": 0.75541675
+          },
+          {
+            "id": "structural-parent-child-formulary-metformin-000",
+            "parent_id": "formulary-metformin",
+            "search_score": 0.34518713
+          }
+        ]
+      },
+      "vector": {
+        "mode": "vector",
+        "embedding_profile": "content-aware",
+        "top_parent": "formulary-metformin",
+        "reciprocal_rank": 1.0,
+        "latency_ms": 4560.9,
+        "ranking": [
+          {
+            "id": "structural-parent-child-formulary-metformin-000",
+            "parent_id": "formulary-metformin",
+            "search_score": 0.6426673
+          },
+          {
+            "id": "structural-parent-child-formulary-atorvastatin-001",
+            "parent_id": "formulary-atorvastatin",
+            "search_score": 0.6253056
+          },
+          {
+            "id": "structural-parent-child-formulary-atorvastatin-000",
+            "parent_id": "formulary-atorvastatin",
+            "search_score": 0.6149157
+          },
+          {
+            "id": "structural-parent-child-formulary-metformin-001",
+            "parent_id": "formulary-metformin",
+            "search_score": 0.6082493
+          }
+        ]
+      }
+    },
+    {
+      "query": "medication follow-up when adherence questions arise",
+      "routed_indexes": [
+        "northwind-formulary-v1"
+      ],
+      "index": "northwind-formulary-v1",
+      "chunk_strategy": "structural-parent-child",
+      "expected_parent_id": "formulary-metformin",
+      "lexical": {
+        "mode": "lexical-bm25",
+        "top_parent": "formulary-metformin",
+        "reciprocal_rank": 1.0,
+        "latency_ms": 3740.74,
+        "ranking": [
+          {
+            "id": "structural-parent-child-formulary-metformin-001",
+            "parent_id": "formulary-metformin",
+            "search_score": 2.20232
+          },
+          {
+            "id": "structural-parent-child-formulary-atorvastatin-001",
+            "parent_id": "formulary-atorvastatin",
+            "search_score": 0.18503003
+          },
+          {
+            "id": "structural-parent-child-formulary-metformin-000",
+            "parent_id": "formulary-metformin",
+            "search_score": 0.17259356
+          },
+          {
+            "id": "structural-parent-child-formulary-atorvastatin-000",
+            "parent_id": "formulary-atorvastatin",
+            "search_score": 0.15732004
+          }
+        ]
+      },
+      "vector": {
+        "mode": "vector",
+        "embedding_profile": "content-aware",
+        "top_parent": "formulary-metformin",
+        "reciprocal_rank": 1.0,
+        "latency_ms": 5133.06,
+        "ranking": [
+          {
+            "id": "structural-parent-child-formulary-metformin-001",
+            "parent_id": "formulary-metformin",
+            "search_score": 0.64622164
+          },
+          {
+            "id": "structural-parent-child-formulary-atorvastatin-001",
+            "parent_id": "formulary-atorvastatin",
+            "search_score": 0.64387673
+          },
+          {
+            "id": "structural-parent-child-formulary-metformin-000",
+            "parent_id": "formulary-metformin",
+            "search_score": 0.62976
+          },
+          {
+            "id": "structural-parent-child-formulary-atorvastatin-000",
+            "parent_id": "formulary-atorvastatin",
+            "search_score": 0.6224915
+          }
+        ]
+      }
+    }
+  ],
+  "disagreement_count": 1,
+  "selected": {
+    "query": "Which medication requires checking how well the kidneys filter blood?",
+    "selected_route": [
+      "northwind-formulary-v1"
+    ],
+    "winning_mode": "vector",
+    "winning_document": {
+      "id": "structural-parent-child-formulary-metformin-000",
+      "parent_id": "formulary-metformin",
+      "search_score": 0.6426673
+    },
+    "metric": "reciprocal rank of the expected parent (MRR over this single labeled query)",
+    "lexical_rr": 0.3333,
+    "vector_rr": 1.0
+  },
+  "failure_investigation": {
+    "disposable_index": "northwind-challenge-disposable",
+    "removed_field": "section_heading",
+    "error": "() The request is invalid. Details: The property 'section_heading' does not exist on type 'search.documentFields' or is not present in the API version '2026-10-01'. Make sure to only use property names that are defined by the type.\nCode: \nMessage: The request is invalid. Details: The property 'section_heading' does not exist on type 'search.documentFields' or is not present in the API version '202",
+    "classification": "schema (surfaced at ingestion): the index definition lacks 'section_heading', so the service rejects the whole upload batch before indexing; routing and grounding are never reached"
+  }
+}

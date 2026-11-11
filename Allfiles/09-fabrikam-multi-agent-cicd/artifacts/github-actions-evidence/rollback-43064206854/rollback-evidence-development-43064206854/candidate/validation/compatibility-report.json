@@ -1,0 +1,21 @@
+{
+  "commit": "4a08616b41ebb7dcd3a6dc014406637a47147357",
+  "release_set_id": null,
+  "versions": {
+    "orchestrator": "1.3.0",
+    "reviewer": "1.1.0",
+    "scanner": "1.2.1"
+  },
+  "deployment_order": [
+    "reviewer",
+    "scanner",
+    "orchestrator"
+  ],
+  "version_findings": [],
+  "contract_findings": [],
+  "quality_gate": {
+    "action": "promote",
+    "reasons": []
+  },
+  "compatible": true
+}

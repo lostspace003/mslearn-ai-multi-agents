@@ -1,0 +1,50 @@
+### Foundry account
+{
+  "kind": "AIServices",
+  "location": "westus3",
+  "name": "awoptbtdjtstq6y4ey",
+  "state": "Succeeded"
+}
+### Foundry project
+{
+  "endpoints": {
+    "AI Foundry API": "https://awoptbtdjtstq6y4ey.services.ai.azure.com/api/projects/aw-optimization"
+  },
+  "name": "awoptbtdjtstq6y4ey/aw-optimization",
+  "state": "Succeeded"
+}
+### Model deployments
+[
+  {
+    "model": "gpt-5.4-mini",
+    "name": "gpt-5.4-mini",
+    "sku": "GlobalStandard",
+    "state": "Succeeded",
+    "version": "2026-03-17"
+  }
+]
+### Redis cluster
+{
+  "host": "awopt-cache-btdjtstq6y4ey.westus3.redis.azure.net",
+  "name": "awopt-cache-btdjtstq6y4ey",
+  "resourceState": "Running",
+  "sku": "Balanced_B0",
+  "state": "Succeeded"
+}
+### Redis database
+{
+  "accessKeysAuthentication": "Disabled",
+  "clientProtocol": "Encrypted",
+  "name": "default",
+  "port": 10000,
+  "state": "Succeeded"
+}
+### Redis access policy assignments
+[
+  {
+    "name": "mkg57rzomtuhi",
+    "policy": "default",
+    "state": "Succeeded",
+    "userMatchesSignedIn": "<signed-in-user>"
+  }
+]

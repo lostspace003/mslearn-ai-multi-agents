@@ -1,0 +1,38 @@
+{
+  "orchestratorAgent": "review-orchestrator",
+  "tenantPolicy": {
+    "id": "review-policy",
+    "tenantId": "tenant-a",
+    "allowedRegion": "eastus2",
+    "classification": "confidential",
+    "_rid": "yJo0AK3IJO4BAAAAAAAAAA==",
+    "_self": "dbs/yJo0AA==/colls/yJo0AK3IJO4=/docs/yJo0AK3IJO4BAAAAAAAAAA==/",
+    "_etag": "\"040024c4-0000-0200-0000-6af46d360000\"",
+    "_attachments": "attachments/",
+    "_ts": 1794403638
+  },
+  "crossTenantHandoffDenied": true,
+  "specialistOutputs": {
+    "security-scanner": {
+      "responseId": "resp_00ee7923d25a8420006af46d3c3638819788aaa5eb87209a32",
+      "text": "No security findings detected.\n\nThe supplied source code is a trivial synthetic example (`print('synthetic')`) and does not contain any identifiable security issue."
+    },
+    "compliance-agent": {
+      "responseId": "resp_06bee8e7f9936bfc006af46d42ebf88196864c58271e3f9da0",
+      "text": "Assessment for request `req-001`:\n\n- Residency: `eastus2`\n- Classification: `confidential`\n- Consent metadata: `recorded = true`\n- Tenant: `tenant-a`\n\nResult: metadata is present and the request appears compliant on the supplied fields. No issues detected from the provided data."
+    }
+  },
+  "orchestratorOutput": {
+    "responseId": "resp_0e00e200cf4cec37006af46d488d208197bbbb1d5d6ffdd8ef",
+    "text": "**Code review summary for `req-001` / tenant `tenant-a`**\n\n- **Security scanner:** No security findings detected.\n- **Compliance review:** No issues detected based on the provided metadata.\n\n**Notes**\n- The supplied source appears to be a trivial synthetic example (`print('synthetic')`).\n- Compliance metadata is present:\n  - Residency: `eastus2`\n  - Classification: `confidential`\n  - Consent recorded: `true`\n\n**Overall verdict:** No actionable issues found from the provided inputs."
+  },
+  "auditEvent": {
+    "id": "c654c6df-e842-4dfa-9db5-ff21ae0f859c",
+    "tenantId": "tenant-a",
+    "agentId": "review-orchestrator",
+    "action": "multi_agent_review",
+    "decision": "allow",
+    "correlationId": "req-001",
+    "timestamp": "2026-11-11T13:27:40.480098+00:00"
+  }
+}

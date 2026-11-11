@@ -1,0 +1,53 @@
+{
+  "object": "agent.version",
+  "id": "fabrikam-code-reviewer:4",
+  "name": "fabrikam-code-reviewer",
+  "version": "4",
+  "description": "Assesses maintainability, correctness, test coverage, and release risk.",
+  "metadata": {
+    "enableVnextExperience": "true"
+  },
+  "created_at": 1794415955,
+  "definition": {
+    "code_configuration": {
+      "content_hash": "793c4e3e9a815a12999604aefdff5e4e61cf42660c43caad1a2f6e1db45f5653",
+      "dependency_resolution": "remote_build",
+      "entry_point": [
+        "python",
+        "src/reviewer_agent.py"
+      ],
+      "runtime": "python_3_13"
+    },
+    "container_protocol_versions": [],
+    "cpu": "0.5",
+    "environment_variables": {
+      "FOUNDRY_MODEL_NAME": "gpt-5.4-mini"
+    },
+    "kind": "hosted",
+    "memory": "1Gi",
+    "protocol_versions": [
+      {
+        "protocol": "responses",
+        "version": "2.0.0"
+      }
+    ]
+  },
+  "status": "active",
+  "instance_identity": {
+    "principal_id": "d60ac265-ad82-49e5-80ec-470bb76378bc",
+    "client_id": "d60ac265-ad82-49e5-80ec-470bb76378bc"
+  },
+  "blueprint": {
+    "principal_id": "74129a55-09c4-4a0a-ae11-0afc6e1b1579",
+    "client_id": "688dd18b-5fb6-4e0a-ac02-40cf538895b7"
+  },
+  "blueprint_reference": {
+    "type": "ManagedAgentIdentityBlueprint",
+    "blueprint_id": "fabrikam-code-reviewer-3bed7"
+  },
+  "agent_guid": "3bed7142-36dd-48be-9d9f-c7f6fe432dc7",
+  "playground_url": "https://ai.azure.com/nextgen/r/L1XKbX84QiCRnFkaZusaKw,rg-lab09-dev-09d06da4,,aifyy4xvw4ho4q2erwh,fabrikam-lab09-cicd-dev/build/agents/fabrikam-code-reviewer/build?version=4",
+  "agent_endpoints": {
+    "responses": "https://aifyy4xvw4ho4q2erwh.services.ai.azure.com/api/projects/fabrikam-lab09-cicd-dev/agents/fabrikam-code-reviewer/endpoint/protocols/openai/responses?api-version=v1"
+  }
+}
